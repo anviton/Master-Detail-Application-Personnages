@@ -6,11 +6,37 @@
         xmlns:local="clr-namespace:Vue_perso"
         mc:Ignorable="d"
         Title="Perso" Height="450" Width="800">
-    <DockPanel LastChildFill="False">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="BouttonModif">
+            <Setter Property="Background" Value="Beige"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Content" Value="Modifier"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="30">
             <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9"/>
             <Button Content="Ajouter à une Liste" Width="120" Margin="5" Background="#FFB2ECF5"/>
         </StackPanel>
+        
+        <Grid DockPanel.Dock="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox TextWrapping="NoWrap" Grid.Row="0"></TextBox>
+            <TextBlock Grid.Row="1" Text="Personnages"/>
+            <ListBox Grid.Row="2">
+            </ListBox>
+        </Grid>
+        
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <Image Source="image.jpg" Width="105"/>
             <Grid>
@@ -24,26 +50,30 @@
                 </Grid.ColumnDefinitions>
             </Grid>
         </StackPanel>
-        <StackPanel  DockPanel.Dock="Left">
-            <ListBox Width="77" Height="325"/>
-        </StackPanel>
-        <Grid Width="722">
+        
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="27*"/>
-                <RowDefinition Height="32*"/>
-                <RowDefinition Height="77*"/>
-                <RowDefinition Height="106*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200*"/>
-                <ColumnDefinition Width="433*"/>
-                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition  Width="Auto"/>
             </Grid.ColumnDefinitions>
             <TextBlock HorizontalAlignment="Center" Text="Jeux video :" TextWrapping="Wrap" VerticalAlignment="Center" Height="16" Width="62"/>
             <TextBlock HorizontalAlignment="Center" Text="Théme musical" VerticalAlignment="Center" Grid.Row="1" Height="16" Width="78"/>
             <TextBlock HorizontalAlignment="Center" Text="Relation avec d'autres personnages" VerticalAlignment="Center" Grid.Row="2" Height="16" Width="186"/>
             <TextBlock HorizontalAlignment="Center" Text="Descritption :" VerticalAlignment="Top" Grid.Row="3" Height="16" Width="70"/>
-            <Button Content="Modifier" Grid.Column="2" HorizontalAlignment="Left" Margin="10" Grid.Row="3" VerticalAlignment="Top"/>
+            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="3"/>
+            <Button Style="{StaticResource BouttonModif}" Grid.Column="2"  Grid.Row="2" />
+            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="1"/>
+            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="0"/>
+            <Button Content="Test" Grid.Column="1" HorizontalAlignment="Left" Margin="10" Grid.Row="3" VerticalAlignment="Bottom"/>
+            
         </Grid>
+
     </DockPanel>
 </Window>

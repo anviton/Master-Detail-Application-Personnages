@@ -41,7 +41,7 @@
 
         <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Content="Description :"/>
 
-        <TextBox Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="10,0"/>
+        <TextBox Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="10,0" TextChanged="TextBox_TextChanged"/>
     </Grid>
     
 </Window>
