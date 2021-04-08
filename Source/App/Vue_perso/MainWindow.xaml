@@ -33,25 +33,34 @@
             </Grid.ColumnDefinitions>
             <TextBox TextWrapping="NoWrap" Grid.Row="0"></TextBox>
             <TextBlock Grid.Row="1" Text="Personnages"/>
-            <ListBox Grid.Row="2">
+            <ListBox Background="#FFBCF5EB" Grid.Row="2">
             </ListBox>
         </Grid>
-        
+
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <Image Source="image.jpg" Width="105"/>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                <Image Source="image.jpg" Grid.Row="0" Grid.Column="0" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.057"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
             </Grid>
         </StackPanel>
-        
-        <Grid>
+
+        <Grid Background="AliceBlue">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>

@@ -1,23 +1,23 @@
-Fonctionnalités :
+﻿Fonctionnalités :
 
 * Enregistrer un nouveau personnage
 * Charger le master details
 * Afficher les détails d'un personnage
 * Modifier un personnage
 * Supprimer un personnage
+* Afficher la liste des personnages de l'application
 * Créer une liste
 * Ajouter à une liste
 * Supprimer d'une liste
 * Supprimer une liste
-
-
-
-
 * Consulter une liste
 * Chercher un personnage
 * Chercher un jeu
-* Sauvegarder le master details
-* Importer un personnage dans un fichier json
-* Exporter un personnage depuis un fichier json
+* Importer un personnage depuis un fichier json
+* Exporter un personnage dans un fichier json
 
-Acteurs : utilisateur, système
+
+* Sauvegarder le master details
+
+Acteurs : utilisateur, 
+système
