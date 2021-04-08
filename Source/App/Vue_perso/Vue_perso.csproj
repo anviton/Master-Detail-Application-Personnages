@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="arriere.jpg" />
+    <None Remove="arrierePlan.jpg" />
     <None Remove="image.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="arriere.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="arrierePlan.jpg" />
   </ItemGroup>
 
   <ItemGroup>

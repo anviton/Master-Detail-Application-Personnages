@@ -14,9 +14,21 @@
             <Setter Property="Content" Value="Modifier"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
+        <Style TargetType="TextBlock" x:Key="textInformatif">
+            <Setter Property="FontFamily" Value="Comic-San" ></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Foreground" Value="DarkBlue"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
     </Window.Resources>
     <DockPanel>
-        
+        <DockPanel.Background>
+            <ImageBrush ImageSource="arriere.jpg"></ImageBrush>
+        </DockPanel.Background>
+
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="30">
             <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9"/>
             <Button Content="Ajouter à une Liste" Width="120" Margin="5" Background="#FFB2ECF5"/>
@@ -29,11 +41,17 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <SolidColorBrush Color="LightSalmon" Opacity="0.8"></SolidColorBrush>
+            </Grid.Background>
             <TextBox TextWrapping="NoWrap" Grid.Row="0"></TextBox>
-            <TextBlock Grid.Row="1" Text="Personnages"/>
-            <ListBox Background="#FFBCF5EB" Grid.Row="2">
+            <TextBlock Style="{StaticResource textInformatif}" Grid.Row="1" Text="Personnages"/>
+            <ListBox Grid.Row="2">
+                <ListBox.Background>
+                    <SolidColorBrush Color="LightSalmon" Opacity="0"></SolidColorBrush>
+                </ListBox.Background>
             </ListBox>
         </Grid>
 
@@ -47,20 +65,15 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Image Source="image.jpg" Grid.Row="0" Grid.Column="0" RenderTransformOrigin="0.5,0.5">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="-0.057"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
+                <Image Source="image.jpg" Grid.Row="0" Grid.Column="0" Width="200">
                 </Image>
             </Grid>
         </StackPanel>
 
-        <Grid Background="AliceBlue">
+        <Grid>
+            <Grid.Background>
+                <SolidColorBrush Color="LightSalmon" Opacity="0.8"/>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -72,10 +85,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition  Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Center" Text="Jeux video :" TextWrapping="Wrap" VerticalAlignment="Center" Height="16" Width="62"/>
-            <TextBlock HorizontalAlignment="Center" Text="Théme musical" VerticalAlignment="Center" Grid.Row="1" Height="16" Width="78"/>
-            <TextBlock HorizontalAlignment="Center" Text="Relation avec d'autres personnages" VerticalAlignment="Center" Grid.Row="2" Height="16" Width="186"/>
-            <TextBlock HorizontalAlignment="Center" Text="Descritption :" VerticalAlignment="Top" Grid.Row="3" Height="16" Width="70"/>
+            <TextBlock Style="{StaticResource textInformatif}" Text="Jeux video :"/>
+            <TextBlock Style="{StaticResource textInformatif}" Text="Théme musical" Grid.Row="1"/>
+            <TextBlock Style="{StaticResource textInformatif}" Text="Relation avec d'autres personnages" Grid.Row="2" />
+            <TextBlock Style="{StaticResource textInformatif}" Text="Descritption :" Grid.Row="3"/>
             <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="3"/>
             <Button Style="{StaticResource BouttonModif}" Grid.Column="2"  Grid.Row="2" />
             <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="1"/>
