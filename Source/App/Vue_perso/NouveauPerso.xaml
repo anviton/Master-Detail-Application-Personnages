@@ -24,7 +24,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="30px"/>
                 <RowDefinition Height="30px"/>
-                <RowDefinition Height="30px"/>
+                <RowDefinition Height="30px"/> <!-- Il faudra modifier dynamiquement la hauteur de cette ligne (si trop de citations) -->
                 <RowDefinition Height="30px"/>
                 <RowDefinition Height="30px"/>
                 <RowDefinition Height="30px"/>
