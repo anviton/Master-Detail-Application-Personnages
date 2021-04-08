@@ -6,42 +6,53 @@
         xmlns:local="clr-namespace:Vue_perso"
         mc:Ignorable="d"
         Title="Enregistrement d'un nouveau personnage" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="75*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="5*"/>
-        </Grid.RowDefinitions>
-        <Label   Grid.Column="0" Grid.Row="0" Content="Nom :"/>
-        <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="NoWrap" Width="Auto"></TextBox>
 
-        <Label  Grid.Column="0" Grid.Row="1" Content="Image :"/>
-        <Button Grid.Column="1" Grid.Row="1" Content="Parcourir..."/>
+    <DockPanel>
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Enregistrement d'un personnage" FontSize="25px"/>
 
-        <Label   Grid.Column="0" Grid.Row="2" Content="Citations :"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Text="Emplacement de saisie à modifier pour correspondre au contexte" TextWrapping="NoWrap" Width="Auto" IsEnabled="False"/>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="15,10">
+            <Button Content="Enregistrer" Margin="10,0" Height="25" Padding="10,0"/>
+            <Button Content="Annuler" Padding="10,0"/>
+        </StackPanel>
 
-        <Label   Grid.Column="0" Grid.Row="3" Content="Jeux vidéos :"/>
-        <Button  Grid.Column="1" Grid.Row="3" Content="Modifier..."/>
+        <!-- Centre du DockPanel -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30px"/>
+                <RowDefinition Height="30px"/>
+                <RowDefinition Height="30px"/>
+                <RowDefinition Height="30px"/>
+                <RowDefinition Height="30px"/>
+                <RowDefinition Height="30px"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Label   Grid.Column="0" Grid.Row="0" Content="Nom :"/>
+            <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="NoWrap" Width="Auto"></TextBox>
 
-        <Label   Grid.Column="0" Grid.Row="4" Content="Thèmes musicaux :"/>
-        <Button  Grid.Column="1" Grid.Row="4" Content="Modifier..."/>
+            <Label  Grid.Column="0" Grid.Row="1" Content="Image :"/>
+            <Button Grid.Column="1" Grid.Row="1" Content="Parcourir..."/>
 
-        <Label   Grid.Column="0" Grid.Row="5" Content="Relations :"/>
-        <Button  Grid.Column="1" Grid.Row="5" Content="Modifier..."/>
+            <Label   Grid.Column="0" Grid.Row="2" Content="Citations :"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="Emplacement de saisie à modifier pour correspondre au contexte" TextWrapping="NoWrap" Width="Auto" IsEnabled="False"/>
 
-        <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Content="Description :"/>
+            <Label   Grid.Column="0" Grid.Row="3" Content="Jeux vidéos :"/>
+            <Button  Grid.Column="1" Grid.Row="3" Content="Modifier..."/>
 
-        <TextBox Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="10,0" TextChanged="TextBox_TextChanged"/>
-    </Grid>
-    
+            <Label   Grid.Column="0" Grid.Row="4" Content="Thèmes musicaux :"/>
+            <Button  Grid.Column="1" Grid.Row="4" Content="Modifier..."/>
+
+            <Label   Grid.Column="0" Grid.Row="5" Content="Relations :"/>
+            <Button  Grid.Column="1" Grid.Row="5" Content="Modifier..."/>
+
+            <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Content="Description :"/>
+
+            <TextBox Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="10,0" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+    </DockPanel>
+
 </Window>
