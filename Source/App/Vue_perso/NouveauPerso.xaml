@@ -44,14 +44,14 @@
             <Button  Grid.Column="1" Grid.Row="3" Content="Modifier..."/>
 
             <Label   Grid.Column="0" Grid.Row="4" Content="Thèmes musicaux :"/>
-            <Button  Grid.Column="1" Grid.Row="4" Content="Modifier..."/>
+            <Button  Grid.Column="1" Grid.Row="4" Content="Modifier..." Name="ThemeButton" Click="RenseignerChamp"/>
 
             <Label   Grid.Column="0" Grid.Row="5" Content="Relations :"/>
             <Button  Grid.Column="1" Grid.Row="5" Content="Modifier..."/>
 
             <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Content="Description :"/>
 
-            <TextBox Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="10,0" TextChanged="TextBox_TextChanged"/>
+            <TextBox Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="10,0"/>
         </Grid>
     </DockPanel>
 

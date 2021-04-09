@@ -22,9 +22,19 @@ namespace Vue_perso
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void RenseignerChamp(object sender, RoutedEventArgs e)
         {
-
+            Button senderButton = sender as Button;
+            Window newWindow;
+            /*
+             * On regarde quel bouton a été cliqué.
+             * Ensuite, on instancie un Window, contenant une référence vers une fenêtre demandée.
+             */
+            if (senderButton.Equals(ThemeButton))
+            {
+                newWindow = new ThemeMusical();
+                newWindow.Show();
+            } // Reste des fenêtres ici
         }
     }
 }
