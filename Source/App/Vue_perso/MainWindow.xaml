@@ -26,13 +26,27 @@
     </Window.Resources>
     <DockPanel>
         <DockPanel.Background>
-            <ImageBrush ImageSource="arriere.jpg"></ImageBrush>
+            <ImageBrush ImageSource="arriere_plan_grille_perso.jpg"></ImageBrush>
         </DockPanel.Background>
 
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="30">
+        <Menu Background="#FFF9E2C6" DockPanel.Dock="Top">
             <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9"/>
-            <Button Content="Ajouter à une Liste" Width="120" Margin="5" Background="#FFB2ECF5"/>
-        </StackPanel>
+            <MenuItem Header="Ajouter à une liste">
+                <MenuItem Header="+ Nouvelle liste"/>
+                <MenuItem Header="Liste déjà existante"/>
+            </MenuItem>
+            <MenuItem Header="Actions personnages">
+                <MenuItem Header="Exporter"/>
+                <MenuItem Header="Supprimer">
+                    <MenuItem.Icon>
+                        <Image Source="image.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem/>
+            </MenuItem>
+                
+        </Menu>
         
         <Grid DockPanel.Dock="Left">
             <Grid.RowDefinitions>
@@ -46,7 +60,7 @@
             <Grid.Background>
                 <SolidColorBrush Color="LightSalmon" Opacity="0.8"></SolidColorBrush>
             </Grid.Background>
-            <TextBox TextWrapping="NoWrap" Grid.Row="0"></TextBox>
+            <TextBox TextWrapping="NoWrap" Grid.Row="0" TextChanged="TextBox_TextChanged"></TextBox>
             <TextBlock Style="{StaticResource textInformatif}" Grid.Row="1" Text="Personnages"/>
             <ListBox Grid.Row="2">
                 <ListBox.Background>
@@ -54,27 +68,13 @@
                 </ListBox.Background>
             </ListBox>
         </Grid>
-
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Image Source="image.jpg" Grid.Row="0" Grid.Column="0" Width="200">
-                </Image>
-            </Grid>
-        </StackPanel>
-
+        
         <Grid>
             <Grid.Background>
-                <SolidColorBrush Color="LightSalmon" Opacity="0.8"/>
+                <SolidColorBrush Color="LightSalmon" Opacity="0.5"/>
             </Grid.Background>
             <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -85,16 +85,37 @@
                 <ColumnDefinition/>
                 <ColumnDefinition  Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Style="{StaticResource textInformatif}" Text="Jeux video :"/>
-            <TextBlock Style="{StaticResource textInformatif}" Text="Théme musical" Grid.Row="1"/>
-            <TextBlock Style="{StaticResource textInformatif}" Text="Relation avec d'autres personnages" Grid.Row="2" />
-            <TextBlock Style="{StaticResource textInformatif}" Text="Descritption :" Grid.Row="3"/>
-            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="3"/>
-            <Button Style="{StaticResource BouttonModif}" Grid.Column="2"  Grid.Row="2" />
-            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="1"/>
-            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="0"/>
-            <Button Content="Test" Grid.Column="1" HorizontalAlignment="Left" Margin="10" Grid.Row="3" VerticalAlignment="Bottom"/>
             
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image Source="image.jpg" Grid.RowSpan="2" Grid.Row="0" Grid.Column="0"/> <!--Image pour voir le rendu-->
+                <TextBlock Style="{StaticResource textInformatif}" Grid.Row="0" Grid.Column="1" Text="Nom"/>
+                <TextBlock Style="{StaticResource textInformatif}" Grid.Row="1" Grid.Column="1" Text="Citations"/>
+            </Grid>
+            
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+            
+            <TextBlock Style="{StaticResource textInformatif}" Text="Jeux video :" Grid.Row="1"/>
+            <TextBlock Style="{StaticResource textInformatif}" Text="Théme musical" Grid.Row="2"/>
+            <TextBlock Style="{StaticResource textInformatif}" Text="Relations avec d'autres personnages" Grid.Row="3" />
+            <TextBlock Style="{StaticResource textInformatif}" Text="Descritption :" Grid.Row="4"/>
+            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="1"/>
+            <Button Style="{StaticResource BouttonModif}" Grid.Column="2"  Grid.Row="2" />
+            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="3"/>
+            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="4"/>
+
         </Grid>
 
     </DockPanel>

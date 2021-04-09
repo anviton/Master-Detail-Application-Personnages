@@ -9,14 +9,21 @@
   <ItemGroup>
     <None Remove="arriere.jpg" />
     <None Remove="arrierePlan.jpg" />
+    <None Remove="arriere_plan_grille_perso.jpg" />
+    <None Remove="corbeille.png" />
     <None Remove="image.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="arriere_plan_grille_perso.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="arriere.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="arrierePlan.jpg" />
   </ItemGroup>
 
   <ItemGroup>
