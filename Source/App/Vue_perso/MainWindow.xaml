@@ -23,6 +23,15 @@
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="Margin" Value="10"></Setter>
         </Style>
+        <Style TargetType="TextBlock" x:Key="textInformatif1">
+            <Setter Property="FontFamily" Value="Frank Ruehl CLM BoldOblique" ></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="40"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Foreground" Value="Red"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
     </Window.Resources>
     <DockPanel>
         <DockPanel.Background>
@@ -42,8 +51,7 @@
                         <Image Source="image.jpg"/>
                     </MenuItem.Icon>
                 </MenuItem>
-
-                <MenuItem/>
+                <MenuItem Header="Modifier"/>
             </MenuItem>
                 
         </Menu>
@@ -55,7 +63,7 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="170"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.Background>
                 <SolidColorBrush Color="LightSalmon" Opacity="0.8"></SolidColorBrush>
@@ -83,39 +91,25 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
-                <ColumnDefinition  Width="Auto"/>
             </Grid.ColumnDefinitions>
-            
-            <Grid>
+            <Image Source="image.jpg" HorizontalAlignment="left" Grid.Row="0" Grid.Column="0"/>
+            <!--Image pour voir le rendu-->
+            <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Source="image.jpg" Grid.RowSpan="2" Grid.Row="0" Grid.Column="0"/> <!--Image pour voir le rendu-->
-                <TextBlock Style="{StaticResource textInformatif}" Grid.Row="0" Grid.Column="1" Text="Nom"/>
-                <TextBlock Style="{StaticResource textInformatif}" Grid.Row="1" Grid.Column="1" Text="Citations"/>
-            </Grid>
-            
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource textInformatif1}" Grid.Row="0" Grid.Column="1" Text="Mario"/>
+                <TextBlock Style="{StaticResource textInformatif1}" Grid.Row="1" Grid.Column="1" Text="It's me Mario !"/>
             </Grid>
             
             <TextBlock Style="{StaticResource textInformatif}" Text="Jeux video :" Grid.Row="1"/>
             <TextBlock Style="{StaticResource textInformatif}" Text="Théme musical" Grid.Row="2"/>
-            <TextBlock Style="{StaticResource textInformatif}" Text="Relations avec d'autres personnages" Grid.Row="3" />
+            <TextBlock Style="{StaticResource textInformatif}" Text="Relations" Grid.Row="3" />
             <TextBlock Style="{StaticResource textInformatif}" Text="Descritption :" Grid.Row="4"/>
-            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="1"/>
-            <Button Style="{StaticResource BouttonModif}" Grid.Column="2"  Grid.Row="2" />
-            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="3"/>
-            <Button Style="{StaticResource BouttonModif}" Grid.Column="2" Grid.Row="4"/>
-
         </Grid>
 
     </DockPanel>
