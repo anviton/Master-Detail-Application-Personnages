@@ -10,6 +10,12 @@
     <Compile Update="Accueil.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MosaiqueJeux_UC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MosaiquePersonnages_UC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="NouveauPerso.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +31,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MosaiqueJeux_UC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MosaiquePersonnages_UC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="NouveauPerso.xaml">

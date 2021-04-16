@@ -68,7 +68,7 @@
             <Grid.Background>
                 <SolidColorBrush Color="LightSalmon" Opacity="0.8"></SolidColorBrush>
             </Grid.Background>
-            <TextBox TextWrapping="NoWrap" Grid.Row="0" TextChanged="TextBox_TextChanged"></TextBox>
+            <TextBox TextWrapping="NoWrap" Grid.Row="0" TextChanged="TextBox_TextChanged"/>
             <TextBlock Style="{StaticResource textInformatif}" Grid.Row="1" Text="Personnages"/>
             <ListBox Grid.Row="2">
                 <ListBox.Background>

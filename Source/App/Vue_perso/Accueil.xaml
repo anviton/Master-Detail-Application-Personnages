@@ -6,17 +6,46 @@
         xmlns:local="clr-namespace:Vue_perso"
         mc:Ignorable="d"
         Title="Accueil" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        
-    </Grid>
+    <DockPanel>
+        <Menu Background="#FFF9E2C6" DockPanel.Dock="Top">
+            <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9"/>
+            <MenuItem Header="Listes">
+                <MenuItem Header="+ Nouvelle liste"/>
+                <MenuItem Header="Consulter une liste"/>
+            </MenuItem>
+            <MenuItem Header="Actions personnages">
+                <MenuItem Header="Importer"/>
+                <MenuItem Header="Nouveau Personnage"/>
+            </MenuItem>
+
+        </Menu>
+        <Grid DockPanel.Dock="Top" Background="#FFF9E2C6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Padding="5" Content="Personnages" Grid.Column="1" Click="Affiche_Perso">
+                <Button.Background>
+                    <SolidColorBrush Color="LightSalmon" Opacity="0.8"/>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="LightSalmon" Opacity="0.8"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button Padding="5" Content="Jeux Vidéo" Grid.Column="2" Click="Affiche_Jeux">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF98CBF7" Opacity="0.8"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="#FF98CBF7" Opacity="0.8"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <ContentControl x:Name="contentControlAccueil">
+            <local:MosaiquePersonnages_UC/>
+        </ContentControl>
+
+    </DockPanel>
 </Window>
