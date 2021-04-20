@@ -11,8 +11,12 @@
             <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9"/>
             <MenuItem Header="Listes">
                 <MenuItem Header="+ Nouvelle liste"/>
-                <MenuItem Header="Consulter une liste"/>
-            </MenuItem>
+                    <MenuItem Header="Consulter une liste">
+                        <ComboBox VerticalAlignment="Center" HorizontalAlignment="Center" SelectedIndex="0" Width="100">
+                            
+                        </ComboBox>
+                    </MenuItem>
+                </MenuItem>
             <MenuItem Header="Actions personnages">
                 <MenuItem Header="Importer"/>
                 <MenuItem Header="Nouveau Personnage"/>
