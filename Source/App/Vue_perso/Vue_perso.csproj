@@ -15,19 +15,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="arriere_plan_grille_perso.jpg">
+    <Resource Include="Images\arriere_plan_grille_perso.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="arriere.jpg">
+    <Resource Include="Images\arriere.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="image.jpg" />
+    <Resource Include="Images\image.jpg" />
   </ItemGroup>
 
 </Project>
