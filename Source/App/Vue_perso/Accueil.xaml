@@ -38,7 +38,7 @@
                     <SolidColorBrush Color="LightSalmon" Opacity="0.8"/>
                 </Button.BorderBrush>
             </Button>
-            <Button Padding="5" Content="Séries de Jeux Vidéo" Grid.Column="2" Click="Affiche_Jeux">
+            <Button Padding="5" Content="Jeux Vidéo" Grid.Column="2" Click="Affiche_Jeux">
                 <Button.BorderBrush>
                     <SolidColorBrush Color="#FF98CBF7" Opacity="0.8"/>
                 </Button.BorderBrush>
