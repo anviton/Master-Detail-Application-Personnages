@@ -17,8 +17,54 @@ namespace Classes
         public string Type { get; set; }
         public string NomPersoNonRec { get; set; }
         public Personnage PersoRec { get; set; }
-        public bool AvecPersoRec { get; set; }
+
+        /// <summary>
+        /// Constructeur
+        /// créer une relation avec un personnage non enregistré
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="nomduperso"></param>
+        public Relation(string type, string nomduperso)
+        {
+            Type = type;
+            NomPersoNonRec = nomduperso;
+            PersoRec = null;
+        }
+
+        /// <summary>
+        /// Constructeur
+        /// créer une relation avec un personnage enregistré
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="perso"></param>
+        public Relation(string type, Personnage perso)
+        {
+            Type = type;
+            NomPersoNonRec = null;
+            PersoRec = perso;
+        }
+
 
         // Méthodes
+
+        /// <summary>
+        /// On transforme une relation avec un personnage non enregistré en relation avec un personnage enregistré dans l'application
+        /// </summary>
+        /// <param name="perso">personnage qui est enregistré</param>
+        public void ModifierRelation (Personnage perso)
+        {
+            PersoRec = perso;
+            NomPersoNonRec = null;
+        }
+
+        /// <summary>
+        /// On transforme une relation avec un personnage enregistré en relation avec un personnage non enregistré
+        /// </summary>
+        /// <param name="nom">nom du personnage non enregistré</param>
+        public void ModifierRelation (String nom)
+        {
+            PersoRec = null;
+            NomPersoNonRec = nom;
+        }
     }
 }

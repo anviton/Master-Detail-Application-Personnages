@@ -7,7 +7,7 @@ namespace Classes
     public class Personnage : Nommable
     {
         // Champs
-        public List<string> Citations { get; set; };
+        public List<string> Citations { get; set; }
         public string Image { get; set; }
         public List<JeuVideo> JeuxVideo { get; set; }
         public ThemeMusical Theme { get; set; }
@@ -16,7 +16,13 @@ namespace Classes
         // Méthodes
         public Personnage(string nom) : base(nom)
         {
+            List<Relation> Relations = new List<Relation>();
             // INITIALISER LES LISTES ?
+        }
+
+        public void AjouterRelationAvecPersoEnr (string type, Personnage perso)
+        {
+            Relations.Add(new Relation(type, perso));
         }
     }
 }
