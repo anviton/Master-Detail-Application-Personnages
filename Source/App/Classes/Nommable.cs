@@ -7,7 +7,10 @@ namespace Classes
         // Attributs
         public readonly string nom;
 
-        // Constructeur
+        /// <summary>
+        /// Constructeur
+        /// </summary>
+        /// <param name="nom"></param>
         public Nommable(string nom)
         {
             this.nom = nom;
