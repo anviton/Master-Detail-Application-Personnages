@@ -7,16 +7,16 @@ namespace Classes
     public class Personnage : Nommable
     {
         // Champs
-        public List<string> Citations { get; set; }
+        public IList<string> Citations { get; set; }
         public string Image { get; set; }
-        public List<JeuVideo> JeuxVideo { get; set; }
+        public IList<JeuVideo> JeuxVideo { get; set; }
         public ThemeMusical Theme { get; set; }
-        public List<Relation> relations;
+        public IList<Relation> Relations { get; private set; }
 
         // Méthodes
         public Personnage(string nom) : base(nom)
         {
-            relations = new List<Relation>();
+            IList<Relation> Relations = new List<Relation>();
             // INITIALISER LES LISTES ?
         }
 
@@ -27,7 +27,7 @@ namespace Classes
         /// <param name="perso">Personnage avec lequel la relation est réalisée</param>
         public void AjouterRelation(string type, Personnage perso)
         {
-            relations.Add(new Relation(type, perso));
+            Relations.Add(new Relation(type, perso));
         }
 
         /// <summary>
@@ -37,37 +37,31 @@ namespace Classes
         /// <param name="nomPerso">Nome du Personnage avec lequel la relation est réalisée</param>
         public void AjouterRelation(string type, string nomPerso)
         {
-            relations.Add(new Relation(type, nomPerso));
+            Relations.Add(new Relation(type, nomPerso));
         }
 
 
         /// <summary>
-        /// Permet d'avoir les relations du personnage dans une chaine de caractères
+        /// Permet d'avoir les Relations du personnage dans une chaine de caractères
         /// </summary>
-        /// <returns>Retourne toutes les relations du personnage sous forme de chaine de caractères</returns>
+        /// <returns>Retourne toutes les Relations du personnage sous forme de chaine de caractères</returns>
         public string AfficherLesRelations()
         {
             string lesRelations = $"Les Relations de {nom} :";
-            if (relations.Count == 0)
+            if (Relations.Count == 0)
                 return lesRelations + "Aucune";
 
             else
-                for (int i = 0; i< relations.Count ; i++) 
+                for (int i = 0; i< Relations.Count ; i++) 
                 {
-                    if(relations[i].NomPersoNonRec == null)
+                    if(Relations[i].NomPersoNonRec == null)
                     {
-                        lesRelations = lesRelations + $"\n {relations[i].PersoRec.nom} : {relations[i].Type}";
+                        lesRelations = lesRelations + $"\n {Relations[i].PersoRec.nom} : {Relations[i].Type}";
                     }
                     else
-                        lesRelations = lesRelations + $"\n {relations[i].NomPersoNonRec} : {relations[i].Type}";
+                        lesRelations = lesRelations + $"\n {Relations[i].NomPersoNonRec} : {Relations[i].Type}";
                 }
                 return lesRelations;
-        }
-
-        public int ChercherUneRelation(string nomPerso, string type)
-        {
-            int index = relations.IndexOf(new Relation(type, nomPerso));
-            return index;
         }
     }
 }

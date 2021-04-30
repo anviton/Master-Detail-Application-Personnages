@@ -4,16 +4,16 @@ using System.Text;
 
 namespace Classes
 {
-    class Liste : Nommable
+    public class Groupe : Nommable
     {
-        private IList<Personnage> liste;
+        public IList<Personnage> Personnages { get; set; }
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="nom"></param>
-        public Liste (string nom) : base(nom)
+        public Groupe (string nom) : base(nom)
         {
-
+            IList<Personnage> Personnages = new List<Personnage>();
         }
 
     }
