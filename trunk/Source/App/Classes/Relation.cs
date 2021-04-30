@@ -66,5 +66,16 @@ namespace Classes
             PersoRec = null;
             NomPersoNonRec = nom;
         }
+
+        public override string ToString()
+        {
+            if (NomPersoNonRec != null)
+                return $"Nom : {NomPersoNonRec} \n\t\tRelation : {Type}";
+            else
+                return $"Nom  : {PersoRec.nom} \n\t\t Relation : {Type}";
+        }
+
+        
+
     }
 }

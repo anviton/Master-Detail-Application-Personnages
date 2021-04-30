@@ -1,0 +1,14 @@
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\bin\Debug\netcoreapp3.0\Test_Personnage.exe
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\bin\Debug\netcoreapp3.0\Test_Personnage.deps.json
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\bin\Debug\netcoreapp3.0\Test_Personnage.runtimeconfig.json
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\bin\Debug\netcoreapp3.0\Test_Personnage.runtimeconfig.dev.json
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\bin\Debug\netcoreapp3.0\Test_Personnage.dll
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\bin\Debug\netcoreapp3.0\Test_Personnage.pdb
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\bin\Debug\netcoreapp3.0\Classes.dll
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\bin\Debug\netcoreapp3.0\Classes.pdb
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\obj\Debug\netcoreapp3.0\Test_Personnage.csprojAssemblyReference.cache
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\obj\Debug\netcoreapp3.0\Test_Personnage.AssemblyInfoInputs.cache
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\obj\Debug\netcoreapp3.0\Test_Personnage.AssemblyInfo.cs
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\obj\Debug\netcoreapp3.0\Test_Personnage.csproj.CopyComplete
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\obj\Debug\netcoreapp3.0\Test_Personnage.dll
+U:\c_sharp\projet\trunk\Source\App\Test_Personnage\obj\Debug\netcoreapp3.0\Test_Personnage.pdb
