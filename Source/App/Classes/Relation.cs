@@ -15,8 +15,8 @@ namespace Classes
     {
         // Champs
         public string Type { get; set; }
-        public string NomPersoNonRec { get; set; }
-        public Personnage PersoRec { get; set; }
+        public string NomPersoNonRec { get; private set; }
+        public Personnage PersoRec { get; private set; }
 
         /// <summary>
         /// Constructeur

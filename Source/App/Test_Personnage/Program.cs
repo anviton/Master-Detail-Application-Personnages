@@ -8,13 +8,18 @@ namespace Test_Personnage
         {
             Personnage perso1 = new Personnage("TOTO");
             Personnage perso2 = new Personnage("TOTO2");
-           //Console.WriteLine($"Mon nom est {perso1.nom} relation : ");
+            Console.WriteLine($"Mon nom est {perso1.nom}");
+            Console.WriteLine(perso1.AfficherLesRelations());
            //Console.WriteLine(perso1.ToString());
             perso1.AjouterRelation("père", perso2);
             perso1.AjouterRelation("enfant", "Mario");
             Console.WriteLine(perso1.AfficherLesRelations());
-            int i = perso1.ChercherUneRelation("enfant", "Mario");
-            Console.WriteLine(i);
+            Console.WriteLine(perso2.AfficherLesRelations());
+            // !!! MAUVAIS TEST : UTILISER UNE FONCTION ADAPTÉE
+            if (perso1.Relations.Contains(new Relation("enfant", "Mario")))
+                Console.WriteLine("OK");
+            else
+                Console.WriteLine("Pas OK");
             //Console.WriteLine($"Mon nom est {perso1.nom} relation : ");
 
         }

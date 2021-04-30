@@ -10,7 +10,7 @@ namespace Classes
     public class ThemeMusical
     {
         // Champs
-        public List<Titre> Titres { get; set; }
+        public IList<Titre> Titres { get; set; }
         public bool Leitmotiv { get; set; }
 
         // Méthodes
@@ -22,7 +22,7 @@ namespace Classes
 
         public ThemeMusical(bool leitmotiv)
         {
-            // INITIALISER LISTE ???
+            IList<Titre> Titres = new List<Titre>();
             Leitmotiv = leitmotiv;
         }
     }
