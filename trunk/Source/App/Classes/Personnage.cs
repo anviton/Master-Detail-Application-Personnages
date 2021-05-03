@@ -16,7 +16,7 @@ namespace Classes
         // Méthodes
         public Personnage(string nom) : base(nom)
         {
-            IList<Relation> Relations = new List<Relation>();
+            Relations = new List<Relation>();
             // INITIALISER LES LISTES ?
         }
 
