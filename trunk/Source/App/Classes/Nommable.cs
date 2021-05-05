@@ -16,7 +16,7 @@ namespace Classes
                 }
                 else
                 {
-                    nom = value.ToUpper();
+                    nom = value;
                 }
             }
         }
@@ -28,7 +28,7 @@ namespace Classes
         /// <param name="nom"></param>
         public Nommable(string nom)
         {
-            this.nom = nom;
+            Nom = nom;
         }
     }
 }

@@ -9,12 +9,13 @@ namespace Classes
         // Champs
 
         //Atributs
-        public HashSet<Relation> relations;
+        
         //Propriétés
         public IList<string> Citations { get; set; }
         public string Image { get; set; }
-        public IList<JeuVideo> JeuxVideo { get; set; }
+        public HashSet<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
+        public HashSet<Relation> Relations { get; }
 
         //Protocole d'égalité
         /// <summary>
@@ -63,9 +64,10 @@ namespace Classes
         }
 
         // Méthodes
-        public Personnage(string nom) : base(nom)
+        public Personnage(string nom) : base(nom.ToUpper())
         {
-            relations = new HashSet<Relation>();
+            Relations = new HashSet<Relation>();
+            JeuxVideo = new HashSet<JeuVideo>();
             // INITIALISER LES LISTES ?
         }
 
@@ -76,7 +78,7 @@ namespace Classes
         /// <param name="perso">Personnage avec lequel la relation est réalisée</param>
         public void AjouterRelation(string type, Personnage perso)
         {
-            relations.Add(new Relation(type, perso));
+            Relations.Add(new Relation(type, perso));
         }
 
         /// <summary>
@@ -86,32 +88,7 @@ namespace Classes
         /// <param name="nomPerso">Nome du Personnage avec lequel la relation est réalisée</param>
         public void AjouterRelation(string type, string nomPerso)
         {
-            relations.Add(new Relation(type, nomPerso));
-        }
-
-
-        /// <summary>
-        /// Permet d'avoir les Relations du personnage dans une chaine de caractères
-        /// </summary>
-        /// <returns>Retourne toutes les Relations du personnage sous forme de chaine de caractères</returns>
-        public string AfficherLesRelations()
-        {
-            string lesRelations = $"Les Relations de {Nom} :";
-            if (relations.Count == 0)
-                return lesRelations + "Aucune";
-
-            else
-                foreach (Relation relation in relations) 
-                {
-                    if(relation.NomPersoNonRec == null)
-                    {
-                        lesRelations = lesRelations + $"\n {relation.PersoRec.Nom} : {relation.Type}";
-                    }
-                    else
-                        lesRelations = lesRelations + $"\n {relation.NomPersoNonRec} : {relation.Type}";
-                }
-            
-                return lesRelations;
+            Relations.Add(new Relation(type, nomPerso));
         }
 
         /// <summary>
@@ -120,16 +97,16 @@ namespace Classes
         /// <param name="relation">relation à supprimer</param>
        public void SupprimerUneRelation(Relation relation)
         {
-            relations.Remove(relation);
+            Relations.Remove(relation);
         }
 
         /// <summary>
-        /// 
+        /// Retourne le Personnage sous forme de string
         /// </summary>
-        /// <param name="relation"></param>
-        public void ModifierUneRelation(Relation relation)
+        /// <returns></returns>
+        public override string ToString()
         {
-            
+            return $"{Nom} {Image}";
         }
 
     }
