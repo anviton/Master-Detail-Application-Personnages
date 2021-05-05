@@ -27,7 +27,7 @@ namespace Classes
         public Relation(string type, string nomduperso)
         {
             Type = type;
-            NomPersoNonRec = nomduperso;
+            NomPersoNonRec = nomduperso.ToUpper();
             PersoRec = null;
         }
 
