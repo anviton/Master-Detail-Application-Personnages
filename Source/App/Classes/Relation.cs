@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Classes
 {
-    public class Relation
+    public class Relation : IEquatable<Relation>
     {
         // Champs
         public string Type { get; set; }
@@ -44,6 +44,59 @@ namespace Classes
             PersoRec = perso;
         }
 
+        //Protocole d'égalité
+        /// <summary>
+        /// Permet de vérifier si relation et obj sont égaaux
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (object.ReferenceEquals(obj, null))
+            {
+                return false;
+            }
+
+            if (object.ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (this.GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return this.Equals(obj as Relation);
+        }
+
+        /// <summary>
+        /// Permet de vérifier si les champs Type, NomPersoNonRec, PersoRec relation et obj sont égaux
+        /// </summary>
+        /// <param name="autre"></param>
+        /// <returns></returns>
+        public bool Equals(Relation autre)
+        {
+            return (this.Type == autre.Type && this.NomPersoNonRec==autre.NomPersoNonRec && this.PersoRec==autre.PersoRec);
+        }
+
+        /// <summary>
+        /// Retourne un hashcode pour utiliser cete classe dans une table de hashage
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            int a;
+            if(NomPersoNonRec == null)
+            {
+                a = PersoRec.GetHashCode() % 31;
+            }
+            else
+            {
+                a = NomPersoNonRec.GetHashCode() % 31;
+            }
+            return Type.GetHashCode() % 31 + a ;
+        }
 
         // Méthodes
 
@@ -67,14 +120,19 @@ namespace Classes
             NomPersoNonRec = nom;
         }
 
+        /// <summary>
+        /// Retourne une relation sous forme de chaine de charactère
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             if (NomPersoNonRec != null)
                 return $"Nom : {NomPersoNonRec} \n\t\tRelation : {Type}";
             else
-                return $"Nom  : {PersoRec.nom} \n\t\t Relation : {Type}";
+                return $"Nom  : {PersoRec.Nom} \n\t\t Relation : {Type}";
         }
 
+        
         
 
     }

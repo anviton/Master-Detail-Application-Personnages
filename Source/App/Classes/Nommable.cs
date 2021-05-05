@@ -7,7 +7,20 @@ namespace Classes
         // Attributs
 
 
-        public readonly string nom; //ATTENTION cet attribut ne peut pas rester en public
+        public string Nom {
+            get { return nom; }
+            protected set {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+
+                }
+                else
+                {
+                    nom = value.ToUpper();
+                }
+            }
+        }
+        private string nom;
 
         /// <summary>
         /// Constructeur
