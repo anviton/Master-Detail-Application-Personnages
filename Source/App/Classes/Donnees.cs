@@ -6,7 +6,15 @@ namespace Classes
 {
     public class Donnees
     {
-        public IList<Personnage> Personnages { get; set; }
-        public IList<Groupe> Groupes { get; set; }
+        public Donnees()
+        {
+            Series = new List<Serie>();
+            Groupes = new Dictionary<string, HashSet<Personnage>>();
+        }
+
+        public IList<Serie> Series { get; set; }
+        public Dictionary<string, HashSet<Personnage>> Groupes { get; }
+
+ 
     }
 }
