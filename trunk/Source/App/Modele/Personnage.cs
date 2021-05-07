@@ -16,14 +16,14 @@ namespace Modele
         public HashSet<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
         public HashSet<Relation> Relations { get; }
-        //public Serie SerieDuPerso;
+        public string SerieDuPerso;
 
         // Méthodes
-        public Personnage(string nom/*, Serie serie*/) : base(nom)
+        public Personnage(string nom, string serie) : base(nom)
         {
             Relations = new HashSet<Relation>();
             JeuxVideo = new HashSet<JeuVideo>();
-            //SerieDuPerso = serie;
+            SerieDuPerso = serie;
         }
 
         //Protocole d'égalité
@@ -39,7 +39,7 @@ namespace Modele
 
         public bool Equals(Personnage other)
         {
-            return (base.Equals(other) /*&& this.SerieDuPerso.Equals(other.SerieDuPerso)*/);
+            return (base.Equals(other) && this.SerieDuPerso.Equals(other.SerieDuPerso));
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Modele
         public override int GetHashCode()
         {
 
-            return Nom.GetHashCode() % 31;
+            return base.GetHashCode() + SerieDuPerso.GetHashCode();
         }
 
         /// <summary>
