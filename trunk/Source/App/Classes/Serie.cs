@@ -7,7 +7,7 @@ namespace Classes
     public class Serie : Nommable
     {
         //Propriétés
-       public IList<Personnage> Personnages { get; set; }
+        public IList<Personnage> Personnages { get; set; }
         public Serie(string nom) : base(nom.ToLower())
         {
             Personnages = new List<Personnage>();
