@@ -21,6 +21,7 @@ namespace Modele
         /// </summary>
         /// <param name="nom">Le nom de la nouvelle série.</param>
         /// <exception cref="ArgumentException">Levée si la série existe déjà.</exception>
+        /// <returns>La série nouvellement créée.</returns>
         public Serie AjouterSerie(string nom)
         {
             // On instancie une nouvelle série.
@@ -70,7 +71,43 @@ namespace Modele
             Series.Remove(serie);
         }
 
-        
+        /// <summary>
+        /// Enregistre un nouveau personnage.
+        /// </summary>
+        /// <param name="nomPerso">Le nom du nouveau personnage.</param>
+        /// <param name="nomSerie">Le nom de la série du nouveau personnage.</param>
+        /// <exception cref="ArgumentException">Levée si la série n'existe pas.</exception>
+        /// <returns>Le personnage nouvellement créé.</returns>
+        public Personnage EnregistrerPersonnage(string nomPerso, string nomSerie)
+        {
+            /*
+             * Je suis pas sûr que passer le nom de la série en paramètres soit une bonne idée.
+             * Au pire, on changera.
+             */
+            if (Series.TryGetValue(new Serie(nomSerie), out Serie serie))
+                // Si la série existe
+                return serie.AjouterUnPersonnage(nomPerso);
+            else
+                // On lève une exception si elle n'existe pas
+                throw new ArgumentException($"La série \"{nomSerie}\" n'existe pas.");
+        }
+
+        /// <summary>
+        /// Supprime un personnage d'une série et de tous les groupes dans lesquels il pourrait se trouver.
+        /// </summary>
+        /// <param name="perso">Le personnage à supprimer.</param>
+        public void SupprimerPersonnage(Personnage perso)
+		{
+            Series.TryGetValue(new Serie(perso.SerieDuPerso), out Serie serie);
+            foreach (KeyValuePair<string, HashSet<Personnage>> groupe in Groupes) {
+                try
+				{
+                    groupe.Value.Remove(perso);
+				} catch (ArgumentException) { }
+			}
+
+            serie.SupprimerUnPersonnage(perso);
+		}
 
         /// <summary>
         /// Permet de créer un nouveau groupe de personnages (série ou groupe).
@@ -132,11 +169,6 @@ namespace Modele
             // Si aucun test n'a lancé d'exception, on peut ajouter le personnage dans le groupe.
             Groupes[nomGroupe].Add(personnage);
 		}
-
-        /*public Serie RecherUneSerie(string nom)
-        {
-            //return Series[Series.indexof(new Serie("nom"))];
-        }*/
 
         /// <summary>
         /// Retire un personnage d'un groupe.

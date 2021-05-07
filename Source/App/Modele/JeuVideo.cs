@@ -9,18 +9,12 @@ namespace Modele
     /// </summary>
     public class JeuVideo : Nommable
     {
-        public DateTime Date { get; set; }
+        public int AnneeDeCreation { get; set; }
 
         /// <summary>
-        /// 
+        /// Constructeur de la classe JeuVideo
         /// </summary>
         /// <param name="nom">nom du jeux </param>
-        /// <param name="serie">nom de la série de jeu</param>
-        public JeuVideo(string nom, DateTime date) : base(nom)
-        {
-            Date = date;
-        }
-
         public JeuVideo(string nom) : base(nom)
         {
             
@@ -28,7 +22,7 @@ namespace Modele
 
         public override string ToString()
         {
-            return $"{Nom} ({Date})";
+            return $"{Nom} ({AnneeDeCreation})";
         }
     }
 }

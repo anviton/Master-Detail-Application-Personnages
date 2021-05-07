@@ -14,14 +14,11 @@ namespace Data
         public override Donnees Charger()
         {
             Donnees test = new Donnees();
-            Serie mario = test.AjouterSerie("mario");
-            Serie zelda = test.AjouterSerie("Zelda");
-            Personnage perso1 = new Personnage("Mario", "mario");
-            Personnage perso2 = new Personnage("Bowser", "mario");
-            Personnage perso3 = new Personnage("Link", "Zelda");
-            mario.AjouterUnPersonnage(perso1);
-            mario.AjouterUnPersonnage(perso2);
-            zelda.AjouterUnPersonnage(perso3);
+            test.AjouterSerie("mario");
+            test.AjouterSerie("Zelda");
+            Personnage perso1 = test.EnregistrerPersonnage("Mario", "mario");
+            Personnage perso2 = test.EnregistrerPersonnage("Bowser", "mario");
+            Personnage perso3 = test.EnregistrerPersonnage("Link", "Zelda");
             perso1.AjouterRelation("Ennemi", perso2);
             perso1.AjouterRelation("Fère", "Luigi");
             test.AjouterGroupe("Triforce");

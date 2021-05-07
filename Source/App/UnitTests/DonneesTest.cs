@@ -60,7 +60,7 @@ namespace UnitTests
             Chargeur chargeur1 = new Stub("");
             Donnees donnees = chargeur1.Charger();
 
-			donnees.Series.TryGetValue(new Serie("zelda"), out Serie serieASupprimer);
+			donnees.Series.TryGetValue(new Serie("Zelda"), out Serie serieASupprimer);
 			donnees.SupprimerSerie(serieASupprimer);
             // On récupère toutes les séries dont au moins un personnage est dans un groupe
             ISet<Serie> seriesDansGroupes = new HashSet<Serie>();
