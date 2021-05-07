@@ -60,17 +60,15 @@ namespace UnitTests
             Chargeur chargeur1 = new Stub("");
             Donnees donnees = chargeur1.Charger();
 
-            Serie serieASupprimer;
-
-            donnees.Series.TryGetValue(new Serie("zelda"), out serieASupprimer);
-            donnees.SupprimerSerie(serieASupprimer);
+			donnees.Series.TryGetValue(new Serie("zelda"), out Serie serieASupprimer);
+			donnees.SupprimerSerie(serieASupprimer);
             // On récupère toutes les séries dont au moins un personnage est dans un groupe
             ISet<Serie> seriesDansGroupes = new HashSet<Serie>();
             foreach (KeyValuePair<string, HashSet<Personnage>> paires in donnees.Groupes)
             {
                 foreach (Personnage perso in paires.Value)
                 {
-                    //seriesDansGroupes.Add(perso.SerieDuPerso);
+                    seriesDansGroupes.Add(new Serie(perso.SerieDuPerso));
                 }
             }
 

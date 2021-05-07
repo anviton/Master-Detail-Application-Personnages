@@ -12,15 +12,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_Personnage", "Test_Personnage\Test_Personnage.csproj", "{966CFF94-D0DC-42A6-9E4A-37B7CFFA577F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{7BD3604C-FC6F-4DC8-8581-73A353398E74}"
-	ProjectSection(ProjectDependencies) = postProject
-		{BE1A51BE-8C57-4B2F-9759-444D31D4D4AA} = {BE1A51BE-8C57-4B2F-9759-444D31D4D4AA}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{F2F0B140-F44B-4E22-BB2F-2652AD629C3E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes", "Classes\Classes.csproj", "{BE1A51BE-8C57-4B2F-9759-444D31D4D4AA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modele", "Modele\Modele.csproj", "{58E95259-32F2-460D-8B04-46B8B3661D58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modele", "Modele\Modele.csproj", "{58E95259-32F2-460D-8B04-46B8B3661D58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,10 +43,6 @@ Global
 		{F2F0B140-F44B-4E22-BB2F-2652AD629C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2F0B140-F44B-4E22-BB2F-2652AD629C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2F0B140-F44B-4E22-BB2F-2652AD629C3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BE1A51BE-8C57-4B2F-9759-444D31D4D4AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE1A51BE-8C57-4B2F-9759-444D31D4D4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE1A51BE-8C57-4B2F-9759-444D31D4D4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE1A51BE-8C57-4B2F-9759-444D31D4D4AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{58E95259-32F2-460D-8B04-46B8B3661D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{58E95259-32F2-460D-8B04-46B8B3661D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58E95259-32F2-460D-8B04-46B8B3661D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
