@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Classes
 {
-    public abstract class Nommable
+    public abstract class Nommable : IEquatable<Nommable>
     {
         // Attributs
 
@@ -29,6 +30,20 @@ namespace Classes
         public Nommable(string nom)
         {
             Nom = nom;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Nommable))
+            {
+                return false;
+            }
+            return Equals((Nommable)obj);
+        }
+
+        public bool Equals(Nommable other)
+        {
+            return (this.Nom == other.Nom);
         }
     }
 }

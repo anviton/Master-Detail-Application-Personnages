@@ -16,41 +16,30 @@ namespace Classes
         public HashSet<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
         public HashSet<Relation> Relations { get; }
+        public Serie SerieDuPerso;
 
-        //Protocole d'égalité
-        /// <summary>
-        /// Permet de vérifier si relation et obj sont égaaux
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public override bool Equals(object obj)
+        // Méthodes
+        public Personnage(string nom, Serie serie) : base(nom)
         {
-            if (object.ReferenceEquals(obj, null))
-            {
-                return false;
-            }
-
-            if (object.ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (this.GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            return this.Equals(obj as Personnage);
+            Relations = new HashSet<Relation>();
+            JeuxVideo = new HashSet<JeuVideo>();
+            SerieDuPerso = serie;
         }
 
-        /// <summary>
-        /// Permet de vérifier si les champs Type, NomPersoNonRec, PersoRec relation et obj sont égaux
-        /// </summary>
-        /// <param name="autre"></param>
-        /// <returns></returns>
-        public bool Equals(Personnage autre)
+        //Protocole d'égalité
+        public override bool Equals(object obj)
         {
-            return (this.Nom==autre.Nom);
+            if (!(obj is Personnage))
+            {
+                return false;
+            }
+
+            return Equals((Personnage)obj);
+        }
+
+        public override bool Equals(Personnage other)
+        {
+            return (base.Equals(other) && this.SerieDuPerso.Equals(other.SerieDuPerso));
         }
 
         /// <summary>
@@ -61,14 +50,6 @@ namespace Classes
         {
 
             return Nom.GetHashCode() % 31;
-        }
-
-        // Méthodes
-        public Personnage(string nom) : base(nom.ToUpper())
-        {
-            Relations = new HashSet<Relation>();
-            JeuxVideo = new HashSet<JeuVideo>();
-            // INITIALISER LES LISTES ?
         }
 
         /// <summary>

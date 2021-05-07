@@ -7,12 +7,102 @@ namespace Classes
     public class Donnees
     {
         public ISet<Serie> Series { get; }
+        // Format : string = nom, HashSet = personnages appartenant au groupe
         public IDictionary<string, HashSet<Personnage>> Groupes { get; }
 
         public Donnees()
         {
             Series = new HashSet<Serie>();
             Groupes = new Dictionary<string, HashSet<Personnage>>();
+        }
+
+        /// <summary>
+        /// Ajoute une nouvelle série de jeux vidéo.
+        /// </summary>
+        /// <param name="nom">Le nom de la nouvelle série.</param>
+        /// <exception cref="ArgumentException">Levée si la série existe déjà.</exception>
+        public void AjouterSerie(string nom)
+        {
+            // On instancie une nouvelle série.
+            Serie serie = new Serie(nom);
+
+            // On fait un test pour savoir si la série existe déjà.
+            // Si c'est le cas, on lance une exception.
+            if (Series.Contains(serie))
+            {
+                throw new ArgumentException($"La série \"{nom}\" existe déjà.");
+            }
+
+            // La série n'existe pas : on peut l'ajouter.
+            Series.Add(serie);
+        }
+
+        /// <summary>
+        /// Supprime une série et tous ses personnages.
+        /// Si un personnage est présent dans des groupes, ils seront supprimés de ces groupes.
+        /// </summary>
+        /// <param name="serie">La série à supprimer</param>
+        /// <exception cref="ArgumentException">Levée si la série n'existe pas.</exception>
+        public void SupprimerSerie(Serie serie)
+        {
+            // On fait un test pour vérifier la non-existance de la série.
+            // Si la série n'existe pas, on lève une exception.
+            if (!Series.Contains(serie))
+            {
+                throw new ArgumentException("La série n'existe pas.");
+            }
+
+            // Si l'exception n'est pas levée, on peut supprimer des groupes les personnage de la série.
+
+            // On parcours le HashSet de la série correspondante
+            foreach (Personnage perso in serie.Personnages)
+            {
+                // On parcours tous les groupes
+                foreach (KeyValuePair<string, HashSet<Personnage>> groupe in Groupes)
+                {
+                    // On supprime le perso du groupe actuellement parcouru
+                    groupe.Value.Remove(perso);
+                }
+            }
+
+            // On peut supprimer la série
+            Series.Remove(serie);
+        }
+
+        /// <summary>
+        /// Permet de créer un nouveau groupe de personnages (série ou groupe).
+        /// </summary>
+        /// <param name="nom">Le nom du nouveau groupe.</param>
+        /// <exception cref="ArgumentException">Levée si le groupe existe déjà.</exception>
+        public void AjouterGroupe(string nom)
+        {
+            // On fait un test pour savoir si le regroupement existe.
+            // S'il existe, on lève une exception.
+            if (Groupes.ContainsKey(nom))
+            {
+                throw new ArgumentException("Le groupe existe déjà.");
+            }
+
+            // L'exception n'a pas été levée : on peut ajouter un nouveau regroupement de personnages.
+            Groupes.Add(nom, new HashSet<Personnage>());
+        }
+
+        /// <summary>
+        /// Permet de supprimer un groupe de personnages.
+        /// </summary>
+        /// <param name="nom">Le nom du groupe à supprimer.</param>
+        /// <exception cref="ArgumentException">Levée si le groupe n'existe pas.</exception>
+        public void SupprimerGroupe(string nom)
+        {
+            // On fait un test pour vérifier la non-existance du groupe.
+            // Si le groupe n'existe pas, on lève une exception.
+            if (! Groupes.ContainsKey(nom))
+            {
+                throw new ArgumentException("Le groupe n'existe pas.");
+            }
+
+            // On peut supprimer le groupe.
+            Groupes.Remove(nom);
         }
 
         /// <summary>
@@ -63,54 +153,6 @@ namespace Classes
 
             // Si aucun test n'a lancé d'exception, on peut retirer le personnage du groupe.
             Groupes[nomGroupe].Remove(personnage);
-		}
-        
-        /// <summary>
-        /// Ajoute une nouvelle série de jeux vidéo.
-        /// </summary>
-        /// <param name="nom">Le nom de la nouvelle série.</param>
-        /// <exception cref="ArgumentException">Lancé si la série existe déjà.</exception>
-        public void AjouterSerie(string nom)
-		{
-            // On instancie une nouvelle série.
-            Serie serie = new Serie(nom);
-
-            // On fait un test pour savoir si la série existe déjà.
-            // Si c'est le cas, on lance une exception.
-            if (Series.Contains(serie))
-			{
-                throw new ArgumentException($"La série \"{nom}\" existe déjà.");
-			}
-
-            // La série n'existe pas : on peut l'ajouter.
-            Series.Add(serie);
-		}
-        
-        /// <summary>
-        /// Supprime une série de jeux
-        /// </summary>
-        /// <param name="serie">La série à supprimer</param>
-        public void SupprimerSerie(Serie serie)
-		{
-            throw new NotImplementedException();
-            // On fait un test vérifiant la non-existance de serie.
-            // Si la série n'existe pas, on lance une exception.
-            if (! Series.Contains(serie))
-			{
-                throw new ArgumentException($"La série \"{serie.Nom}\" n'existe pas.");
-			}
-
-            // On vérifie si la série contient des personnages : si c'est le cas, on supprime les personnages.
-            if (serie.Personnages.Count == 0)
-			{
-                foreach (Personnage personnage in serie.Personnages)
-                {
-                    ;
-				}
-			}
-
-            // La série existe : on peut la supprimer.
-            Series.Remove(serie);
 		}
     }
 }

@@ -14,10 +14,9 @@ namespace Data
         public override Donnees Charger(string chemin)
         {
             Donnees test = new Donnees();
-            Personnage perso1 = new Personnage("Mario");
-            Personnage perso2 = new Personnage("Bowser");
             Serie mario = new Serie("mario");
-            mario.AjouterUnPersonnage(perso1);
+            Personnage perso1 = new Personnage("Mario", mario);
+            Personnage perso2 = new Personnage("Bowser", mario);
             mario.AjouterUnPersonnage(perso1);
             mario.AjouterUnPersonnage(perso2);
             mario.Personnages[mario.Personnages.IndexOf(perso1)].AjouterRelation("Ennemi", perso2);
