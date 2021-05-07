@@ -42,6 +42,9 @@ namespace Test_Personnage
             Donnees donnees = chargeur1.Charger();
             //Test de l'affichage de toutes les série
             AfficherLesSeries(donnees.Series);
+            donnees.SupprimerSerie(new Serie("mario"));
+            AfficherLesSeries(donnees.Series);
+
             //Test de l'affichage des membres d'une série
             //AfficherUneSerie(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))]);
             //Test de l'affichage des relations d'un personnage (ayant des relations)

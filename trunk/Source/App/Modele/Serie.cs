@@ -26,5 +26,19 @@ namespace Modele
                 Personnages.Add(personnage);
         }
 
+        /// <summary>
+        /// Permet de retrouverUnPersonnage
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <returns></returns>
+        public Personnage RechercherUnPersonnage(string nom)
+        {
+            return Personnages[Personnages.IndexOf(new Personnage("nom"))];
+        }
+
+        public override string ToString()
+        {
+            return Nom;
+        }
     }
 }
