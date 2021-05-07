@@ -6,13 +6,13 @@ namespace Classes
 {
     public class Donnees
     {
-        public ISet<Serie> Series { get; }
+        public List<Serie> Series { get; }
         // Format : string = nom, HashSet = personnages appartenant au groupe
         public IDictionary<string, HashSet<Personnage>> Groupes { get; }
 
         public Donnees()
         {
-            Series = new HashSet<Serie>();
+            Series = new List<Serie>();
             Groupes = new Dictionary<string, HashSet<Personnage>>();
         }
 

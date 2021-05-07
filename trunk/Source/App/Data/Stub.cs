@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Classes;
+using Modele;
 
 namespace Data
 {
@@ -14,13 +14,13 @@ namespace Data
         public override Donnees Charger()
         {
             Donnees test = new Donnees();
-            //Serie mario = new Serie("mario");
-            //Serie zelda = new Serie("Zelda");
-            Serie mario = test.AjouterSerie("mario");
-            Serie zelda = test.AjouterSerie("Zelda");
-            Personnage perso1 = new Personnage("Mario", mario);
-            Personnage perso2 = new Personnage("Bowser", mario);
-            Personnage perso3 = new Personnage("Link", zelda);
+            Serie mario = new Serie("mario");
+            Serie zelda = new Serie("Zelda");
+            test.AjouterSerie("mario");
+            test.AjouterSerie("Zelda");
+            Personnage perso1 = new Personnage("Mario");
+            Personnage perso2 = new Personnage("Bowser");
+            Personnage perso3 = new Personnage("Link");
             mario.AjouterUnPersonnage(perso1);
             mario.AjouterUnPersonnage(perso2);
             zelda.AjouterUnPersonnage(perso3);

@@ -1,5 +1,5 @@
 ﻿using System;
-using Classes;
+using Modele;
 using System.Collections.Generic;
 using Data;
 namespace Test_Personnage
@@ -43,11 +43,11 @@ namespace Test_Personnage
             //Test de l'affichage de toutes les série
             AfficherLesSeries(donnees.Series);
             //Test de l'affichage des membres d'une série
-            AfficherUneSerie(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))]);
+            //AfficherUneSerie(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))]);
             //Test de l'affichage des relations d'un personnage (ayant des relations)
-            AfficherLesRelations(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))].Personnages[0]);
+            //AfficherLesRelations(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))].Personnages[0]);
             //Test de l'afichage des relations d'un personnage (n'ayant pas de relations)
-            AfficherLesRelations(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))].Personnages[1]);
+            //AfficherLesRelations(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))].Personnages[1]);
         }
 
         private static void AfficherUneSerie (Serie serie)
@@ -87,7 +87,7 @@ namespace Test_Personnage
             }
         }
 
-        private static void AfficherLesSeries(List<Serie> Series)
+        private static void AfficherLesSeries(HashSet<Serie> Series)
         {
             Console.WriteLine("La liste des séries :");
             foreach (Serie serie in Series)

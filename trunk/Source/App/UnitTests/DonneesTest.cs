@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Classes;
+using Modele;
 using Data;
 using System.Collections.Generic;
 using System;
@@ -48,7 +48,7 @@ namespace UnitTests
             {
                 foreach (Personnage perso in paires.Value)
                 {
-                    seriesDansGroupes.Add(perso.SerieDuPerso);
+                    //seriesDansGroupes.Add(perso.SerieDuPerso);
                 }
             }
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using Classes;
+using Modele;
 
 namespace Test_JeuVideo
 {
