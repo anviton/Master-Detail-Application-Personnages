@@ -26,5 +26,9 @@ namespace Classes
                 Personnages.Add(personnage);
         }
 
+        public override string ToString()
+        {
+            return Nom;
+        }
     }
 }
