@@ -6,13 +6,13 @@ namespace Modele
 {
     public class Donnees
     {
-        public HashSet<Serie> Series { get; }
+        public HashSet<Serie> Series { get; } // Un HashSet n'est Pas utilisable car on doit pouvoir récupéré les séries
         // Format : string = nom, HashSet = personnages appartenant au groupe
         public IDictionary<string, HashSet<Personnage>> Groupes { get; }
 
         public Donnees()
         {
-            Series = new HashSet<Serie>();
+            Series = new HashSet< Serie >(); 
             Groupes = new Dictionary<string, HashSet<Personnage>>();
         }
 
@@ -68,6 +68,8 @@ namespace Modele
             // On peut supprimer la série
             Series.Remove(serie);
         }
+
+        
 
         /// <summary>
         /// Permet de créer un nouveau groupe de personnages (série ou groupe).
@@ -130,6 +132,11 @@ namespace Modele
             Groupes[nomGroupe].Add(personnage);
 		}
 
+        /*public Serie RecherUneSerie(string nom)
+        {
+            //return Series[Series.indexof(new Serie("nom"))];
+        }*/
+
         /// <summary>
         /// Retire un personnage d'un groupe.
         /// </summary>
@@ -153,6 +160,6 @@ namespace Modele
 
             // Si aucun test n'a lancé d'exception, on peut retirer le personnage du groupe.
             Groupes[nomGroupe].Remove(personnage);
-		}
+		} 
     }
 }
