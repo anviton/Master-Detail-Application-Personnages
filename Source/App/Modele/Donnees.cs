@@ -21,7 +21,7 @@ namespace Modele
         /// </summary>
         /// <param name="nom">Le nom de la nouvelle série.</param>
         /// <exception cref="ArgumentException">Levée si la série existe déjà.</exception>
-        public void AjouterSerie(string nom)
+        public Serie AjouterSerie(string nom)
         {
             // On instancie une nouvelle série.
             Serie serie = new Serie(nom);
@@ -35,6 +35,7 @@ namespace Modele
 
             // La série n'existe pas : on peut l'ajouter.
             Series.Add(serie);
+            return serie;
         }
 
         /// <summary>
