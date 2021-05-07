@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassesApp\Classes.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
