@@ -15,10 +15,10 @@ namespace Data
         {
             Donnees test = new Donnees();
             test.AjouterSerie("mario");
-            test.AjouterSerie("Zelda");
+            test.AjouterSerie("zelda");
             Personnage perso1 = test.EnregistrerPersonnage("Mario", "mario");
             Personnage perso2 = test.EnregistrerPersonnage("Bowser", "mario");
-            Personnage perso3 = test.EnregistrerPersonnage("Link", "Zelda");
+            Personnage perso3 = test.EnregistrerPersonnage("Link", "zelda");
             perso1.AjouterRelation("Ennemi", perso2);
             perso1.AjouterRelation("Fère", "Luigi");
             test.AjouterGroupe("Triforce");

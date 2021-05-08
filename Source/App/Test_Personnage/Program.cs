@@ -42,15 +42,20 @@ namespace Test_Personnage
             Donnees donnees = chargeur1.Charger();
             //Test de l'affichage de toutes les série
             AfficherLesSeries(donnees.Series);
-            donnees.SupprimerSerie(new Serie("mario"));
+            donnees.SupprimerSerie(new Serie("zelda"));
             AfficherLesSeries(donnees.Series);
-
+            Serie serie;
+            donnees.Series.TryGetValue(new Serie("mario"), out serie);
             //Test de l'affichage des membres d'une série
-            //AfficherUneSerie(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))]);
+            AfficherUneSerie(serie);
             //Test de l'affichage des relations d'un personnage (ayant des relations)
-            //AfficherLesRelations(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))].Personnages[0]);
+            Personnage perso1;
+            serie.Personnages.TryGetValue(new Personnage("Mario", "mario"), out perso1);
+            AfficherLesRelations(perso1);
             //Test de l'afichage des relations d'un personnage (n'ayant pas de relations)
-            //AfficherLesRelations(donnees.Series[donnees.Series.IndexOf(new Serie("mario"))].Personnages[1]);
+            Personnage perso2;
+            serie.Personnages.TryGetValue(new Personnage("Bowser", "mario"), out perso2);
+            AfficherLesRelations(perso2);
         }
 
         private static void AfficherUneSerie (Serie serie)
