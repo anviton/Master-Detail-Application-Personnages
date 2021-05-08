@@ -193,6 +193,8 @@ namespace Modele
 
             // Si aucun test n'a lancé d'exception, on peut retirer le personnage du groupe.
             Groupes[nomGroupe].Remove(personnage);
-		} 
+		}
+
+        
     }
 }
