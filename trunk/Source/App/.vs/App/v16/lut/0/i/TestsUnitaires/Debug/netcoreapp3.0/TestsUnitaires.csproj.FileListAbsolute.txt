@@ -1,0 +1,11 @@
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\TestsUnitaires\Debug\netcoreapp3.0\NUnit3.TestAdapter.dll
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\TestsUnitaires\Debug\netcoreapp3.0\NUnit3.TestAdapter.pdb
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\TestsUnitaires\Debug\netcoreapp3.0\nunit.engine.netstandard.dll
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\TestsUnitaires\Debug\netcoreapp3.0\TestsUnitaires.deps.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\TestsUnitaires\Debug\netcoreapp3.0\TestsUnitaires.runtimeconfig.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\TestsUnitaires\Debug\netcoreapp3.0\TestsUnitaires.runtimeconfig.dev.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\TestsUnitaires\Debug\netcoreapp3.0\TestsUnitaires.dll
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\TestsUnitaires\Debug\netcoreapp3.0\TestsUnitaires.AssemblyInfoInputs.cache
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\TestsUnitaires\Debug\netcoreapp3.0\TestsUnitaires.AssemblyInfo.cs
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\TestsUnitaires\Debug\netcoreapp3.0\TestsUnitaires.csproj.CopyComplete
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\TestsUnitaires\Debug\netcoreapp3.0\TestsUnitaires.dll

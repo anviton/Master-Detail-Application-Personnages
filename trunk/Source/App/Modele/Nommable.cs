@@ -8,20 +8,7 @@ namespace Modele
         // Attributs
 
 
-        public string Nom {
-            get { return nom; }
-            protected set {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-
-                }
-                else
-                {
-                    nom = value;
-                }
-            }
-        }
-        private string nom;
+        public string Nom { get; }
 
         /// <summary>
         /// Constructeur

@@ -1,0 +1,9 @@
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_Personnage\Debug\netcoreapp3.0\Test_Personnage.exe
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_Personnage\Debug\netcoreapp3.0\Test_Personnage.deps.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_Personnage\Debug\netcoreapp3.0\Test_Personnage.runtimeconfig.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_Personnage\Debug\netcoreapp3.0\Test_Personnage.runtimeconfig.dev.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_Personnage\Debug\netcoreapp3.0\Test_Personnage.dll
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\Test_Personnage\Debug\netcoreapp3.0\Test_Personnage.AssemblyInfoInputs.cache
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\Test_Personnage\Debug\netcoreapp3.0\Test_Personnage.AssemblyInfo.cs
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\Test_Personnage\Debug\netcoreapp3.0\Test_Personnage.csproj.CopyComplete
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\Test_Personnage\Debug\netcoreapp3.0\Test_Personnage.dll

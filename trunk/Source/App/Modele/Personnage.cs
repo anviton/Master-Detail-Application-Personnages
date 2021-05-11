@@ -15,14 +15,15 @@ namespace Modele
         public string Image { get; set; }
         public HashSet<JeuVideo> JeuxVideo { get; set; }
         public ThemeMusical Theme { get; set; }
-        public HashSet<Relation> Relations { get; }
-        public string SerieDuPerso;
+        public HashSet<Relation> Relations { get; set; }
+        public string SerieDuPerso { get; }
+        public HashSet<Personnage> ARelationAvec { get; }
 
         // Méthodes
         public Personnage(string nom, string serie) : base(nom)
         {
-            Relations = new HashSet<Relation>();
-            SerieDuPerso = serie;
+            Relations = new HashSet<Relation>();            SerieDuPerso = serie;
+            ARelationAvec = new HashSet<Personnage>();
         }
 
         //Protocole d'égalité
