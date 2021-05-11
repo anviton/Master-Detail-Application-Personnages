@@ -56,6 +56,10 @@ namespace Test_Personnage
             Personnage perso2;
             serie.Personnages.TryGetValue(new Personnage("Bowser", "mario"), out perso2);
             AfficherLesRelations(perso2);
+            AfficherLalisteDesJeuxDunPerso(perso1);
+            perso1.SupprimerUnJeu(new JeuVideo("Super Mario Bros"));
+            AfficherLalisteDesJeuxDunPerso(perso1);
+
         }
 
         private static void AfficherUneSerie (Serie serie)
@@ -89,6 +93,7 @@ namespace Test_Personnage
 
         private static void AfficherLalisteDesJeuxDunPerso(Personnage personnage)
         {
+            Console.WriteLine($"Les jeux de {personnage.Nom} sont : ");
             foreach (JeuVideo jeu in personnage.JeuxVideo)
             {
                 Console.WriteLine(jeu);
