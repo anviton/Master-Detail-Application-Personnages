@@ -21,21 +21,21 @@ namespace Modele
         /// <param name="nom">Le nom du personnage a ajouter</param>
         /// <exception cref="ArgumentException">Levée si le personnage est déjà enregistré dans la série.</exception>
         /// <returns>Le personnage créé.</returns>
-        internal Personnage AjouterUnPersonnage(string nom)
+        internal bool AjouterUnPersonnage(string nom, out Personnage nouveauPerso)
         {
             // On instancie le personnage
-            Personnage personnage = new Personnage(nom, this.Nom);
+            nouveauPerso= new Personnage(nom, this.Nom);
 
             // On fait un test pour savoir si le personnage est déjà enregistré dans cette série.
             // Si c'est le cas, on lève une exception.
-            if (Personnages.Contains(personnage))
+            if (Personnages.Contains(nouveauPerso))
 			{
-                throw new ArgumentException($"Le personnage \"{nom}\" est déjà enregistré dans la série \"{this.Nom}\".");
+                return false;
 			}
 
             // L'exception n'a pas été levée : on peut l'ajouter à la série.
-            Personnages.Add(personnage);
-            return personnage;
+            Personnages.Add(nouveauPerso);
+            return true;
         }
 
         internal void SupprimerUnPersonnage(Personnage personnage)

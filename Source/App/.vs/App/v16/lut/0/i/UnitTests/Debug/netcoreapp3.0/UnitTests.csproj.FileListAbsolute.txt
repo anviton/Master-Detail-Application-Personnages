@@ -1,0 +1,12 @@
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\UnitTests\Debug\netcoreapp3.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\UnitTests\Debug\netcoreapp3.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\UnitTests\Debug\netcoreapp3.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\UnitTests\Debug\netcoreapp3.0\UnitTests.deps.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\UnitTests\Debug\netcoreapp3.0\UnitTests.runtimeconfig.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\UnitTests\Debug\netcoreapp3.0\UnitTests.runtimeconfig.dev.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\UnitTests\Debug\netcoreapp3.0\UnitTests.dll
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\UnitTests\Debug\netcoreapp3.0\UnitTests.csprojAssemblyReference.cache
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\UnitTests\Debug\netcoreapp3.0\UnitTests.AssemblyInfoInputs.cache
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\UnitTests\Debug\netcoreapp3.0\UnitTests.AssemblyInfo.cs
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\UnitTests\Debug\netcoreapp3.0\UnitTests.csproj.CopyComplete
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\UnitTests\Debug\netcoreapp3.0\UnitTests.dll

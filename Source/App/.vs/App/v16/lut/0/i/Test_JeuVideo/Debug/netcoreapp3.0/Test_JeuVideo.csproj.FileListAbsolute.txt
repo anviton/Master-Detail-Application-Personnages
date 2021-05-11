@@ -1,0 +1,9 @@
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_JeuVideo\Debug\netcoreapp3.0\Test_JeuVideo.exe
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_JeuVideo\Debug\netcoreapp3.0\Test_JeuVideo.deps.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_JeuVideo\Debug\netcoreapp3.0\Test_JeuVideo.runtimeconfig.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_JeuVideo\Debug\netcoreapp3.0\Test_JeuVideo.runtimeconfig.dev.json
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\b\Test_JeuVideo\Debug\netcoreapp3.0\Test_JeuVideo.dll
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\Test_JeuVideo\Debug\netcoreapp3.0\Test_JeuVideo.AssemblyInfoInputs.cache
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\Test_JeuVideo\Debug\netcoreapp3.0\Test_JeuVideo.AssemblyInfo.cs
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\Test_JeuVideo\Debug\netcoreapp3.0\Test_JeuVideo.csproj.CopyComplete
+U:\poo\cs\projet\trunk\Source\App\.vs\App\v16\lut\0\i\Test_JeuVideo\Debug\netcoreapp3.0\Test_JeuVideo.dll

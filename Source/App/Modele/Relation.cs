@@ -35,13 +35,14 @@ namespace Modele
         /// Constructeur
         /// créer une relation avec un personnage enregistré
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="perso"></param>
-        public Relation(string type, Personnage perso)
+        /// <param name="type">Le type de relation avec le personnage</param>
+        /// <param name="persoDeLaRelation">Le personnage inscrit sur la relation (celui qui apparaîtra sur la fiche)</param>
+        /// <param name="persoAyantLaRelation">Le personnage concerné par la relation (l'instance de Personnage contenant cette instance de Relation)</param>
+        public Relation(string type, Personnage persoDeLaRelation, Personnage persoAyantLaRelation)
         {
             Type = type;
-            NomPersoNonRec = null;
-            PersoRec = perso;
+            PersoRec = persoDeLaRelation;
+            persoDeLaRelation.ARelationAvec.Add(persoAyantLaRelation);
         }
 
         //Protocole d'égalité
@@ -114,7 +115,7 @@ namespace Modele
         /// On transforme une relation avec un personnage enregistré en relation avec un personnage non enregistré
         /// </summary>
         /// <param name="nom">nom du personnage non enregistré</param>
-        public void ModifierRelation (String nom)
+        public void ModifierRelation (string nom)
         {
             PersoRec = null;
             NomPersoNonRec = nom;

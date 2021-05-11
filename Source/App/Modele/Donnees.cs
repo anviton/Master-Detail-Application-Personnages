@@ -20,28 +20,27 @@ namespace Modele
         /// Ajoute une nouvelle série de jeux vidéo.
         /// </summary>
         /// <param name="nom">Le nom de la nouvelle série.</param>
-        /// <exception cref="ArgumentException">Levée si la série existe déjà.</exception>
-        /// <returns>La série nouvellement créée.</returns>
-        public Serie AjouterSerie(string nom)
+        /// <param name="serie">La série nouvellement créée.</param>
+        /// <returns>true si la série est ajoutée, false si la série existe déjà.</returns>
+        public bool AjouterSerie(string nom, out Serie serie)
         {
             // On instancie une nouvelle série.
-            Serie serie = new Serie(nom);
+            serie = new Serie(nom);
 
             // On fait un test pour savoir si la série existe déjà.
             // Si c'est le cas, on lance une exception.
             if (Series.Contains(serie))
             {
-                throw new ArgumentException($"La série \"{nom}\" existe déjà.");
+                return false;
             }
 
             // La série n'existe pas : on peut l'ajouter.
             Series.Add(serie);
-            return serie;
+            return true;
         }
 
         /// <summary>
-        /// Supprime une série et tous ses personnages.
-        /// Si un personnage est présent dans des groupes, ils seront supprimés de ces groupes.
+        /// Supprime une série. Cette méthode est appelée si une série n'a plus de personnages.
         /// </summary>
         /// <param name="serie">La série à supprimer</param>
         /// <exception cref="ArgumentException">Levée si la série n'existe pas.</exception>
@@ -54,19 +53,6 @@ namespace Modele
                 throw new ArgumentException("La série n'existe pas.");
             }
 
-            // Si l'exception n'est pas levée, on peut supprimer des groupes les personnage de la série.
-
-            // On parcours le HashSet de la série correspondante
-            foreach (Personnage perso in serie.Personnages)
-            {
-                // On parcours tous les groupes
-                foreach (KeyValuePair<string, HashSet<Personnage>> groupe in Groupes)
-                {
-                    // On supprime le perso du groupe actuellement parcouru
-                    groupe.Value.Remove(perso);
-                }
-            }
-
             // On peut supprimer la série
             Series.Remove(serie);
         }
@@ -76,35 +62,43 @@ namespace Modele
         /// </summary>
         /// <param name="nomPerso">Le nom du nouveau personnage.</param>
         /// <param name="nomSerie">Le nom de la série du nouveau personnage.</param>
+        /// <param name="nouveauPerso">Le personnage nouvellement créé.</param>
         /// <exception cref="ArgumentException">Levée si la série n'existe pas.</exception>
-        /// <returns>Le personnage nouvellement créé.</returns>
-        public Personnage EnregistrerPersonnage(string nomPerso, string nomSerie)
+        /// <returns>true si le personnage est enregistré, false s'il existe déjà (utilise la valeur de retour de Serie.AjouterUnPersonnage)</returns>
+        public bool EnregistrerPersonnage(string nomPerso, string nomSerie, out Personnage nouveauPerso)
         {
-            /*
-             * Je suis pas sûr que passer le nom de la série en paramètres soit une bonne idée.
-             * Au pire, on changera.
-             */
             if (Series.TryGetValue(new Serie(nomSerie), out Serie serie))
                 // Si la série existe
-                return serie.AjouterUnPersonnage(nomPerso);
+                return serie.AjouterUnPersonnage(nomPerso, out nouveauPerso);
             else
+            {
                 // On lève une exception si elle n'existe pas
+                nouveauPerso = null;
                 throw new ArgumentException($"La série \"{nomSerie}\" n'existe pas.");
+            }
         }
 
         /// <summary>
         /// Supprime un personnage d'une série et de tous les groupes dans lesquels il pourrait se trouver.
+        /// Transforme aussi les relations ayant une référence à ce personnage en une relation avec personnage non enregistré.
+        /// S'il s'agit du dernier personnage d'une série, supprime la série.
         /// </summary>
         /// <param name="perso">Le personnage à supprimer.</param>
         public void SupprimerPersonnage(Personnage perso)
 		{
+            // Obtention de la série
             Series.TryGetValue(new Serie(perso.SerieDuPerso), out Serie serie);
+
+            // Suppression du personnage de tous les groupes
             foreach (KeyValuePair<string, HashSet<Personnage>> groupe in Groupes) {
-                try
-				{
-                    groupe.Value.Remove(perso);
-				} catch (ArgumentException) { }
+                groupe.Value.Remove(perso);
 			}
+
+            // Transformation des relations des autres personnages
+            foreach (Personnage personnage in perso.ARelationAvec) // On parcours les personnages ayant une relation avec le personnage à supprimer
+            {
+                // TODO
+            }
 
             serie.SupprimerUnPersonnage(perso);
 		}
