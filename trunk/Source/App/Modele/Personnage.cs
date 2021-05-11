@@ -13,7 +13,7 @@ namespace Modele
         //Propriétés
         public IList<string> Citations { get; set; }
         public string Image { get; set; }
-        public HashSet<JeuVideo> JeuxVideo { get; }
+        public HashSet<JeuVideo> JeuxVideo { get; set; }
         public ThemeMusical Theme { get; set; }
         public HashSet<Relation> Relations { get; }
         public string SerieDuPerso;
@@ -22,7 +22,6 @@ namespace Modele
         public Personnage(string nom, string serie) : base(nom)
         {
             Relations = new HashSet<Relation>();
-            JeuxVideo = new HashSet<JeuVideo>();
             SerieDuPerso = serie;
         }
 
@@ -82,6 +81,24 @@ namespace Modele
         }
 
         /// <summary>
+        /// Permet d'ajouter un jeu à la liste des jeux video du perso
+        /// </summary>
+        /// <param name="jeu"></param>
+        public void AjouterUnJeu(JeuVideo jeu)
+        {
+            JeuxVideo.Add(jeu);
+        }
+
+        /// <summary>
+        /// Permet de supprimer un jeu 
+        /// </summary>
+        /// <param name="jeu"></param>
+        public void SupprimerUnJeu(JeuVideo jeu)
+        {
+            JeuxVideo.Remove(jeu);
+        }
+
+        /// <summary>
         /// Retourne le Personnage sous forme de string
         /// </summary>
         /// <returns></returns>
@@ -89,6 +106,8 @@ namespace Modele
         {
             return $"{Nom} {Image}";
         }
+
+
 
     }
 }

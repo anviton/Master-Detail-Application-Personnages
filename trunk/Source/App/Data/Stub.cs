@@ -19,6 +19,11 @@ namespace Data
             Personnage perso1 = test.EnregistrerPersonnage("Mario", "mario");
             Personnage perso2 = test.EnregistrerPersonnage("Bowser", "mario");
             Personnage perso3 = test.EnregistrerPersonnage("Link", "zelda");
+            perso1.JeuxVideo = new HashSet<JeuVideo>{
+                new JeuVideo("Super Mario 64", 1997),
+                new JeuVideo("Super Mario Bros", 1982),
+                new JeuVideo("Super Mario Bros 2")
+            };
             perso1.AjouterRelation("Ennemi", perso2);
             perso1.AjouterRelation("Fère", "Luigi");
             test.AjouterGroupe("Triforce");

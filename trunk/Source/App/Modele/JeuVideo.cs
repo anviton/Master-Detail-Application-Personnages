@@ -15,13 +15,23 @@ namespace Modele
         /// Constructeur de la classe JeuVideo
         /// </summary>
         /// <param name="nom">nom du jeux </param>
+        public JeuVideo(string nom, int annee) : base(nom)
+        {
+            AnneeDeCreation = annee;
+        }
+
         public JeuVideo(string nom) : base(nom)
         {
             
         }
 
+
         public override string ToString()
         {
+            if (AnneeDeCreation == 0)
+            {
+                return $"{Nom}";
+            }
             return $"{Nom} ({AnneeDeCreation})";
         }
     }
