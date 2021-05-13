@@ -15,7 +15,11 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
-            Assert.IsTrue(donnees.AjouterSerie("Ori", out Serie serie));
+            Serie serie = new Serie("Ori");
+
+            Assert.IsFalse(donnees.Series.Contains(serie));
+            Assert.IsTrue(donnees.AjouterSerie("Ori", out serie));
+            Assert.IsTrue(donnees.Series.Contains(serie));
 		}
 
         [TestMethod]
@@ -24,7 +28,10 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
-            Assert.IsFalse(donnees.AjouterSerie("zelda", out Serie serie));
+            Serie serie = new Serie("zelda");
+
+            Assert.IsTrue(donnees.Series.Contains(serie));
+            Assert.IsFalse(donnees.AjouterSerie("zelda", out _));
         }
 
         [TestMethod]
@@ -34,8 +41,11 @@ namespace UnitTests
             Donnees donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            Personnage personnage = new Personnage("Ganon", serie.Nom);
 
-            Assert.IsTrue(donnees.EnregistrerPersonnage("Ganon", serie, out Personnage personnage));
+            Assert.IsFalse(serie.Personnages.Contains(personnage));
+            Assert.IsTrue(donnees.EnregistrerPersonnage("Ganon", serie, out personnage));
+            Assert.IsTrue(serie.Personnages.Contains(personnage));
         }
 
         [TestMethod]
@@ -45,8 +55,10 @@ namespace UnitTests
             Donnees donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            Personnage personnage = new Personnage("Link", serie.Nom);
 
-            Assert.IsFalse(donnees.EnregistrerPersonnage("Link", serie, out Personnage personnage));
+            Assert.IsTrue(serie.Personnages.Contains(personnage));
+            Assert.IsFalse(donnees.EnregistrerPersonnage("Link", serie, out _));
         }
 
         [TestMethod]
@@ -61,6 +73,7 @@ namespace UnitTests
             donnees.SupprimerPersonnage(personnage);
 
             Assert.IsTrue(donnees.Series.Contains(serie));
+            Assert.IsFalse(serie.Personnages.Contains(personnage));
         }
 
         [TestMethod]
@@ -72,8 +85,8 @@ namespace UnitTests
             donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
 
+            Assert.IsTrue(serie.Personnages.Contains(personnage));
             donnees.SupprimerPersonnage(personnage);
-
             Assert.IsFalse(donnees.Series.Contains(serie));
         }
 
@@ -86,8 +99,9 @@ namespace UnitTests
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
 
+            Assert.IsTrue(donnees.Groupes["Triforce"].Contains(personnage));
+            Assert.IsTrue(serie.Personnages.Contains(personnage));
             donnees.SupprimerPersonnage(personnage);
-
             Assert.IsFalse(donnees.Groupes["Triforce"].Contains(personnage));
             Assert.IsFalse(serie.Personnages.Contains(personnage));
         }
@@ -103,8 +117,9 @@ namespace UnitTests
             serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage mario);
             mario.Relations.TryGetValue(new Relation("Ennemi", bowser), out Relation relation);
 
+            Assert.AreEqual(new Relation("Ennemi", bowser), relation);
+            Assert.IsTrue(serie.Personnages.Contains(bowser));
             donnees.SupprimerPersonnage(bowser);
-
             Assert.AreEqual(new Relation("Ennemi", "Bowser"), relation);
             Assert.IsFalse(serie.Personnages.Contains(bowser));
         }
@@ -115,7 +130,9 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
+            Assert.IsFalse(donnees.Groupes.ContainsKey("Héros"));
             Assert.IsTrue(donnees.AjouterGroupe("Héros"));
+            Assert.IsTrue(donnees.Groupes.ContainsKey("Héros"));
         }
 
         [TestMethod]
@@ -124,6 +141,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
+            Assert.IsTrue(donnees.Groupes.ContainsKey("Triforce"));
             Assert.IsFalse(donnees.AjouterGroupe("Triforce"));
         }
 
@@ -133,8 +151,8 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
+            Assert.IsTrue(donnees.Groupes.ContainsKey("Triforce"));
             donnees.SupprimerGroupe("Triforce");
-
             Assert.IsFalse(donnees.Groupes.ContainsKey("Triforce"));
         }
 
@@ -147,7 +165,9 @@ namespace UnitTests
             donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage personnage);
 
+            Assert.IsFalse(donnees.Groupes["Triforce"].Contains(personnage));
             Assert.IsTrue(donnees.AjouterPersoAGroupe("Triforce", personnage));
+            Assert.IsTrue(donnees.Groupes["Triforce"].Contains(personnage));
         }
 
         [TestMethod]
@@ -159,6 +179,7 @@ namespace UnitTests
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
 
+            Assert.IsTrue(donnees.Groupes["Triforce"].Contains(personnage));
             Assert.IsFalse(donnees.AjouterPersoAGroupe("Triforce", personnage));
         }
 
@@ -171,8 +192,8 @@ namespace UnitTests
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
 
+            Assert.IsTrue(donnees.Groupes["Triforce"].Contains(personnage));
             donnees.RetirerPersoDeGroupe("Triforce", personnage);
-
             Assert.IsFalse(donnees.Groupes["Triforce"].Contains(personnage));
         }
     }
