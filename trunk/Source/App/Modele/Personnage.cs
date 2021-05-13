@@ -108,18 +108,33 @@ namespace Modele
         /// <param name="relation">relation à supprimer</param>
        public void SupprimerUneRelation(Relation relation)
         {
+            if (relation.PersoRec != null)
+			{
+                relation.PersoRec.EstMentionneDans.Remove(relation);
+			}
             Relations.Remove(relation);
         }
 
         /// <summary>
-        /// Permet d'ajouter un jeu à la liste des jeux video du perso
+        /// Permet d'ajouter un jeu à la liste des jeux vidéo du perso
         /// </summary>
-        /// <param name="jeu">Le jeu à ajouter</param>
+        /// <param name="nom">Le nom du jeu à ajouter</param>
         /// <returns>true si le jeu a été ajouté, false s'il y était déjà</returns>
-        public bool AjouterUnJeu(JeuVideo jeu)
+        public bool AjouterUnJeu(string nom)
         {
-            return JeuxVideo.Add(jeu);
+            return JeuxVideo.Add(new JeuVideo(nom));
         }
+
+        /// <summary>
+        /// Permet d'ajouter un jeu à la liste des jeux vidéo du perso
+        /// </summary>
+        /// <param name="nom">Le nom du jeu à ajouter</param>
+        /// <param name="annee">L'année de sortie du jeu</param>
+        /// <returns>true si le jeu a pu être ajouté, false sinon</returns>
+        public bool AjouterUnJeu(string nom, int annee)
+		{
+            return JeuxVideo.Add(new JeuVideo(nom, annee));
+		}
 
         /// <summary>
         /// Permet de supprimer un jeu 
