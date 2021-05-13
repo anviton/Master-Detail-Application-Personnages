@@ -19,35 +19,23 @@ namespace Modele
         /// Ajoute un personnage à la série
         /// </summary>
         /// <param name="nom">Le nom du personnage a ajouter</param>
-        /// <exception cref="ArgumentException">Levée si le personnage est déjà enregistré dans la série.</exception>
-        /// <returns>Le personnage créé.</returns>
+        /// <param name="nouveauPerso">Le personnage nouvellement créé.</param>
+        /// <returns>true si le personnage a été ajouté, false sinon.</returns>
         internal bool AjouterUnPersonnage(string nom, out Personnage nouveauPerso)
         {
             // On instancie le personnage
-            nouveauPerso= new Personnage(nom, this.Nom);
+            nouveauPerso = new Personnage(nom, this.Nom);
 
-            // On fait un test pour savoir si le personnage est déjà enregistré dans cette série.
-            // Si c'est le cas, on lève une exception.
-            if (Personnages.Contains(nouveauPerso))
-			{
-                return false;
-			}
-
-            // L'exception n'a pas été levée : on peut l'ajouter à la série.
-            Personnages.Add(nouveauPerso);
-            return true;
+			// L'exception n'a pas été levée : on peut l'ajouter à la série.
+			return Personnages.Add(nouveauPerso);
         }
-
+        
+        /// <summary>
+        /// Supprime un personnage de la série.
+        /// </summary>
+        /// <param name="personnage">Le personnage à supprimer</param>
         internal void SupprimerUnPersonnage(Personnage personnage)
 		{
-            // On fait un test pour savoir si le personnage n'est pas dans la série.
-            // Si c'est le cas, on lève une exception.
-            if (! Personnages.Contains(personnage))
-			{
-                throw new ArgumentException($"Le personnage \"{personnage.Nom}\" n'est pas dans la série.");
-			}
-
-            // L'exception n'a pas été levée : on peut supprimer le personnage de la série.
             Personnages.Remove(personnage);
 		}
 

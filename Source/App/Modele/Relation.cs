@@ -37,12 +37,10 @@ namespace Modele
         /// </summary>
         /// <param name="type">Le type de relation avec le personnage</param>
         /// <param name="persoDeLaRelation">Le personnage inscrit sur la relation (celui qui apparaîtra sur la fiche)</param>
-        /// <param name="persoAyantLaRelation">Le personnage concerné par la relation (l'instance de Personnage contenant cette instance de Relation)</param>
-        public Relation(string type, Personnage persoDeLaRelation, Personnage persoAyantLaRelation)
+        public Relation(string type, Personnage persoDeLaRelation)
         {
             Type = type;
             PersoRec = persoDeLaRelation;
-            persoDeLaRelation.ARelationAvec.Add(persoAyantLaRelation);
         }
 
         //Protocole d'égalité

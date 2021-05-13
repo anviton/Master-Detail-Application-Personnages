@@ -11,19 +11,22 @@ namespace Modele
         //Atributs
         
         //Propriétés
-        public IList<string> Citations { get; set; }
+        public ISet<string> Citations { get; }
         public string Image { get; set; }
-        public HashSet<JeuVideo> JeuxVideo { get; set; }
+        public ISet<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
-        public HashSet<Relation> Relations { get; set; }
+        public ISet<Relation> Relations { get; }
         public string SerieDuPerso { get; }
-        public HashSet<Personnage> ARelationAvec { get; }
+        public ISet<Relation> EstMentionneDans { get; }
 
         // Méthodes
         public Personnage(string nom, string serie) : base(nom)
         {
-            Relations = new HashSet<Relation>();            SerieDuPerso = serie;
-            ARelationAvec = new HashSet<Personnage>();
+            SerieDuPerso = serie;
+            Citations = new HashSet<string>();
+            JeuxVideo = new HashSet<JeuVideo>();
+            Relations = new HashSet<Relation>();
+            EstMentionneDans = new HashSet<Relation>();
         }
 
         //Protocole d'égalité
@@ -43,6 +46,25 @@ namespace Modele
         }
 
         /// <summary>
+        /// Ajoute une citation du personnage.
+        /// </summary>
+        /// <param name="citation">La citation à ajouter.</param>
+        /// <returns>true si la citation a été ajoutée, false sinon.</returns>
+        public bool AjouterCitation(string citation)
+		{
+            return Citations.Add(citation);
+		}
+
+        /// <summary>
+        /// Supprime une citation du personnage.
+        /// </summary>
+        /// <param name="citation">La citation à supprimer.</param>
+        public void SupprimerCitation(string citation)
+		{
+            Citations.Remove(citation);
+		}
+
+        /// <summary>
         /// Retourne un hashcode pour utiliser cete classe dans une table de hashage
         /// </summary>
         /// <returns></returns>
@@ -57,19 +79,27 @@ namespace Modele
         /// </summary>
         /// <param name="type">Le type de la relation exemple : "ennemi, "équipier"</param>
         /// <param name="perso">Personnage avec lequel la relation est réalisée</param>
-        public void AjouterRelation(string type, Personnage perso)
+        /// <returns>true si la relation a été ajoutée, false si elle existait déjà</returns>
+        public bool AjouterRelation(string type, Personnage perso)
         {
-            Relations.Add(new Relation(type, perso));
+            Relation relation = new Relation(type, perso);
+            if (Relations.Add(relation))
+			{
+                perso.EstMentionneDans.Add(relation);
+                return true;
+			}
+            return false;
         }
 
         /// <summary>
         /// Ajouter une relation avec un personnage non enregistré
         /// </summary>
         /// <param name="type">Le type de la relation exemple : "ennemi, "équipier"</param>
-        /// <param name="nomPerso">Nome du Personnage avec lequel la relation est réalisée</param>
-        public void AjouterRelation(string type, string nomPerso)
+        /// <param name="nomPerso">Nom du Personnage avec lequel la relation est réalisée</param>
+        /// <returns>true si la relation a été ajoutée, false si elle existait déjà</returns>
+        public bool AjouterRelation(string type, string nomPerso)
         {
-            Relations.Add(new Relation(type, nomPerso));
+            return Relations.Add(new Relation(type, nomPerso));
         }
 
         /// <summary>
@@ -84,10 +114,11 @@ namespace Modele
         /// <summary>
         /// Permet d'ajouter un jeu à la liste des jeux video du perso
         /// </summary>
-        /// <param name="jeu"></param>
-        public void AjouterUnJeu(JeuVideo jeu)
+        /// <param name="jeu">Le jeu à ajouter</param>
+        /// <returns>true si le jeu a été ajouté, false s'il y était déjà</returns>
+        public bool AjouterUnJeu(JeuVideo jeu)
         {
-            JeuxVideo.Add(jeu);
+            return JeuxVideo.Add(jeu);
         }
 
         /// <summary>
