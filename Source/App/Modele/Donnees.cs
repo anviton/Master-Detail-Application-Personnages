@@ -27,31 +27,15 @@ namespace Modele
             // On instancie une nouvelle série.
             serie = new Serie(nom);
 
-            // On fait un test pour savoir si la série existe déjà.
-            // Si c'est le cas, on lance une exception.
-            if (Series.Contains(serie))
-            {
-                return false;
-            }
-
-            // La série n'existe pas : on peut l'ajouter.
-            Series.Add(serie);
-            return true;
+            return Series.Add(serie);
         }
 
         /// <summary>
         /// Supprime une série. Cette méthode est appelée si une série n'a plus de personnages.
         /// </summary>
         /// <param name="serie">La série à supprimer</param>
-        /// <exception cref="ArgumentException">Levée si la série n'existe pas.</exception>
         private void SupprimerSerie(Serie serie)
         {
-            // On fait un test pour vérifier la non-existance de la série.
-            // Si la série n'existe pas, on lève une exception.
-            if (!Series.Contains(serie))
-            {
-                throw new ArgumentException("La série n'existe pas.");
-            }
 
             // On peut supprimer la série
             Series.Remove(serie);

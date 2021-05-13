@@ -10,202 +10,170 @@ namespace UnitTests
     public class DonneesTest
     {
         [TestMethod]
-        public void Test_AjouterSerie_SExistant()
-        {
-            Chargeur chargeur1 = new Stub("");
-            Donnees donnees = chargeur1.Charger();
-
-            Assert.ThrowsException<ArgumentException>(() => donnees.AjouterSerie("mario"));
-        }
-
-        [TestMethod]
-        public void Test_AjouterSerie_SInexistant()
-        {
-            Chargeur chargeur1 = new Stub("");
-            Donnees donnees = chargeur1.Charger();
-
-            donnees.AjouterSerie("ori");
-            Assert.IsTrue(donnees.Series.Contains(new Serie("ori")));
-
-        }
-
-        [TestMethod]
-        public void Test_SupprimerSerie_SExistantPHorsGroupe()
-        {
-            Chargeur chargeur1 = new Stub("");
-            Donnees donnees = chargeur1.Charger();
-
-            Serie serieASupprimer;
-
-            donnees.Series.TryGetValue(new Serie("mario"), out serieASupprimer);
-            donnees.SupprimerSerie(serieASupprimer);
-            Assert.IsFalse(donnees.Series.Contains(serieASupprimer));
-        }
-
-        [TestMethod]
-        public void Test_SupprimerSerie_SInexistant()
-		{
-            Chargeur chargeur1 = new Stub("");
-            Donnees donnees = chargeur1.Charger();
-
-            Serie serieASupprimer;
-
-            donnees.Series.TryGetValue(new Serie("ori"), out serieASupprimer);
-            Assert.ThrowsException<ArgumentException>(() => donnees.SupprimerSerie(serieASupprimer));
-        }
-
-        [TestMethod]
-        public void Test_SupprimerSerie_SExistantPDansGroupe()
-		{
-            Chargeur chargeur1 = new Stub("");
-            Donnees donnees = chargeur1.Charger();
-
-			donnees.Series.TryGetValue(new Serie("Zelda"), out Serie serieASupprimer);
-			donnees.SupprimerSerie(serieASupprimer);
-            // On récupère toutes les séries dont au moins un personnage est dans un groupe
-            ISet<Serie> seriesDansGroupes = new HashSet<Serie>();
-            foreach (KeyValuePair<string, HashSet<Personnage>> paires in donnees.Groupes)
-            {
-                foreach (Personnage perso in paires.Value)
-                {
-                    seriesDansGroupes.Add(new Serie(perso.SerieDuPerso));
-                }
-            }
-
-            Assert.IsFalse(donnees.Series.Contains(serieASupprimer));
-            Assert.IsFalse(seriesDansGroupes.Contains(serieASupprimer));
-        }
-
-        [TestMethod]
-        public void Test_AjouterGroupe_GExistant()
+        public void Test_AjouterSerie_SerieInexistante()
 		{
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
-            Assert.ThrowsException<ArgumentException>(() => donnees.AjouterGroupe("Triforce"));
+            Assert.IsTrue(donnees.AjouterSerie("Ori", out Serie serie));
 		}
 
         [TestMethod]
-        public void Test_AjouterGroupe_GInexistant()
+        public void Test_AjouterSerie_SerieExistante()
 		{
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
-            donnees.AjouterGroupe("Héros");
-            Assert.IsTrue(donnees.Groupes.ContainsKey("Héros"));
+            Assert.IsFalse(donnees.AjouterSerie("zelda", out Serie serie));
         }
 
         [TestMethod]
-        public void Test_SupprimerGroupe_GExistant()
+        public void Test_EnregistrerPersonnage_PersonnageInexistant()
+		{
+            Chargeur chargeur = new Stub("");
+            Donnees donnees = chargeur.Charger();
+
+            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+
+            Assert.IsTrue(donnees.EnregistrerPersonnage("Ganon", serie, out Personnage personnage));
+        }
+
+        [TestMethod]
+        public void Test_EnregistrerPersonnage_PersonnageExistant()
+		{
+            Chargeur chargeur = new Stub("");
+            Donnees donnees = chargeur.Charger();
+
+            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+
+            Assert.IsFalse(donnees.EnregistrerPersonnage("Link", serie, out Personnage personnage));
+        }
+
+        [TestMethod]
+        public void Test_SupprimerPersonnage_PersonnageHorsGroupeAvecAutresPersonnagesDansSerieNonMentionneDansRelations()
+		{
+            Chargeur chargeur = new Stub("");
+            Donnees donnees = chargeur.Charger();
+
+            donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
+            serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage personnage);
+
+            donnees.SupprimerPersonnage(personnage);
+
+            Assert.IsTrue(donnees.Series.Contains(serie));
+        }
+
+        [TestMethod]
+        public void Test_SupprimerPersonnage_AucunAutrePersonnageDansSerie()
+		{
+            Chargeur chargeur = new Stub("");
+            Donnees donnees = chargeur.Charger();
+
+            donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
+            serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
+
+            donnees.SupprimerPersonnage(personnage);
+
+            Assert.IsFalse(donnees.Series.Contains(serie));
+        }
+
+        [TestMethod]
+        public void Test_SupprimerPersonnage_PersonnageDansGroupe()
+		{
+            Chargeur chargeur = new Stub("");
+            Donnees donnees = chargeur.Charger();
+
+            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
+
+            donnees.SupprimerPersonnage(personnage);
+
+            Assert.IsFalse(donnees.Groupes["Triforce"].Contains(personnage));
+            Assert.IsFalse(serie.Personnages.Contains(personnage));
+        }
+
+        [TestMethod]
+        public void Test_SupprimerPersonnage_PersonnageMentionneDansRelation()
+		{
+            Chargeur chargeur = new Stub("");
+            Donnees donnees = chargeur.Charger();
+
+            donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
+            serie.Personnages.TryGetValue(new Personnage("Bowser", serie.Nom), out Personnage bowser);
+            serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage mario);
+            mario.Relations.TryGetValue(new Relation("Ennemi", bowser), out Relation relation);
+
+            donnees.SupprimerPersonnage(bowser);
+
+            Assert.AreEqual(new Relation("Ennemi", "Bowser"), relation);
+            Assert.IsFalse(serie.Personnages.Contains(bowser));
+        }
+
+        [TestMethod]
+        public void Test_AjouterGroupe_GroupeInexistant()
+		{
+            Chargeur chargeur = new Stub("");
+            Donnees donnees = chargeur.Charger();
+
+            Assert.IsTrue(donnees.AjouterGroupe("Héros"));
+        }
+
+        [TestMethod]
+        public void Test_AjouterGroupe_GroupeExistant()
+		{
+            Chargeur chargeur = new Stub("");
+            Donnees donnees = chargeur.Charger();
+
+            Assert.IsFalse(donnees.AjouterGroupe("Triforce"));
+        }
+
+        [TestMethod]
+        public void Test_SupprimerGroupe()
 		{
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
             donnees.SupprimerGroupe("Triforce");
+
             Assert.IsFalse(donnees.Groupes.ContainsKey("Triforce"));
-		}
-
-        [TestMethod]
-        public void Test_SupprimerGroupe_GInexistant()
-		{
-            Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
-
-            Assert.ThrowsException<ArgumentException>(() => donnees.SupprimerGroupe("Héros"));
         }
 
         [TestMethod]
-        public void Test_AjouterPersoAGroupe_GInexistant()
+        public void Test_AjouterPersoAGroupe_PersoInexistantDansGroupe()
 		{
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie mario);
+            donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
+            serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage personnage);
 
-			mario.Personnages.TryGetValue(new Personnage("Mario", "mario"), out Personnage marioPersonnage);
-
-            ArgumentException ex;
-
-            ex = Assert.ThrowsException<ArgumentException>(() => donnees.AjouterPersoAGroupe("Héros", marioPersonnage));
-            Assert.AreEqual(ex.Message, "Le groupe \"Héros\" n'existe pas.");
-		}
-
-        [TestMethod]
-        public void Test_AjouterPersoAGroupe_GExistantPDansGroupe()
-		{
-            Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
-
-			donnees.Series.TryGetValue(new Serie("Zelda"), out Serie zelda);
-
-			zelda.Personnages.TryGetValue(new Personnage("Link", "Zelda"), out Personnage link);
-
-            ArgumentException ex;
-
-            ex = Assert.ThrowsException<ArgumentException>(() => donnees.AjouterPersoAGroupe("Triforce", link));
-            Assert.AreEqual(ex.Message, $"Le personnage \"{link.Nom}\" est déjà dans le groupe \"Triforce\".");
+            Assert.IsTrue(donnees.AjouterPersoAGroupe("Triforce", personnage));
         }
 
         [TestMethod]
-        public void Test_AjouterPersoAGroupe_GExistantPHorsGroupe()
+        public void Test_AjouterPersoAGroupe_PersoExistantDansGroupe()
 		{
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("mario"), out Serie mario);
+            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
 
-			mario.Personnages.TryGetValue(new Personnage("Mario", "mario"), out Personnage marioPersonnage);
-
-			donnees.AjouterPersoAGroupe("Triforce", marioPersonnage);
-            Assert.IsTrue(donnees.Groupes["Triforce"].Contains(marioPersonnage));
+            Assert.IsFalse(donnees.AjouterPersoAGroupe("Triforce", personnage));
         }
 
         [TestMethod]
-        public void Test_RetirerPersoDeGroupe_GInexistant()
+        public void Test_RetirerPersoDeGroupe()
 		{
             Chargeur chargeur = new Stub("");
             Donnees donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie mario);
-			donnees.Series.TryGetValue(new Serie("Zelda"), out Serie zelda);
+            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
 
-			mario.Personnages.TryGetValue(new Personnage("Mario", "mario"), out Personnage marioPersonnage);
-			zelda.Personnages.TryGetValue(new Personnage("Link", "Zelda"), out Personnage link);
+            donnees.RetirerPersoDeGroupe("Triforce", personnage);
 
-            ArgumentException ex;
-
-            ex = Assert.ThrowsException<ArgumentException>(() => donnees.RetirerPersoDeGroupe("Héros", link));
-            Assert.AreEqual(ex.Message, "Le groupe \"Héros\" n'existe pas.");
-        }
-
-        [TestMethod]
-        public void Test_RetirerPersoDeGroupe_GExistantPDansGroupe()
-		{
-            Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
-
-            donnees.Series.TryGetValue(new Serie("Zelda"), out Serie zelda);
-
-            zelda.Personnages.TryGetValue(new Personnage("Link", "Zelda"), out Personnage link);
-
-            donnees.RetirerPersoDeGroupe("Triforce", link);
-            Assert.IsFalse(donnees.Groupes["Triforce"].Contains(link));
-        }
-
-        [TestMethod]
-        public void Test_RetirerPersoDeGroupe_GExistantPHorsGroupe()
-		{
-            Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
-
-            donnees.Series.TryGetValue(new Serie("mario"), out Serie mario);
-
-            mario.Personnages.TryGetValue(new Personnage("Mario", "mario"), out Personnage marioPersonnage);
-
-            ArgumentException ex;
-
-            ex = Assert.ThrowsException<ArgumentException>(() => donnees.RetirerPersoDeGroupe("Triforce", marioPersonnage));
-            Assert.AreEqual(ex.Message, $"Le personnage \"{marioPersonnage.Nom}\" n'est pas dans le groupe \"Triforce\".");
+            Assert.IsFalse(donnees.Groupes["Triforce"].Contains(personnage));
         }
     }
 }
