@@ -44,7 +44,7 @@ namespace Modele
         /// </summary>
         /// <param name="serie">La série à supprimer</param>
         /// <exception cref="ArgumentException">Levée si la série n'existe pas.</exception>
-        public void SupprimerSerie(Serie serie)
+        private void SupprimerSerie(Serie serie)
         {
             // On fait un test pour vérifier la non-existance de la série.
             // Si la série n'existe pas, on lève une exception.
@@ -61,21 +61,12 @@ namespace Modele
         /// Enregistre un nouveau personnage.
         /// </summary>
         /// <param name="nomPerso">Le nom du nouveau personnage.</param>
-        /// <param name="nomSerie">Le nom de la série du nouveau personnage.</param>
+        /// <param name="serie">La série du nouveau personnage.</param>
         /// <param name="nouveauPerso">Le personnage nouvellement créé.</param>
-        /// <exception cref="ArgumentException">Levée si la série n'existe pas.</exception>
         /// <returns>true si le personnage est enregistré, false s'il existe déjà (utilise la valeur de retour de Serie.AjouterUnPersonnage)</returns>
-        public bool EnregistrerPersonnage(string nomPerso, string nomSerie, out Personnage nouveauPerso)
+        public bool EnregistrerPersonnage(string nomPerso, Serie serie, out Personnage nouveauPerso)
         {
-            if (Series.TryGetValue(new Serie(nomSerie), out Serie serie))
-                // Si la série existe
-                return serie.AjouterUnPersonnage(nomPerso, out nouveauPerso);
-            else
-            {
-                // On lève une exception si elle n'existe pas
-                nouveauPerso = null;
-                throw new ArgumentException($"La série \"{nomSerie}\" n'existe pas.");
-            }
+            return serie.AjouterUnPersonnage(nomPerso, out nouveauPerso);
         }
 
         /// <summary>
@@ -95,47 +86,44 @@ namespace Modele
 			}
 
             // Transformation des relations des autres personnages
-            foreach (Personnage personnage in perso.ARelationAvec) // On parcours les personnages ayant une relation avec le personnage à supprimer
+            foreach (Relation relation in perso.EstMentionneDans) // On parcours les personnages ayant une relation avec le personnage à supprimer
             {
-                // TODO
+                relation.ModifierRelation(perso.Nom);
             }
 
             serie.SupprimerUnPersonnage(perso);
+
+            if (serie.Personnages.Count == 0)
+			{
+                SupprimerSerie(serie);
+			}
 		}
 
         /// <summary>
         /// Permet de créer un nouveau groupe de personnages (série ou groupe).
         /// </summary>
         /// <param name="nom">Le nom du nouveau groupe.</param>
-        /// <exception cref="ArgumentException">Levée si le groupe existe déjà.</exception>
-        public void AjouterGroupe(string nom)
+        /// <returns>true si le groupe a été ajouté, false s'il existait déjà.</returns>
+        public bool AjouterGroupe(string nom)
         {
             // On fait un test pour savoir si le regroupement existe.
-            // S'il existe, on lève une exception.
+            // S'il existe, on renvoie false.
             if (Groupes.ContainsKey(nom))
             {
-                throw new ArgumentException("Le groupe existe déjà.");
+                return false;
             }
 
-            // L'exception n'a pas été levée : on peut ajouter un nouveau regroupement de personnages.
+            // Le groupe n'existe pas : on l'ajoute et renvoie true.
             Groupes.Add(nom, new HashSet<Personnage>());
+            return true;
         }
 
         /// <summary>
         /// Permet de supprimer un groupe de personnages.
         /// </summary>
         /// <param name="nom">Le nom du groupe à supprimer.</param>
-        /// <exception cref="ArgumentException">Levée si le groupe n'existe pas.</exception>
         public void SupprimerGroupe(string nom)
         {
-            // On fait un test pour vérifier la non-existance du groupe.
-            // Si le groupe n'existe pas, on lève une exception.
-            if (! Groupes.ContainsKey(nom))
-            {
-                throw new ArgumentException("Le groupe n'existe pas.");
-            }
-
-            // On peut supprimer le groupe.
             Groupes.Remove(nom);
         }
 
@@ -144,24 +132,10 @@ namespace Modele
         /// </summary>
         /// <param name="nomGroupe">Le nom du groupe</param>
         /// <param name="personnage">Le personnage à ajouter</param>
-        /// <exception cref="ArgumentException">Lancé si le groupe n'existe pas, ou si le personnage est déjà dans le groupe</exception>
-        public void AjouterPersoAGroupe(string nomGroupe, Personnage personnage)
+        /// <returns>true si le personnage a été ajouté au groupe, false s'il existait déjà.</returns>
+        public bool AjouterPersoAGroupe(string nomGroupe, Personnage personnage)
 		{
-            // On teste si nomGroupe n'est pas une clé de Groupes :
-            // autrement dit, si le groupe en question n'existe pas
-            if (! Groupes.ContainsKey(nomGroupe))
-			{
-                throw new ArgumentException($"Le groupe \"{nomGroupe}\" n'existe pas.");
-			}
-
-            // On teste si le personnage est déjà dans le groupe :
-            if (Groupes[nomGroupe].Contains(personnage))
-			{
-                throw new ArgumentException($"Le personnage \"{personnage.Nom}\" est déjà dans le groupe \"{nomGroupe}\".");
-			}
-
-            // Si aucun test n'a lancé d'exception, on peut ajouter le personnage dans le groupe.
-            Groupes[nomGroupe].Add(personnage);
+            return Groupes[nomGroupe].Add(personnage);
 		}
 
         /// <summary>
@@ -169,26 +143,9 @@ namespace Modele
         /// </summary>
         /// <param name="nomGroupe">Le nom du groupe</param>
         /// <param name="personnage">Le personnage à retirer</param>
-        /// <exception cref="ArgumentException">Lancé si le groupe n'existe pas, ou si le personnage n'est pas dans le groupe</exception>
         public void RetirerPersoDeGroupe(string nomGroupe, Personnage personnage)
 		{
-            // On teste si nomGroupe n'est pas une clé de Groupes :
-            // autrement dit, si le groupe en question n'existe pas
-            if (! Groupes.ContainsKey(nomGroupe))
-			{
-                throw new ArgumentException($"Le groupe \"{nomGroupe}\" n'existe pas.");
-			}
-
-            // On teste si le personnage n'est pas dans le groupe :
-            if (! Groupes[nomGroupe].Contains(personnage))
-			{
-                throw new ArgumentException($"Le personnage \"{personnage.Nom}\" n'est pas dans le groupe \"{nomGroupe}\".");
-            }
-
-            // Si aucun test n'a lancé d'exception, on peut retirer le personnage du groupe.
             Groupes[nomGroupe].Remove(personnage);
 		}
-
-        
     }
 }

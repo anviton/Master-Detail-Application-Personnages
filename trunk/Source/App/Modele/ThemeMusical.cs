@@ -13,23 +13,54 @@ namespace Modele
         private HashSet<Titre> titres;
         // Champs
         public bool Leitmotiv { get; set; }
-        public HashSet<Titre> Titres
-        { 
-            get { return titres; }
-            set
-            {
-                if (value.Count > 1 && !Leitmotiv)
-                {
-                    throw new InvalidOperationException("Le thème musical n'est pas un leitmotiv, un seul titre est accepté");
-                }
-                titres = value;
-            }
-        }
+        public ISet<Titre> Titres { get; }
 
         // Méthodes
         public ThemeMusical(bool leitmotiv)
         {
             Leitmotiv = leitmotiv;
+            Titres = new HashSet<Titre>();
         }
+
+        /// <summary>
+        /// Ajoute un titre au thème.
+        /// Cette méthode ne peut être utilisée que si Leitmotiv est true.
+        /// </summary>
+        /// <param name="nom">Le nom du titre</param>
+        /// <returns>true si le titre a été ajouté, false sinon</returns>
+        public bool AjouterTitre(string nom)
+		{
+            if (Leitmotiv)
+			{
+                return Titres.Add(new Titre(nom));
+			}
+            return false; // N'est pas censé arriver
+		}
+
+        /// <summary>
+        /// Ajoute un titre au thème.
+        /// Cette méthode ne peut être utilisée que si Leitmotiv est true.
+        /// </summary>
+        /// <param name="nom">Le nom du titre</param>
+        /// <param name="lien">Un lien internet pour écouter le titre</param>
+        /// <returns>true si le titre a été ajouté, false sinon</returns>
+        public bool AjouterTitre(string nom, string lien)
+		{
+            if (Leitmotiv)
+			{
+                return Titres.Add(new Titre(nom, lien));
+			}
+            return false; // N'est pas censé arriver
+		}
+
+        /// <summary>
+        /// Supprime un titre.
+        /// </summary>
+        /// <param name="titre">Le titre à supprimer</param>
+        /// <returns>true si le titre a été supprimé, false s'il n'existait pas.</returns>
+        public bool SupprimerTitre(Titre titre)
+		{
+            return Titres.Remove(titre);
+		}
     }
 }

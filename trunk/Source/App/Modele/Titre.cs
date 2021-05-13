@@ -14,5 +14,10 @@ namespace Modele
         {
             
         }
+
+        public Titre(string nom, string lien) : this(nom)
+		{
+            Lien = lien;
+		}
     }
 }
