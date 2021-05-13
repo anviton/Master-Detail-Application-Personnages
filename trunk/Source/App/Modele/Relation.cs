@@ -27,7 +27,7 @@ namespace Modele
         public Relation(string type, string nomduperso)
         {
             Type = type;
-            NomPersoNonRec = nomduperso.ToUpper();
+            NomPersoNonRec = nomduperso;
             PersoRec = null;
         }
 
@@ -51,22 +51,11 @@ namespace Modele
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            if (object.ReferenceEquals(obj, null))
-            {
+            if (!(obj is Relation))
+			{
                 return false;
-            }
-
-            if (object.ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (this.GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            return this.Equals(obj as Relation);
+			}
+            return Equals((Relation)obj);
         }
 
         /// <summary>

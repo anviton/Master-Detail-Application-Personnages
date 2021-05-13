@@ -15,7 +15,7 @@ namespace Modele
         public string Image { get; set; }
         public ISet<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
-        public ISet<Relation> Relations { get; }
+        public HashSet<Relation> Relations { get; }
         public string SerieDuPerso { get; }
         public ISet<Relation> EstMentionneDans { get; }
 
