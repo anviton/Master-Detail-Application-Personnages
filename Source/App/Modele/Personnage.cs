@@ -46,6 +46,16 @@ namespace Modele
         }
 
         /// <summary>
+        /// Retourne un hashcode pour utiliser cete classe dans une table de hashage
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+
+            return base.GetHashCode() + SerieDuPerso.GetHashCode();
+        }
+
+        /// <summary>
         /// Ajoute une citation du personnage.
         /// </summary>
         /// <param name="citation">La citation à ajouter.</param>
@@ -63,16 +73,6 @@ namespace Modele
 		{
             Citations.Remove(citation);
 		}
-
-        /// <summary>
-        /// Retourne un hashcode pour utiliser cete classe dans une table de hashage
-        /// </summary>
-        /// <returns></returns>
-        public override int GetHashCode()
-        {
-
-            return base.GetHashCode() + SerieDuPerso.GetHashCode();
-        }
 
         /// <summary>
         /// Ajouter une relation avec un personnage enregistré
