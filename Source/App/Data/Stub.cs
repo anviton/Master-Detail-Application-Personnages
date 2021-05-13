@@ -23,9 +23,9 @@ namespace Data
             test.EnregistrerPersonnage("Madeline", serieCeleste, out Personnage perso4);
             perso1.AjouterRelation("Ennemi", perso2);
             perso1.AjouterRelation("Frère", "Luigi");
-            perso1.AjouterUnJeu(new JeuVideo("Super Mario 64", 1997));
-            perso1.AjouterUnJeu(new JeuVideo("Super Mario Bros.", 1982));
-            perso1.AjouterUnJeu(new JeuVideo("Super Mario Bros. 2"));
+            perso1.AjouterUnJeu("Super Mario 64", 1997);
+            perso1.AjouterUnJeu("Super Mario Bros.", 1982);
+            perso1.AjouterUnJeu("Super Mario Bros. 2");
             perso2.Theme = new ThemeMusical(false);
             perso2.Theme.AjouterTitre("Bowser's Theme", "https://www.youtube.com/watch?v=bq_jS6o3OoY");
             perso4.AjouterCitation("This is it, Madeline. Just breathe.");
