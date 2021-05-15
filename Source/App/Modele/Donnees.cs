@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Modele
@@ -131,5 +132,35 @@ namespace Modele
 		{
             Groupes[nomGroupe].Remove(personnage);
 		}
+
+        /// <summary>
+        /// Permet de rechercher un personnage parmis tous les personnages de l'application
+        /// En saisissant son nom et sa série
+        /// </summary>
+        /// <param name="nom">nom du personnage à rechercher</param>
+        /// <param name="serie">série du personnage à rechercher</param>
+        /// <param name="personnage">Contient le personnage trouvé</param>
+        /// <returns>true si le perso est trouvé / fals s'il n'est pas trouvé</returns>
+        public bool RechercherUnPersonnage(string nom, string serie, out Personnage personnage)
+        {
+            var tousLesPerso = Series.SelectMany(serie => serie.Personnages)
+                                                .Distinct();
+            Dictionary<string, Personnage> tousLesPersos = tousLesPerso.ToDictionary(p => p.Nom + p.SerieDuPerso);
+
+            return tousLesPersos.TryGetValue(nom+serie, out personnage);
+        }
+
+        /// <summary>
+        /// Recherhce une série parmis les séries de l'application
+        /// </summary>
+        /// <param name="nom">nom de la série recherchée</param>
+        /// <param name="serie"></param>
+        /// <returns>true si la série est trouvée / false si la série n'est pas trouvée</returns>
+        public bool RechercherUneSerie(string nom, out Serie serie)
+        {
+            return Series.TryGetValue(new Serie(nom), out serie);
+        }
+
+
     }
 }

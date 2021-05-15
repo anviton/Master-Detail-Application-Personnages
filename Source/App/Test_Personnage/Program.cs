@@ -2,6 +2,7 @@
 using Modele;
 using System.Collections.Generic;
 using Data;
+using System.Linq;
 namespace Test_Personnage
 {
     class Program
@@ -42,29 +43,54 @@ namespace Test_Personnage
             Donnees donnees = chargeur1.Charger();
             //Test de l'affichage de toutes les série
             AfficherLesSeries(donnees.Series);
-            donnees.SupprimerSerie(new Serie("zelda"));
-            AfficherLesSeries(donnees.Series);
-            Serie serie;
-            donnees.Series.TryGetValue(new Serie("mario"), out serie);
+
+
             //Test de l'affichage des membres d'une série
+            donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
             AfficherUneSerie(serie);
             //Test de l'affichage des relations d'un personnage (ayant des relations)
-            Personnage perso1;
-            serie.Personnages.TryGetValue(new Personnage("Mario", "mario"), out perso1);
+            serie.Personnages.TryGetValue(new Personnage("Mario", "mario"), out Personnage perso1);
             AfficherLesRelations(perso1);
             //Test de l'afichage des relations d'un personnage (n'ayant pas de relations)
-            Personnage perso2;
-            serie.Personnages.TryGetValue(new Personnage("Bowser", "mario"), out perso2);
+            serie.Personnages.TryGetValue(new Personnage("Bowser", "mario"), out Personnage perso2);
             AfficherLesRelations(perso2);
+            //Test de l'affichage des jeux d'un personnage (+ de la suppression d'un jeu + ajout d'un jeu)
             AfficherLalisteDesJeuxDunPerso(perso1);
-            perso1.SupprimerUnJeu(new JeuVideo("Super Mario Bros"));
+            perso1.SupprimerUnJeu(new JeuVideo("Super Mario Bros."));
             AfficherLalisteDesJeuxDunPerso(perso1);
+            perso1.AjouterUnJeu("Super Mario Bros.", 1985);
+            AfficherLalisteDesJeuxDunPerso(perso1);
+            //Test de l'affichage du thème musical d'un perso
+            AfficherLeThemeMusicalDUnPersonnage(perso2);
+            //Test de l'affichage de tous les personnages de l'application
+            AfficherTousLesPersonnages(donnees);
+            //Test de l'affichage de tous les groupes de personnages de l'application
+            AfficherLaListeDesGroupes(donnees.Groupes);
+            //Test de l'affichage d'un groupe
+            AfficherUnGroupe("Triforce", donnees);
+            //Test rechercher un personnage
+            Serie test;
+            donnees.RechercherUneSerie("zelda", out test);
+            donnees.EnregistrerPersonnage("Bowser", test, out Personnage perso3);
+            Console.WriteLine();
+            Console.WriteLine("Je recherche le personnage \"bowser\" :");
+            TestRechercherUnPerso("Bowser", "mario", donnees);
+            Console.WriteLine();
+            Console.WriteLine("Je recherche le personnage \"bowse\" :");
+            TestRechercherUnPerso("Bowse", "mario", donnees);
+            //Test rechercher une série
+            Console.WriteLine();
+            Console.WriteLine("Je recherche la série \"mario\" :");
+            TestRechercherUneSerie("mario", donnees);
+            Console.WriteLine();
+            Console.WriteLine("Je recherche la série \"mari\" :");
+            TestRechercherUneSerie("mari", donnees);
 
         }
 
         private static void AfficherUneSerie (Serie serie)
         {
-            Console.WriteLine($"La Série \"{serie.Nom}\" est composée de :");
+            Console.WriteLine($"\nLa Série \"{serie.Nom}\" est composée de :");
             foreach (Personnage personnage in serie.Personnages)
             {
                 Console.WriteLine(personnage);
@@ -73,7 +99,7 @@ namespace Test_Personnage
 
         private static void AfficherLesRelations(Personnage personnage)
         {
-            Console.WriteLine($"Les Relations de {personnage.Nom} :");
+            Console.WriteLine($"\nLes Relations de {personnage.Nom} :");
             if (personnage.Relations.Count == 0)
                Console.WriteLine("Aucune");
 
@@ -93,19 +119,79 @@ namespace Test_Personnage
 
         private static void AfficherLalisteDesJeuxDunPerso(Personnage personnage)
         {
-            Console.WriteLine($"Les jeux de {personnage.Nom} sont : ");
+            Console.WriteLine($"\nLes jeux de {personnage.Nom} sont : ");
             foreach (JeuVideo jeu in personnage.JeuxVideo)
             {
                 Console.WriteLine(jeu);
             }
         }
 
+        private static void AfficherLeThemeMusicalDUnPersonnage(Personnage personnage)
+        {
+            Console.WriteLine($"Le théme de {personnage.Nom} :");
+            Console.WriteLine(personnage.Theme);
+        }
+
         private static void AfficherLesSeries(HashSet<Serie> Series)
         {
-            Console.WriteLine("La liste des séries :");
+            Console.WriteLine("\nLa liste des séries :");
             foreach (Serie serie in Series)
             {
                 Console.WriteLine(serie);
+            }
+        }
+
+        private static void AfficherTousLesPersonnages(Donnees donnees)
+        {
+            var tousLesPerso = donnees.Series.SelectMany(serie => serie.Personnages)
+                                                .Distinct();
+            Console.WriteLine("\nTous les personnages de l'application :");
+            foreach (Personnage personnage in tousLesPerso)
+            {
+                Console.WriteLine(personnage);
+            }
+
+        }
+        private static void AfficherLaListeDesGroupes(IDictionary<string, HashSet<Personnage>> groupes)
+        {
+            Console.WriteLine("\nListe des groupes : ");
+            foreach ( string nomGroupe in groupes.Keys)
+            {
+                Console.WriteLine(nomGroupe);
+            }
+        }
+
+        private static void AfficherUnGroupe(string nom, Donnees donnees)
+        {
+            donnees.Groupes.TryGetValue(nom, out HashSet<Personnage> personnages);
+            Console.WriteLine($"\nLe groupe \"{nom}\" est composé de :");
+            foreach (Personnage personnage in personnages)
+            {
+                Console.WriteLine(personnage);
+            }
+        }
+
+        public static void TestRechercherUnPerso(string nom, string nomSerie, Donnees donnees)
+        {
+            if (donnees.RechercherUnPersonnage(nom, nomSerie, out Personnage perso))
+            {
+                Console.WriteLine(perso);
+            }
+            else
+            {
+                Console.WriteLine("Personnage inxesistant");
+            }
+        }
+
+        public static void TestRechercherUneSerie(string nom, Donnees donnees)
+        {
+            if (donnees.RechercherUneSerie(nom, out Serie serie))
+            {
+                Console.WriteLine(serie);
+            }
+            else
+            {
+                Console.WriteLine("Serie inxesistante");
             }
         }
 

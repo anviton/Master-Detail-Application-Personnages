@@ -10,7 +10,7 @@ namespace Modele
 {
     public class ThemeMusical
     {
-        private HashSet<Titre> titres;
+        //private HashSet<Titre> titres;
         // Champs
         public bool Leitmotiv { get; set; }
         public ISet<Titre> Titres { get; }
@@ -62,5 +62,16 @@ namespace Modele
 		{
             return Titres.Remove(titre);
 		}
+
+        public override string ToString()
+        {
+            string t = "";
+            foreach( Titre titre in Titres)
+            {
+                t += titre.ToString();
+            }
+            return t;
+        }
+        
     }
 }
