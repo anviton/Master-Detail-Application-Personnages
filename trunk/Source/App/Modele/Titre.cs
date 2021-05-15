@@ -19,5 +19,10 @@ namespace Modele
 		{
             Lien = lien;
 		}
+
+        public override string ToString()
+        {
+            return $"{Nom}  ({Lien})";
+        }
     }
 }
