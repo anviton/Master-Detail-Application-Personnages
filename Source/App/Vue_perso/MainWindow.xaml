@@ -35,7 +35,7 @@
     </Window.Resources>
     <DockPanel>
         <DockPanel.Background>
-            <ImageBrush ImageSource="arriere_plan_grille_perso.jpg"></ImageBrush>
+            <ImageBrush ImageSource="Images/arriere_plan_grille_perso.jpg"></ImageBrush>
         </DockPanel.Background>
 
         <Menu Background="#FFF9E2C6" DockPanel.Dock="Top">
@@ -46,11 +46,7 @@
             </MenuItem>
             <MenuItem Header="Actions personnages">
                 <MenuItem Header="Exporter"/>
-                <MenuItem Header="Supprimer">
-                    <MenuItem.Icon>
-                        <Image Source="image.jpg"/>
-                    </MenuItem.Icon>
-                </MenuItem>
+                <MenuItem Header="Supprimer"/>
                 <MenuItem Header="Modifier"/>
             </MenuItem>
                 
@@ -63,14 +59,14 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"></ColumnDefinition>
+                <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <Grid.Background>
                 <SolidColorBrush Color="LightSalmon" Opacity="0.8"></SolidColorBrush>
             </Grid.Background>
             <TextBox TextWrapping="NoWrap" Grid.Row="0" TextChanged="TextBox_TextChanged"/>
-            <TextBlock Style="{StaticResource textInformatif}" Grid.Row="1" Text="Personnages"/>
-            <ListBox Grid.Row="2">
+            <TextBlock Name="HeaderListe" Style="{StaticResource textInformatif}" Grid.Row="1" TextWrapping="Wrap"/>
+            <ListBox Grid.Row="2" ItemsSource="{Binding Series}">
                 <ListBox.Background>
                     <SolidColorBrush Color="LightSalmon" Opacity="0"></SolidColorBrush>
                 </ListBox.Background>
@@ -92,7 +88,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Image Source="image.jpg" HorizontalAlignment="left" Grid.Row="0" Grid.Column="0"/>
+            <Image Source="Images/image.jpg" HorizontalAlignment="left" Grid.Row="0" Grid.Column="0"/>
             <!--Image pour voir le rendu-->
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>

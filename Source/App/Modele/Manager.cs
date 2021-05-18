@@ -10,6 +10,8 @@ namespace Modele
         public HashSet<Serie> Series { get; } // Un HashSet n'est Pas utilisable car on doit pouvoir récupéré les séries
         // Format : string = nom, HashSet = personnages appartenant au groupe
         public IDictionary<string, HashSet<Personnage>> Groupes { get; }
+        public IEnumerable<Personnage> Personnages => Series.SelectMany(serie => serie.Personnages)
+                                                .Distinct();
 
         public Manager()
         {

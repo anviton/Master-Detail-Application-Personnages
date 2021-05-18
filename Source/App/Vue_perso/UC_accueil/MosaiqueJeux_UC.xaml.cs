@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Modele;
 
 namespace Vue_perso
 {
@@ -18,9 +19,19 @@ namespace Vue_perso
     /// </summary>
     public partial class MosaiqueJeux_UC : UserControl
     {
+        public Manager Mgr => (App.Current as App).MonManager;
+
         public MosaiqueJeux_UC()
         {
             InitializeComponent();
+            DataContext = Mgr;
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var mainWindow = new MainWindow(((sender as ListBox).SelectedItem as Serie));
+            mainWindow.Show();
+            Window.GetWindow(this).Close();
         }
     }
 }
