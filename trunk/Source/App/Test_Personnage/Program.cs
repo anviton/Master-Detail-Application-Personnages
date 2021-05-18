@@ -40,13 +40,13 @@ namespace Test_Personnage
 
             //Console.WriteLine($"Mon nom est {perso1.nom} relation : ");*/
             Chargeur chargeur1 = new Stub("");
-            Donnees donnees = chargeur1.Charger();
+            Manager manager = chargeur1.Charger();
             //Test de l'affichage de toutes les série
-            AfficherLesSeries(donnees.Series);
+            AfficherLesSeries(manager.Series);
 
 
             //Test de l'affichage des membres d'une série
-            donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
+            manager.Series.TryGetValue(new Serie("mario"), out Serie serie);
             AfficherUneSerie(serie);
             //Test de l'affichage des relations d'un personnage (ayant des relations)
             serie.Personnages.TryGetValue(new Personnage("Mario", "mario"), out Personnage perso1);
@@ -63,28 +63,28 @@ namespace Test_Personnage
             //Test de l'affichage du thème musical d'un perso
             AfficherLeThemeMusicalDUnPersonnage(perso2);
             //Test de l'affichage de tous les personnages de l'application
-            AfficherTousLesPersonnages(donnees);
+            AfficherTousLesPersonnages(manager);
             //Test de l'affichage de tous les groupes de personnages de l'application
-            AfficherLaListeDesGroupes(donnees.Groupes);
+            AfficherLaListeDesGroupes(manager.Groupes);
             //Test de l'affichage d'un groupe
-            AfficherUnGroupe("Triforce", donnees);
+            AfficherUnGroupe("Triforce", manager);
             //Test rechercher un personnage
             Serie test;
-            donnees.RechercherUneSerie("zelda", out test);
-            donnees.EnregistrerPersonnage("Bowser", test, out Personnage perso3);
+            manager.RechercherUneSerie("zelda", out test);
+            manager.EnregistrerPersonnage("Bowser", test, out Personnage perso3);
             Console.WriteLine();
             Console.WriteLine("Je recherche le personnage \"bowser\" :");
-            TestRechercherUnPerso("Bowser", "mario", donnees);
+            TestRechercherUnPerso("Bowser", "mario", manager);
             Console.WriteLine();
             Console.WriteLine("Je recherche le personnage \"bowse\" :");
-            TestRechercherUnPerso("Bowse", "mario", donnees);
+            TestRechercherUnPerso("Bowse", "mario", manager);
             //Test rechercher une série
             Console.WriteLine();
             Console.WriteLine("Je recherche la série \"mario\" :");
-            TestRechercherUneSerie("mario", donnees);
+            TestRechercherUneSerie("mario", manager);
             Console.WriteLine();
             Console.WriteLine("Je recherche la série \"mari\" :");
-            TestRechercherUneSerie("mari", donnees);
+            TestRechercherUneSerie("mari", manager);
 
         }
 
@@ -141,9 +141,9 @@ namespace Test_Personnage
             }
         }
 
-        private static void AfficherTousLesPersonnages(Donnees donnees)
+        private static void AfficherTousLesPersonnages(Manager manager)
         {
-            var tousLesPerso = donnees.Series.SelectMany(serie => serie.Personnages)
+            var tousLesPerso = manager.Series.SelectMany(serie => serie.Personnages)
                                                 .Distinct();
             Console.WriteLine("\nTous les personnages de l'application :");
             foreach (Personnage personnage in tousLesPerso)
@@ -161,9 +161,9 @@ namespace Test_Personnage
             }
         }
 
-        private static void AfficherUnGroupe(string nom, Donnees donnees)
+        private static void AfficherUnGroupe(string nom, Manager manager)
         {
-            donnees.Groupes.TryGetValue(nom, out HashSet<Personnage> personnages);
+            manager.Groupes.TryGetValue(nom, out HashSet<Personnage> personnages);
             Console.WriteLine($"\nLe groupe \"{nom}\" est composé de :");
             foreach (Personnage personnage in personnages)
             {
@@ -171,9 +171,9 @@ namespace Test_Personnage
             }
         }
 
-        public static void TestRechercherUnPerso(string nom, string nomSerie, Donnees donnees)
+        public static void TestRechercherUnPerso(string nom, string nomSerie, Manager manager)
         {
-            if (donnees.RechercherUnPersonnage(nom, nomSerie, out Personnage perso))
+            if (manager.RechercherUnPersonnage(nom, nomSerie, out Personnage perso))
             {
                 Console.WriteLine(perso);
             }
@@ -183,9 +183,9 @@ namespace Test_Personnage
             }
         }
 
-        public static void TestRechercherUneSerie(string nom, Donnees donnees)
+        public static void TestRechercherUneSerie(string nom, Manager manager)
         {
-            if (donnees.RechercherUneSerie(nom, out Serie serie))
+            if (manager.RechercherUneSerie(nom, out Serie serie))
             {
                 Console.WriteLine(serie);
             }

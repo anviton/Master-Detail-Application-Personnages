@@ -14,7 +14,7 @@ namespace UnitTests
 		public void Test_AjouterCitation_CitationInexistante()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
 			serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
@@ -29,7 +29,7 @@ namespace UnitTests
 		public void Test_AjouterCitation_CitationExistante()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
 			serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
@@ -43,7 +43,7 @@ namespace UnitTests
 		public void Test_SupprimerCitation()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
 			serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
@@ -58,7 +58,7 @@ namespace UnitTests
 		public void Test_AjouterRelation_RelationInexistanteAvecPersoRec()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			donnees.Series.TryGetValue(new Serie("zelda"), out Serie serieZelda);
@@ -78,7 +78,7 @@ namespace UnitTests
 		public void Test_AjouterRelation_RelationInexistanteAvecPersoNonRec()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -94,7 +94,7 @@ namespace UnitTests
 		public void Test_AjouterRelation_RelationExistanteAvecPersoRec()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -111,7 +111,7 @@ namespace UnitTests
 		public void Test_AjouterRelation_RelationExistanteAvecPersoNonRec()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -126,7 +126,7 @@ namespace UnitTests
 		public void Test_SupprimerUneRelation_RelationAvecPersoRec()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -145,7 +145,7 @@ namespace UnitTests
 		public void Test_SupprimerUneRelation_RelationAvecPersoNonRec()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -161,7 +161,7 @@ namespace UnitTests
 		public void Test_AjouterUnJeu_JeuInexistantNomUniquement()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -177,7 +177,7 @@ namespace UnitTests
 		public void Test_AjouterUnJeu_JeuInexistantNomEtAnnee()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -193,7 +193,7 @@ namespace UnitTests
 		public void Test_AjouterUnJeu_JeuExistantAjoutNomUniquementExistantNomUniquement()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -208,7 +208,7 @@ namespace UnitTests
 		public void Test_AjouterUnJeu_JeuExistantAjoutNomEtAnneeExistantNomEtAnnee()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -223,7 +223,7 @@ namespace UnitTests
 		public void Test_AjouterUnJeu_JeuExistantAjoutNomUniquementExistantNomEtAnnee()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -238,7 +238,7 @@ namespace UnitTests
 		public void Test_AjouterUnJeu_JeuExistantAjoutNomEtAnneeExistantNomUniquement()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
@@ -253,7 +253,7 @@ namespace UnitTests
 		public void Test_SupprimerUnJeu()
 		{
 			Chargeur chargeur = new Stub("");
-			Donnees donnees = chargeur.Charger();
+			Manager donnees = chargeur.Charger();
 
 			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);

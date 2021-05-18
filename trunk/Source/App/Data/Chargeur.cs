@@ -13,6 +13,6 @@ namespace Data
             cheminDAcces = chemin;
         }
 
-        public abstract Donnees Charger();
+        public abstract Manager Charger();
     }
 }
