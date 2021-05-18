@@ -18,6 +18,7 @@ namespace Modele
         public HashSet<Relation> Relations { get; }
         public string SerieDuPerso { get; }
         public ISet<Relation> EstMentionneDans { get; }
+        public string Description { get; set; }
         
         // Méthodes
         public Personnage(string nom, string serie) : base(nom)

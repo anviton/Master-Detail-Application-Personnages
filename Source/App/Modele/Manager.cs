@@ -145,9 +145,7 @@ namespace Modele
         /// <returns>true si le perso est trouvé / fals s'il n'est pas trouvé</returns>
         public bool RechercherUnPersonnage(string nom, string serie, out Personnage personnage)
         {
-            var tousLesPerso = Series.SelectMany(serie => serie.Personnages)
-                                                .Distinct();
-            Dictionary<string, Personnage> tousLesPersos = tousLesPerso.ToDictionary(p => p.Nom + p.SerieDuPerso);
+            Dictionary<string, Personnage> tousLesPersos = Personnages.ToDictionary(p => p.Nom + p.SerieDuPerso);
 
             return tousLesPersos.TryGetValue(nom+serie, out personnage);
         }
