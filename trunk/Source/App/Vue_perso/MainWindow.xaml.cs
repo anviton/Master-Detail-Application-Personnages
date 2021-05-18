@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Modele;
 
 namespace Vue_perso
 {
@@ -20,14 +21,24 @@ namespace Vue_perso
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Manager Mgr => (App.Current as App).MonManager;
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = Mgr;
+            HeaderListe.Text = "Tous les personnages";
+        }
+        public MainWindow(Serie serie)
+        {
+            InitializeComponent();
+            DataContext = serie;
+            HeaderListe.Text = $"Personnages de {serie.Nom}";
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            
         }
     }
 }
