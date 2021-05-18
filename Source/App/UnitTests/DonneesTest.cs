@@ -13,7 +13,7 @@ namespace UnitTests
         public void Test_AjouterSerie_SerieInexistante()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             Serie serie = new Serie("Ori");
 
@@ -26,7 +26,7 @@ namespace UnitTests
         public void Test_AjouterSerie_SerieExistante()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             Serie serie = new Serie("zelda");
 
@@ -38,7 +38,7 @@ namespace UnitTests
         public void Test_EnregistrerPersonnage_PersonnageInexistant()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
             Personnage personnage = new Personnage("Ganon", serie.Nom);
@@ -52,7 +52,7 @@ namespace UnitTests
         public void Test_EnregistrerPersonnage_PersonnageExistant()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
             Personnage personnage = new Personnage("Link", serie.Nom);
@@ -65,7 +65,7 @@ namespace UnitTests
         public void Test_SupprimerPersonnage_PersonnageHorsGroupeAvecAutresPersonnagesDansSerieNonMentionneDansRelations()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage personnage);
@@ -80,7 +80,7 @@ namespace UnitTests
         public void Test_SupprimerPersonnage_AucunAutrePersonnageDansSerie()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
@@ -94,7 +94,7 @@ namespace UnitTests
         public void Test_SupprimerPersonnage_PersonnageDansGroupe()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
@@ -110,7 +110,7 @@ namespace UnitTests
         public void Test_SupprimerPersonnage_PersonnageMentionneDansRelation()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Bowser", serie.Nom), out Personnage bowser);
@@ -128,7 +128,7 @@ namespace UnitTests
         public void Test_AjouterGroupe_GroupeInexistant()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             Assert.IsFalse(donnees.Groupes.ContainsKey("Héros"));
             Assert.IsTrue(donnees.AjouterGroupe("Héros"));
@@ -139,7 +139,7 @@ namespace UnitTests
         public void Test_AjouterGroupe_GroupeExistant()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             Assert.IsTrue(donnees.Groupes.ContainsKey("Triforce"));
             Assert.IsFalse(donnees.AjouterGroupe("Triforce"));
@@ -149,7 +149,7 @@ namespace UnitTests
         public void Test_SupprimerGroupe()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             Assert.IsTrue(donnees.Groupes.ContainsKey("Triforce"));
             donnees.SupprimerGroupe("Triforce");
@@ -160,7 +160,7 @@ namespace UnitTests
         public void Test_AjouterPersoAGroupe_PersoInexistantDansGroupe()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage personnage);
@@ -174,7 +174,7 @@ namespace UnitTests
         public void Test_AjouterPersoAGroupe_PersoExistantDansGroupe()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
@@ -187,7 +187,7 @@ namespace UnitTests
         public void Test_RetirerPersoDeGroupe()
 		{
             Chargeur chargeur = new Stub("");
-            Donnees donnees = chargeur.Charger();
+            Manager donnees = chargeur.Charger();
 
             donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);

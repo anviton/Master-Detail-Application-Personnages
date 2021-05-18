@@ -11,9 +11,9 @@ namespace Data
         {
         }
 
-        public override Donnees Charger()
+        public override Manager Charger()
         {
-            Donnees test = new Donnees();
+            Manager test = new Manager();
             test.AjouterSerie("mario", out Serie serieMario);
             test.AjouterSerie("zelda", out Serie serieZelda);
             test.AjouterSerie("celeste", out Serie serieCeleste);
