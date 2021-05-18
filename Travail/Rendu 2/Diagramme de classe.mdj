@@ -5748,7 +5748,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Donnees",
+											"text": "Manager",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -9086,7 +9086,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Donnees",
+					"name": "Manager",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
