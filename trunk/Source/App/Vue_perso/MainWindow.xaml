@@ -32,6 +32,10 @@
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="Margin" Value="10"></Setter>
         </Style>
+        <Style TargetType="ListBox" x:Key="Liste">
+            <Setter Property="Background" Value="LightSalmon">
+            </Setter>
+        </Style>
     </Window.Resources>
     <DockPanel>
         <DockPanel.Background>
@@ -39,7 +43,7 @@
         </DockPanel.Background>
 
         <Menu Background="#FFF9E2C6" DockPanel.Dock="Top">
-            <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9"/>
+            <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9" Click="RetourAccueil"/>
             <MenuItem Header="Ajouter à une liste">
                 <MenuItem Header="+ Nouvelle liste"/>
                 <MenuItem Header="Liste déjà existante"/>
@@ -66,19 +70,19 @@
             </Grid.Background>
             <TextBox TextWrapping="NoWrap" Grid.Row="0" TextChanged="TextBox_TextChanged"/>
             <TextBlock Name="HeaderListe" Style="{StaticResource textInformatif}" Grid.Row="1" TextWrapping="Wrap"/>
-            <ListBox Grid.Row="2" ItemsSource="{Binding Series}">
+            <ListBox Name="ListBoxSerie" Grid.Row="2" ItemsSource="{Binding Personnages}">
                 <ListBox.Background>
                     <SolidColorBrush Color="LightSalmon" Opacity="0"></SolidColorBrush>
                 </ListBox.Background>
             </ListBox>
         </Grid>
         
-        <Grid>
+        <Grid DataContext="{Binding ElementName=ListBoxSerie, Path=SelectedItem}">
             <Grid.Background>
                 <SolidColorBrush Color="LightSalmon" Opacity="0.5"/>
             </Grid.Background>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1.5*"/>
+                <RowDefinition MinHeight="100"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -95,17 +99,26 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
+                    <RowDefinition />
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Style="{StaticResource textInformatif1}" Grid.Row="0" Grid.Column="1" Text="Mario"/>
-                <TextBlock Style="{StaticResource textInformatif1}" Grid.Row="1" Grid.Column="1" Text="It's me Mario !"/>
+                <TextBlock Style="{StaticResource textInformatif1}" Grid.Row="0" Grid.Column="1" Text="{Binding Nom}"/>
+                <TextBlock Style="{StaticResource textInformatif1}" FontSize="30"  Text="{Binding CitationAleatoire}" Grid.Column="1" Grid.Row="1" />
             </Grid>
             
             <TextBlock Style="{StaticResource textInformatif}" Text="Jeux video :" Grid.Row="1"/>
             <TextBlock Style="{StaticResource textInformatif}" Text="Théme musical" Grid.Row="2"/>
             <TextBlock Style="{StaticResource textInformatif}" Text="Relations" Grid.Row="3" />
+            <ListBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Relations}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <TextBlock Style="{StaticResource textInformatif}" Text="Descritption :" Grid.Row="4"/>
+            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Description}" Grid.Row="4" Grid.Column="1"/>
         </Grid>
 
     </DockPanel>

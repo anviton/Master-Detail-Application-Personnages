@@ -7,16 +7,15 @@ namespace Modele
 {
     public class Manager
     {
-        public HashSet<Serie> Series { get; } // Un HashSet n'est Pas utilisable car on doit pouvoir récupéré les séries
-        // Format : string = nom, HashSet = personnages appartenant au groupe
-        public IDictionary<string, HashSet<Personnage>> Groupes { get; }
-        public IEnumerable<Personnage> Personnages => Series.SelectMany(serie => serie.Personnages)
-                                                .Distinct();
+        public SortedSet<Serie> Series { get; }
+        // Format : string = nom, SortedSet = personnages appartenant au groupe
+        public IDictionary<string, SortedSet<Personnage>> Groupes { get; }
+        public IEnumerable<Personnage> Personnages => Series.SelectMany(serie => serie.Personnages).Distinct();
 
         public Manager()
         {
-            Series = new HashSet< Serie >(); 
-            Groupes = new Dictionary<string, HashSet<Personnage>>();
+            Series = new SortedSet< Serie >(); 
+            Groupes = new SortedList<string, SortedSet<Personnage>>();
         }
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace Modele
             Series.TryGetValue(new Serie(perso.SerieDuPerso), out Serie serie);
 
             // Suppression du personnage de tous les groupes
-            foreach (KeyValuePair<string, HashSet<Personnage>> groupe in Groupes) {
+            foreach (KeyValuePair<string, SortedSet<Personnage>> groupe in Groupes) {
                 groupe.Value.Remove(perso);
 			}
 
@@ -101,7 +100,7 @@ namespace Modele
             }
 
             // Le groupe n'existe pas : on l'ajoute et renvoie true.
-            Groupes.Add(nom, new HashSet<Personnage>());
+            Groupes.Add(nom, new SortedSet<Personnage>());
             return true;
         }
 

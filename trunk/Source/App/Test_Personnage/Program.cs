@@ -99,10 +99,10 @@ namespace Test_Personnage
         private static void AfficherTousLesPersonnages(Manager manager)
         {
             Console.WriteLine("\nTous les personnages de l'application :");
-            foreach (Personnage personnage in manager.Personnages)
+            /*foreach (Personnage personnage in manager.Personnages)
             {
                 Console.WriteLine(personnage);
-            }
+            }*/
 
         }
         

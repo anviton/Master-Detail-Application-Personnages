@@ -7,10 +7,10 @@ namespace Modele
     public class Serie : Nommable
     {
         //Propriétés
-        public HashSet<Personnage> Personnages { get; set; }
+        public SortedSet<Personnage> Personnages { get; set; }
         public Serie(string nom) : base(nom)
         {
-            Personnages = new HashSet<Personnage>();
+            Personnages = new SortedSet<Personnage>();
         }
 
         //Méthodes
