@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Modele
 {
-    public abstract class Nommable : IEquatable<Nommable>
+    public abstract class Nommable : IEquatable<Nommable>, IComparable<Nommable>, IComparable
     {
         // Attributs
 
@@ -38,5 +38,40 @@ namespace Modele
 
             return Nom.GetHashCode() % 31;
         }
+
+        public int CompareTo(Nommable other)
+		{
+            return this.Nom.CompareTo(other.Nom);
+		}
+
+        public virtual int CompareTo(object obj)
+		{
+            if (!(obj is Nommable))
+			{
+                throw new ArgumentException("Argument is not a Nommable", "obj");
+			}
+            return this.CompareTo((obj as Nommable));
+		}
+
+        public static bool operator<(Nommable left, Nommable right)
+		{
+            return left.CompareTo(right) < 0;
+		}
+
+        public static bool operator<=(Nommable left, Nommable right)
+		{
+            return left.CompareTo(right) <= 0;
+		}
+
+        public static bool operator>(Nommable left, Nommable right)
+		{
+            return left.CompareTo(right) > 0;
+		}
+
+        public static bool operator>=(Nommable left, Nommable right)
+		{
+            return left.CompareTo(right) >= 0;
+		}
+        
     }
 }

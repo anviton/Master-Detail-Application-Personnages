@@ -33,7 +33,6 @@
                         <WrapPanel>
                             <Image Source="../Images/image.jpg" Width="100"/>
                             <TextBlock Text="{Binding Nom}"/>
-                            <Button Name="Afficher" Content="Afficher"/>
                         </WrapPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

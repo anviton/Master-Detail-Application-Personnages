@@ -52,7 +52,7 @@ namespace Tests_Series_et_Groupes
             }
         }
 
-        private static void AfficherLesSeries(HashSet<Serie> Series)
+        private static void AfficherLesSeries(ISet<Serie> Series)
         {
             Console.WriteLine("\nLa liste des séries :");
             foreach (Serie serie in Series)
@@ -73,7 +73,7 @@ namespace Tests_Series_et_Groupes
             }
         }
 
-        private static void AfficherLaListeDesGroupes(IDictionary<string, HashSet<Personnage>> groupes)
+        private static void AfficherLaListeDesGroupes(IDictionary<string, SortedSet<Personnage>> groupes)
         {
             Console.WriteLine("\nListe des groupes : ");
             foreach (string nomGroupe in groupes.Keys)
@@ -84,7 +84,7 @@ namespace Tests_Series_et_Groupes
 
         private static void AfficherUnGroupe(string nom, Manager manager)
         {
-            manager.Groupes.TryGetValue(nom, out HashSet<Personnage> personnages);
+            manager.Groupes.TryGetValue(nom, out SortedSet<Personnage> personnages);
             Console.WriteLine($"\nLe groupe \"{nom}\" est composé de :");
             foreach (Personnage personnage in personnages)
             {

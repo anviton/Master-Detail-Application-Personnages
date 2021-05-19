@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Modele
 {
-    public class Personnage : Nommable, IEquatable<Personnage>
+    public class Personnage : Nommable, IEquatable<Personnage>, IComparable<Personnage>
     {
         // Champs
 
@@ -12,6 +12,19 @@ namespace Modele
         
         //Propriétés
         public ISet<string> Citations { get; }
+        public static Random indexRandomizer = new Random();
+        public string CitationAleatoire
+		{
+            get
+			{
+                if (Citations.Count > 0) {
+                    int index = indexRandomizer.Next(Citations.Count);
+                    string[] arr_citations = new string[Citations.Count];
+                    Citations.CopyTo(arr_citations, 0);
+                    return arr_citations[index];
+                } else return "";
+			}
+		}
         public string Image { get; set; }
         public ISet<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
@@ -44,6 +57,46 @@ namespace Modele
         public bool Equals(Personnage other)
         {
             return (base.Equals(other) && this.SerieDuPerso.Equals(other.SerieDuPerso));
+        }
+
+        public int CompareTo(Personnage other)
+        {
+            int resultat = (this as Nommable).CompareTo((other as Nommable)); // Cette syntaxe pour appeler le CompareTo de Nommable
+            if (resultat != 0) return resultat;
+
+            resultat = this.SerieDuPerso.CompareTo(other.SerieDuPerso);
+            if (resultat != 0) return resultat;
+
+            return 0;
+        }
+
+        public override int CompareTo(object obj)
+        {
+            if (!(obj is Personnage))
+            {
+                throw new ArgumentException("Argument is not a Personnage", "obj");
+            }
+            return this.CompareTo((obj as Personnage));
+        }
+
+        public static bool operator<(Personnage left, Personnage right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        public static bool operator<=(Personnage left, Personnage right)
+        {
+            return left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator>(Personnage left, Personnage right)
+        {
+            return left.CompareTo(right) > 0;
+        }
+
+        public static bool operator>=(Personnage left, Personnage right)
+        {
+            return left.CompareTo(right) >= 0;
         }
 
         /// <summary>
