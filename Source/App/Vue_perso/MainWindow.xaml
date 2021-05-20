@@ -74,6 +74,14 @@
                 <ListBox.Background>
                     <SolidColorBrush Color="LightSalmon" Opacity="0"></SolidColorBrush>
                 </ListBox.Background>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Width="100" Source="Images/image.jpg"/>
+                            <TextBlock Text="{Binding Nom}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>    
             </ListBox>
         </Grid>
         
