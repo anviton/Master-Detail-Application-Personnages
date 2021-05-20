@@ -10,7 +10,8 @@ namespace Modele
         public SortedSet<Serie> Series { get; }
         // Format : string = nom, SortedSet = personnages appartenant au groupe
         public IDictionary<string, SortedSet<Personnage>> Groupes { get; }
-        public IEnumerable<Personnage> Personnages => Series.SelectMany(serie => serie.Personnages).Distinct();
+        public SortedSet<Personnage> Personnages => new SortedSet<Personnage>(Series.SelectMany(serie => serie.Personnages));
+        public Personnage Selected { get; set; }
 
         public Manager()
         {

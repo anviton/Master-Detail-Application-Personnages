@@ -23,7 +23,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBox DockPanel.Dock="Top" Text="Rechercher une Série de Jeux" TextWrapping="NoWrap"/>
-            <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Series}" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Series}" SelectionChanged="SerieSelectionnee">
 
                 <ListBox.Background>
                     <SolidColorBrush Color="#FF98CBF7" Opacity="0"></SolidColorBrush>

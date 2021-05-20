@@ -27,7 +27,7 @@ namespace Vue_perso
             DataContext = Mgr;
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SerieSelectionnee(object sender, SelectionChangedEventArgs e)
         {
             var mainWindow = new MainWindow(((sender as ListBox).SelectedItem as Serie));
             mainWindow.Show();
