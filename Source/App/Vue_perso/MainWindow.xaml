@@ -70,14 +70,14 @@
             </Grid.Background>
             <TextBox TextWrapping="NoWrap" Grid.Row="0" TextChanged="TextBox_TextChanged"/>
             <TextBlock Name="HeaderListe" Style="{StaticResource textInformatif}" Grid.Row="1" TextWrapping="Wrap"/>
-            <ListBox Name="ListBoxSerie" Grid.Row="2" ItemsSource="{Binding Personnages}">
+            <ListBox Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding Personnages}" SelectedItem="{Binding Selected}">
                 <ListBox.Background>
                     <SolidColorBrush Color="LightSalmon" Opacity="0"></SolidColorBrush>
                 </ListBox.Background>
             </ListBox>
         </Grid>
         
-        <Grid DataContext="{Binding ElementName=ListBoxSerie, Path=SelectedItem}">
+        <Grid DataContext="{Binding Selected}">
             <Grid.Background>
                 <SolidColorBrush Color="LightSalmon" Opacity="0.5"/>
             </Grid.Background>
@@ -107,7 +107,7 @@
             </Grid>
             
             <TextBlock Style="{StaticResource textInformatif}" Text="Jeux video :" Grid.Row="1"/>
-            <TextBlock Style="{StaticResource textInformatif}" Text="Théme musical" Grid.Row="2"/>
+            <TextBlock Style="{StaticResource textInformatif}" Text="Thème musical" Grid.Row="2"/>
             <TextBlock Style="{StaticResource textInformatif}" Text="Relations" Grid.Row="3" />
             <ListBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Relations}">
                 <ListBox.ItemTemplate>
@@ -117,7 +117,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <TextBlock Style="{StaticResource textInformatif}" Text="Descritption :" Grid.Row="4"/>
+            <TextBlock Style="{StaticResource textInformatif}" Text="Description :" Grid.Row="4"/>
             <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Description}" Grid.Row="4" Grid.Column="1"/>
         </Grid>
 
