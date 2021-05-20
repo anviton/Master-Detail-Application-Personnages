@@ -29,9 +29,10 @@ namespace Vue_perso
 
         private void PersonnageSelectionne(object sender, SelectionChangedEventArgs e)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.Show();
+            MainWindow mainWindow = new MainWindow();
             Window.GetWindow(this)?.Close();
+            mainWindow.ShowDialog();
+
         }
     }
 }

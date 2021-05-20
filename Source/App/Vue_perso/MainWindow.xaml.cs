@@ -43,8 +43,20 @@ namespace Vue_perso
 
         private void RetourAccueil(object sender, RoutedEventArgs e)
         {
-            //accueil.Show();
-            //this.Close();
+            Accueil accueil = new Accueil();
+            Close();
+            accueil.Show();
+        }
+
+        private void ModifierPersonnage(object sender, RoutedEventArgs e)
+        {
+            NouveauPerso nouveau = new NouveauPerso();
+            nouveau.ShowDialog();
+        }
+
+        private void SupprimerPersonnage(object sender, RoutedEventArgs e)
+        {
+            //Mgr.SupprimerPersonnage(Mgr.Selected);
         }
     }
 }
