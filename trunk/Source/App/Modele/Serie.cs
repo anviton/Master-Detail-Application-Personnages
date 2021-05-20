@@ -8,6 +8,8 @@ namespace Modele
     {
         //Propriétés
         public SortedSet<Personnage> Personnages { get; set; }
+
+        public Personnage Selected { get; set; }
         public Serie(string nom) : base(nom)
         {
             Personnages = new SortedSet<Personnage>();

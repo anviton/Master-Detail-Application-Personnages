@@ -12,9 +12,9 @@
             <MenuItem Header="Listes">
                 <MenuItem Header="+ Nouvelle liste"/>
                     <MenuItem Header="Consulter une liste">
-                        <ComboBox VerticalAlignment="Center" HorizontalAlignment="Center" SelectedIndex="0" Width="100">
-                            
-                        </ComboBox>
+                    <ComboBox VerticalAlignment="Center" ItemsSource="{Binding Groupes}" HorizontalAlignment="Center" SelectedIndex="0" Width="100">
+                        <!--TextBlock/-->
+                    </ComboBox>
                     </MenuItem>
                 </MenuItem>
             <MenuItem Header="Actions personnages">

@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Modele;
 
 namespace Vue_perso
 {
@@ -17,8 +18,10 @@ namespace Vue_perso
     /// </summary>
     public partial class Accueil : Window
     {
+        public Manager Mgr => (App.Current as App).MonManager;
         public Accueil()
         {
+            DataContext = Mgr;
             InitializeComponent();
         }
 

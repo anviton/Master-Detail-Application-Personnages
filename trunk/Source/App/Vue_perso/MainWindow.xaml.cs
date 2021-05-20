@@ -22,7 +22,6 @@ namespace Vue_perso
     public partial class MainWindow : Window
     {
         public Manager Mgr => (App.Current as App).MonManager;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -34,6 +33,7 @@ namespace Vue_perso
             InitializeComponent();
             DataContext = serie;
             HeaderListe.Text = $"Personnages de {serie.Nom}";
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -43,9 +43,8 @@ namespace Vue_perso
 
         private void RetourAccueil(object sender, RoutedEventArgs e)
         {
-            Accueil accueil = new Accueil();
-            accueil.Show();
-            this.Close();
+            //accueil.Show();
+            //this.Close();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Vue_perso
         {
             var mainWindow = new MainWindow();
             mainWindow.Show();
-            Window.GetWindow(this).Close();
+            Window.GetWindow(this)?.Close();
         }
     }
 }
