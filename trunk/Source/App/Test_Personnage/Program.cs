@@ -15,7 +15,7 @@ namespace Test_Personnage
             manager.Series.TryGetValue(new Serie("mario"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Mario", "mario"), out Personnage perso1);
             AfficherLesRelations(perso1);
-            manager.RechercherUnPersonnage("Link", "zelda", out Personnage perso1_2);
+            bool toto = manager.RechercherUnPersonnage("Link", "zelda", out Personnage perso1_2);
             perso1.AjouterRelation("Copain", perso1_2);
             manager.RechercherUnPersonnage("Bowser", "mario", out Personnage perso1_3);
             perso1.SupprimerUneRelation(new Relation("Ennemi", perso1_3));
