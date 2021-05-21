@@ -15,24 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bibliothèques_Images\Bibliothèques_Images.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Modele\Modele.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Images\arriere_plan_grille_perso.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Images\arriere.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Images\image.jpg" />
   </ItemGroup>
 
 </Project>

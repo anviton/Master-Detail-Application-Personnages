@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Background>
-        <ImageBrush ImageSource="../Images/arriere_plan_grille_perso.jpg" />
+        <ImageBrush ImageSource="/Bibliothèques_Images;Component/Images_Fonds/arriere_plan_grille_perso.jpg" />
     </UserControl.Background>
 
     <DockPanel>
@@ -21,7 +21,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../Images/image.jpg" Width="100" />
+                        <Image Source="{Binding Image}" Width="100" />
                         <Label Content="{Binding Nom}" />
                     </StackPanel>
                 </DataTemplate>

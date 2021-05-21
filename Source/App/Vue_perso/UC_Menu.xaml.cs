@@ -55,9 +55,22 @@ namespace Vue_perso
             }
         }
 
+        private void ModifierPersonnage(object sender, RoutedEventArgs e)
+        {
+            NouveauPerso nouveau = new NouveauPerso();
+            nouveau.ShowDialog();
+        }
+
         private void SupprimerGroupe(object sender, RoutedEventArgs e)
         {
+            
+        }
 
+        private void GroupeSelectionnee(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            Window.GetWindow(this).Close();
+            mainWindow.Show();
         }
     }
 }

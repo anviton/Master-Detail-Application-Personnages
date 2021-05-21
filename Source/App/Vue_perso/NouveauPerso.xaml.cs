@@ -33,8 +33,14 @@ namespace Vue_perso
             if (senderButton.Equals(ThemeButton))
             {
                 newWindow = new ThemeMusical();
-                newWindow.Show();
+                newWindow.ShowDialog();
             } // Reste des fenêtres ici
+            if (senderButton.Equals(Parcourir))
+            {
+                newWindow = new ThemeMusical();
+                newWindow.ShowDialog();
+            }
         }
+
     }
 }

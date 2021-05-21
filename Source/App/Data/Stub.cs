@@ -21,6 +21,8 @@ namespace Data
             test.EnregistrerPersonnage("Bowser", serieMario, out Personnage perso2);
             test.EnregistrerPersonnage("Link", serieZelda, out Personnage perso3);
             test.EnregistrerPersonnage("Madeline", serieCeleste, out Personnage perso4);
+            perso2.Image = "/Bibliothèques_Images;Component/Images_Personnages/bowser.jpg";
+            perso1.Image= "/Bibliothèques_Images;Component/Images_Personnages/mario.jpeg";
             perso1.AjouterCitation("It's me Mario");
             perso1.AjouterCitation("Bye bye");
             perso1.AjouterRelation("Ennemi", perso2);

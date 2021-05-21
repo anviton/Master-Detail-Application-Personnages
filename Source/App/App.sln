@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modele", "Modele\Modele.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests_Series_et_Groupes", "Tests\Tests_Series_et_Groupes\Tests_Series_et_Groupes.csproj", "{63F4EC88-4DD5-4D5B-85F1-DD640DC288FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliothèques_Images", "Bibliothèques_Images\Bibliothèques_Images.csproj", "{9E1CED05-EEB7-424E-A90F-FEEDA44FF0EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{63F4EC88-4DD5-4D5B-85F1-DD640DC288FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63F4EC88-4DD5-4D5B-85F1-DD640DC288FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63F4EC88-4DD5-4D5B-85F1-DD640DC288FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E1CED05-EEB7-424E-A90F-FEEDA44FF0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1CED05-EEB7-424E-A90F-FEEDA44FF0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1CED05-EEB7-424E-A90F-FEEDA44FF0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1CED05-EEB7-424E-A90F-FEEDA44FF0EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
