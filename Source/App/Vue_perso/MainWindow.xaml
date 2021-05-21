@@ -43,20 +43,8 @@
             <ImageBrush ImageSource="Images/arriere_plan_grille_perso.jpg"></ImageBrush>
         </DockPanel.Background>
 
-        <Menu Background="#FFF9E2C6" DockPanel.Dock="Top">
-            <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9" Click="RetourAccueil"/>
-            <MenuItem Header="Ajouter à une liste">
-                <MenuItem Header="+ Nouvelle liste"/>
-                <MenuItem Header="Liste déjà existante"/>
-            </MenuItem>
-            <MenuItem Header="Actions personnages">
-                <MenuItem Header="Exporter"/>
-                <MenuItem Click="SupprimerPersonnage" Header="Supprimer"/>
-                <MenuItem Click="ModifierPersonnage" Header="Modifier"/>
-            </MenuItem>
-                
-        </Menu>
-        
+        <local:UC_Menu DockPanel.Dock="Top"/>
+
         <Grid DockPanel.Dock="Left" Background="{StaticResource BackgorundSalmon}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>

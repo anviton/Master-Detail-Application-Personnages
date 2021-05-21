@@ -15,6 +15,12 @@
     <Compile Update="Accueil.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialogs\NouveauGroupeDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\SupprimerGroupeDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UC_accueil\MosaiqueJeux_UC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,9 +33,18 @@
     <Compile Update="ThemeMusical.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UC_Menu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Accueil.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\NouveauGroupeDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\SupprimerGroupeDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -45,6 +60,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ThemeMusical.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UC_Menu.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
