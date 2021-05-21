@@ -25,7 +25,17 @@ namespace Modele
                 } else return "";
 			}
 		}
-        public string Image { get; set; }
+        public string Image { 
+            get
+            {
+                return image;
+            }
+            set 
+            {
+                image = value;
+            }
+        }
+        public string image = "/Bibliothèques_Images;Component/Images_Personnages/mario.jpeg";
         public ISet<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
         public HashSet<Relation> Relations { get; }
@@ -205,7 +215,7 @@ namespace Modele
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{Nom} {Image}";
+            return $"{Nom}";
         }
 
 

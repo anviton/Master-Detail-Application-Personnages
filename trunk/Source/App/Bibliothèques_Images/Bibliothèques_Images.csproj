@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images_Personnages\bowser.jpg" />
+    <None Remove="Images_Personnages\mario.jpeg" />
+    <None Remove="Images_Test\image.jpg" />
+    <None Remove="Images_Fonds\arriere.jpg" />
+    <None Remove="Images_Fonds\arriere_plan_grille_perso.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images_Personnages\bowser.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images_Personnages\mario.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images_Fonds\image.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images_Fonds\arriere.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images_Fonds\arriere_plan_grille_perso.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images_Test\" />
+  </ItemGroup>
+
+</Project>

@@ -35,7 +35,7 @@
             <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="NoWrap" Width="Auto"></TextBox>
 
             <Label  Grid.Column="0" Grid.Row="1" Content="Image :"/>
-            <Button Grid.Column="1" Grid.Row="1" Content="Parcourir..."/>
+            <Button Grid.Column="1" Grid.Row="1" Content="Parcourir..." Name="Parcourir" Click="RenseignerChamp"/>
 
             <Label   Grid.Column="0" Grid.Row="2" Content="Citations :"/>
             <TextBox Grid.Column="1" Grid.Row="2" Text="Emplacement de saisie à modifier pour correspondre au contexte" TextWrapping="NoWrap" Width="Auto" IsEnabled="False"/>

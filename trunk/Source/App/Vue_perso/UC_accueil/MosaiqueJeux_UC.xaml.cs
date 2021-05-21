@@ -30,8 +30,9 @@ namespace Vue_perso
         private void SerieSelectionnee(object sender, SelectionChangedEventArgs e)
         {
             var mainWindow = new MainWindow(((sender as ListBox).SelectedItem as Serie));
-            mainWindow.ShowDialog();
             Window.GetWindow(this).Close();
+            mainWindow.ShowDialog();
+            
         }
     }
 }

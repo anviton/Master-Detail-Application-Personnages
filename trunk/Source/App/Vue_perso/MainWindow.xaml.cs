@@ -36,6 +36,14 @@ namespace Vue_perso
 
         }
 
+        public MainWindow(SortedSet <Personnage> liste)
+        {
+            InitializeComponent();
+            DataContext = liste;
+            HeaderListe.Text = $"Personnages de ";
+
+        }
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             
