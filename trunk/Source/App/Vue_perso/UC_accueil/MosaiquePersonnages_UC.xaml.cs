@@ -26,13 +26,16 @@ namespace Vue_perso
             InitializeComponent();
             DataContext = Mgr;
         }
-
-        private void PersonnageSelectionne(object sender, SelectionChangedEventArgs e)
+        
+        private void PersonnageSelectionne(object sender, MouseButtonEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            Window.GetWindow(this)?.Close();
-            mainWindow.ShowDialog();
-
+            // On gère ainsi le cas dans lequel l'utilisateur clique dans la ListBox mais pas sur un personnage
+            if ((sender as ListBox).SelectedItem != null)
+            {
+                MainWindow mainWindow = new MainWindow();
+                Window.GetWindow(this).Close();
+                mainWindow.Show();
+            }
         }
     }
 }

@@ -17,7 +17,7 @@
 
         <TextBox DockPanel.Dock="Top" Text="Rechercher un personnage" TextWrapping="NoWrap"/>
 
-        <ListBox ItemsSource="{Binding Personnages}" Background="{x:Null}" SelectionChanged="PersonnageSelectionne" SelectedItem="{Binding Selected}">
+        <ListBox ItemsSource="{Binding Personnages}" Background="{x:Null}" MouseUp="PersonnageSelectionne" SelectedItem="{Binding Selected}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -28,31 +28,4 @@
             </ListBox.ItemTemplate>
         </ListBox>
     </DockPanel>
-
-    <!--
-    
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="../Images/arriere_plan_grille_perso.jpg"></ImageBrush>
-        </Grid.Background>
-        <Grid>
-            <Grid.Background>
-                <SolidColorBrush Color="DarkSalmon" Opacity="0.6"/>
-            </Grid.Background>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBox DockPanel.Dock="Top" Text="Rechercher un  Personnage" TextWrapping="NoWrap"/>
-            <ListBox Grid.Row="1" Grid.ColumnSpan="2">
-                <ListBox.Background>
-                    <SolidColorBrush Color="DarkSalmon" Opacity="0"></SolidColorBrush>
-                </ListBox.Background>
-            </ListBox>
-        </Grid>
-    </Grid>-->
 </UserControl>
