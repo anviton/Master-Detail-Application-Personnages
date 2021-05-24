@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Madeline>
+  <personnage nom="Madeline">
+    <serieDuPerso>celeste</serieDuPerso>
+    <description />
+    <image>/Bibliothèques_Images;Component/Images_Personnages/mario.jpeg</image>
+    <citations>Tests</citations>
+  </personnage>
+</Madeline>

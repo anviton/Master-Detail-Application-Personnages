@@ -55,6 +55,17 @@ namespace Test_Personnage
             Console.WriteLine();
             Console.WriteLine("Je recherche le personnage \"bowse\" :");
             TestRechercherUnPerso("Bowse", "mario", manager);
+            //Test suppression personnage (suppression de mario)
+            manager.SupprimerPersonnage(perso1);
+            manager.Series.TryGetValue(new Serie("mario"), out Serie serie1);
+            AfficherUneSerie(serie1);
+            AfficherTousLesPersonnages(manager);
+            //Test exporter personnage
+            manager.EcrireUnPersonnageEnXml(perso4);
+            manager.SupprimerPersonnage(perso4);
+            AfficherTousLesPersonnages(manager);
+            manager.LireUnPersonnageEnXml("Madeline.xml");
+            AfficherTousLesPersonnages(manager);
         }
 
         
@@ -99,10 +110,10 @@ namespace Test_Personnage
         private static void AfficherTousLesPersonnages(Manager manager)
         {
             Console.WriteLine("\nTous les personnages de l'application :");
-            /*foreach (Personnage personnage in manager.Personnages)
+            foreach (Personnage personnage in manager.Personnages)
             {
                 Console.WriteLine(personnage);
-            }*/
+            }
 
         }
         
@@ -129,5 +140,14 @@ namespace Test_Personnage
 
         }
 
+        private static void AfficherUneSerie(Serie serie)
+        {
+            Console.WriteLine($"\nLa Série \"{serie.Nom}\" est composée de :");
+            foreach (Personnage personnage in serie.Personnages)
+            {
+                Console.WriteLine(personnage);
+            }
         }
+
+    }
 }

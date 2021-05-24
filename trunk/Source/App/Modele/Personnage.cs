@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Modele
 {
@@ -42,7 +43,14 @@ namespace Modele
         public string SerieDuPerso { get; }
         public ISet<Relation> EstMentionneDans { get; }
         public string Description { get; set; }
-        
+
+        //public delegate void Mention(Personnage perso, Relation relation);
+
+        //public event Mention NotificationRelation;
+
+        public EventHandler<NotificationRelationEvent> NotificationRelation;
+        protected virtual void OnNotificationRelation(NotificationRelationEvent args)
+            => NotificationRelation?.Invoke(this, args);
         // Méthodes
         public Personnage(string nom, string serie) : base(nom)
         {
@@ -51,6 +59,7 @@ namespace Modele
             JeuxVideo = new HashSet<JeuVideo>();
             Relations = new HashSet<Relation>();
             EstMentionneDans = new HashSet<Relation>();
+            NotificationRelation += AjouterAEstMentionneDans;
         }
 
         //Protocole d'égalité
@@ -149,7 +158,7 @@ namespace Modele
             Relation relation = new Relation(type, perso);
             if (Relations.Add(relation))
 			{
-                perso.EstMentionneDans.Add(relation);
+                OnNotificationRelation(new NotificationRelationEvent(perso, relation));
                 return true;
 			}
             return false;
@@ -177,6 +186,16 @@ namespace Modele
                 relation.PersoRec.EstMentionneDans.Remove(relation);
 			}
             Relations.Remove(relation);
+        }
+
+        /// <summary>
+        /// Ajoute à la liste de relation EetMentionneDans la relation dans laquel le personnage apparait
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void AjouterAEstMentionneDans(Object sender, NotificationRelationEvent args)
+        {
+            args.LePersonnage.EstMentionneDans.Add(args.LaRelation);
         }
 
         /// <summary>
