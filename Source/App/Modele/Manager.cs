@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
 using System.Text;
+using System.IO;
 
 namespace Modele
 {
@@ -79,6 +82,7 @@ namespace Modele
             }
 
             serie.SupprimerUnPersonnage(perso);
+            //Personnages.Remove(perso);
 
             if (serie.Personnages.Count == 0)
 			{
@@ -161,6 +165,63 @@ namespace Modele
             return Series.TryGetValue(new Serie(nom), out serie);
         }
 
+        public void LireUnPersonnageEnXml(string chemin)
+        {
+            XDocument personnageFichier = XDocument.Load(chemin);
+            var persos = personnageFichier.Descendants("personnage")
+                          .Select(eltPersonnage => new Personnage(eltPersonnage.Attribute("nom").Value, eltPersonnage.Element("serieDuPerso").Value)
+                          {
+                              Description = eltPersonnage.Element("description").Value,
+                              Image = eltPersonnage.Element("image").Value
+                          });
+            foreach (Personnage perso in persos)
+            {
+                var citationsElt = personnageFichier.Descendants("personnage")
+                                             .Single(elt => elt.Attribute("nom").Value == perso.Nom)
+                                             .Element("citations");
+
+                //perso.AjouterCitation(citationsElt.Value.Split());
+
+                bool serieExiste = RechercherUneSerie(perso.SerieDuPerso, out Serie serie);
+                if (serieExiste)
+                {
+                    serie.AjouterUnPersonnage(perso);
+                }
+                else
+                {
+                    AjouterSerie(perso.SerieDuPerso, out serie);
+                    serie.AjouterUnPersonnage(perso);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Permet d'exporter un personnage dans un fichier xml
+        /// </summary>
+        /// <param name="perso"></param>
+        public void EcrireUnPersonnageEnXml(Personnage perso)
+        {
+            XDocument personnageFichier = new XDocument();
+
+            var personnageE = Personnages.Where(p => p.Nom == perso.Nom).Select(personnage => new XElement("personnage",
+                new XAttribute("nom", perso.Nom),
+                new XElement("serieDuPerso", perso.SerieDuPerso),
+                new XElement("description", perso.Description),
+                new XElement("image", perso.Image),
+                new XElement("citations", perso.Citations.Count() > 0 ? personnage.Citations.Aggregate((stringCitation, nextCitation) => $"{stringCitation} {nextCitation}") : "")
+                ));
+
+            personnageFichier.Add(new XElement(perso.Nom, personnageE));
+
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+
+            using (TextWriter tw = File.CreateText($"{perso.Nom}.xml"))
+            using (XmlWriter writer = XmlWriter.Create(tw, settings))
+            {
+                personnageFichier.Save(writer);
+            }
+        }
 
     }
 }

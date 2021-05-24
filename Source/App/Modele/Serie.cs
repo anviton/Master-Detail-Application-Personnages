@@ -31,7 +31,17 @@ namespace Modele
 			// L'exception n'a pas été levée : on peut l'ajouter à la série.
 			return Personnages.Add(nouveauPerso);
         }
-        
+
+        /// <summary>
+        /// Permet d'ajouter un peronnage importé à sa serie
+        /// </summary>
+        /// <param name="perosnnageImporte">le personnage importé</param>
+        /// <returns></returns>
+        internal bool AjouterUnPersonnage(Personnage perosnnageImporte)
+        {
+            return Personnages.Add(perosnnageImporte);
+        }
+
         /// <summary>
         /// Supprime un personnage de la série.
         /// </summary>
