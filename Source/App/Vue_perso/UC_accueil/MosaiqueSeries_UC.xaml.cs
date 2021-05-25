@@ -12,7 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Modele;
 
-namespace Vue_perso
+namespace Vue_perso.UC_accueil
 {
     /// <summary>
     /// Logique d'interaction pour MosaiqueJeux_UC.xaml
