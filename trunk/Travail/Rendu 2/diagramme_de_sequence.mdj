@@ -950,7 +950,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "2 : Demande le nom de la série",
+											"text": "2 : getNomSerieDuPerso",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2706,7 +2706,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF5nXV4G1c0TJE="
 							},
-							"name": "Demande le nom de la série",
+							"name": "getNomSerieDuPerso",
 							"source": {
 								"$ref": "AAAAAAF5nXdN4FdDTVE="
 							},
