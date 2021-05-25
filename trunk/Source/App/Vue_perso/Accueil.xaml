@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vue_perso"
+        xmlns:UC_accueil="clr-namespace:Vue_perso.UC_accueil"
         mc:Ignorable="d"
         Title="Accueil" Height="450" Width="800">
     <DockPanel>
@@ -33,7 +34,7 @@
             </Button>
         </Grid>
         <ContentControl x:Name="contentControlAccueil">
-            <local:MosaiquePersonnages_UC/>
+            <UC_accueil:MosaiquePersonnages_UC/>
         </ContentControl>
 
     </DockPanel>

@@ -27,12 +27,12 @@ namespace Vue_perso
 
         private void Affiche_Perso(object sender, RoutedEventArgs e)
         {
-            contentControlAccueil.Content = new MosaiquePersonnages_UC();
+            contentControlAccueil.Content = new UC_accueil.MosaiquePersonnages_UC();
         }
 
         private void Affiche_Jeux(object sender, RoutedEventArgs e)
         {
-            contentControlAccueil.Content = new MosaiqueJeux_UC();
+            contentControlAccueil.Content = new UC_accueil.MosaiqueJeux_UC();
         }
     }
 }
