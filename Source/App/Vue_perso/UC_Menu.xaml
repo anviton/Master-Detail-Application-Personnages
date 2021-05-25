@@ -10,7 +10,7 @@
         <MenuItem Header="Listes">
             <MenuItem Header="+ Nouveau groupe" Click="NouveauGroupe"/>
             <MenuItem Header="- Supprimer groupe" Click="SupprimerGroupe"/>
-            <MenuItem Header="Consulter une liste" ItemsSource="{Binding Groupes.Keys}" Click="GroupeSelectionnee"/>
+            <MenuItem Header="Consulter une liste" ItemsSource="{Binding NomsGroupes}" Click="GroupeSelectionnee"/>
         </MenuItem>
         <MenuItem Header="Actions personnages">
             <MenuItem Header="Importer"/>
