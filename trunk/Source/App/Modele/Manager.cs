@@ -5,14 +5,17 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Text;
 using System.IO;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace Modele
 {
-    public class Manager
+    public class Manager : INotifyPropertyChanged
     {
         public SortedSet<Serie> Series { get; }
         // Format : string = nom, SortedSet = personnages appartenant au groupe
         public IDictionary<string, SortedSet<Personnage>> Groupes { get; }
+
         public SortedSet<Personnage> Personnages => new SortedSet<Personnage>(Series.SelectMany(serie => serie.Personnages));
         public Personnage Selected { get; set; }
 
@@ -21,6 +24,8 @@ namespace Modele
             Series = new SortedSet< Serie >(); 
             Groupes = new SortedList<string, SortedSet<Personnage>>();
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Ajoute une nouvelle série de jeux vidéo.
@@ -106,6 +111,7 @@ namespace Modele
 
             // Le groupe n'existe pas : on l'ajoute et renvoie true.
             Groupes.Add(nom, new SortedSet<Personnage>());
+            //PropertyChanged.Invoke()
             return true;
         }
 
