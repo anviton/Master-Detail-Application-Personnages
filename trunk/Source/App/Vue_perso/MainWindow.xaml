@@ -56,7 +56,7 @@
             </Grid.ColumnDefinitions>
             <TextBox TextWrapping="NoWrap" Grid.Row="0" TextChanged="TextBox_TextChanged"/>
             <TextBlock Name="HeaderListe" Style="{StaticResource textInformatif}" Grid.Row="1" TextWrapping="Wrap"/>
-            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding Personnages}" SelectedItem="{Binding Selected}">
+            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding Personnages}" SelectedItem="{Binding PersonnageSelectionne}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center">
@@ -67,7 +67,7 @@
                 </ListBox.ItemTemplate>    
             </ListBox>
         </Grid >
-        <Grid Background="{StaticResource BackgorundSalmon}" DataContext="{Binding Selected}">
+        <Grid Background="{StaticResource BackgorundSalmon}" DataContext="{Binding PersonnageSelectionne}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="*"/>
@@ -80,7 +80,6 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Image Source="{Binding Image}" HorizontalAlignment="left" Grid.Row="0" Grid.Column="0"/>
-            <!--Image pour voir le rendu-->
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

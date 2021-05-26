@@ -22,7 +22,10 @@ namespace Modele
 
         public override string ToString()
         {
-            return $"{Nom}  ({Lien})";
+            if (Lien == null)
+                return $"{Nom}";
+            else
+                return $"{Nom}  ({Lien})";
         }
     }
 }

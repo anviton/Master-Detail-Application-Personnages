@@ -31,7 +31,7 @@ namespace Data
             perso1.AjouterUnJeu("Super Mario Bros.", 1982);
             perso1.AjouterUnJeu("Super Mario Bros. 2");
             perso1.Description = "Personnage emblématique du monde du Jeu Vidéo";
-            perso2.Theme = new ThemeMusical(true); //je l'ai mis à true car sinon l'ajout ne marche pas (Du coup j'ai rien modifié dans la classe theme musical parce que j'ai pas trop compris ce que tu veux faire)
+            perso2.Theme = new ThemeMusical(false); //je l'ai mis à true car sinon l'ajout ne marche pas (Du coup j'ai rien modifié dans la classe theme musical parce que j'ai pas trop compris ce que tu veux faire)
             perso2.Theme.AjouterTitre("Bowser's Theme", "https://www.youtube.com/watch?v=bq_jS6o3OoY");
             perso4.AjouterCitation("This is it, Madeline. Just breathe.");
             perso4.Theme = new ThemeMusical(true);

@@ -34,10 +34,17 @@ namespace Test_Personnage
             Console.WriteLine($"{perso1.Description}");
             //Test de l'affichage du thème musical d'un perso
             AfficherLeThemeMusicalDUnPersonnage(perso2);
-            // A compléter
-
-            //Test de l'affichage des citations
+            Console.WriteLine("Test Ajouté titre :");
+            TestAjouterTitre(perso2, "toto", "");//n'est pas un leitmotiv donc échec
+            TestAjouterTitre(perso2, "toto2", "totot");//n'est pas un leitmotiv donc échec
             manager.RechercherUnPersonnage("Madeline", "celeste", out Personnage perso4);
+            TestAjouterTitre(perso4, "toto", "");
+            TestAjouterTitre(perso4, "toto2", "tototot");
+            TestAjouterTitre(perso4, "toto2", "tototot"); //Ajout du meme titre une seconde fois donc échec
+            TestSupprimerTitre(perso4, new Titre("to"));
+            TestSupprimerTitre(perso4, new Titre("First Steps"));
+            AfficherLeThemeMusicalDUnPersonnage(perso4);
+            //Test de l'affichage des citations
             AfficherLalisteDesCitationsDunPerso(perso4);
             perso4.SupprimerCitation("This is it, Madeline. Just breathe.");
             perso4.AjouterCitation("Tests");
@@ -159,5 +166,30 @@ namespace Test_Personnage
             }
         }
 
+        private static void TestAjouterTitre(Personnage perso, string titre, string lien)
+        {
+            if (lien == "")
+            {
+                if (perso.Theme.AjouterTitre(titre))
+                    Console.WriteLine("Ajout réussi");
+                else
+                    Console.WriteLine("échec");
+            }
+            else
+            {
+                if (perso.Theme.AjouterTitre(titre, lien))
+                    Console.WriteLine("Ajout réussi");
+                else
+                    Console.WriteLine("échec");
+            }
+        }
+           
+        private static void TestSupprimerTitre(Personnage personnage, Titre titre)
+        {
+            if (personnage.Theme.SupprimerTitre(titre))
+                Console.WriteLine("Suppression réussie");
+            else
+                Console.WriteLine("échec");
+        }
     }
 }
