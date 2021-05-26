@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,30 +20,53 @@ namespace Vue_perso
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
+
     {
         public Manager Mgr => (App.Current as App).MonManager;
+        public SortedSet<Personnage> Personnages { get; set; }
+        public Personnage Selected
+        {
+            get => selected;
+            set
+            {
+                if (selected != value)
+                {
+                    selected = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Selected)));
+                }
+            }
+        }
+
+        private Personnage selected;
+
+        public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
         {
             InitializeComponent();
             DataContext = Mgr;
+            //Personnages = Mgr.Personnages;
             HeaderListe.Text = "Tous les personnages";
         }
         public MainWindow(Serie serie)
         {
             InitializeComponent();
             DataContext = serie;
+            //Personnages = serie.Personnages;
             HeaderListe.Text = $"Personnages de {serie.Nom}";
 
         }
 
-        public MainWindow(SortedSet <Personnage> liste)
+        public MainWindow(string nomGroupe, SortedSet<Personnage> Personnages)
         {
             InitializeComponent();
-            DataContext = liste;
-            HeaderListe.Text = $"Personnages de ";
+            DataContext = this;
+            this.Personnages = Personnages;
+            
+            HeaderListe.Text = $"Personnages de {nomGroupe}";
 
         }
+
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

@@ -9,8 +9,10 @@
         <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9" Click="RetourAccueil"/>
         <MenuItem Header="Listes">
             <MenuItem Header="+ Nouveau groupe" Click="NouveauGroupe"/>
-            <MenuItem Header="- Supprimer groupe" Click="SupprimerGroupe"/>
-            <MenuItem Header="Consulter une liste" ItemsSource="{Binding NomsGroupes}" Click="GroupeSelectionnee"/>
+            <MenuItem Header="- Supprimer groupe" Click="SupprimerGroupe" ItemsSource="{Binding NomsGroupes}" />
+            <MenuItem Header="Consulter une liste">
+                <ListBox ItemsSource="{Binding NomsGroupes}" SelectionChanged="GroupeSelectionnee"></ListBox>
+            </MenuItem>
         </MenuItem>
         <MenuItem Header="Actions personnages">
             <MenuItem Header="Importer"/>
