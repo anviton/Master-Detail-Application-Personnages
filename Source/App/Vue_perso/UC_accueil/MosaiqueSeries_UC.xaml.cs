@@ -29,7 +29,9 @@ namespace Vue_perso.UC_accueil
 
         private void SerieSelectionnee(object sender, SelectionChangedEventArgs e)
         {
-            var mainWindow = new MainWindow(((sender as ListBox).SelectedItem as Serie));
+            //var mainWindow = new MainWindow(((sender as ListBox).SelectedItem as Serie));
+            Mgr.SerieSelectionnee=(sender as ListBox).SelectedItem as Serie;
+            var mainWindow = new MainWindow();
             Window.GetWindow(this).Close();
             mainWindow.ShowDialog();
             

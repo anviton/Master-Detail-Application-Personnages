@@ -30,11 +30,18 @@ namespace Modele
         /// <returns>true si le titre a été ajouté, false sinon</returns>
         public bool AjouterTitre(string nom)
 		{
-            if (Leitmotiv)
-			{
+            int i = Titres.Count;
+            if (!Leitmotiv)
+            {
+                if (Titres.Count < 1)
+                    return Titres.Add(new Titre(nom));
+                else
+                    return false;
+            }
+            else
+            {
                 return Titres.Add(new Titre(nom));
-			}
-            return false; // N'est pas censé arriver
+            }
 		}
 
         /// <summary>
@@ -46,12 +53,18 @@ namespace Modele
         /// <returns>true si le titre a été ajouté, false sinon</returns>
         public bool AjouterTitre(string nom, string lien)
 		{
-            if (Leitmotiv)
-			{
+            if (!Leitmotiv)
+            {
+                if (Titres.Count < 1)
+                    return Titres.Add(new Titre(nom, lien));
+                else
+                    return false;
+            }
+            else
+            {
                 return Titres.Add(new Titre(nom, lien));
-			}
-            return false; // N'est pas censé arriver
-		}
+            }
+        }
 
         /// <summary>
         /// Supprime un titre.
@@ -68,7 +81,7 @@ namespace Modele
             string t = "";
             foreach( Titre titre in Titres)
             {
-                t += titre.ToString();
+                t += $"\n" + titre.ToString();
             }
             return t;
         }

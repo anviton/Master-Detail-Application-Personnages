@@ -25,39 +25,56 @@ namespace Vue_perso
     {
         public Manager Mgr => (App.Current as App).MonManager;
         public SortedSet<Personnage> Personnages { get; set; }
-        public Personnage Selected
+        public Personnage PersonnageSelectionne
         {
-            get => selected;
+            get => personnageSelectionne;
             set
             {
-                if (selected != value)
+                if (personnageSelectionne != value)
                 {
-                    selected = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Selected)));
+                    personnageSelectionne = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PersonnageSelectionne)));
                 }
             }
         }
 
-        private Personnage selected;
+        private Personnage personnageSelectionne;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = Mgr;
-            //Personnages = Mgr.Personnages;
-            HeaderListe.Text = "Tous les personnages";
+            if(Mgr.PersonnageSelectionne != null)
+            {
+                DataContext = Mgr;
+                HeaderListe.Text = "Tous les personnages";
+            }
+            else
+            {
+                if(Mgr.SerieSelectionnee== null)
+                {
+                    DataContext = this;
+                    Personnages = Mgr.Groupes[Mgr.GroupeSelectionne];
+                    HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
+                }
+                else
+                {
+                    DataContext = Mgr.SerieSelectionnee;
+                    HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
+                }
+                
+            }
+            
         }
-        public MainWindow(Serie serie)
+        /*public MainWindow(Serie serie)
         {
             InitializeComponent();
             DataContext = serie;
-            //Personnages = serie.Personnages;
             HeaderListe.Text = $"Personnages de {serie.Nom}";
 
-        }
+        }*/
 
-        public MainWindow(string nomGroupe, SortedSet<Personnage> Personnages)
+        /*public MainWindow(string nomGroupe, SortedSet<Personnage> Personnages)
         {
             InitializeComponent();
             DataContext = this;
@@ -65,7 +82,7 @@ namespace Vue_perso
             
             HeaderListe.Text = $"Personnages de {nomGroupe}";
 
-        }
+        }*/
 
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

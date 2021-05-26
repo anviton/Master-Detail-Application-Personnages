@@ -32,6 +32,7 @@ namespace Vue_perso.UC_accueil
             // On gère ainsi le cas dans lequel l'utilisateur clique dans la ListBox mais pas sur un personnage
             if ((sender as ListBox).SelectedItem != null)
             {
+                Mgr.PersonnageSelectionne = (sender as ListBox).SelectedItem as Personnage;
                 MainWindow mainWindow = new MainWindow();
                 Window.GetWindow(this).Close();
                 mainWindow.Show();

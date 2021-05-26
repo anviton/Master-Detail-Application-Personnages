@@ -35,6 +35,9 @@ namespace Vue_perso
             {
                 Accueil accueil = new Accueil();
                 Window.GetWindow(this).Close();
+                Mgr.PersonnageSelectionne = null;
+                Mgr.GroupeSelectionne = null;
+                Mgr.SerieSelectionnee = null;
                 accueil.Show();
             }
         }
@@ -72,8 +75,10 @@ namespace Vue_perso
             MainWindow mainWindow = new MainWindow();
             Window.GetWindow(this).Close();
             mainWindow.Show();*/
-            MessageBox.Show($"Groupe {((sender as ListBox).SelectedItem as string)}");
-            Window window = new MainWindow((sender as ListBox).SelectedItem as string, Mgr.Groupes[(sender as ListBox).SelectedItem as string]);
+            //MessageBox.Show($"Groupe {((sender as ListBox).SelectedItem as string)}");
+            Mgr.GroupeSelectionne = (sender as ListBox).SelectedItem as string;
+            //Window window = new MainWindow((sender as ListBox).SelectedItem as string, Mgr.Groupes[(sender as ListBox).SelectedItem as string]);
+            Window window = new MainWindow();
             window.Show();
             Window.GetWindow(this).Close();
             return;

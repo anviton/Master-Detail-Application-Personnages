@@ -18,19 +18,47 @@ namespace Modele
         public ICollection<string> NomsGroupes { get { return new List<string>(Groupes.Keys); } }
 
         public SortedSet<Personnage> Personnages => new SortedSet<Personnage>(Series.SelectMany(serie => serie.Personnages));
-        public Personnage Selected {
-            get => selected;
+        public Personnage PersonnageSelectionne {
+            get => personnageSelectionne;
             set 
             {
-                if(selected != value)
+                if(personnageSelectionne != value)
                 {
-                    selected = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Selected)));
+                    personnageSelectionne = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PersonnageSelectionne)));
                 }
             }
         }
-        private Personnage selected;
+        private Personnage personnageSelectionne;
 
+        //serieSelectionnee
+        public Serie SerieSelectionnee
+        {
+            get => serieSelectionnee;
+            set
+            {
+                if (serieSelectionnee != value)
+                {
+                    serieSelectionnee = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SerieSelectionnee)));
+                }
+            }
+        }
+        private Serie serieSelectionnee;
+
+        public string GroupeSelectionne
+        {
+            get => groupeSelectionne;
+            set
+            {
+                if (groupeSelectionne != value)
+                {
+                    groupeSelectionne = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GroupeSelectionne)));
+                }
+            }
+        }
+        private string groupeSelectionne;
         public Manager()
         {
             Series = new SortedSet< Serie >(); 
