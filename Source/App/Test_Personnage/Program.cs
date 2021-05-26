@@ -63,6 +63,7 @@ namespace Test_Personnage
             //Test exporter personnage
             manager.EcrireUnPersonnageEnXml(perso4);
             manager.SupprimerPersonnage(perso4);
+            AfficherLesSeries(manager.Series);
             AfficherTousLesPersonnages(manager);
             manager.LireUnPersonnageEnXml("Madeline.xml");
             AfficherTousLesPersonnages(manager);
@@ -146,6 +147,15 @@ namespace Test_Personnage
             foreach (Personnage personnage in serie.Personnages)
             {
                 Console.WriteLine(personnage);
+            }
+        }
+
+        private static void AfficherLesSeries(ISet<Serie> Series)
+        {
+            Console.WriteLine("\nLa liste des séries :");
+            foreach (Serie serie in Series)
+            {
+                Console.WriteLine(serie);
             }
         }
 

@@ -73,7 +73,7 @@ namespace Modele
         public void SupprimerPersonnage(Personnage perso)
 		{
             // Obtention de la série
-            Series.TryGetValue(new Serie(perso.SerieDuPerso), out Serie serie);
+            RechercherUneSerie(perso.SerieDuPerso, out Serie serie);
 
             // Suppression du personnage de tous les groupes
             foreach (KeyValuePair<string, SortedSet<Personnage>> groupe in Groupes) {
@@ -170,7 +170,11 @@ namespace Modele
         {
             return Series.TryGetValue(new Serie(nom), out serie);
         }
-
+        
+        /// <summary>
+        /// Permet de lire un personnage dans un fichier xml
+        /// </summary>
+        /// <param name="chemin">chemin du fichier dans lequel le personnage est "stocké"</param>
         public void LireUnPersonnageEnXml(string chemin)
         {
             XDocument personnageFichier = XDocument.Load(chemin);
