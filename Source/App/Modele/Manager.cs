@@ -15,9 +15,21 @@ namespace Modele
         public SortedSet<Serie> Series { get; }
         // Format : string = nom, SortedSet = personnages appartenant au groupe
         public IDictionary<string, SortedSet<Personnage>> Groupes { get; }
+        public ICollection<string> NomsGroupes { get { return new List<string>(Groupes.Keys); } }
 
         public SortedSet<Personnage> Personnages => new SortedSet<Personnage>(Series.SelectMany(serie => serie.Personnages));
-        public Personnage Selected { get; set; }
+        public Personnage Selected {
+            get => selected;
+            set 
+            {
+                if(selected != value)
+                {
+                    selected = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Selected)));
+                }
+            }
+        }
+        private Personnage selected;
 
         public Manager()
         {
@@ -47,9 +59,8 @@ namespace Modele
         /// <param name="serie">La série à supprimer</param>
         private void SupprimerSerie(Serie serie)
         {
-
-            // On peut supprimer la série
             Series.Remove(serie);
+            
         }
 
         /// <summary>
@@ -111,7 +122,7 @@ namespace Modele
 
             // Le groupe n'existe pas : on l'ajoute et renvoie true.
             Groupes.Add(nom, new SortedSet<Personnage>());
-            //PropertyChanged.Invoke()
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NomsGroupes)));
             return true;
         }
 
@@ -122,6 +133,7 @@ namespace Modele
         public void SupprimerGroupe(string nom)
         {
             Groupes.Remove(nom);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NomsGroupes)));
         }
 
         /// <summary>

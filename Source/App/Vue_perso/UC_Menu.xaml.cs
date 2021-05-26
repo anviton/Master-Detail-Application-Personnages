@@ -68,9 +68,16 @@ namespace Vue_perso
 
         private void GroupeSelectionnee(object sender, RoutedEventArgs e)
         {
+            /*
             MainWindow mainWindow = new MainWindow();
             Window.GetWindow(this).Close();
-            mainWindow.Show();
+            mainWindow.Show();*/
+            MessageBox.Show($"Groupe {((sender as ListBox).SelectedItem as string)}");
+            Window window = new MainWindow((sender as ListBox).SelectedItem as string, Mgr.Groupes[(sender as ListBox).SelectedItem as string]);
+            window.Show();
+            Window.GetWindow(this).Close();
+            return;
         }
+
     }
 }
