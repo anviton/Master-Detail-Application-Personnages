@@ -32,7 +32,7 @@
                     <DataTemplate>
                         <WrapPanel>
                             <Image Source="/Bibliothèques_Images;Component/Images_Fonds/image.jpg" Width="100"/>
-                            <TextBlock Text="{Binding Nom}"/>
+                            <TextBlock Text="{Binding Nom}" FontSize="16" FontWeight="Bold" FontStyle="Italic"/>
                         </WrapPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

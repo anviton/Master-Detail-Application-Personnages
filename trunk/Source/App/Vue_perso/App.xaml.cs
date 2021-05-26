@@ -15,7 +15,7 @@ namespace Vue_perso
     /// </summary>
     public partial class App : Application
     {
-        public Manager MonManager { get; set; }
+        public Manager MonManager { get; private set; }
 
         public App()
         {
