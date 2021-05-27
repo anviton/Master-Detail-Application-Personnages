@@ -32,7 +32,7 @@
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
             <Label   Grid.Column="0" Grid.Row="0" Content="Nom :"/>
-            <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="NoWrap" Width="Auto" Text="{Binding Nom}"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="NoWrap" Width="Auto" Text="{Binding Nom}" />
 
             <Label  Grid.Column="0" Grid.Row="1" Content="Image :"/>
             <Button Grid.Column="1" Grid.Row="1" Content="Parcourir..." Click="RenseignerImage"/>
@@ -51,7 +51,7 @@
 
             <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Content="Description :"/>
 
-            <TextBox Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="10,0"/>
+            <TextBox Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="10,0" Text="{Binding Description}"/>
         </Grid>
     </DockPanel>
 

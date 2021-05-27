@@ -27,7 +27,16 @@ namespace Vue_perso.Dialogs
 
         private void SupprmierLePersonnage(object sender, RoutedEventArgs e)
         {
-            Mgr.SupprimerPersonnage(Mgr.PersonnageSelectionne);
+            if (Mgr.GroupeSelectionne == null)
+            {
+                Mgr.SupprimerPersonnage(Mgr.PersonnageSelectionne);
+                
+            }
+            else
+            {
+                Mgr.RetirerPersoDeGroupe(Mgr.GroupeSelectionne, Mgr.PersonnageSelectionne);
+            }
+            
             Close();
         }
 

@@ -24,7 +24,7 @@ namespace Modele
 
         /// <summary>
         /// Ajoute un titre au thème.
-        /// Cette méthode ne peut être utilisée que si Leitmotiv est true.
+        /// 
         /// </summary>
         /// <param name="nom">Le nom du titre</param>
         /// <returns>true si le titre a été ajouté, false sinon</returns>
@@ -46,7 +46,7 @@ namespace Modele
 
         /// <summary>
         /// Ajoute un titre au thème.
-        /// Cette méthode ne peut être utilisée que si Leitmotiv est true.
+        /// 
         /// </summary>
         /// <param name="nom">Le nom du titre</param>
         /// <param name="lien">Un lien internet pour écouter le titre</param>

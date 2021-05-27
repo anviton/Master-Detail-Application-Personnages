@@ -18,11 +18,13 @@ namespace Vue_perso
     /// </summary>
     public partial class ModifierPerso : Window
     {
+        public Manager Mgr => (App.Current as App).MonManager;
         public Personnage Perso { get; set; }
         public ModifierPerso(Personnage persoAModifier)
         {
             InitializeComponent();
             Perso = persoAModifier;
+            //Perso.Citations = Mgr.PersonnageSelectionne.Citations;
             DataContext = Perso;
         }
 
