@@ -30,7 +30,7 @@ namespace Modele
             nouveauPerso = new Personnage(nom, this.Nom);
 
             // L'exception n'a pas été levée : on peut l'ajouter à la série.
-            if (Personnages.Contains(nouveauPerso))
+            if (!Personnages.Contains(nouveauPerso))
             {
                 Personnages.Add(nouveauPerso);
                 return true;
@@ -46,7 +46,7 @@ namespace Modele
         /// <returns></returns>
         internal bool AjouterUnPersonnage(Personnage perosnnageImporte)
         {
-            if (Personnages.Contains(perosnnageImporte))
+            if (!Personnages.Contains(perosnnageImporte))
             {
                 Personnages.Add(perosnnageImporte);
                 return true;
