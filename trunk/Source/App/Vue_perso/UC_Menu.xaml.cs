@@ -97,6 +97,8 @@ namespace Vue_perso
             Window.GetWindow(this).Close();
             mainWindow.Show();*/
             //MessageBox.Show($"Groupe {((sender as ListBox).SelectedItem as string)}");
+            Mgr.PersonnageSelectionne = null;
+            Mgr.SerieSelectionnee = null;
             Mgr.GroupeSelectionne = (sender as ListBox).SelectedItem as string;
             //Window window = new MainWindow((sender as ListBox).SelectedItem as string, Mgr.Groupes[(sender as ListBox).SelectedItem as string]);
             Window window = new MainWindow();

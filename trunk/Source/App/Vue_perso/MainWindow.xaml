@@ -48,6 +48,8 @@
                 <MenuItem Header="Action perso Sélectionné" Height="37">
                     <MenuItem Header="Supprimer Personnage" Click="SupprimerPersonnageClick"/>
                     <MenuItem Header="Modifier Personnage" Click="ModifierPersonnageClick"/>
+                    <MenuItem Header="Ajouter à" Click="AjouterAUnGroupe">
+                    </MenuItem>
                 </MenuItem>
             </Menu>
         </StackPanel>
@@ -62,7 +64,7 @@
             </Grid.ColumnDefinitions>
             <TextBox TextWrapping="NoWrap" Grid.Row="0" TextChanged="TextBox_TextChanged"/>
             <TextBlock Name="HeaderListe" Style="{StaticResource textInformatif}" Grid.Row="1" TextWrapping="Wrap"/>
-            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding ListeDePersonngesActive}" SelectedItem="{Binding PersonnageSelectionne}">
+            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding ListeDePersonnagesActive}" SelectedItem="{Binding PersonnageSelectionne}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center">

@@ -3,6 +3,8 @@ using Modele;
 using System.Collections.Generic;
 using Data;
 using System.Linq;
+using System.Collections.ObjectModel;
+
 namespace Tests_Series_et_Groupes
 {
     class Program
@@ -73,7 +75,7 @@ namespace Tests_Series_et_Groupes
             }
         }
 
-        private static void AfficherLaListeDesGroupes(IDictionary<string, SortedSet<Personnage>> groupes)
+        private static void AfficherLaListeDesGroupes(IDictionary<string, ObservableCollection<Personnage>> groupes)
         {
             Console.WriteLine("\nListe des groupes : ");
             foreach (string nomGroupe in groupes.Keys)
@@ -84,7 +86,7 @@ namespace Tests_Series_et_Groupes
 
         private static void AfficherUnGroupe(string nom, Manager manager)
         {
-            manager.Groupes.TryGetValue(nom, out SortedSet<Personnage> personnages);
+            manager.Groupes.TryGetValue(nom, out ObservableCollection<Personnage> personnages);
             Console.WriteLine($"\nLe groupe \"{nom}\" est composé de :");
             foreach (Personnage personnage in personnages)
             {

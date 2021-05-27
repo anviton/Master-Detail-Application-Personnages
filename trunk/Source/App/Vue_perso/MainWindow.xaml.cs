@@ -48,7 +48,7 @@ namespace Vue_perso
             if(Mgr.PersonnageSelectionne != null)
             {
                 DataContext = Mgr;
-                Mgr.ListeDePersonngesActive = Mgr.Personnages;
+                Mgr.ListeDePersonnagesActive = Mgr.Personnages;
                 HeaderListe.Text = "Tous les personnages";
             }
             else
@@ -56,14 +56,18 @@ namespace Vue_perso
                 if(Mgr.SerieSelectionnee== null)
                 {
                     DataContext = Mgr;
-                    Mgr.ListeDePersonngesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
+                    Mgr.ListeDePersonnagesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
                     HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
                 }
                 else
                 {
                     DataContext = Mgr;
-                    Mgr.ListeDePersonngesActive = Mgr.SerieSelectionnee.Personnages;
+                    Mgr.ListeDePersonnagesActive = Mgr.SerieSelectionnee.Personnages;
                     HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
+                }
+                if (Mgr.ListeDePersonnagesActive.Count()!=0)
+                {
+                    Mgr.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
                 }
                 
             }
@@ -95,13 +99,29 @@ namespace Vue_perso
 
         private void SupprimerPersonnageClick(object sender, RoutedEventArgs e)
         {
-            SuppressionConfirmation window = new SuppressionConfirmation();
-            window.ShowDialog();
+            if (Mgr.PersonnageSelectionne != null)
+            {
+
+                SuppressionConfirmation window = new SuppressionConfirmation();
+                window.ShowDialog();
+            }
         }
 
         private void ModifierPersonnageClick(object sender, RoutedEventArgs e)
         {
-
+            if (Mgr.PersonnageSelectionne != null)
+            {
+                var window = new ModifierPerso(Mgr.PersonnageSelectionne);
+                window.ShowDialog();
+            }
+        }
+        private void AjouterAUnGroupe(object sender, RoutedEventArgs e)
+        {
+            if (Mgr.PersonnageSelectionne != null)
+            {
+                var window = new AjouterAUnGroupe();
+                window.Show();
+            }
         }
     }
 }

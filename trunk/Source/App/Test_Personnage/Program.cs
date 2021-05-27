@@ -13,7 +13,7 @@ namespace Test_Personnage
             Manager manager = chargeur1.Charger();
             //Test de l'affichage des relations d'un personnage (ayant des relations) (+ ajout et suppression Relation)
             manager.Series.TryGetValue(new Serie("mario"), out Serie serie);
-            serie.Personnages.TryGetValue(new Personnage("Mario", "mario"), out Personnage perso1);
+            manager.RechercherUnPersonnage("Mario", "mario", out Personnage perso1);
             AfficherLesRelations(perso1);
             bool toto = manager.RechercherUnPersonnage("Link", "zelda", out Personnage perso1_2);
             perso1.AjouterRelation("Copain", perso1_2);
@@ -21,7 +21,7 @@ namespace Test_Personnage
             perso1.SupprimerUneRelation(new Relation("Ennemi", perso1_3));
             AfficherLesRelations(perso1);
             //Test de l'afichage des relations d'un personnage (n'ayant pas de relations)
-            serie.Personnages.TryGetValue(new Personnage("Bowser", "mario"), out Personnage perso2);
+            manager.RechercherUnPersonnage("Bowser", "mario", out Personnage perso2);
             AfficherLesRelations(perso2);
             //Test de l'affichage des jeux d'un personnage (+ de la suppression d'un jeu + ajout d'un jeu)
             AfficherLalisteDesJeuxDunPerso(perso1);
