@@ -18,6 +18,12 @@
     <Compile Update="Dialogs\NouveauGroupeDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialogs\NouveauPerso.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\NouvelleSerieDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialogs\SupprimerGroupeDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,7 +33,7 @@
     <Compile Update="UC_accueil\MosaiquePersonnages_UC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="NouveauPerso.xaml.cs">
+    <Compile Update="ModifierPerso.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ThemeMusical.xaml.cs">
@@ -44,6 +50,12 @@
     <Page Update="Dialogs\NouveauGroupeDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Dialogs\NouveauPerso.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\NouvelleSerieDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialogs\SupprimerGroupeDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -56,7 +68,7 @@
     <Page Update="UC_accueil\MosaiquePersonnages_UC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="NouveauPerso.xaml">
+    <Page Update="ModifierPerso.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ThemeMusical.xaml">
