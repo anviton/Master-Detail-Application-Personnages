@@ -173,7 +173,7 @@ namespace Modele
         /// <returns>true si le personnage a été ajouté au groupe, false s'il existait déjà.</returns>
         public bool AjouterPersoAGroupe(string nomGroupe, Personnage personnage)
 		{
-            if (Groupes[nomGroupe].Contains(personnage))
+            if (!Groupes[nomGroupe].Contains(personnage))
             {
                 Groupes[nomGroupe].Add(personnage);
                 return true;
