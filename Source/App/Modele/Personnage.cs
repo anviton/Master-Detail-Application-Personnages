@@ -7,11 +7,6 @@ namespace Modele
 {
     public class Personnage : Nommable, IEquatable<Personnage>, IComparable<Personnage>
     {
-        // Champs
-
-        //Atributs
-        
-        //Propriétés
         public ISet<string> Citations { get; }
         public static Random indexRandomizer = new Random();
         public string CitationAleatoire
@@ -26,17 +21,16 @@ namespace Modele
                 } else return "";
 			}
 		}
-        public string Image { 
+        private string image;
+        public string Image
+		{
             get
-            {
-                return image;
+			{
+                if (image == null) return "/Bibliothèques_Images;Component/Images_Personnages/mario.jpeg"; // On renvoie l'image par défaut
+                else return image;
             }
-            set 
-            {
-                image = value;
-            }
-        }
-        public string image = "/Bibliothèques_Images;Component/Images_Personnages/mario.jpeg";
+            set { image = value; }
+   		}
         public ISet<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
         public HashSet<Relation> Relations { get; }
@@ -44,13 +38,10 @@ namespace Modele
         public ISet<Relation> EstMentionneDans { get; }
         public string Description { get; set; }
 
-        //public delegate void Mention(Personnage perso, Relation relation);
-
-        //public event Mention NotificationRelation;
-
         public EventHandler<NotificationRelationEvent> NotificationRelation;
         protected virtual void OnNotificationRelation(NotificationRelationEvent args)
             => NotificationRelation?.Invoke(this, args);
+
         // Méthodes
         public Personnage(string nom, string serie) : base(nom)
         {

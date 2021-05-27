@@ -68,7 +68,7 @@ namespace Vue_perso
                 {
                     MessageBox.Show($"Le personnage \"{dialog.NomPerso}\", de la série \"{dialog.SerieDuPerso}\", a été ajouté.", "Nouveau personnage",
                         MessageBoxButton.OK, MessageBoxImage.Information);
-                    ModifierPerso modifierPerso = new ModifierPerso();
+                    ModifierPerso modifierPerso = new ModifierPerso(nouveauPerso);
                     modifierPerso.Show();
                 }
                 else
@@ -81,8 +81,8 @@ namespace Vue_perso
 
         private void ModifierPersonnage(object sender, RoutedEventArgs e)
         {
-            ModifierPerso nouveau = new ModifierPerso();
-            nouveau.ShowDialog();
+            //ModifierPerso nouveau = new ModifierPerso();
+            //nouveau.ShowDialog();
         }
 
         private void SupprimerGroupe(object sender, RoutedEventArgs e)

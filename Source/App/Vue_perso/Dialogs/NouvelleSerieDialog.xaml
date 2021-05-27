@@ -7,11 +7,21 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="Nouvelle série" Height="125" Width="300">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="StyleOKButton">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=NomSerieTextBox, Path=Text.Length}" Value="0">
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <StackPanel Margin="5,2,5,0">
         <Label HorizontalAlignment="Center" Content="Nom de la série :" />
-        <TextBox Text="{Binding NomSerie}" />
+        <TextBox Text="{Binding NomSerie}" Name="NomSerieTextBox" />
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-            <Button Content="OK" Width="50" Margin="5" Click="OKButtonPressed"/>
+            <Button Content="OK" Width="50" Margin="5" Click="OKButtonPressed" Style="{StaticResource StyleOKButton}"/>
             <Button Content="Annuler" Width="50" Margin="5" Click="CancelButtonPressed"/>
         </StackPanel>
     </StackPanel>

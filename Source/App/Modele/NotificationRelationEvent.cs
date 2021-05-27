@@ -10,7 +10,7 @@ namespace Modele
         /// <summary>
         /// Constructeur
         /// </summary>
-        /// <param name="personnage">Le personnage a notifié</param>
+        /// <param name="personnage">Le personnage à notifier</param>
         /// <param name="relation">La relation dans laquelle il est mentionné</param>
         public NotificationRelationEvent(Personnage personnage, Relation relation)
         {

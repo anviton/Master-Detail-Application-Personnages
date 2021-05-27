@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Modele;
 
 namespace Vue_perso
 {
@@ -17,10 +18,25 @@ namespace Vue_perso
     /// </summary>
     public partial class ModifierPerso : Window
     {
-        public ModifierPerso()
+        public Personnage Perso { get; set; }
+        public ModifierPerso(Personnage persoAModifier)
         {
             InitializeComponent();
+            Perso = persoAModifier;
+            DataContext = Perso;
         }
+
+        private void RenseignerImage(object sender, RoutedEventArgs e)
+		{
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.DefaultExt = ".jpg | .png | .gif";
+            dialog.Filter = "Tous les fichiers image (*.jpg, *.png, *.gif) | *.jpg; *.png; *.gif";
+
+            if (dialog.ShowDialog() == true)
+			{
+                Perso.Image = dialog.FileName;
+			}
+		}
 
         private void RenseignerChamp(object sender, RoutedEventArgs e)
         {
@@ -35,10 +51,9 @@ namespace Vue_perso
                 newWindow = new ThemeMusical();
                 newWindow.ShowDialog();
             } // Reste des fenêtres ici
-            if (senderButton.Equals(Parcourir))
+            else
             {
-                newWindow = new ThemeMusical();
-                newWindow.ShowDialog();
+                MessageBox.Show("Pas encore implémenté !", "Pas encore implémenté !", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
