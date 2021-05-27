@@ -42,9 +42,15 @@
         <DockPanel.Background>
             <ImageBrush ImageSource="/Bibliothèques_Images;Component/Images_Fonds/arriere_plan_grille_perso.jpg"></ImageBrush>
         </DockPanel.Background>
-
-        <local:UC_Menu DockPanel.Dock="Top"/>
-
+        <StackPanel Background="#FFF9E2C6" Orientation="Horizontal" DockPanel.Dock="Top" VerticalAlignment="Bottom">
+            <local:UC_Menu/>
+            <Menu Background="#FFF9E2C6">
+                <MenuItem Header="Action perso Sélectionné" Height="37">
+                    <MenuItem Header="Supprimer Personnage" Click="SupprimerPersonnageClick"/>
+                    <MenuItem Header="Modifier Personnage" Click="ModifierPersonnageClick"/>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
         <Grid DockPanel.Dock="Left" Background="{StaticResource BackgorundSalmon}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -56,7 +62,7 @@
             </Grid.ColumnDefinitions>
             <TextBox TextWrapping="NoWrap" Grid.Row="0" TextChanged="TextBox_TextChanged"/>
             <TextBlock Name="HeaderListe" Style="{StaticResource textInformatif}" Grid.Row="1" TextWrapping="Wrap"/>
-            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding Personnages}" SelectedItem="{Binding PersonnageSelectionne}">
+            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding ListeDePersonngesActive}" SelectedItem="{Binding PersonnageSelectionne}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center">

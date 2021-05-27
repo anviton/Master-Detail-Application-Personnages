@@ -14,10 +14,11 @@ namespace Modele
     {
         public SortedSet<Serie> Series { get; }
         // Format : string = nom, SortedSet = personnages appartenant au groupe
-        public IDictionary<string, SortedSet<Personnage>> Groupes { get; }
+        public IDictionary<string, ObservableCollection<Personnage>> Groupes { get; }
         public ICollection<string> NomsGroupes { get { return new List<string>(Groupes.Keys); } }
 
-        public SortedSet<Personnage> Personnages => new SortedSet<Personnage>(Series.SelectMany(serie => serie.Personnages));
+        public ObservableCollection<Personnage> Personnages => new ObservableCollection<Personnage>(Series.SelectMany(serie => serie.Personnages));
+        public ObservableCollection<Personnage> ListeDePersonngesActive { get; set; }
         public Personnage PersonnageSelectionne {
             get => personnageSelectionne;
             set 
@@ -62,7 +63,7 @@ namespace Modele
         public Manager()
         {
             Series = new SortedSet< Serie >(); 
-            Groupes = new SortedList<string, SortedSet<Personnage>>();
+            Groupes = new SortedList<string, ObservableCollection<Personnage>>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -115,7 +116,7 @@ namespace Modele
             RechercherUneSerie(perso.SerieDuPerso, out Serie serie);
 
             // Suppression du personnage de tous les groupes
-            foreach (KeyValuePair<string, SortedSet<Personnage>> groupe in Groupes) {
+            foreach (KeyValuePair<string, ObservableCollection<Personnage>> groupe in Groupes) {
                 groupe.Value.Remove(perso);
 			}
 
@@ -149,7 +150,7 @@ namespace Modele
             }
 
             // Le groupe n'existe pas : on l'ajoute et renvoie true.
-            Groupes.Add(nom, new SortedSet<Personnage>());
+            Groupes.Add(nom, new ObservableCollection<Personnage>());
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NomsGroupes)));
             return true;
         }
@@ -172,8 +173,16 @@ namespace Modele
         /// <returns>true si le personnage a été ajouté au groupe, false s'il existait déjà.</returns>
         public bool AjouterPersoAGroupe(string nomGroupe, Personnage personnage)
 		{
-            return Groupes[nomGroupe].Add(personnage);
-		}
+            if (Groupes[nomGroupe].Contains(personnage))
+            {
+                Groupes[nomGroupe].Add(personnage);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         /// <summary>
         /// Retire un personnage d'un groupe.
