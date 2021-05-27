@@ -24,6 +24,9 @@
     <Compile Update="Dialogs\NouvelleSerieDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialogs\SuppressionConfirmation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialogs\SupprimerGroupeDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -54,6 +57,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\NouvelleSerieDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\SuppressionConfirmation.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\SupprimerGroupeDialog.xaml">

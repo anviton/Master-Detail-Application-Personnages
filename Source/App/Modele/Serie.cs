@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Modele
@@ -7,12 +8,12 @@ namespace Modele
     public class Serie : Nommable
     {
         //Propriétés
-        public SortedSet<Personnage> Personnages { get; set; }
+        public ObservableCollection<Personnage> Personnages { get; set; }
 
         public Personnage PersonnageSelectionne { get; set; }
         public Serie(string nom) : base(nom)
         {
-            Personnages = new SortedSet<Personnage>();
+            Personnages = new ObservableCollection<Personnage>();
         }
 
         //Méthodes
@@ -28,8 +29,14 @@ namespace Modele
             // On instancie le personnage
             nouveauPerso = new Personnage(nom, this.Nom);
 
-			// L'exception n'a pas été levée : on peut l'ajouter à la série.
-			return Personnages.Add(nouveauPerso);
+            // L'exception n'a pas été levée : on peut l'ajouter à la série.
+            if (Personnages.Contains(nouveauPerso))
+            {
+                Personnages.Add(nouveauPerso);
+                return true;
+            }
+            else
+                return false;
         }
 
         /// <summary>
@@ -39,7 +46,13 @@ namespace Modele
         /// <returns></returns>
         internal bool AjouterUnPersonnage(Personnage perosnnageImporte)
         {
-            return Personnages.Add(perosnnageImporte);
+            if (Personnages.Contains(perosnnageImporte))
+            {
+                Personnages.Add(perosnnageImporte);
+                return true;
+            }
+            else
+                return false;
         }
 
         /// <summary>

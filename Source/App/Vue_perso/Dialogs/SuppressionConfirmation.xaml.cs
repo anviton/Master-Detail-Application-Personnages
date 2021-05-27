@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modele;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -9,31 +10,30 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Modele;
 
-namespace Vue_perso
+namespace Vue_perso.Dialogs
 {
     /// <summary>
-    /// Logique d'interaction pour Accueil.xaml
+    /// Logique d'interaction pour SuppressionConfirmation.xaml
     /// </summary>
-    public partial class Accueil : Window
+    public partial class SuppressionConfirmation : Window
     {
         public Manager Mgr => (App.Current as App).MonManager;
-        public Accueil()
+        public SuppressionConfirmation()
         {
             DataContext = Mgr;
             InitializeComponent();
         }
 
-        private void Affiche_Perso(object sender, RoutedEventArgs e)
+        private void SupprmierLePersonnage(object sender, RoutedEventArgs e)
         {
-            contentControlAccueil.Content = new UC_accueil.MosaiquePersonnages_UC();
+            Mgr.SupprimerPersonnage(Mgr.PersonnageSelectionne);
+            Close();
         }
 
-        private void Affiche_Jeux(object sender, RoutedEventArgs e)
+        private void AnnulerLaSupression(object sender, RoutedEventArgs e)
         {
-            contentControlAccueil.Content = new UC_accueil.MosaiqueJeux_UC();
+            Close();
         }
-
     }
 }

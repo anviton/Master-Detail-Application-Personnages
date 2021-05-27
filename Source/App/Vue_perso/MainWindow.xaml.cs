@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Modele;
+using Vue_perso.Dialogs;
 
 namespace Vue_perso
 {
@@ -47,19 +48,21 @@ namespace Vue_perso
             if(Mgr.PersonnageSelectionne != null)
             {
                 DataContext = Mgr;
+                Mgr.ListeDePersonngesActive = Mgr.Personnages;
                 HeaderListe.Text = "Tous les personnages";
             }
             else
             {
                 if(Mgr.SerieSelectionnee== null)
                 {
-                    DataContext = this;
-                    Personnages = Mgr.Groupes[Mgr.GroupeSelectionne];
+                    DataContext = Mgr;
+                    Mgr.ListeDePersonngesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
                     HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
                 }
                 else
                 {
-                    DataContext = Mgr.SerieSelectionnee;
+                    DataContext = Mgr;
+                    Mgr.ListeDePersonngesActive = Mgr.SerieSelectionnee.Personnages;
                     HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
                 }
                 
@@ -90,15 +93,15 @@ namespace Vue_perso
             
         }
 
-        private void ModifierPersonnage(object sender, RoutedEventArgs e)
+        private void SupprimerPersonnageClick(object sender, RoutedEventArgs e)
         {
-            ModifierPerso nouveau = new ModifierPerso();
-            nouveau.ShowDialog();
+            SuppressionConfirmation window = new SuppressionConfirmation();
+            window.ShowDialog();
         }
 
-        private void SupprimerPersonnage(object sender, RoutedEventArgs e)
+        private void ModifierPersonnageClick(object sender, RoutedEventArgs e)
         {
-            //Mgr.SupprimerPersonnage(Mgr.Selected);
+
         }
     }
 }
