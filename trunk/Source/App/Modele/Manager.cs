@@ -17,7 +17,7 @@ namespace Modele
         public IDictionary<string, ObservableCollection<Personnage>> Groupes { get; }
         public ICollection<string> NomsGroupes { get { return new List<string>(Groupes.Keys); } }
 
-        public ObservableCollection<Personnage> Personnages => new ObservableCollection<Personnage>(Series.SelectMany(serie => serie.Personnages));
+        public ObservableCollection<Personnage> Personnages => new ObservableCollection<Personnage>(Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
         public ObservableCollection<Personnage> ListeDePersonngesActive { get; set; }
         public Personnage PersonnageSelectionne {
             get => personnageSelectionne;
@@ -60,6 +60,7 @@ namespace Modele
             }
         }
         private string groupeSelectionne;
+
         public Manager()
         {
             Series = new SortedSet< Serie >(); 

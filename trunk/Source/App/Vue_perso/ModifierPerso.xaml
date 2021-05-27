@@ -8,7 +8,7 @@
         Title="Modifier un personnage" Height="450" Width="800">
 
     <DockPanel>
-        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Enregistrement d'un personnage" FontSize="25px"/>
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Modification d'un personnage" FontSize="25px"/>
 
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="15,10">
             <Button Content="Enregistrer" Margin="10,0" Height="25" Padding="10,0"/>
@@ -32,13 +32,13 @@
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
             <Label   Grid.Column="0" Grid.Row="0" Content="Nom :"/>
-            <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="NoWrap" Width="Auto"></TextBox>
+            <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="NoWrap" Width="Auto" Text="{Binding Nom}"/>
 
             <Label  Grid.Column="0" Grid.Row="1" Content="Image :"/>
-            <Button Grid.Column="1" Grid.Row="1" Content="Parcourir..." Name="Parcourir" Click="RenseignerChamp"/>
+            <Button Grid.Column="1" Grid.Row="1" Content="Parcourir..." Click="RenseignerImage"/>
 
             <Label   Grid.Column="0" Grid.Row="2" Content="Citations :"/>
-            <TextBox Grid.Column="1" Grid.Row="2" Text="Emplacement de saisie à modifier pour correspondre au contexte" TextWrapping="NoWrap" Width="Auto" IsEnabled="False"/>
+            <Button Grid.Column="1" Grid.Row="2" Content="Modifier..." Name="CitationsButton"/>
 
             <Label   Grid.Column="0" Grid.Row="3" Content="Jeux vidéos :"/>
             <Button  Grid.Column="1" Grid.Row="3" Content="Modifier..."/>
