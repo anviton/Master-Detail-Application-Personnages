@@ -58,9 +58,30 @@ namespace Vue_perso
             }
         }
 
+        private void NouveauPersonnage(object sender, RoutedEventArgs e)
+        {
+            NouveauPerso dialog = new NouveauPerso();
+
+            if (dialog.ShowDialog() == true)
+            {
+                if (Mgr.EnregistrerPersonnage(dialog.NomPerso, dialog.SerieDuPerso, out Personnage nouveauPerso))
+                {
+                    MessageBox.Show($"Le personnage \"{dialog.NomPerso}\", de la série \"{dialog.SerieDuPerso}\", a été ajouté.", "Nouveau personnage",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    ModifierPerso modifierPerso = new ModifierPerso();
+                    modifierPerso.Show();
+                }
+                else
+                {
+                    MessageBox.Show($"Le personnage \"{dialog.NomPerso}\" existe déjà dans la série \"{dialog.SerieDuPerso}\" !", "NouveauPersonnage",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
         private void ModifierPersonnage(object sender, RoutedEventArgs e)
         {
-            NouveauPerso nouveau = new NouveauPerso();
+            ModifierPerso nouveau = new ModifierPerso();
             nouveau.ShowDialog();
         }
 
@@ -83,6 +104,5 @@ namespace Vue_perso
             Window.GetWindow(this).Close();
             return;
         }
-
     }
 }

@@ -92,7 +92,7 @@ namespace Vue_perso
 
         private void ModifierPersonnage(object sender, RoutedEventArgs e)
         {
-            NouveauPerso nouveau = new NouveauPerso();
+            ModifierPerso nouveau = new ModifierPerso();
             nouveau.ShowDialog();
         }
 

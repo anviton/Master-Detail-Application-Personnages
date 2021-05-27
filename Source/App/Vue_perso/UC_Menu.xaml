@@ -16,8 +16,8 @@
         </MenuItem>
         <MenuItem Header="Actions personnages">
             <MenuItem Header="Importer"/>
-            <MenuItem Header="Nouveau Personnage"/>
-            <MenuItem Header="Modifier" Click="ModifierPersonnage"/>
+            <MenuItem Header="Nouveau Personnage" Click="NouveauPersonnage"/>
+            <MenuItem Name="ModifierMenuEntry" Header="Modifier" Click="ModifierPersonnage"/>
             <MenuItem Header="Supprimer"/>
         </MenuItem>
 

@@ -6,6 +6,30 @@
              xmlns:local="clr-namespace:Vue_perso.UC_accueil"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Background>
+        <ImageBrush ImageSource="/Bibliothèques_Images;Component/Images_Fonds/arriere_plan_grille_perso.jpg" />
+    </UserControl.Background>
+    
+    <DockPanel>
+        <DockPanel.Background>
+            <SolidColorBrush Color="#FF98CBF7" Opacity="0.6"/>
+        </DockPanel.Background>
+
+        <TextBox DockPanel.Dock="Top" Text="Rechercher un personnage" TextWrapping="NoWrap"/>
+
+        <ListBox ItemsSource="{Binding Series}" Background="{x:Null}" SelectionChanged="SerieSelectionnee">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Bibliothèques_Images;Component/Images_Fonds/image.jpg" Width="100" />
+                        <Label Content="{Binding Nom}" FontSize="16" FontWeight="Bold" FontStyle="Italic"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+    <!--
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Bibliothèques_Images;Component/Images_Fonds/arriere_plan_grille_perso.jpg"></ImageBrush>
@@ -39,5 +63,5 @@
             </ListBox>
         </Grid>
     </Grid>
-
+    -->
 </UserControl>
