@@ -30,13 +30,11 @@ namespace Vue_perso.Dialogs
             if (Mgr.GroupeSelectionne == null)
             {
                 Mgr.SupprimerPersonnage(Mgr.PersonnageSelectionne);
-                
             }
             else
             {
                 Mgr.RetirerPersoDeGroupe(Mgr.GroupeSelectionne, Mgr.PersonnageSelectionne);
             }
-            
             Close();
         }
 

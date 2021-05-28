@@ -10,13 +10,9 @@
         <Style TargetType="Button" x:Key="StyleOKButton">
             <Style.Triggers>
                 <!-- 
-                    S'il n'y a aucun nom saisi,
-                    et si aucun item n'est sélectionné dans la combobox (SelectedIndex == -1), on grise le bouton.
+                    Si aucun item n'est sélectionné dans la combobox (SelectedIndex == -1), on grise le bouton.
                 -->
-                <DataTrigger Binding="{Binding ElementName=NomPersoTextBox, Path=Text.Length}" Value="0">
-                    <Setter Property="IsEnabled" Value="False" />
-                </DataTrigger>
-                <DataTrigger Binding="{Binding ElementName=SeriesBox, Path=SelectedIndex}" Value="-1">
+                <DataTrigger Binding="{Binding ElementName=BoxGroupes, Path=SelectedIndex}" Value="-1">
                     <Setter Property="IsEnabled" Value="False" />
                 </DataTrigger>
             </Style.Triggers>
@@ -25,10 +21,10 @@
 
     <StackPanel Margin="5">
         <Label HorizontalAlignment="Center" Content="Ajouter :" />
-        <TextBlock Name="NomPersoTextBox" Text="{Binding PersonnageSelectionne.Nom}"/>
+        <TextBlock Text="{Binding PersonnageSelectionne.Nom}"/>
         <Label HorizontalAlignment="Center" Content="au Groupe :" />
         <StackPanel Orientation="Horizontal">
-            <ComboBox ItemsSource="{Binding NomsGroupes}" SelectedValue="{Binding GroupeSelectionne}" Width="130" HorizontalAlignment="Left">
+            <ComboBox  Name="BoxGroupes" ItemsSource="{Binding NomsGroupes}" SelectedValue="{Binding GroupeSelectionne}" Width="130" HorizontalAlignment="Left">
             </ComboBox>
             <Label Content="ou" HorizontalAlignment="Center"/>
             <Button Content="Nouveau groupe..." Click="NouveauGroupe" Width="130" HorizontalAlignment="Right" />

@@ -17,7 +17,7 @@
 
         <TextBox DockPanel.Dock="Top" Text="Rechercher un personnage" TextWrapping="NoWrap"/>
 
-        <ListBox ItemsSource="{Binding Personnages}" Background="{x:Null}" MouseUp="PersonnageSelectionne" SelectedItem="{Binding Selected}">
+        <ListBox ItemsSource="{Binding Personnages}" Background="{x:Null}" MouseUp="PersonnageSelectionne" SelectedItem="{Binding PersonnageSelectionne}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

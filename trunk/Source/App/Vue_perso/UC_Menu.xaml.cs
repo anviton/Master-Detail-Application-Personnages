@@ -79,12 +79,6 @@ namespace Vue_perso
             }
         }
 
-        private void ModifierPersonnage(object sender, RoutedEventArgs e)
-        {
-            //ModifierPerso nouveau = new ModifierPerso();
-            //nouveau.ShowDialog();
-        }
-
         private void SupprimerGroupe(object sender, RoutedEventArgs e)
         {
             

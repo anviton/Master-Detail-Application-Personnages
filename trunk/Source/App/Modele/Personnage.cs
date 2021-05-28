@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.ComponentModel;
 
 namespace Modele
 {
-    public class Personnage : Nommable, IEquatable<Personnage>, IComparable<Personnage>
+    public class Personnage : Nommable, IEquatable<Personnage>, IComparable<Personnage>, INotifyPropertyChanged
     {
         public ISet<string> Citations { get; }
         public static Random indexRandomizer = new Random();
@@ -29,7 +30,11 @@ namespace Modele
                 if (image == null) return "/Bibliothèques_Images;Component/Images_Personnages/mario.jpeg"; // On renvoie l'image par défaut
                 else return image;
             }
-            set { image = value; }
+            set 
+            { 
+                image = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Image)));
+            }
    		}
         public ISet<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
@@ -39,6 +44,9 @@ namespace Modele
         public string Description { get; set; }
 
         public EventHandler<NotificationRelationEvent> NotificationRelation;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         protected virtual void OnNotificationRelation(NotificationRelationEvent args)
             => NotificationRelation?.Invoke(this, args);
 
