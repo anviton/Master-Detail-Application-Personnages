@@ -193,21 +193,13 @@ namespace Modele
         /// Permet d'ajouter un jeu à la liste des jeux vidéo du perso
         /// </summary>
         /// <param name="nom">Le nom du jeu à ajouter</param>
-        /// <returns>true si le jeu a été ajouté, false s'il y était déjà</returns>
-        public bool AjouterUnJeu(string nom)
-        {
-            return JeuxVideo.Add(new JeuVideo(nom));
-        }
-
-        /// <summary>
-        /// Permet d'ajouter un jeu à la liste des jeux vidéo du perso
-        /// </summary>
-        /// <param name="nom">Le nom du jeu à ajouter</param>
         /// <param name="annee">L'année de sortie du jeu</param>
+        /// <param name="jeu">Le jeu à ajouter</param>
         /// <returns>true si le jeu a pu être ajouté, false sinon</returns>
-        public bool AjouterUnJeu(string nom, int annee)
+        public bool AjouterUnJeu(string nom, int? annee, out JeuVideo jeu)
 		{
-            return JeuxVideo.Add(new JeuVideo(nom, annee));
+            jeu = new JeuVideo(nom, annee);
+            return JeuxVideo.Add(jeu);
 		}
 
         /// <summary>

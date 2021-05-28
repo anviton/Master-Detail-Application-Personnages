@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Modele;
+using Vue_perso.Dialogs;
 
 namespace Vue_perso
 {
@@ -48,7 +49,12 @@ namespace Vue_perso
              * On regarde quel bouton a été cliqué.
              * Ensuite, on instancie un Window, contenant une référence vers une fenêtre demandée.
              */
-            if (senderButton.Equals(ThemeButton))
+            if (senderButton.Equals(JVButton))
+            {
+                newWindow = new JeuxVideoDialog(Perso);
+                newWindow.ShowDialog();
+            }
+            else if (senderButton.Equals(ThemeButton))
             {
                 newWindow = new ThemeMusical();
                 newWindow.ShowDialog();
