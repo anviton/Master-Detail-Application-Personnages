@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Modifier un personnage" Height="450" Width="800">
 
-    <DockPanel>
+    <DockPanel Margin="0,0,0,1">
         <Label DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Modification d'un personnage" FontSize="25px"/>
 
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="15,10">
@@ -38,16 +38,16 @@
             <Button Grid.Column="1" Grid.Row="1" Content="Parcourir..." Click="RenseignerImage"/>
 
             <Label   Grid.Column="0" Grid.Row="2" Content="Citations :"/>
-            <Button Grid.Column="1" Grid.Row="2" Content="Modifier..." Name="CitationsButton"/>
+            <Button Grid.Column="1" Grid.Row="2" Content="Modifier..." Name="CitationsButton" Click="RenseignerChamp"/>
 
             <Label   Grid.Column="0" Grid.Row="3" Content="Jeux vidéos :"/>
-            <Button  Grid.Column="1" Grid.Row="3" Content="Modifier..."/>
+            <Button  Grid.Column="1" Grid.Row="3" Content="Modifier..." Name="JVButton" Click="RenseignerChamp"/>
 
             <Label   Grid.Column="0" Grid.Row="4" Content="Thèmes musicaux :"/>
             <Button  Grid.Column="1" Grid.Row="4" Content="Modifier..." Name="ThemeButton" Click="RenseignerChamp"/>
 
             <Label   Grid.Column="0" Grid.Row="5" Content="Relations :"/>
-            <Button  Grid.Column="1" Grid.Row="5" Content="Modifier..."/>
+            <Button  Grid.Column="1" Grid.Row="5" Content="Modifier..." Click="RenseignerChamp"/>
 
             <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Content="Description :"/>
 
