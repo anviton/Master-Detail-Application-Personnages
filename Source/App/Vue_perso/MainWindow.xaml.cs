@@ -45,31 +45,38 @@ namespace Vue_perso
         public MainWindow()
         {
             InitializeComponent();
-            if(Mgr.PersonnageSelectionne != null)
+            if (Mgr.SerieSelectionnee == null && Mgr.PersonnageSelectionne == null && Mgr.GroupeSelectionne == null) 
             {
-                DataContext = Mgr;
-                Mgr.ListeDePersonnagesActive = Mgr.Personnages;
-                HeaderListe.Text = "Tous les personnages";
+                Close();
             }
             else
             {
-                if(Mgr.SerieSelectionnee== null)
+                if (Mgr.PersonnageSelectionne != null)
                 {
                     DataContext = Mgr;
-                    Mgr.ListeDePersonnagesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
-                    HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
+                    Mgr.ListeDePersonnagesActive = Mgr.Personnages;
+                    HeaderListe.Text = "Tous les personnages";
                 }
                 else
                 {
-                    DataContext = Mgr;
-                    Mgr.ListeDePersonnagesActive = Mgr.SerieSelectionnee.Personnages;
-                    HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
+                    if (Mgr.SerieSelectionnee == null)
+                    {
+                        DataContext = Mgr;
+                        Mgr.ListeDePersonnagesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
+                        HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
+                    }
+                    else
+                    {
+                        DataContext = Mgr;
+                        Mgr.ListeDePersonnagesActive = Mgr.SerieSelectionnee.Personnages;
+                        HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
+                    }
+                    if (Mgr.ListeDePersonnagesActive.Count() != 0)
+                    {
+                        Mgr.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
+                    }
                 }
-                if (Mgr.ListeDePersonnagesActive.Count()!=0)
-                {
-                    Mgr.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
-                }
-                
+               
             }
             
         }
@@ -105,6 +112,11 @@ namespace Vue_perso
                 SuppressionConfirmation window = new SuppressionConfirmation();
                 window.ShowDialog();
             }
+            if (Mgr.ListeDePersonnagesActive == Mgr.Personnages)
+            {
+                Mgr.ListeDePersonnagesActive = Mgr.Personnages;
+            }
+            
         }
 
         private void ModifierPersonnageClick(object sender, RoutedEventArgs e)

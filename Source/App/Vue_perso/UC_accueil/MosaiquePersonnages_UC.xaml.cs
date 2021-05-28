@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Linq;
 using Modele;
 
 namespace Vue_perso.UC_accueil
@@ -20,6 +22,8 @@ namespace Vue_perso.UC_accueil
     public partial class MosaiquePersonnages_UC : UserControl
     {
         public Manager Mgr => (App.Current as App).MonManager;
+
+        //public ObservableCollection<Personnage> ListePersonnages => new ObservableCollection<Personnage>(Mgr.Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
 
         public MosaiquePersonnages_UC()
         {

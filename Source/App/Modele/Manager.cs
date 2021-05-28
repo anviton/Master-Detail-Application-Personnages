@@ -12,24 +12,27 @@ namespace Modele
 {
     public class Manager : INotifyPropertyChanged
     {
-        public SortedSet<Serie> Series { get; }
+        public ObservableCollection<Serie> Series { get; }
         // Format : string = nom, SortedSet = personnages appartenant au groupe
         public IDictionary<string, ObservableCollection<Personnage>> Groupes { get; }
         public ICollection<string> NomsGroupes { get { return new List<string>(Groupes.Keys); } }
 
-        public ObservableCollection<Personnage> Personnages
+        public IList<Personnage> Personnages
         {
             get
             {
+                
                 return new ObservableCollection<Personnage>(Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
             }
             set
             {
-               //personnages = new ObservableCollection<Personnage>(Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
+                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Personnages)));
+                //personnages = new ObservableCollection<Personnage>(Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
             }
         }
+
         public ObservableCollection<Personnage> personnages;
-        public ObservableCollection<Personnage> ListeDePersonnagesActive { get; set; }
+        public IList<Personnage> ListeDePersonnagesActive { get; set; }
         public Personnage PersonnageSelectionne {
             get => personnageSelectionne;
             set 
@@ -74,7 +77,7 @@ namespace Modele
 
         public Manager()
         {
-            Series = new SortedSet< Serie >(); 
+            Series = new ObservableCollection<Serie>(); 
             Groupes = new SortedList<string, ObservableCollection<Personnage>>();
         }
 
@@ -90,8 +93,14 @@ namespace Modele
         {
             // On instancie une nouvelle série.
             serie = new Serie(nom);
-
-            return Series.Add(serie);
+            if (Series.Contains(serie))
+                return false;
+            else
+            {
+                Series.Add(serie);
+                return true;
+            }
+                    
         }
 
         /// <summary>
@@ -113,7 +122,17 @@ namespace Modele
         /// <returns>true si le personnage est enregistré, false s'il existe déjà (utilise la valeur de retour de Serie.AjouterUnPersonnage)</returns>
         public bool EnregistrerPersonnage(string nomPerso, Serie serie, out Personnage nouveauPerso)
         {
-            return serie.AjouterUnPersonnage(nomPerso, out nouveauPerso);
+            
+                bool ajout =serie.AjouterUnPersonnage(nomPerso, out nouveauPerso);
+            if(ajout == true)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Personnages)));
+                return ajout;
+            }
+            else
+            {
+                return ajout;
+            }
         }
 
         /// <summary>
@@ -145,7 +164,9 @@ namespace Modele
 			{
                 SupprimerSerie(serie);
 			}
-		}
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Personnages)));
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ListeDePersonnagesActive)));
+        }
 
         /// <summary>
         /// Permet de créer un nouveau groupe de personnages (série ou groupe).
@@ -229,7 +250,16 @@ namespace Modele
         /// <returns>true si la série est trouvée / false si la série n'est pas trouvée</returns>
         public bool RechercherUneSerie(string nom, out Serie serie)
         {
-            return Series.TryGetValue(new Serie(nom), out serie);
+            if(Series.Contains(new Serie(nom)))
+            {
+                serie = Series[Series.IndexOf(new Serie(nom))];
+                return true;
+            }
+            else
+            {
+                serie = null;
+                return false;
+            }
         }
         
         /// <summary>
