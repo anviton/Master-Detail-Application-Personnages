@@ -12,7 +12,7 @@ namespace Test_Personnage
             Chargeur chargeur1 = new Stub("");
             Manager manager = chargeur1.Charger();
             //Test de l'affichage des relations d'un personnage (ayant des relations) (+ ajout et suppression Relation)
-            manager.Series.TryGetValue(new Serie("mario"), out Serie serie);
+            manager.RechercherUneSerie("mario", out Serie serie);
             manager.RechercherUnPersonnage("Mario", "mario", out Personnage perso1);
             AfficherLesRelations(perso1);
             bool toto = manager.RechercherUnPersonnage("Link", "zelda", out Personnage perso1_2);
@@ -25,9 +25,9 @@ namespace Test_Personnage
             AfficherLesRelations(perso2);
             //Test de l'affichage des jeux d'un personnage (+ de la suppression d'un jeu + ajout d'un jeu)
             AfficherLalisteDesJeuxDunPerso(perso1);
-            perso1.SupprimerUnJeu(new JeuVideo("Super Mario Bros."));
+            perso1.SupprimerUnJeu(new JeuVideo("Super Mario Bros.", null));
             AfficherLalisteDesJeuxDunPerso(perso1);
-            perso1.AjouterUnJeu("Super Mario Bros.", 1985);
+            perso1.AjouterUnJeu("Super Mario Bros.", 1985, out JeuVideo j);
             AfficherLalisteDesJeuxDunPerso(perso1);
             //Test de l'affichage de la description d'un oerso
             Console.WriteLine($"\nLa descrption de {perso1.Nom} :");
@@ -64,7 +64,7 @@ namespace Test_Personnage
             TestRechercherUnPerso("Bowse", "mario", manager);
             //Test suppression personnage (suppression de mario)
             manager.SupprimerPersonnage(perso1);
-            manager.Series.TryGetValue(new Serie("mario"), out Serie serie1);
+            manager.RechercherUneSerie("mario", out Serie serie1);
             AfficherUneSerie(serie1);
             AfficherTousLesPersonnages(manager);
             //Test exporter personnage
@@ -157,7 +157,7 @@ namespace Test_Personnage
             }
         }
 
-        private static void AfficherLesSeries(ISet<Serie> Series)
+        private static void AfficherLesSeries(IEnumerable<Serie> Series)
         {
             Console.WriteLine("\nLa liste des séries :");
             foreach (Serie serie in Series)

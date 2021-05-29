@@ -61,13 +61,15 @@ namespace Vue_perso
                 {
                     if (Mgr.SerieSelectionnee == null)
                     {
-                        DataContext = Mgr;
+                        
                         Mgr.ListeDePersonnagesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
+                        DataContext = Mgr.Groupes[Mgr.GroupeSelectionne];
+                        //Mgr.Personnages = Mgr.Groupes[Mgr.GroupeSelectionne];
                         HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
                     }
                     else
                     {
-                        DataContext = Mgr;
+                        DataContext = Mgr.SerieSelectionnee;
                         Mgr.ListeDePersonnagesActive = Mgr.SerieSelectionnee.Personnages;
                         HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
                     }
@@ -112,10 +114,10 @@ namespace Vue_perso
                 SuppressionConfirmation window = new SuppressionConfirmation();
                 window.ShowDialog();
             }
-            if (Mgr.ListeDePersonnagesActive == Mgr.Personnages)
-            {
+
+          
                 Mgr.ListeDePersonnagesActive = Mgr.Personnages;
-            }
+           
             
         }
 

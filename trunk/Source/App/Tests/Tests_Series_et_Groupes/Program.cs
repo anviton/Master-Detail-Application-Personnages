@@ -17,7 +17,7 @@ namespace Tests_Series_et_Groupes
             //Test de l'affichage de toutes les série
             AfficherLesSeries(manager.Series);
             //Test de l'affichage des membres d'une série
-            manager.Series.TryGetValue(new Serie("mario"), out Serie serie);
+            manager.RechercherUneSerie("mario", out Serie serie);
             AfficherUneSerie(serie);
             //Test rechercher une série
             Console.WriteLine();
@@ -54,7 +54,7 @@ namespace Tests_Series_et_Groupes
             }
         }
 
-        private static void AfficherLesSeries(ISet<Serie> Series)
+        private static void AfficherLesSeries(IEnumerable<Serie> Series)
         {
             Console.WriteLine("\nLa liste des séries :");
             foreach (Serie serie in Series)

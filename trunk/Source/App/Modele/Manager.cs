@@ -165,7 +165,6 @@ namespace Modele
                 SupprimerSerie(serie);
 			}
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Personnages)));
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ListeDePersonnagesActive)));
         }
 
         /// <summary>

@@ -33,6 +33,9 @@
     <Compile Update="Dialogs\SupprimerGroupeDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Main_WindowGroupes.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UC_accueil\MosaiqueSeries_UC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -75,6 +78,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Main_WindowGroupes.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UC_accueil\MosaiqueSeries_UC.xaml">
