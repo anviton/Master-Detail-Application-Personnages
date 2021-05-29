@@ -75,7 +75,7 @@
                 </ListBox.ItemTemplate>    
             </ListBox>
         </Grid >
-        <Grid Background="{StaticResource BackgorundSalmon}" DataContext="{Binding PersonnageSelectionne}">
+        <Grid Background="{StaticResource BackgorundSalmon}" DataContext="{Binding PersonnageSelectionne}" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="*"/>
@@ -112,8 +112,8 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <TextBlock Style="{StaticResource textInformatif}" Text="Thème musical" Grid.Row="2"/>
-            <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Theme}">
-            </ListBox>
+            <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Theme}" />
+
             <TextBlock Style="{StaticResource textInformatif}" Text="Relations" Grid.Row="3" />
             <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Relations}">
                 <ListBox.ItemTemplate>
@@ -127,7 +127,10 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <TextBlock Style="{StaticResource textInformatif}" Text="Description :" Grid.Row="4"/>
-            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Description}" Grid.Row="4" Grid.Column="1"/>
+            <ScrollViewer Grid.Row="4" Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Description}" TextWrapping="WrapWithOverflow"/>
+            </ScrollViewer>
+            
         </Grid>
 
     </DockPanel>

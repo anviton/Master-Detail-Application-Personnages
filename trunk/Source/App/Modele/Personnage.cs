@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Modele
 {
@@ -36,7 +37,7 @@ namespace Modele
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Image)));
             }
    		}
-        public ISet<JeuVideo> JeuxVideo { get; }
+        public ObservableCollection<JeuVideo> JeuxVideo { get; }
         public ThemeMusical Theme { get; set; }
         public HashSet<Relation> Relations { get; }
         public string SerieDuPerso { get; }
@@ -55,7 +56,7 @@ namespace Modele
         {
             SerieDuPerso = serie;
             Citations = new HashSet<string>();
-            JeuxVideo = new HashSet<JeuVideo>();
+            JeuxVideo = new ObservableCollection<JeuVideo>();
             Relations = new HashSet<Relation>();
             EstMentionneDans = new HashSet<Relation>();
             NotificationRelation += AjouterAEstMentionneDans;
@@ -185,7 +186,7 @@ namespace Modele
                 relation.PersoRec.EstMentionneDans.Remove(relation);
 			}
             Relations.Remove(relation);
-        }
+       }
 
         /// <summary>
         /// Ajoute à la liste de relation EetMentionneDans la relation dans laquel le personnage apparait
@@ -207,7 +208,12 @@ namespace Modele
         public bool AjouterUnJeu(string nom, int? annee, out JeuVideo jeu)
 		{
             jeu = new JeuVideo(nom, annee);
-            return JeuxVideo.Add(jeu);
+            if (!JeuxVideo.Contains(jeu))
+			{
+                JeuxVideo.Add(jeu);
+                return true;
+			}
+            return false;
 		}
 
         /// <summary>
