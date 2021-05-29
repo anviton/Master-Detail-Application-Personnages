@@ -34,14 +34,35 @@ namespace Vue_perso.Dialogs
             {
                 if (Perso.AjouterUnJeu(dialog.NomJeuVideo, dialog.Annee, out JeuVideo jeu))
                 {
-                    MessageBox.Show($"Le jeu video \"{jeu}\" a été ajouté.", "Ajouter un jeu", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
+                    MessageBox.Show($"Le jeu video \"{jeu.Nom}\" a été ajouté.", "Ajouter un jeu", MessageBoxButton.OK, MessageBoxImage.Information);
+                } else
+				{
+                    MessageBox.Show($"Le jeu vidéo \"{jeu.Nom}\" a déjà été ajouté à ce personnage !", "Ajouter un jeu", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void SupprimerJeu(object sender, RoutedEventArgs e)
         {
+            JeuVideo jeuASupprimer = JVListBox.SelectedItem as JeuVideo;
+            if (jeuASupprimer == null)
+			{
+                MessageBox.Show("Vous devez sélectionner un jeu à supprimer.", "Supprimer un jeu", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+			}
 
+            MessageBoxResult result = MessageBox.Show($"Voulez-vous vraiment supprimer le jeu \"{jeuASupprimer.Nom}\" ?",
+                "Supprimer un jeu", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+			{
+                Perso.SupprimerUnJeu(jeuASupprimer);
+			}
         }
-    }
+
+		private void OKButton(object sender, RoutedEventArgs e)
+		{
+            Close();
+		}
+	}
 }
