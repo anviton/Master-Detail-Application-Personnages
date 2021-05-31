@@ -40,7 +40,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Manager donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            donnees.RechercherUneSerie("zelda", out Serie serie);
             Personnage personnage = new Personnage("Ganon", serie.Nom);
 
             Assert.IsFalse(serie.Personnages.Contains(personnage));
@@ -54,7 +54,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Manager donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            donnees.RechercherUneSerie("zelda", out Serie serie);
             Personnage personnage = new Personnage("Link", serie.Nom);
 
             Assert.IsTrue(serie.Personnages.Contains(personnage));
@@ -67,7 +67,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Manager donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
+            donnees.RechercherUneSerie("mario", out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage personnage);
 
             donnees.SupprimerPersonnage(personnage);
@@ -82,7 +82,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Manager donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
+            donnees.RechercherUneSerie("celeste", out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
 
             Assert.IsTrue(serie.Personnages.Contains(personnage));

@@ -55,27 +55,16 @@ namespace Vue_perso
                 {
                     DataContext = Mgr;
                     Mgr.ListeDePersonnagesActive = Mgr.Personnages;
-                    HeaderListe.Text = "Tous les personnages";
+                    //HeaderListe.Text = "Tous les personnages";
                 }
                 else
                 {
-                    if (Mgr.SerieSelectionnee == null)
-                    {
-                        
-                        Mgr.ListeDePersonnagesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
-                        DataContext = Mgr.Groupes[Mgr.GroupeSelectionne];
-                        //Mgr.Personnages = Mgr.Groupes[Mgr.GroupeSelectionne];
-                        HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
-                    }
-                    else
-                    {
-                        DataContext = Mgr.SerieSelectionnee;
-                        Mgr.ListeDePersonnagesActive = Mgr.SerieSelectionnee.Personnages;
-                        HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
-                    }
+                    DataContext = Mgr.SerieSelectionnee;
+                    Mgr.ListeDePersonnagesActive = Mgr.SerieSelectionnee.Personnages;
+                    //HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
                     if (Mgr.ListeDePersonnagesActive.Count() != 0)
                     {
-                        Mgr.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
+                        Mgr.SerieSelectionnee.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
                     }
                 }
                

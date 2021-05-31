@@ -25,7 +25,8 @@ namespace Vue_perso
             InitializeComponent();
             DataContext = Mgr;
             Mgr.ListeDePersonnagesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
-            HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
+            Mgr.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
+            //HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
         }
 
         private void SupprimerPersonnageClick(object sender, RoutedEventArgs e)
