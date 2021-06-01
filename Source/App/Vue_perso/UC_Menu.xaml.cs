@@ -81,7 +81,8 @@ namespace Vue_perso
 
         private void SupprimerGroupe(object sender, RoutedEventArgs e)
         {
-            
+            var window = new SupprimerGroupeDialog();
+            window.ShowDialog();
         }
 
         private void GroupeSelectionnee(object sender, RoutedEventArgs e)
@@ -99,6 +100,28 @@ namespace Vue_perso
             window.Show();
             Window.GetWindow(this).Close();
             return;
+        }
+
+        private void ImporterPersonnage(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.DefaultExt = ".xml ";
+            dialog.Filter = "Tous les fichiers xml (*.xml) | *.xml";
+
+            if (dialog.ShowDialog() == true)
+            {
+
+                if (Mgr.LireUnPersonnageEnXml(dialog.FileName))
+                {
+                    MessageBox.Show($"Le Personnage a été ajoutée.", "Nouveau Personnage", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"Le Personnage existe déjà !", "Nouveau Personnage", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                
+            }
+
         }
     }
 }

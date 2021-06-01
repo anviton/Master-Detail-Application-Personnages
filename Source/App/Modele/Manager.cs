@@ -82,6 +82,8 @@ namespace Modele
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string PropertyName)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
 
         /// <summary>
         /// Ajoute une nouvelle série de jeux vidéo.
@@ -126,7 +128,7 @@ namespace Modele
                 bool ajout =serie.AjouterUnPersonnage(nomPerso, out nouveauPerso);
             if(ajout == true)
             {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Personnages)));
+                OnPropertyChanged(nameof(Personnages));
                 return ajout;
             }
             else
@@ -164,7 +166,7 @@ namespace Modele
 			{
                 SupprimerSerie(serie);
 			}
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Personnages)));
+            OnPropertyChanged(nameof(Personnages));
         }
 
         /// <summary>
@@ -183,7 +185,7 @@ namespace Modele
 
             // Le groupe n'existe pas : on l'ajoute et renvoie true.
             Groupes.Add(nom, new ObservableCollection<Personnage>());
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NomsGroupes)));
+            OnPropertyChanged(nameof(NomsGroupes));
             return true;
         }
 
@@ -194,7 +196,7 @@ namespace Modele
         public void SupprimerGroupe(string nom)
         {
             Groupes.Remove(nom);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NomsGroupes)));
+            OnPropertyChanged(nameof(NomsGroupes));
         }
 
         /// <summary>
@@ -265,8 +267,9 @@ namespace Modele
         /// Permet de lire un personnage dans un fichier xml
         /// </summary>
         /// <param name="chemin">chemin du fichier dans lequel le personnage est "stocké"</param>
-        public void LireUnPersonnageEnXml(string chemin)
+        public bool LireUnPersonnageEnXml(string chemin)
         {
+            bool provisoire = false;
             XDocument personnageFichier = XDocument.Load(chemin);
             var persos = personnageFichier.Descendants("personnage")
                           .Select(eltPersonnage => new Personnage(eltPersonnage.Attribute("nom").Value, eltPersonnage.Element("serieDuPerso").Value)
@@ -285,14 +288,17 @@ namespace Modele
                 bool serieExiste = RechercherUneSerie(perso.SerieDuPerso, out Serie serie);
                 if (serieExiste)
                 {
+                    provisoire = serie.AjouterUnPersonnage(perso);
                     serie.AjouterUnPersonnage(perso);
                 }
                 else
                 {
                     AjouterSerie(perso.SerieDuPerso, out serie);
-                    serie.AjouterUnPersonnage(perso);
+                    provisoire = serie.AjouterUnPersonnage(perso);
                 }
             }
+            OnPropertyChanged(nameof(Personnages));
+            return provisoire;
         }
 
         /// <summary>

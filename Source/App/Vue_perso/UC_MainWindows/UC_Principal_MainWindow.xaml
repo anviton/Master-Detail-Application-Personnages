@@ -99,7 +99,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock Style="{StaticResource textInformatif1}" Grid.Row="0" Grid.Column="1" Text="{Binding Nom}"/>
-                <TextBlock Style="{StaticResource textInformatif1}" FontSize="30"  Text="{Binding CitationAleatoire}" Grid.Column="1" Grid.Row="1" />
+                <TextBlock Style="{StaticResource textInformatif1}" FontSize="30"  Text="{Binding CitationAleatoire}" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center"/>
             </Grid>
 
             <TextBlock Style="{StaticResource textInformatif}" Text="Jeux video :" Grid.Row="1"/>
@@ -114,7 +114,15 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <TextBlock Style="{StaticResource textInformatif}" Text="Thème musical" Grid.Row="2"/>
-            <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Theme}">
+            <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Theme.Titres}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Nom}"/>
+                            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Lien}"/>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
             <TextBlock Style="{StaticResource textInformatif}" Text="Relations" Grid.Row="3" />
             <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Relations}">
@@ -129,7 +137,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <TextBlock Style="{StaticResource textInformatif}" Text="Description :" Grid.Row="4"/>
-            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Description}" Grid.Row="4" Grid.Column="1"/>
+            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Description}" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center"/>
         </Grid>
 
     </DockPanel>

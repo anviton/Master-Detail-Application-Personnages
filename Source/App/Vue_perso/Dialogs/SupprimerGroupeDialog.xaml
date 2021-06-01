@@ -6,10 +6,25 @@
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Supprimer un groupe" Height="450" Width="800">
+        Title="Supprimer un groupe" Height="175" Width="300">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="StyleBoutonValider">
+            <Style.Triggers>
+                <!-- 
+                    Si aucun item n'est sélectionné dans la combobox (SelectedIndex == -1), on grise le bouton.
+                -->
+                <DataTrigger Binding="{Binding ElementName=BoxGroupes, Path=SelectedIndex}" Value="-1">
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <StackPanel>
         <Label Content="Supprimer un groupe" HorizontalAlignment="Center" />
-        <ComboBox ItemsSource="{Binding Groupes.Keys}"/>
-        
+        <ComboBox x:Name="BoxGroupes" ItemsSource="{Binding Groupes.Keys}" SelectedValue="{Binding GroupeSelectionne}"/>
+        <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+            <Button Content="Valider" Width="50" Margin="5" Click="Valider" Style="{StaticResource StyleBoutonValider}"/>
+            <Button Content="Annuler" Width="50" Margin="5" Click="Annuler"/>
+        </StackPanel>
     </StackPanel>
 </Window>

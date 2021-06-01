@@ -24,5 +24,17 @@ namespace Vue_perso.Dialogs
             InitializeComponent();
             DataContext = Mgr;
         }
+
+        private void Valider(object sender, RoutedEventArgs e)
+        {
+            Mgr.SupprimerGroupe(Mgr.GroupeSelectionne);
+            Mgr.GroupeSelectionne = null;
+            Close();
+        }
+
+        private void Annuler(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
