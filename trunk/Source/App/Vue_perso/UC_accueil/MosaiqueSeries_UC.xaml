@@ -18,7 +18,7 @@
 
         <TextBox DockPanel.Dock="Top" Text="Rechercher un personnage" TextWrapping="NoWrap"/>
 
-        <ListBox ItemsSource="{Binding Series}" Background="{x:Null}" SelectionChanged="SerieSelectionnee">
+        <ListBox ItemsSource="{Binding LesSeries.Series}" Background="{x:Null}" SelectionChanged="SerieSelectionnee">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

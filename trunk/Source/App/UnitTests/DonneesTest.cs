@@ -17,9 +17,9 @@ namespace UnitTests
 
             Serie serie = new Serie("Ori");
 
-            Assert.IsFalse(donnees.Series.Contains(serie));
+            Assert.IsFalse(donnees.LesSeries.Contains(serie));
             Assert.IsTrue(donnees.AjouterSerie("Ori", out serie));
-            Assert.IsTrue(donnees.Series.Contains(serie));
+            Assert.IsTrue(donnees.LesSeries.Contains(serie));
 		}
 
         [TestMethod]
@@ -30,7 +30,7 @@ namespace UnitTests
 
             Serie serie = new Serie("zelda");
 
-            Assert.IsTrue(donnees.Series.Contains(serie));
+            Assert.IsTrue(donnees.LesSeries.Contains(serie));
             Assert.IsFalse(donnees.AjouterSerie("zelda", out _));
         }
 
@@ -72,7 +72,7 @@ namespace UnitTests
 
             donnees.SupprimerPersonnage(personnage);
 
-            Assert.IsTrue(donnees.Series.Contains(serie));
+            Assert.IsTrue(donnees.LesSeries.Contains(serie));
             Assert.IsFalse(serie.Personnages.Contains(personnage));
         }
 
@@ -87,7 +87,7 @@ namespace UnitTests
 
             Assert.IsTrue(serie.Personnages.Contains(personnage));
             donnees.SupprimerPersonnage(personnage);
-            Assert.IsFalse(donnees.Series.Contains(serie));
+            Assert.IsFalse(donnees.LesSeries.Contains(serie));
         }
 
         [TestMethod]
@@ -96,7 +96,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Manager donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            donnees.LesSeries.TryGetValue(new Serie("zelda"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
 
             Assert.IsTrue(donnees.Groupes["Triforce"].Contains(personnage));
@@ -112,7 +112,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Manager donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
+            donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Bowser", serie.Nom), out Personnage bowser);
             serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage mario);
             mario.Relations.TryGetValue(new Relation("Ennemi", bowser), out Relation relation);
@@ -162,7 +162,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Manager donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("mario"), out Serie serie);
+            donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Mario", serie.Nom), out Personnage personnage);
 
             Assert.IsFalse(donnees.Groupes["Triforce"].Contains(personnage));
@@ -176,7 +176,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Manager donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            donnees.LesSeries.TryGetValue(new Serie("zelda"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
 
             Assert.IsTrue(donnees.Groupes["Triforce"].Contains(personnage));
@@ -189,7 +189,7 @@ namespace UnitTests
             Chargeur chargeur = new Stub("");
             Manager donnees = chargeur.Charger();
 
-            donnees.Series.TryGetValue(new Serie("zelda"), out Serie serie);
+            donnees.LesSeries.TryGetValue(new Serie("zelda"), out Serie serie);
             serie.Personnages.TryGetValue(new Personnage("Link", serie.Nom), out Personnage personnage);
 
             Assert.IsTrue(donnees.Groupes["Triforce"].Contains(personnage));

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Nouveau personnage" Height="175" Width="300">
+        Title="Nouveau personnage" Height="175" Width="315">
     <Window.Resources>
         <Style TargetType="Button" x:Key="StyleOKButton">
             <Style.Triggers>
@@ -29,7 +29,7 @@
         <TextBox Name="NomPersoTextBox" Text="{Binding NomPerso}"/>
         <Label HorizontalAlignment="Center" Content="Série :" />
         <StackPanel Orientation="Horizontal">
-            <ComboBox Name="SeriesBox" ItemsSource="{Binding Mgr.Series}" SelectedValue="{Binding SerieDuPerso}" Width="130" HorizontalAlignment="Left">
+            <ComboBox Name="SeriesBox" ItemsSource="{Binding Mgr.LesSeries.Series}" SelectedValue="{Binding SerieDuPerso}" Width="130" HorizontalAlignment="Left">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding }" TextTrimming="CharacterEllipsis"/>
