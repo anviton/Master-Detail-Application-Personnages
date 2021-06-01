@@ -70,7 +70,7 @@ namespace Test_Personnage
             //Test exporter personnage
             manager.EcrireUnPersonnageEnXml(perso4);
             manager.SupprimerPersonnage(perso4);
-            AfficherLesSeries(manager.Series);
+            AfficherLesSeries(manager.LesSeries.Series);
             AfficherTousLesPersonnages(manager);
             manager.LireUnPersonnageEnXml("Madeline.xml");
             AfficherTousLesPersonnages(manager);

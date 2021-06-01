@@ -15,7 +15,7 @@ namespace Tests_Series_et_Groupes
             Manager manager = chargeur1.Charger();
             Console.WriteLine("Tests sur les SERIES ------");
             //Test de l'affichage de toutes les série
-            AfficherLesSeries(manager.Series);
+            AfficherLesSeries(manager.LesSeries.Series);
             //Test de l'affichage des membres d'une série
             manager.RechercherUneSerie("mario", out Serie serie);
             AfficherUneSerie(serie);

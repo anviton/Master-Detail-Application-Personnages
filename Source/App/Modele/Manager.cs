@@ -12,7 +12,8 @@ namespace Modele
 {
     public class Manager : INotifyPropertyChanged
     {
-        public ObservableCollection<Serie> Series { get; }
+        //public ObservableCollection<Serie> Series { get; }
+        public SeriesTheque LesSeries { get; }
         // Format : string = nom, SortedSet = personnages appartenant au groupe
         public IDictionary<string, ObservableCollection<Personnage>> Groupes { get; }
         public ICollection<string> NomsGroupes { get { return new List<string>(Groupes.Keys); } }
@@ -22,7 +23,7 @@ namespace Modele
             get
             {
                 
-                return new ObservableCollection<Personnage>(Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
+                return new ObservableCollection<Personnage>(LesSeries.Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
             }
             set
             {
@@ -77,7 +78,8 @@ namespace Modele
 
         public Manager()
         {
-            Series = new ObservableCollection<Serie>(); 
+            //Series = new ObservableCollection<Serie>(); 
+            LesSeries = new SeriesTheque();
             Groupes = new SortedList<string, ObservableCollection<Personnage>>();
         }
 
@@ -95,11 +97,11 @@ namespace Modele
         {
             // On instancie une nouvelle série.
             serie = new Serie(nom);
-            if (Series.Contains(serie))
+            if (LesSeries.Series.Contains(serie))
                 return false;
             else
             {
-                Series.Add(serie);
+                LesSeries.Series.Add(serie);
                 return true;
             }
                     
@@ -111,7 +113,7 @@ namespace Modele
         /// <param name="serie">La série à supprimer</param>
         private void SupprimerSerie(Serie serie)
         {
-            Series.Remove(serie);
+            LesSeries.Series.Remove(serie);
             
         }
 
@@ -251,9 +253,9 @@ namespace Modele
         /// <returns>true si la série est trouvée / false si la série n'est pas trouvée</returns>
         public bool RechercherUneSerie(string nom, out Serie serie)
         {
-            if(Series.Contains(new Serie(nom)))
+            if(LesSeries.Series.Contains(new Serie(nom)))
             {
-                serie = Series[Series.IndexOf(new Serie(nom))];
+                serie = LesSeries.Series[LesSeries.Series.IndexOf(new Serie(nom))];
                 return true;
             }
             else

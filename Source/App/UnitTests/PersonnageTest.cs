@@ -16,7 +16,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
+			donnees.LesSeries.TryGetValue(new Serie("celeste"), out Serie serie);
 			serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
 			string nouvelleCitation = "Get up, Madeline. Think of the feather. You can save Theo.";
 
@@ -31,7 +31,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
+			donnees.LesSeries.TryGetValue(new Serie("celeste"), out Serie serie);
 			serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
 			string nouvelleCitation = "This is it, Madeline. Just breathe.";
 
@@ -45,7 +45,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("celeste"), out Serie serie);
+			donnees.LesSeries.TryGetValue(new Serie("celeste"), out Serie serie);
 			serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
 			string citation = "This is it, Madeline. Just breathe.";
 
@@ -60,8 +60,8 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
-			donnees.Series.TryGetValue(new Serie("zelda"), out Serie serieZelda);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("zelda"), out Serie serieZelda);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 			serieZelda.Personnages.TryGetValue(new Personnage("Link", serieZelda.Nom), out Personnage link);
 
@@ -80,7 +80,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			Relation relation = new Relation("Ennemi", "Donkey Kong");
@@ -96,7 +96,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 			serieMario.Personnages.TryGetValue(new Personnage("Bowser", serieMario.Nom), out Personnage bowser);
 
@@ -113,7 +113,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			Relation relation = new Relation("Frère", "Luigi");
@@ -128,7 +128,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 			serieMario.Personnages.TryGetValue(new Personnage("Bowser", serieMario.Nom), out Personnage bowser);
 
@@ -147,7 +147,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			Relation relation = new Relation("Frère", "Luigi");
@@ -163,7 +163,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			JeuVideo jeu = new JeuVideo("Super Mario Odyssey");
@@ -179,7 +179,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			JeuVideo jeu = new JeuVideo("Super Mario Odyssey", 2017);
@@ -195,7 +195,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			JeuVideo jeu = new JeuVideo("Super Mario Bros. 2");
@@ -210,7 +210,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			JeuVideo jeu = new JeuVideo("Super Mario 64", 1997);
@@ -225,7 +225,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			JeuVideo jeu = new JeuVideo("Super Mario 64");
@@ -240,7 +240,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			JeuVideo jeu = new JeuVideo("Super Mario Bros. 2", 1988);
@@ -255,7 +255,7 @@ namespace UnitTests
 			Chargeur chargeur = new Stub("");
 			Manager donnees = chargeur.Charger();
 
-			donnees.Series.TryGetValue(new Serie("mario"), out Serie serieMario);
+			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
 			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
 
 			JeuVideo jeu = new JeuVideo("Super Mario Bros. 2");
