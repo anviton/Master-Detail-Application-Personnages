@@ -25,11 +25,13 @@ namespace Vue_perso
             InitializeComponent();
             DataContext = Mgr;
             Mgr.ListeDePersonnagesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
-            Mgr.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
-            //HeaderListe.Text = $"Personnages de {Mgr.GroupeSelectionne}";
+            if(Mgr.ListeDePersonnagesActive.Count > 0)
+            {
+                Mgr.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
+            }  
         }
 
-        private void SupprimerPersonnageClick(object sender, RoutedEventArgs e)
+        /*private void SupprimerPersonnageClick(object sender, RoutedEventArgs e)
         {
             if (Mgr.PersonnageSelectionne != null)
             {
@@ -37,11 +39,6 @@ namespace Vue_perso
                 SuppressionConfirmation window = new SuppressionConfirmation();
                 window.ShowDialog();
             }
-
-
-            Mgr.ListeDePersonnagesActive = Mgr.Personnages;
-
-
         }
 
         private void ModifierPersonnageClick(object sender, RoutedEventArgs e)
@@ -59,6 +56,6 @@ namespace Vue_perso
                 var window = new AjouterAUnGroupe();
                 window.Show();
             }
-        }
+        }*/
     }
 }

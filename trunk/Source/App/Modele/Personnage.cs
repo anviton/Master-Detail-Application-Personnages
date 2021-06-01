@@ -34,7 +34,7 @@ namespace Modele
             set 
             { 
                 image = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Image)));
+                OnPropertyChanged(nameof(Image));
             }
    		}
         public ObservableCollection<JeuVideo> JeuxVideo { get; }
@@ -42,14 +42,27 @@ namespace Modele
         public HashSet<Relation> Relations { get; }
         public string SerieDuPerso { get; }
         public ISet<Relation> EstMentionneDans { get; }
-        public string Description { get; set; }
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                description = value;
+                OnPropertyChanged(nameof(Description));
+            }
+        }
+        private string description;
 
         public EventHandler<NotificationRelationEvent> NotificationRelation;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void OnNotificationRelation(NotificationRelationEvent args)
             => NotificationRelation?.Invoke(this, args);
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string PropertyName)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
 
         // Méthodes
         public Personnage(string nom, string serie) : base(nom)
