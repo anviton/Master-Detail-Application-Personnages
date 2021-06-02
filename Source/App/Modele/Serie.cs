@@ -1,21 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 
 namespace Modele
 {
-    public class Serie : Nommable
+    public class Serie : Nommable, INotifyPropertyChanged
     {
         //Propriétés
         public ObservableCollection<Personnage> Personnages { get; set; }
-
-        public Personnage PersonnageSelectionne { get; set; }
+        public Personnage PersonnageSelectionne {
+            get
+            {
+                return personnage;
+            }
+            set
+            {
+                personnage = value;
+                OnPropertyChanged(nameof(PersonnageSelectionne));
+            }
+        }
+        private Personnage personnage;
         public Serie(string nom) : base(nom)
         {
             Personnages = new ObservableCollection<Personnage>();
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string PropertyName)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         //Méthodes
 
         /// <summary>

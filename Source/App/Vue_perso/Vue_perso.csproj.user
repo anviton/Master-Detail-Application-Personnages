@@ -51,6 +51,12 @@
     <Compile Update="UC_MainWindows\UC_Principal_MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UC_MainWindows\UC_RecherchePersoClassique.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UC_MainWindows\UC_RecherchePersoDansSerie.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UC_Menu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -99,6 +105,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UC_MainWindows\UC_Principal_MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UC_MainWindows\UC_RecherchePersoClassique.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UC_MainWindows\UC_RecherchePersoDansSerie.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UC_Menu.xaml">

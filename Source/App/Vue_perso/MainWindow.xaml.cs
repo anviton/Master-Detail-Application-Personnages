@@ -54,7 +54,7 @@ namespace Vue_perso
                 if (Mgr.PersonnageSelectionne != null)
                 {
                     DataContext = Mgr;
-                    Mgr.ListeDePersonnagesActive = Mgr.Personnages;
+                    //Mgr.ListeDePersonnagesActive = Mgr.Personnages;
                     //HeaderListe.Text = "Tous les personnages";
                 }
                 else
@@ -104,8 +104,7 @@ namespace Vue_perso
                 window.ShowDialog();
             }
 
-          
-                Mgr.ListeDePersonnagesActive = Mgr.Personnages;
+
            
             
         }
