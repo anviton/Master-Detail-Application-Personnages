@@ -27,13 +27,23 @@ namespace Modele
             }
             set
             {
-                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Personnages)));
-                //personnages = new ObservableCollection<Personnage>(Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
+                OnPropertyChanged(nameof(Personnages));
             }
         }
 
         public ObservableCollection<Personnage> personnages;
-        public IList<Personnage> ListeDePersonnagesActive { get; set; }
+        public IList<Personnage> ListeDePersonnagesActive {
+            get
+            {
+                    return listeDePersonnagesActive;
+            }
+            set
+            {
+                listeDePersonnagesActive = value;
+                OnPropertyChanged(nameof(ListeDePersonnagesActive));
+            }
+        }
+        IList<Personnage> listeDePersonnagesActive;
         public Personnage PersonnageSelectionne {
             get => personnageSelectionne;
             set 

@@ -1,6 +1,8 @@
 ﻿using Modele;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -53,15 +55,18 @@ namespace Vue_perso.UC_MainWindows
                 if (Mgr.GroupeSelectionne == null)
                 {
                     HeaderListe.Text = "Tous les Personnages";
+                    Pour_Recherche.Content = new UC_RecherchePersoClassique();
                 }
                 else
                 {
                     HeaderListe.Text = $"{Mgr.GroupeSelectionne}";
+                    Pour_Recherche.Content = new UC_RecherchePersoClassique();
                 }
             }
             else
             {
                 HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
+                Pour_Recherche.Content = new UC_RecherchePersoDansSerie();
             }
         }
 
@@ -95,6 +100,18 @@ namespace Vue_perso.UC_MainWindows
                 Mgr.PersonnageSelectionne = PersonnageSelect;
                 var window = new AjouterAUnGroupe();
                 window.Show();
+            }
+        }
+
+        private void Recherche(object sender, TextChangedEventArgs e)
+        {
+            //IList<Personnage> persos = Mgr.Personnages.Where(p => p.Nom.StartsWith("B")).ToList();
+            //Mgr.ListeDePersonnagesActive = new List<Personnage>(Mgr.Groupes[Mgr.GroupeSelectionne].Where(p => p.Nom.StartsWith((sender as TextBox).Text)));
+            //Mgr.Rech= (sender as TextBox).Text;
+            //Mgr.SerieSelectionnee.Personnages = new ObservableCollection<Personnage>(Mgr.SerieSelectionnee.Personnages.Where(p => p.Nom.StartsWith((sender as TextBox).Text)));
+            if(Mgr.RechercherUnPersonnage((sender as TextBox).Text, Mgr.SerieSelectionnee.Nom, out Personnage perso))
+            {
+                Mgr.SerieSelectionnee.PersonnageSelectionne = perso;
             }
         }
     }
