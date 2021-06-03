@@ -11,8 +11,7 @@
         <Label DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Modification d'un personnage" FontSize="25px"/>
 
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="15,10">
-            <Button Content="Enregistrer" Margin="10,0" Height="25" Padding="10,0"/>
-            <Button Content="Annuler" Padding="10,0"/>
+            <Button Content="OK" Width="60"/>
         </StackPanel>
 
         <!-- Centre du DockPanel -->

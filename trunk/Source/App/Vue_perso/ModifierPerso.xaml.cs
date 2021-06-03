@@ -49,7 +49,12 @@ namespace Vue_perso
              * On regarde quel bouton a été cliqué.
              * Ensuite, on instancie un Window, contenant une référence vers une fenêtre demandée.
              */
-            if (senderButton.Equals(JVButton))
+            if (senderButton.Equals(CitationsButton))
+            {
+                newWindow = new CitationsDialog(Perso);
+                newWindow.ShowDialog();
+            }
+            else if (senderButton.Equals(JVButton))
             {
                 newWindow = new JeuxVideoDialog(Perso);
                 newWindow.ShowDialog();
