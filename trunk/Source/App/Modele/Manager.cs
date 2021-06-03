@@ -7,6 +7,7 @@ using System.Text;
 using System.IO;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 
 namespace Modele
 {
@@ -319,6 +320,7 @@ namespace Modele
         /// <param name="perso"></param>
         public void EcrireUnPersonnageEnXml(Personnage perso)
         {
+            
             XDocument personnageFichier = new XDocument();
 
             var personnageE = Personnages.Where(p => p.Nom == perso.Nom).Select(personnage => new XElement("personnage",
@@ -339,6 +341,17 @@ namespace Modele
             {
                 personnageFichier.Save(writer);
             }
+            /*string filepath = Path.Combine(Directory.GetCurrentDirectory(), "");
+            string fileName = "";
+            if (!Directory.Exists(filepath))
+            {
+                Directory.CreateDirectory(filepath);
+            }
+            var serializer = new DataContractSerializer(typeof(Personnage));
+            using (Stream s = File.Create(fileName))
+            {
+                serializer.WriteObject(s, perso);
+            }*/
         }
 
     }

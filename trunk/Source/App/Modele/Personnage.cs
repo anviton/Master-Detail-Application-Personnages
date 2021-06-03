@@ -4,11 +4,14 @@ using System.Text;
 using System.Linq;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 
 namespace Modele
 {
+    [DataContract]
     public class Personnage : Nommable, IEquatable<Personnage>, IComparable<Personnage>, INotifyPropertyChanged
     {
+        [DataMember]
         public ObservableCollection<string> Citations { get; }
         public static Random indexRandomizer = new Random();
         public string CitationAleatoire
@@ -23,6 +26,7 @@ namespace Modele
                 } else return "";
 			}
 		}
+        [DataMember]
         private string image;
         public string Image
 		{
@@ -37,10 +41,15 @@ namespace Modele
                 OnPropertyChanged(nameof(Image));
             }
    		}
+        [DataMember]
         public ObservableCollection<JeuVideo> JeuxVideo { get; }
+        [DataMember]
         public ThemeMusical Theme { get; set; }
+        [DataMember]
         public HashSet<Relation> Relations { get; }
+        [DataMember]
         public string SerieDuPerso { get; }
+        [DataMember]
         public ISet<Relation> EstMentionneDans { get; }
         public string Description
         {
@@ -54,6 +63,7 @@ namespace Modele
                 OnPropertyChanged(nameof(Description));
             }
         }
+        [DataMember]
         private string description;
 
         public EventHandler<NotificationRelationEvent> NotificationRelation;
