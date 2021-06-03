@@ -9,7 +9,7 @@ namespace Modele
 {
     public class Personnage : Nommable, IEquatable<Personnage>, IComparable<Personnage>, INotifyPropertyChanged
     {
-        public ISet<string> Citations { get; }
+        public ObservableCollection<string> Citations { get; }
         public static Random indexRandomizer = new Random();
         public string CitationAleatoire
 		{
@@ -68,7 +68,7 @@ namespace Modele
         public Personnage(string nom, string serie) : base(nom)
         {
             SerieDuPerso = serie;
-            Citations = new HashSet<string>();
+            Citations = new ObservableCollection<string>();
             JeuxVideo = new ObservableCollection<JeuVideo>();
             Relations = new HashSet<Relation>();
             EstMentionneDans = new HashSet<Relation>();
@@ -148,7 +148,11 @@ namespace Modele
         /// <returns>true si la citation a été ajoutée, false sinon.</returns>
         public bool AjouterCitation(string citation)
 		{
-            return Citations.Add(citation);
+            if (!Citations.Contains(citation)) {
+                Citations.Add(citation);
+                return true;
+            }
+            else return false;
 		}
 
         /// <summary>

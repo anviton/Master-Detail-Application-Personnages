@@ -95,20 +95,6 @@ namespace Vue_perso
             
         }
 
-        private void SupprimerPersonnageClick(object sender, RoutedEventArgs e)
-        {
-            if (Mgr.PersonnageSelectionne != null)
-            {
-
-                SuppressionConfirmation window = new SuppressionConfirmation();
-                window.ShowDialog();
-            }
-
-
-           
-            
-        }
-
         private void ModifierPersonnageClick(object sender, RoutedEventArgs e)
         {
             if (Mgr.PersonnageSelectionne != null)

@@ -18,16 +18,19 @@
     <Compile Update="Dialogs\AjouterAUnGroupe.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialogs\CitationsDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialogs\NouveauGroupeDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialogs\NouveauJeuVideoDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Dialogs\NouvelleSerieDialog.xaml.cs">
+    <Compile Update="Dialogs\NouvelleCitationDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Dialogs\SuppressionConfirmation.xaml.cs">
+    <Compile Update="Dialogs\NouvelleSerieDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialogs\SupprimerGroupeDialog.xaml.cs">
@@ -68,6 +71,9 @@
     <Page Update="Dialogs\AjouterAUnGroupe.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Dialogs\CitationsDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialogs\JeuxVideoDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -77,10 +83,10 @@
     <Page Update="Dialogs\NouveauJeuVideoDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Dialogs\NouvelleSerieDialog.xaml">
+    <Page Update="Dialogs\NouvelleCitationDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Dialogs\SuppressionConfirmation.xaml">
+    <Page Update="Dialogs\NouvelleSerieDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\SupprimerGroupeDialog.xaml">

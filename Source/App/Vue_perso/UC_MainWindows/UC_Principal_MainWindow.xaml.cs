@@ -72,15 +72,16 @@ namespace Vue_perso.UC_MainWindows
 
         private void SupprimerPersonnageClick(object sender, RoutedEventArgs e)
         {
-            if (PersonnageSelect != null)
+            if (Mgr.PersonnageSelectionne != null)
             {
-                Mgr.PersonnageSelectionne = PersonnageSelect;
-                SuppressionConfirmation window = new SuppressionConfirmation();
-                window.ShowDialog();
-            }
-            if (ListePersonnages.Count != 0)
-            {
-                PersonnageSelect = ListePersonnages[0];
+                MessageBoxResult confirmation = MessageBox.Show($"Voulez-vous vraiment supprimer {Mgr.PersonnageSelectionne.Nom} ?", "Supprimer un personnage",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (confirmation == MessageBoxResult.Yes)
+                {
+                    Mgr.SupprimerPersonnage(Mgr.PersonnageSelectionne);
+                    MessageBox.Show("Le personnage a été supprimé.", "Supprimer un personnage", MessageBoxButton.OK, MessageBoxImage.Information);
+                    PersonnageSelect = null;
+                }
             }
         }
 
