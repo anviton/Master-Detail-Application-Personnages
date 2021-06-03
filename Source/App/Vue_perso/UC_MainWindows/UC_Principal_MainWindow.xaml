@@ -51,7 +51,7 @@
             </ContentControl>
             <!--TextBox TextChanged="Recherche" TextWrapping="NoWrap" Grid.Row="0"/-->
             <TextBlock Name="HeaderListe" Style="{StaticResource textInformatif}" Grid.Row="1" TextWrapping="Wrap"/>
-            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding ListePersonnages, ElementName=root}" SelectedItem="{Binding PersonnageSelect, ElementName=root, Mode=TwoWay}" HorizontalAlignment="Center">
+            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding ListePersonnages, ElementName=root}" SelectedItem="{Binding PersonnageSelect, ElementName=root, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
