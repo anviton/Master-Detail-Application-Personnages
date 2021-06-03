@@ -86,9 +86,13 @@ namespace Modele
             }
         }
         private string groupeSelectionne;
-
-        public Manager()
+        /// <summary>
+        /// Gestion de la Persistance
+        /// </summary>
+        public IPersistance Pers { get; /*private*/ set; }
+        public Manager(IPersistance persistance)
         {
+            Pers = persistance;
             //Series = new ObservableCollection<Serie>(); 
             LesSeries = new SeriesTheque();
             Groupes = new SortedList<string, ObservableCollection<Personnage>>();
@@ -352,6 +356,24 @@ namespace Modele
             {
                 serializer.WriteObject(s, perso);
             }*/
+        }
+
+        public void ChargeDonnees()
+        {
+            var donnees = Pers.Charger();
+            foreach(var s in donnees.lesSeries.Series)
+            {
+                LesSeries.Series.Add(s);
+            }
+            foreach(var g in donnees.groupes)
+            {
+                Groupes.Add(g);
+            }
+        }
+
+        public void SauvegaderDonnees()
+        {
+            Pers.Sauvegarder(LesSeries, Groupes);
         }
 
     }

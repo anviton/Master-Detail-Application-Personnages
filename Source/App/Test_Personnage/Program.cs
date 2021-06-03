@@ -1,7 +1,6 @@
 ﻿using System;
 using Modele;
 using System.Collections.Generic;
-using Data;
 using System.Linq;
 namespace Test_Personnage
 {
@@ -9,8 +8,9 @@ namespace Test_Personnage
     {
         static void Main(string[] args)
         {
-            Chargeur chargeur1 = new Stub("");
-            Manager manager = chargeur1.Charger();
+            
+            Manager manager = new Manager(new StubP.Stub());
+            manager.ChargeDonnees();
             //Test de l'affichage des relations d'un personnage (ayant des relations) (+ ajout et suppression Relation)
             manager.RechercherUneSerie("mario", out Serie serie);
             manager.RechercherUnPersonnage("Mario", "mario", out Personnage perso1);

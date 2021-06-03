@@ -7,15 +7,22 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Modele
 {
+    [DataContract]
     public class Relation : IEquatable<Relation>
     {
         // Champs
+        [DataMember(EmitDefaultValue = false)]
         public string Type { get; set; }
+
+        [DataMember(EmitDefaultValue = false)]
         public string NomPersoNonRec { get; private set; }
+
+        [DataMember(EmitDefaultValue = false)]
         public Personnage PersoRec { get; private set; }
 
         /// <summary>

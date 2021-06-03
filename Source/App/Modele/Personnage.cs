@@ -11,14 +11,15 @@ namespace Modele
     [DataContract]
     public class Personnage : Nommable, IEquatable<Personnage>, IComparable<Personnage>, INotifyPropertyChanged
     {
-        [DataMember]
-        public ObservableCollection<string> Citations { get; }
+        public ObservableCollection<string> Citations { get => citations; }
+        [DataMember(EmitDefaultValue = false)]
+        private ObservableCollection<string> citations;
         public static Random indexRandomizer = new Random();
         public string CitationAleatoire
 		{
             get
 			{
-                if (Citations.Count > 0) {
+                if (Citations?.Count > 0) {
                     int index = indexRandomizer.Next(Citations.Count);
                     string[] arr_citations = new string[Citations.Count];
                     Citations.CopyTo(arr_citations, 0);
@@ -26,7 +27,7 @@ namespace Modele
                 } else return "";
 			}
 		}
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         private string image;
         public string Image
 		{
@@ -41,16 +42,22 @@ namespace Modele
                 OnPropertyChanged(nameof(Image));
             }
    		}
-        [DataMember]
-        public ObservableCollection<JeuVideo> JeuxVideo { get; }
-        [DataMember]
+        public ObservableCollection<JeuVideo> JeuxVideo { get => jeuxvideo; }
+        [DataMember(EmitDefaultValue = false)]
+        private readonly ObservableCollection<JeuVideo> jeuxvideo = new ObservableCollection<JeuVideo>();
+        //[DataMember (EmitDefaultValue=false)]
         public ThemeMusical Theme { get; set; }
-        [DataMember]
-        public HashSet<Relation> Relations { get; }
-        [DataMember]
-        public string SerieDuPerso { get; }
-        [DataMember]
-        public ISet<Relation> EstMentionneDans { get; }
+        //[DataMember (EmitDefaultValue=false)]
+        public ObservableCollection<Relation> Relations { get => relations; }
+        [DataMember(EmitDefaultValue = false)]
+        private readonly ObservableCollection<Relation> relations = new ObservableCollection<Relation>();
+        public string SerieDuPerso { get => serieDuPerso; }
+        [DataMember (Order =2)]
+        private string serieDuPerso;
+        
+        public IList<Relation> EstMentionneDans { get => estMentionneDans; }
+        [DataMember(EmitDefaultValue = false)]
+        private readonly IList<Relation> estMentionneDans = new List<Relation>();
         public string Description
         {
             get
@@ -63,7 +70,7 @@ namespace Modele
                 OnPropertyChanged(nameof(Description));
             }
         }
-        [DataMember]
+        [DataMember(EmitDefaultValue = false)]
         private string description;
 
         public EventHandler<NotificationRelationEvent> NotificationRelation;
@@ -77,11 +84,11 @@ namespace Modele
         // Méthodes
         public Personnage(string nom, string serie) : base(nom)
         {
-            SerieDuPerso = serie;
-            Citations = new ObservableCollection<string>();
-            JeuxVideo = new ObservableCollection<JeuVideo>();
-            Relations = new HashSet<Relation>();
-            EstMentionneDans = new HashSet<Relation>();
+            serieDuPerso = serie;
+            citations = new ObservableCollection<string>();
+            //JeuxVideo = new ObservableCollection<JeuVideo>();
+            //Relations = new HashSet<Relation>();
+            //estMentionneDans = new HashSet<Relation>();
             NotificationRelation += AjouterAEstMentionneDans;
         }
 
@@ -183,8 +190,9 @@ namespace Modele
         public bool AjouterRelation(string type, Personnage perso)
         {
             Relation relation = new Relation(type, perso);
-            if (Relations.Add(relation))
+            if (!Relations.Contains(relation))
 			{
+                Relations.Add(relation);
                 OnNotificationRelation(new NotificationRelationEvent(perso, relation));
                 return true;
 			}
@@ -199,7 +207,13 @@ namespace Modele
         /// <returns>true si la relation a été ajoutée, false si elle existait déjà</returns>
         public bool AjouterRelation(string type, string nomPerso)
         {
-            return Relations.Add(new Relation(type, nomPerso));
+            Relation relation = new Relation(type, nomPerso);
+            if (!Relations.Contains(relation))
+            {
+                Relations.Add(relation);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>

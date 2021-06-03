@@ -5,8 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Data;
+//using Data;
 using Modele;
+using StubP;
 
 namespace Vue_perso
 {
@@ -15,12 +16,13 @@ namespace Vue_perso
     /// </summary>
     public partial class App : Application
     {
-        public Manager MonManager { get; private set; }
+        public Manager MonManager { get; private set; } = new Manager(new StubP.Stub());
+        //public Manager MonManager { get; private set; } = new Manager(new DataContractPersistance.DataContractPers());
 
         public App()
         {
-            Chargeur chargeur = new Stub("");
-            MonManager = chargeur.Charger();
+            //Chargeur chargeur = new Stub("");
+            MonManager.ChargeDonnees();
         }
     }
 }

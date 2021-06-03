@@ -2,26 +2,30 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Modele
 {
+    [DataContract]
     public class Serie : Nommable, INotifyPropertyChanged
     {
         //Propriétés
+        [DataMember]
         public ObservableCollection<Personnage> Personnages { get; set; }
         public Personnage PersonnageSelectionne {
             get
             {
-                return personnage;
+                return personnageSelectionne;
             }
             set
             {
-                personnage = value;
+                personnageSelectionne = value;
                 OnPropertyChanged(nameof(PersonnageSelectionne));
             }
         }
-        private Personnage personnage;
+       
+        private Personnage personnageSelectionne;
         public Serie(string nom) : base(nom)
         {
             Personnages = new ObservableCollection<Personnage>();

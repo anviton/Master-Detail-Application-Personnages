@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.IO;
+using System.Xml;
 
 namespace DataContractPersistance
 {
@@ -11,25 +12,47 @@ namespace DataContractPersistance
     {
         public string FilePath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "..//XML");
         public string FileName { get; set; } = "AppPersonnages.xml";
-        public (SeriesTheque series, IDictionary<string, ObservableCollection<Personnage>> groupes) Charger()
+        public (SeriesTheque lesSeries, IDictionary<string, ObservableCollection<Personnage>> groupes) Charger()
         {
-            throw new NotImplementedException();
+            if(!File.Exists(Path.Combine(FilePath, FileName)))
+            {
+                throw new FileNotFoundException("Fichier de Persistnace non trouvé");
+
+            }
+            DataToPersist data;
+            var serializer = new DataContractSerializer(typeof(DataToPersist));
+            using (Stream s = File.OpenRead(Path.Combine(FilePath, FileName)))
+            {
+                    data = serializer.ReadObject(s) as DataToPersist;
+            }
+            return (data.Series, data.Groupes);
         }
         /// <summary>
         /// Sauvagarde les series de Personnage et les groupes.
         /// </summary>
         /// <param name="series"></param>
         /// <param name="Groupes"></param>
-        public void Sauvegarder (SeriesTheque series, IDictionary<string, ObservableCollection<Personnage>> Groupes)
+        public void Sauvegarder (SeriesTheque series, IDictionary<string, ObservableCollection<Personnage>> groupes)
         {
+            var serializer = new DataContractSerializer(typeof(DataToPersist),
+                                                    new DataContractSerializerSettings()
+                                                    {
+                                                        PreserveObjectReferences = true
+                                                    }) ;
             if (!Directory.Exists(FilePath))
             {
                 Directory.CreateDirectory(FilePath);
             }
-            var serializer = new DataContractSerializer(typeof(SeriesTheque));
-            using (Stream s = File.Create(FileName))
+            var settings = new XmlWriterSettings() { Indent = true };
+            DataToPersist data = new DataToPersist();
+            data.Groupes = groupes;
+            data.Series = series;
+            using (TextWriter tw = File.CreateText(Path.Combine(FilePath, FileName)))
             {
-                serializer.WriteObject(s, series);
+                using (XmlWriter writer = XmlWriter.Create(tw, settings))
+                {
+                    serializer.WriteObject(writer, data);
+                }
             }
 
         }
