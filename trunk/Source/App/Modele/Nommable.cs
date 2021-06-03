@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Modele
 {
+    [DataContract]
     public abstract class Nommable : IEquatable<Nommable>, IComparable<Nommable>, IComparable
     {
         // Attributs
 
-
-        public string Nom { get; }
-
+        
+        public string Nom { get => nom; }
+        [DataMember (Order =1)]
+        private string nom;
         /// <summary>
         /// Constructeur
         /// </summary>
         /// <param name="nom"></param>
         public Nommable(string nom)
         {
-            Nom = nom;
+            this.nom = nom;
         }
 
         public override bool Equals(object obj)

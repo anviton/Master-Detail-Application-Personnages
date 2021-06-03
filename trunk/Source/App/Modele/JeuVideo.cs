@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Modele
 {
+    [DataContract]
     /// <summary>
     /// Classe JeuVideo
     /// </summary>
     public class JeuVideo : Nommable
     {
+        [DataMember(EmitDefaultValue = false)]
         public int? AnneeDeCreation { get; set; }
 
         /// <summary>

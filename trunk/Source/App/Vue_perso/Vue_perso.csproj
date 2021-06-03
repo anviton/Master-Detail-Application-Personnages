@@ -16,8 +16,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bibliothèques_Images\Bibliothèques_Images.csproj" />
-    <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\DataContractPersistance\DataContractPersistance.csproj" />
     <ProjectReference Include="..\Modele\Modele.csproj" />
+    <ProjectReference Include="..\StubP\StubP.csproj" />
   </ItemGroup>
 
 </Project>
