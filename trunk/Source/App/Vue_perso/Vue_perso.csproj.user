@@ -36,6 +36,9 @@
     <Compile Update="Dialogs\SupprimerGroupeDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialogs\UC_Dialogs\UC_MusiqueUnique.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Main_WindowGroupes.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -90,6 +93,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\SupprimerGroupeDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\UC_Dialogs\UC_MusiqueUnique.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
