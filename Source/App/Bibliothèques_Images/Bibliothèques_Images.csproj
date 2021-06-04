@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <None Remove="Images_Personnages\bowser.jpg" />
+    <None Remove="Images_Personnages\Link.jpeg" />
     <None Remove="Images_Personnages\mario.jpeg" />
     <None Remove="Images_Test\image.jpg" />
     <None Remove="Images_Fonds\arriere.jpg" />
@@ -15,6 +16,9 @@
 
   <ItemGroup>
     <Resource Include="Images_Personnages\bowser.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images_Personnages\Link.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images_Personnages\mario.jpeg">
