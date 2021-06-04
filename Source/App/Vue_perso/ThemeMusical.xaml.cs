@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Modele;
 
 namespace Vue_perso
 {
@@ -17,24 +18,13 @@ namespace Vue_perso
     /// </summary>
     public partial class ThemeMusical : Window
     {
+        public Manager Mgr => (App.Current as App).MonManager;
+        public Personnage Perso => Mgr.PersonnageSelectionne;
+
         public ThemeMusical()
         {
             InitializeComponent();
-        }
-
-        private void ChangerModeSaisie(object sender, RoutedEventArgs e)
-        {
-            RadioButton senderButton = sender as RadioButton;
-
-            if (senderButton.Equals(MusUniqButton))
-            {
-                // Masquer la saisie pour le leitmotiv : LeitmotivGrid.Visibility = Visibility.Hidden;
-                MusUniqGrid.Visibility = Visibility.Visible;
-            } else
-            {
-                MusUniqGrid.Visibility = Visibility.Hidden;
-                // Afficher la saisie pour le leitmotiv : LeitmotivGrid.Visibility = Visibility.Visible
-            }
+            DataContext = this;
         }
 
 
@@ -45,6 +35,20 @@ namespace Vue_perso
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void MusUniqButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Si le thème est défini et que c'est un leitmotiv
+            if (Perso.Theme != null && Perso.Theme.Leitmotiv)
+            {
+                MessageBoxResult confirm = MessageBox.Show("Attention : changer de type de thème supprimera les données de l'ancien thème ! Voulez-vous continuer ?",
+                    "Thème musical du personnage", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (confirm == MessageBoxResult.Yes)
+                {
+                    Perso.Theme = new Modele.ThemeMusical(false);
+                }
+            }
         }
     }
 }

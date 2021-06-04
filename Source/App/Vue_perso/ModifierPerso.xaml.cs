@@ -70,5 +70,9 @@ namespace Vue_perso
             }
         }
 
+        private void SupprImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

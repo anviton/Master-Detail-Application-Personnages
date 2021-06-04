@@ -85,9 +85,7 @@ namespace Modele
         {
             serieDuPerso = serie;
             citations = new ObservableCollection<string>();
-            //JeuxVideo = new ObservableCollection<JeuVideo>();
-            //Relations = new HashSet<Relation>();
-            //estMentionneDans = new HashSet<Relation>();
+            Theme = new ThemeMusical();
             NotificationRelation += AjouterAEstMentionneDans;
         }
 

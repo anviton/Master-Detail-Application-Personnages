@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vue_perso"
+        xmlns:UserControl="clr-namespace:Vue_perso.Dialogs.UC_Dialogs"
         mc:Ignorable="d"
         Title="Thème musical du personnage" Height="450" Width="400"
         ResizeMode="NoResize" ShowInTaskbar="False">
@@ -11,35 +12,12 @@
         <StackPanel DockPanel.Dock="Top">
             <Label Content="Thème musical du personnage" FontSize="25" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
-                <RadioButton Name="MusUniqButton" Content="Musique unique" Click="ChangerModeSaisie" Margin="0, 0, 10, 0"/>
-                <RadioButton Name="LeitmotivButton" Content="Leitmotiv" Click="ChangerModeSaisie"/>
+                <RadioButton Name="MusUniqButton" Content="Musique unique" Margin="0, 0, 10, 0" Click="MusUniqButton_Click"/>
+                <RadioButton Name="LeitmotivButton" Content="Leitmotiv" />
             </StackPanel>
         </StackPanel>
-
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
-            <!-- Pour l'instant, les 2 boutons ferment la fenêtre dans tous les cas.
-                 On devra modifier le code pour pouvoir enregistrer. -->
-            <Button Content="Enregistrer" Height="25" Padding="10,0" Click="Button_Click"/>
-            <Button Content="Annuler" Height="25" Margin="10" Padding="10,0" Click="Button_Click"/>
-        </StackPanel>
-        
-        <Border Margin="5" Padding="5" BorderBrush="Gray" BorderThickness="1">
-            <Grid Name="MusUniqGrid" Visibility="Hidden" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25*"/>
-                    <ColumnDefinition Width="75*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <Label Grid.Row="0" Grid.Column="0" Content="Nom"/>
-                <TextBox Grid.Row="0" Grid.Column="1"/>
-
-                <Label Grid.Row="1" Grid.Column="0" Content="Lien"/>
-                <TextBox Grid.Row="1" Grid.Column="1"/>
-            </Grid>
+        <Border>
+            <UserControl:UC_MusiqueUnique x:Name="UC_MusiqueUnique" Theme="{Binding Perso.Theme}" Visibility="Hidden"/>
         </Border>
     </DockPanel>
 </Window>

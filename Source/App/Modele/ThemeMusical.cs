@@ -1,10 +1,7 @@
-﻿/*
- * NOTES
- * Deux constructeurs : en vrai, on en supprimera un des deux
- * en fonction de celui qui est concrètement utilisé
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace Modele
@@ -14,36 +11,63 @@ namespace Modele
     {
         // Champs
         [DataMember]
-        public bool Leitmotiv { get; set; }
-        //[DataMember]
-        public ISet<Titre> Titres { get; set; }
+        private bool leitmotiv { get; set; }
+
+        public bool Leitmotiv
+        {
+            get { return leitmotiv; }
+            set
+            {
+                if (leitmotiv != value)
+                {
+                    titres.Clear();
+                    if (value == false)
+                        titres.Add(new Titre(""));
+                    leitmotiv = value;
+                }
+            }
+        }
+
+        [DataMember]
+        private ObservableCollection<Titre> titres { get; set; }
+        public ObservableCollection<Titre> Titres
+        {
+            get
+            {
+                return new ObservableCollection<Titre>(titres.Select(titre => titre).Where(n => n.Nom != ""));
+            }
+        }
 
         // Méthodes
         public ThemeMusical(bool leitmotiv)
         {
             Leitmotiv = leitmotiv;
-            Titres = new HashSet<Titre>();
+            titres = new ObservableCollection<Titre>();
+            if (!leitmotiv)
+            {
+                titres.Add(new Titre(""));
+            }
         }
+
+        public ThemeMusical() : this(false) { }
 
         /// <summary>
         /// Ajoute un titre au thème.
-        /// 
         /// </summary>
         /// <param name="nom">Le nom du titre</param>
         /// <returns>true si le titre a été ajouté, false sinon</returns>
-        public bool AjouterTitre(string nom)
+        public void AjouterTitre(string nom)
 		{
-            int i = Titres.Count;
-            if (!Leitmotiv)
+            Titre titre = new Titre(nom);
+            if (Leitmotiv)
             {
-                if (Titres.Count < 1)
-                    return Titres.Add(new Titre(nom));
-                else
-                    return false;
-            }
-            else
+                if (!titres.Contains(titre))
+                {
+                    titres.Add(titre);
+                }
+            } else
             {
-                return Titres.Add(new Titre(nom));
+                titres[0] = titre;
             }
 		}
 
@@ -54,18 +78,17 @@ namespace Modele
         /// <param name="nom">Le nom du titre</param>
         /// <param name="lien">Un lien internet pour écouter le titre</param>
         /// <returns>true si le titre a été ajouté, false sinon</returns>
-        public bool AjouterTitre(string nom, string lien)
+        public void AjouterTitre(string nom, string lien)
 		{
-            if (!Leitmotiv)
+            Titre titre = new Titre(nom, lien);
+            if (Leitmotiv) { 
+                if (!titres.Contains(titre))
+                {
+                    titres.Add(new Titre(nom, lien));
+                }
+            } else
             {
-                if (Titres.Count < 1)
-                    return Titres.Add(new Titre(nom, lien));
-                else
-                    return false;
-            }
-            else
-            {
-                return Titres.Add(new Titre(nom, lien));
+                titres[0] = titre;
             }
         }
 
@@ -74,9 +97,12 @@ namespace Modele
         /// </summary>
         /// <param name="titre">Le titre à supprimer</param>
         /// <returns>true si le titre a été supprimé, false s'il n'existait pas.</returns>
-        public bool SupprimerTitre(Titre titre)
+        public void SupprimerTitre(Titre titre)
 		{
-            return Titres.Remove(titre);
+            if (Leitmotiv)
+            {
+                Titres.Remove(titre);
+            }
 		}
 
         public override string ToString()
