@@ -30,7 +30,7 @@ namespace Vue_perso
             contentControlAccueil.Content = new UC_accueil.MosaiquePersonnages_UC();
         }
 
-        private void Affiche_Jeux(object sender, RoutedEventArgs e)
+        private void Affiche_Series(object sender, RoutedEventArgs e)
         {
             contentControlAccueil.Content = new UC_accueil.MosaiqueJeux_UC();
         }
