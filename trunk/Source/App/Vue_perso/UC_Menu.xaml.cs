@@ -83,6 +83,7 @@ namespace Vue_perso
         {
             var window = new SupprimerGroupeDialog();
             window.ShowDialog();
+            Mgr.ListeDePersonnagesActive = null;
         }
 
         private void GroupeSelectionnee(object sender, RoutedEventArgs e)

@@ -100,6 +100,7 @@ namespace Vue_perso.UC_MainWindows
                 var window = new ModifierPerso(Mgr.PersonnageSelectionne);
                 window.ShowDialog();
             }
+            //Mgr.SauvegaderDonnees();
         }
         private void AjouterAUnGroupe(object sender, RoutedEventArgs e)
         {

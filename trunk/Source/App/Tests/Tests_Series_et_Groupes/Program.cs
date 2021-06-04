@@ -1,7 +1,6 @@
 ﻿using System;
 using Modele;
 using System.Collections.Generic;
-using Data;
 using System.Linq;
 using System.Collections.ObjectModel;
 
@@ -11,8 +10,8 @@ namespace Tests_Series_et_Groupes
     {
         static void Main(string[] args)
         {
-            Chargeur chargeur1 = new Stub("");
-            Manager manager = chargeur1.Charger();
+            Manager manager = new Manager(new StubP.Stub());
+            manager.ChargeDonnees();
             Console.WriteLine("Tests sur les SERIES ------");
             //Test de l'affichage de toutes les série
             AfficherLesSeries(manager.LesSeries.Series);

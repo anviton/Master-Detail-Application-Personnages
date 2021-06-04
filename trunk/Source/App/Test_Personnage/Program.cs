@@ -2,6 +2,8 @@
 using Modele;
 using System.Collections.Generic;
 using System.Linq;
+using StubP;
+
 namespace Test_Personnage
 {
     class Program
@@ -9,7 +11,7 @@ namespace Test_Personnage
         static void Main(string[] args)
         {
             
-            Manager manager = new Manager(new StubP.Stub());
+            Manager manager = new Manager(new Stub());
             manager.ChargeDonnees();
             //Test de l'affichage des relations d'un personnage (ayant des relations) (+ ajout et suppression Relation)
             manager.RechercherUneSerie("mario", out Serie serie);

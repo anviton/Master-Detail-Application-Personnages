@@ -5,15 +5,18 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Modele
 {
+    [DataContract]
     public class ThemeMusical
     {
-        //private HashSet<Titre> titres;
         // Champs
+        [DataMember]
         public bool Leitmotiv { get; set; }
-        public ISet<Titre> Titres { get; }
+        //[DataMember]
+        public ISet<Titre> Titres { get; set; }
 
         // Méthodes
         public ThemeMusical(bool leitmotiv)

@@ -55,7 +55,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="100" Source="{Binding Image}"/>
+                            <Image Width="150" Height="100" Source="{Binding Image}"/>
                             <TextBlock Text="{Binding Nom}" Style="{StaticResource textInformatif}"/>
                         </StackPanel>
                     </DataTemplate>
@@ -122,7 +122,9 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <TextBlock Style="{StaticResource textInformatif}" Text="Description :" Grid.Row="4"/>
-            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Description}" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center"/>
+            <ScrollViewer Grid.Row="4" Grid.Column="1">
+                <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Description}" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center"/>
+            </ScrollViewer>
         </Grid>
 
     </DockPanel>

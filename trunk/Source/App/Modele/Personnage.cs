@@ -45,9 +45,8 @@ namespace Modele
         public ObservableCollection<JeuVideo> JeuxVideo { get => jeuxvideo; }
         [DataMember(EmitDefaultValue = false)]
         private readonly ObservableCollection<JeuVideo> jeuxvideo = new ObservableCollection<JeuVideo>();
-        //[DataMember (EmitDefaultValue=false)]
+        [DataMember (EmitDefaultValue=false)]
         public ThemeMusical Theme { get; set; }
-        //[DataMember (EmitDefaultValue=false)]
         public ObservableCollection<Relation> Relations { get => relations; }
         [DataMember(EmitDefaultValue = false)]
         private readonly ObservableCollection<Relation> relations = new ObservableCollection<Relation>();

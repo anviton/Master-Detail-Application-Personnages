@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Modele
 {
+    [DataContract]
     public class Titre : Nommable
     {
         // Champs
+        [DataMember(EmitDefaultValue = false)]
         public string Lien { get; set; }
 
         // Méthodes

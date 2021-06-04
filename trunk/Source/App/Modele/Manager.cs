@@ -23,7 +23,6 @@ namespace Modele
         {
             get
             {
-                
                 return new ObservableCollection<Personnage>(LesSeries.Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
             }
             set
