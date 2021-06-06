@@ -37,6 +37,17 @@ namespace Vue_perso.UC_MainWindows
 
 
 
+        public Color Couleur
+        {
+            get { return (Color)GetValue(CouleurProperty); }
+            set { SetValue(CouleurProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Couleur.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CouleurProperty =
+            DependencyProperty.Register("Couleur", typeof(Color), typeof(UC_Principal_MainWindow));
+
+
         public Personnage PersonnageSelect
         {
             get { return (Personnage)GetValue(PersonnageSelectProperty); }
@@ -85,9 +96,17 @@ namespace Vue_perso.UC_MainWindows
                     MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (confirmation == MessageBoxResult.Yes)
                 {
-                    Mgr.SupprimerPersonnage(Mgr.PersonnageSelectionne);
+                    if(Mgr.GroupeSelectionne != null)
+                    {
+                        Mgr.RetirerPersoDeGroupe(Mgr.GroupeSelectionne, Mgr.PersonnageSelectionne);
+                    }
+                    else Mgr.SupprimerPersonnage(Mgr.PersonnageSelectionne);
                     MessageBox.Show("Le personnage a été supprimé.", "Supprimer un personnage", MessageBoxButton.OK, MessageBoxImage.Information);
-                    PersonnageSelect = null;
+                    if(ListePersonnages.Count > 0)
+                    {
+                        PersonnageSelect = ListePersonnages[0];
+                    }
+                    
                 }
             }
         }
@@ -122,6 +141,11 @@ namespace Vue_perso.UC_MainWindows
             {
                 Mgr.SerieSelectionnee.PersonnageSelectionne = perso;
             }
+        }
+
+        private void Exporter(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
         }
     }
 }

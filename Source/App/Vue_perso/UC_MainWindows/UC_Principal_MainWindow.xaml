@@ -17,10 +17,10 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
         <Style TargetType="ListBox" x:Key="Liste">
-            <Setter Property="Background" Value="LightSalmon">
+            <Setter Property="Background" Value="{Binding Couleur, ElementName=root}">
             </Setter>
         </Style>
-        <SolidColorBrush Color="LightSalmon" x:Key="BackgorundSalmon" Opacity="0.5"/>
+        <SolidColorBrush Color="{Binding Couleur, ElementName=root}" x:Key="BackgorundSalmon" Opacity="0.5"/>
     </UserControl.Resources>
     <DockPanel>
         <DockPanel.Background>
@@ -32,6 +32,7 @@
                 <MenuItem Header="Action perso Sélectionné" Height="37">
                     <MenuItem Header="Supprimer Personnage" Click="SupprimerPersonnageClick"/>
                     <MenuItem Header="Modifier Personnage" Click="ModifierPersonnageClick"/>
+                    <MenuItem Header="Exporter" Click="Exporter"/>
                     <MenuItem Header="Ajouter à" Click="AjouterAUnGroupe">
                     </MenuItem>
                 </MenuItem>
@@ -103,8 +104,8 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
-                            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Nom}"/>
-                            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Lien}"/>
+                            <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Nom}" ToolTip="{Binding Lien}"/>
+                            <!--TextBlock Style="{StaticResource textInformatif}" Text="{Binding Lien}"/-->
                         </WrapPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

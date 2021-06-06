@@ -22,7 +22,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Bibliothèques_Images;Component/Images_Fonds/image.jpg" Width="100" />
+                        <Image Source="/Bibliothèques_Images;Component/Images_Fonds/serie.jpg" Width="100" />
                         <Label Content="{Binding Nom}" FontSize="16" FontWeight="Bold" FontStyle="Italic"/>
                     </StackPanel>
                 </DataTemplate>
