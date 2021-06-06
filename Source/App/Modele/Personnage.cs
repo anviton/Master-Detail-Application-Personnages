@@ -33,7 +33,7 @@ namespace Modele
 		{
             get
 			{
-                if (image == null) return "/Bibliothèques_Images;Component/Images_Personnages/mario.jpeg"; // On renvoie l'image par défaut
+                if (image == null) return "mario.jpeg"; // On renvoie l'image par défaut
                 else return image;
             }
             set 

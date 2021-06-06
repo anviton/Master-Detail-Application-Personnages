@@ -11,7 +11,7 @@ namespace Modele
     {
         // Champs
         [DataMember]
-        private bool leitmotiv { get; set; }
+        private bool leitmotiv;
 
         public bool Leitmotiv
         {
@@ -29,7 +29,7 @@ namespace Modele
         }
 
         [DataMember]
-        private ObservableCollection<Titre> titres { get; set; }
+        private ObservableCollection<Titre> titres;
         public ObservableCollection<Titre> Titres
         {
             get
@@ -56,7 +56,7 @@ namespace Modele
         /// </summary>
         /// <param name="nom">Le nom du titre</param>
         /// <returns>true si le titre a été ajouté, false sinon</returns>
-        public void AjouterTitre(string nom)
+        public bool AjouterTitre(string nom)
 		{
             Titre titre = new Titre(nom);
             if (Leitmotiv)
@@ -64,10 +64,13 @@ namespace Modele
                 if (!titres.Contains(titre))
                 {
                     titres.Add(titre);
+                    return true;
                 }
+                else return false;
             } else
             {
                 titres[0] = titre;
+                return true;
             }
 		}
 
@@ -78,17 +81,20 @@ namespace Modele
         /// <param name="nom">Le nom du titre</param>
         /// <param name="lien">Un lien internet pour écouter le titre</param>
         /// <returns>true si le titre a été ajouté, false sinon</returns>
-        public void AjouterTitre(string nom, string lien)
+        public bool AjouterTitre(string nom, string lien)
 		{
             Titre titre = new Titre(nom, lien);
             if (Leitmotiv) { 
                 if (!titres.Contains(titre))
                 {
                     titres.Add(new Titre(nom, lien));
+                    return true;
                 }
+                else return false;
             } else
             {
                 titres[0] = titre;
+                return true;
             }
         }
 
@@ -97,12 +103,14 @@ namespace Modele
         /// </summary>
         /// <param name="titre">Le titre à supprimer</param>
         /// <returns>true si le titre a été supprimé, false s'il n'existait pas.</returns>
-        public void SupprimerTitre(Titre titre)
+        public bool SupprimerTitre(Titre titre)
 		{
             if (Leitmotiv)
             {
                 Titres.Remove(titre);
+                return true;
             }
+            return false;
 		}
 
         public override string ToString()

@@ -6,6 +6,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>U:\c_sharp\projet\trunk\Source\App\AppPersonnageBin\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="arriere.jpg" />
     <None Remove="arrierePlan.jpg" />
