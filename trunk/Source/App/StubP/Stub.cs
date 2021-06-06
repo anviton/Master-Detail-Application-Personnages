@@ -27,9 +27,9 @@ namespace StubP
             LesSeries.Series[LesSeries.Series.IndexOf(new Serie("mario"))].Personnages.Add(bowser);
             LesSeries.Series[LesSeries.Series.IndexOf(new Serie("zelda"))].Personnages.Add(link);
             LesSeries.Series[LesSeries.Series.IndexOf(new Serie("celeste"))].Personnages.Add(madeline);
-            bowser.Image = "/Bibliothèques_Images;Component/Images_Personnages/bowser.jpg";
-            mario.Image = "/Bibliothèques_Images;Component/Images_Personnages/mario.jpeg";
-            link.Image = "/Bibliothèques_Images;Component/Images_Personnages/link.jpeg";
+            bowser.Image = "bowser.jpg";
+            mario.Image = "mario.jpeg";
+            link.Image = "link.jpeg";
             mario.AjouterCitation("It's me Mario");
             mario.AjouterCitation("Bye bye");
             mario.AjouterRelation("Ennemi", bowser);

@@ -15,15 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images_Personnages\bowser.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images_Personnages\Link.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images_Personnages\mario.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Images_Fonds\image.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -36,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Images_Personnages\" />
     <Folder Include="Images_Test\" />
   </ItemGroup>
 
