@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images_Fonds\serie.jpg" />
     <None Remove="Images_Personnages\bowser.jpg" />
     <None Remove="Images_Personnages\Link.jpeg" />
     <None Remove="Images_Personnages\mario.jpeg" />
@@ -22,6 +23,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images_Fonds\arriere_plan_grille_perso.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images_Fonds\serie.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

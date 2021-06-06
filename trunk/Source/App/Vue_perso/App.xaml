@@ -6,6 +6,7 @@
              StartupUri="Accueil.xaml">
     <Application.Resources>
         <conv:String2ImageConverter x:Key="string2ImageConverter"/>
+        <conv:String2ColorConverter x:Key="string2ColorConverter"/>
         <Style TargetType="Button" x:Key="CommonButtonDisabler">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ElementName=MandatoryTextBox, Path=Text.Length}" Value="0">

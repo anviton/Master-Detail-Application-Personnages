@@ -24,7 +24,8 @@ namespace Modele
                 OnPropertyChanged(nameof(PersonnageSelectionne));
             }
         }
-       
+        public static string Couleur => "#FF98CBF7";
+
         private Personnage personnageSelectionne;
         public Serie(string nom) : base(nom)
         {

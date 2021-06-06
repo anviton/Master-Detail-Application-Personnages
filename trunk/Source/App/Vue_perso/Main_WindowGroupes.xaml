@@ -7,7 +7,7 @@
         xmlns:UserControl="clr-namespace:Vue_perso.UC_MainWindows"
         mc:Ignorable="d"
         Title="Main_WindowGroupes" Height="450" Width="800">
-    <UserControl:UC_Principal_MainWindow ListePersonnages="{Binding ListeDePersonnagesActive}" PersonnageSelect="{Binding PersonnageSelectionne}"/>
+    <UserControl:UC_Principal_MainWindow ListePersonnages="{Binding ListeDePersonnagesActive}" Couleur="#20DE78" PersonnageSelect="{Binding PersonnageSelectionne}"/>
     <!--Window.Resources>
         <Style TargetType="Button" x:Key="BouttonModif">
             <Setter Property="Background" Value="Beige"/>

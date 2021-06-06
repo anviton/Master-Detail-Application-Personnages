@@ -7,7 +7,8 @@ using System.Text;
 using System.IO;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Runtime.Serialization;
+
+
 
 namespace Modele
 {
@@ -17,6 +18,7 @@ namespace Modele
         public SeriesTheque LesSeries { get; }
         // Format : string = nom, SortedSet = personnages appartenant au groupe
         public IDictionary<string, ObservableCollection<Personnage>> Groupes { get; }
+        public static string Couleur => "LightSalmon";
         public ICollection<string> NomsGroupes { get { return new List<string>(Groupes.Keys); } }
 
         public IList<Personnage> Personnages
