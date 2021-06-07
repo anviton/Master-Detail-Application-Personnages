@@ -11,9 +11,9 @@ namespace Data
         {
         }
 
-        /*public override Manager Charger()
+        public override Manager Charger()
         {
-            Manager test = new Manager();
+            Manager test = new Manager(null);
             test.AjouterSerie("mario", out Serie serieMario);
             test.AjouterSerie("zelda", out Serie serieZelda);
             test.AjouterSerie("celeste", out Serie serieCeleste);
@@ -41,6 +41,6 @@ namespace Data
             test.AjouterGroupe("Triforce");
             test.AjouterPersoAGroupe("Triforce", perso3);
             return test;
-        }*/
+        }
     }
 }

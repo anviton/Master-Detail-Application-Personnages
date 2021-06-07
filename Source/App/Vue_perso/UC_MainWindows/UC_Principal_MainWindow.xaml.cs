@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Vue_perso.Dialogs;
 
+
 namespace Vue_perso.UC_MainWindows
 {
     /// <summary>
@@ -145,7 +146,13 @@ namespace Vue_perso.UC_MainWindows
 
         private void Exporter(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            Microsoft.Win32.SaveFileDialog dialog = new Microsoft.Win32.SaveFileDialog();
+            dialog.DefaultExt = ".xml";
+            dialog.Filter = "Fichier (*.xml) | *.xml";
+            if (dialog.ShowDialog() == true)
+            {
+                Mgr.EcrireUnPersonnageEnXml(Mgr.PersonnageSelectionne, dialog.FileName);
+            }
         }
     }
 }

@@ -21,8 +21,8 @@ namespace Vue_perso
         public Manager Mgr => (App.Current as App).MonManager;
         public Accueil()
         {
-            DataContext = Mgr;
             InitializeComponent();
+            DataContext = Mgr;
         }
 
         private void Affiche_Perso(object sender, RoutedEventArgs e)

@@ -3,6 +3,7 @@ using Modele;
 using System.Collections.Generic;
 using System.Linq;
 using StubP;
+using System.IO;
 
 namespace Test_Personnage
 {
@@ -70,7 +71,7 @@ namespace Test_Personnage
             AfficherUneSerie(serie1);
             AfficherTousLesPersonnages(manager);
             //Test exporter personnage
-            manager.EcrireUnPersonnageEnXml(perso4);
+            manager.EcrireUnPersonnageEnXml(perso4, "Madeline.xml");
             manager.SupprimerPersonnage(perso4);
             AfficherLesSeries(manager.LesSeries.Series);
             AfficherTousLesPersonnages(manager);

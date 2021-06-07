@@ -7,8 +7,7 @@ using System.Text;
 using System.IO;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-
-
+using System.Runtime.Serialization;
 
 namespace Modele
 {
@@ -287,7 +286,7 @@ namespace Modele
         /// <param name="chemin">chemin du fichier dans lequel le personnage est "stocké"</param>
         public bool LireUnPersonnageEnXml(string chemin)
         {
-            bool provisoire = false;
+            /*bool provisoire = false;
             XDocument personnageFichier = XDocument.Load(chemin);
             var persos = personnageFichier.Descendants("personnage")
                           .Select(eltPersonnage => new Personnage(eltPersonnage.Attribute("nom").Value, eltPersonnage.Element("serieDuPerso").Value)
@@ -316,47 +315,73 @@ namespace Modele
                 }
             }
             OnPropertyChanged(nameof(Personnages));
-            return provisoire;
+            return provisoire;*/
+
+            Personnage perso;
+            var serializer = new DataContractSerializer(typeof(Personnage));
+            using (Stream s = File.OpenRead(Path.Combine(chemin)))
+            {
+                
+                perso = serializer.ReadObject(s) as Personnage;
+            }
+            bool persoExiste;
+            bool serieExiste = RechercherUneSerie(perso.SerieDuPerso, out Serie serie);
+            if (serieExiste)
+            {
+                persoExiste = serie.AjouterUnPersonnage(perso);
+                serie.AjouterUnPersonnage(perso);
+            }
+            else
+            {
+                AjouterSerie(perso.SerieDuPerso, out serie);
+                persoExiste = serie.AjouterUnPersonnage(perso);
+            }
+        OnPropertyChanged(nameof(Personnages));
+            return persoExiste;
         }
 
         /// <summary>
         /// Permet d'exporter un personnage dans un fichier xml
         /// </summary>
         /// <param name="perso"></param>
-        public void EcrireUnPersonnageEnXml(Personnage perso)
+        public void EcrireUnPersonnageEnXml(Personnage perso, string filepath)
         {
-            
-            XDocument personnageFichier = new XDocument();
 
-            var personnageE = Personnages.Where(p => p.Nom == perso.Nom).Select(personnage => new XElement("personnage",
-                new XAttribute("nom", perso.Nom),
-                new XElement("serieDuPerso", perso.SerieDuPerso),
-                new XElement("description", perso.Description),
-                new XElement("image", perso.Image),
-                new XElement("citations", perso.Citations.Count() > 0 ? personnage.Citations.Aggregate((stringCitation, nextCitation) => $"{stringCitation} {nextCitation}") : "")
-                ));
+            /* XDocument personnageFichier = new XDocument();
 
-            personnageFichier.Add(new XElement(perso.Nom, personnageE));
+             var personnageE = Personnages.Where(p => p.Nom == perso.Nom).Select(personnage => new XElement("personnage",
+                 new XAttribute("nom", perso.Nom),
+                 new XElement("serieDuPerso", perso.SerieDuPerso),
+                 new XElement("description", perso.Description),
+                 new XElement("image", perso.Image),
+                 new XElement("citations", perso.Citations.Count() > 0 ? personnage.Citations.Aggregate((stringCitation, nextCitation) => $"{stringCitation} {nextCitation}") : "")
+                 ));
 
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
+             personnageFichier.Add(new XElement(perso.Nom, personnageE));
 
-            using (TextWriter tw = File.CreateText($"{perso.Nom}.xml"))
-            using (XmlWriter writer = XmlWriter.Create(tw, settings))
+             XmlWriterSettings settings = new XmlWriterSettings();
+             settings.Indent = true;
+
+             using (TextWriter tw = File.CreateText($"{perso.Nom}.xml"))
+             using (XmlWriter writer = XmlWriter.Create(tw, settings))
+             {
+                 personnageFichier.Save(writer);
+             }*/
+            //string filepath = Path.Combine(Directory.GetCurrentDirectory(), "");
+            //string fileName = "";
+            var serializer = new DataContractSerializer(typeof(Personnage),
+                                                    new DataContractSerializerSettings()
+                                                    {
+                                                        PreserveObjectReferences = true
+                                                    });
+            var settings = new XmlWriterSettings() { Indent = true };
+            using (TextWriter tw = File.CreateText(Path.Combine(filepath)))
             {
-                personnageFichier.Save(writer);
+                using (XmlWriter writer = XmlWriter.Create(tw, settings))
+                {
+                    serializer.WriteObject(writer, perso);
+                }
             }
-            /*string filepath = Path.Combine(Directory.GetCurrentDirectory(), "");
-            string fileName = "";
-            if (!Directory.Exists(filepath))
-            {
-                Directory.CreateDirectory(filepath);
-            }
-            var serializer = new DataContractSerializer(typeof(Personnage));
-            using (Stream s = File.Create(fileName))
-            {
-                serializer.WriteObject(s, perso);
-            }*/
         }
 
         public void ChargeDonnees()
