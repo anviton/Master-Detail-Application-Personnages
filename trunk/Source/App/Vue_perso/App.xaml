@@ -2,8 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Vue_perso"
-             xmlns:conv="clr-namespace:Vue_perso.Converters" 
-             StartupUri="Accueil.xaml">
+             StartupUri="Accueil.xaml"
+             xmlns:conv="clr-namespace:Vue_perso.Converters">
     <Application.Resources>
         <conv:String2ImageConverter x:Key="string2ImageConverter"/>
         <conv:String2ColorConverter x:Key="string2ColorConverter"/>

@@ -38,7 +38,7 @@ namespace Vue_perso.UC_accueil
             {
                 Mgr.PersonnageSelectionne = (sender as ListBox).SelectedItem as Personnage;
                 MainWindow mainWindow = new MainWindow();
-                Window.GetWindow(this).Close();
+                Window.GetWindow(this).Close(); 
                 mainWindow.Show();
             }
         }
