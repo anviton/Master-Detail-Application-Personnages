@@ -12,17 +12,17 @@ using System.Text;
 
 namespace Modele
 {
-    [DataContract]
+    [DataContract(Name = "relation")]
     public class Relation : IEquatable<Relation>
     {
         // Champs
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "type")]
         public string Type { get; set; }
 
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "persoNonRec")]
         public string NomPersoNonRec { get; private set; }
 
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "persoRec")]
         public Personnage PersoRec { get; private set; }
 
         /// <summary>

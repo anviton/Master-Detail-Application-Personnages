@@ -8,11 +8,11 @@ using System.Runtime.Serialization;
 
 namespace Modele
 {
-    [DataContract]
+    [DataContract(Name = "perso")]
     public class Personnage : Nommable, IEquatable<Personnage>, IComparable<Personnage>, INotifyPropertyChanged
     {
         public ObservableCollection<string> Citations { get => citations; }
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "citations")]
         private ObservableCollection<string> citations;
         public static Random indexRandomizer = new Random();
         public string CitationAleatoire
@@ -27,7 +27,7 @@ namespace Modele
                 } else return "";
 			}
 		}
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "image")]
         private string image;
         public string Image
 		{
@@ -43,19 +43,19 @@ namespace Modele
             }
    		}
         public ObservableCollection<JeuVideo> JeuxVideo { get => jeuxvideo; }
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "listeJeuxVideo")]
         private readonly ObservableCollection<JeuVideo> jeuxvideo = new ObservableCollection<JeuVideo>();
-        [DataMember (EmitDefaultValue=false)]
+        [DataMember (EmitDefaultValue=false, Name = "theme")]
         public ThemeMusical Theme { get; set; }
         public ObservableCollection<Relation> Relations { get => relations; }
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "relations")]
         private readonly ObservableCollection<Relation> relations = new ObservableCollection<Relation>();
         public string SerieDuPerso { get => serieDuPerso; }
-        [DataMember (Order =2)]
+        [DataMember (Order = 2)]
         private string serieDuPerso;
         
         public IList<Relation> EstMentionneDans { get => estMentionneDans; }
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "estMentionneDansRealations")]
         private readonly IList<Relation> estMentionneDans = new List<Relation>();
         public string Description
         {
@@ -69,7 +69,7 @@ namespace Modele
                 OnPropertyChanged(nameof(Description));
             }
         }
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "description")]
         private string description;
 
         public EventHandler<NotificationRelationEvent> NotificationRelation;

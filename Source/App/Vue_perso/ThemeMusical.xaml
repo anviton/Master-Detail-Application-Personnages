@@ -12,12 +12,13 @@
         <StackPanel DockPanel.Dock="Top">
             <Label Content="Thème musical du personnage" FontSize="25" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
-                <RadioButton Name="MusUniqButton" Content="Musique unique" Margin="0, 0, 10, 0" Click="MusUniqButton_Click"/>
-                <RadioButton Name="LeitmotivButton" Content="Leitmotiv" />
+                <RadioButton Name="MusUniqButton" Content="Musique unique" Margin="0, 0, 10, 0" IsChecked="{Binding ElementName=LeitmotivButton, Path=IsChecked, Mode=OneWay, Converter={StaticResource notLeitmotivConverter}}" Checked="LeitmotivButton_Checked" />
+                <RadioButton Name="LeitmotivButton" Content="Leitmotiv" IsChecked="{Binding Perso.Theme.Leitmotiv}" Checked="LeitmotivButton_Checked"/>
             </StackPanel>
         </StackPanel>
-        <Border>
-            <UserControl:UC_MusiqueUnique x:Name="UC_MusiqueUnique" Theme="{Binding Perso.Theme}" Visibility="Hidden"/>
-        </Border>
+        
+        <UserControl:UC_MusiqueUnique x:Name="UC_MusiqueUnique" Visibility="Hidden"/>
+        <UserControl:UC_Leitmotiv x:Name="UC_Leitmotiv" Visibility="Hidden" />
+        
     </DockPanel>
 </Window>

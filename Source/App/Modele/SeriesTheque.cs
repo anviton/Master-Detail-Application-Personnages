@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Modele
 {
-    [DataContract]
+    [DataContract(Name = "serieTheque")]
     public class SeriesTheque
     {
         public SeriesTheque()
@@ -14,7 +14,7 @@ namespace Modele
             series = new ObservableCollection<Serie>();
         }
         public ObservableCollection<Serie> Series { get => series; }
-        [DataMember]
+        [DataMember(Name = "series")]
         private ObservableCollection<Serie> series;
 
         

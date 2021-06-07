@@ -5,17 +5,17 @@ using System.Text;
 
 namespace Modele
 {
-    [DataContract]
+    [DataContract(Name = "titre")]
     public class Titre : Nommable
     {
         // Champs
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "lien")]
         public string Lien { get; set; }
 
         // Méthodes
-        public Titre(string nom) : base(nom)
+        public Titre(string nom) : base (nom)
         {
-            
+
         }
 
         public Titre(string nom, string lien) : this(nom)

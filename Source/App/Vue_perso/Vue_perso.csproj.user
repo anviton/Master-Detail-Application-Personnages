@@ -86,6 +86,9 @@
     <Page Update="Dialogs\NouveauJeuVideoDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Dialogs\NouveauTitreDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialogs\NouvelleCitationDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -93,6 +96,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\SupprimerGroupeDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\UC_Dialogs\UC_Leitmotiv.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\UC_Dialogs\UC_MusiqueUnique.xaml">
