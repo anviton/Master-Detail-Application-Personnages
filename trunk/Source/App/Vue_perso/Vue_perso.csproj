@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>U:\c_sharp\projet\trunk\Source\App\AppPersonnageBin\</OutputPath>
+    <OutputPath>..\AppPersonnageBin</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +23,22 @@
     <ProjectReference Include="..\DataContractPersistance\DataContractPersistance.csproj" />
     <ProjectReference Include="..\Modele\Modele.csproj" />
     <ProjectReference Include="..\StubP\StubP.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Dialogs\UC_Dialogs\UC_Leitmotiv.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Dialogs\NouveauTitreDialog.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Dialogs\UC_Dialogs\UC_Leitmotiv.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

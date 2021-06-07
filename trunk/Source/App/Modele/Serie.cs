@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Modele
 {
-    [DataContract]
+    [DataContract(Name = "serie")]
     public class Serie : Nommable, INotifyPropertyChanged
     {
         //Propriétés
-        [DataMember]
+        [DataMember(Name = "listePersonnages")]
         public ObservableCollection<Personnage> Personnages { get; set; }
         public Personnage PersonnageSelectionne {
             get

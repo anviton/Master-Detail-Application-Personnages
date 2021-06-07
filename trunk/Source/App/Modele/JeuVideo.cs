@@ -5,13 +5,13 @@ using System.Text;
 
 namespace Modele
 {
-    [DataContract]
+    [DataContract(Name = "jeuVideo")]
     /// <summary>
     /// Classe JeuVideo
     /// </summary>
     public class JeuVideo : Nommable
     {
-        [DataMember(EmitDefaultValue = false)]
+        [DataMember(EmitDefaultValue = false, Name = "annee")]
         public int? AnneeDeCreation { get; set; }
 
         /// <summary>

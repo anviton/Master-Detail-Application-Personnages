@@ -6,11 +6,11 @@ using System.Runtime.Serialization;
 
 namespace Modele
 {
-    [DataContract]
+    [DataContract(Name = "themeMusical")]
     public class ThemeMusical
     {
         // Champs
-        [DataMember]
+        [DataMember(Name = "isLeitmotiv")]
         private bool leitmotiv;
 
         public bool Leitmotiv
@@ -21,14 +21,13 @@ namespace Modele
                 if (leitmotiv != value)
                 {
                     titres.Clear();
-                    if (value == false)
-                        titres.Add(new Titre(""));
+                    titres.Add(new Titre(""));
                     leitmotiv = value;
                 }
             }
         }
 
-        [DataMember]
+        [DataMember(Name = "listeTitres")]
         private ObservableCollection<Titre> titres;
         public ObservableCollection<Titre> Titres
         {
@@ -42,11 +41,7 @@ namespace Modele
         public ThemeMusical(bool leitmotiv)
         {
             Leitmotiv = leitmotiv;
-            titres = new ObservableCollection<Titre>();
-            if (!leitmotiv)
-            {
-                titres.Add(new Titre(""));
-            }
+            titres = new ObservableCollection<Titre>(){ new Titre("") };
         }
 
         public ThemeMusical() : this(false) { }
@@ -59,7 +54,7 @@ namespace Modele
         public bool AjouterTitre(string nom)
 		{
             Titre titre = new Titre(nom);
-            if (Leitmotiv)
+            if (Leitmotiv && titres.Count > 1)
             {
                 if (!titres.Contains(titre))
                 {
@@ -76,7 +71,6 @@ namespace Modele
 
         /// <summary>
         /// Ajoute un titre au thème.
-        /// 
         /// </summary>
         /// <param name="nom">Le nom du titre</param>
         /// <param name="lien">Un lien internet pour écouter le titre</param>
@@ -84,7 +78,7 @@ namespace Modele
         public bool AjouterTitre(string nom, string lien)
 		{
             Titre titre = new Titre(nom, lien);
-            if (Leitmotiv) { 
+            if (Leitmotiv && titres.Count > 1) { 
                 if (!titres.Contains(titre))
                 {
                     titres.Add(new Titre(nom, lien));

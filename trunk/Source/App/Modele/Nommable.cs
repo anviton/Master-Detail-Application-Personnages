@@ -11,7 +11,7 @@ namespace Modele
 
         
         public string Nom { get => nom; }
-        [DataMember (Order =1)]
+        [DataMember (Order = 0, Name = "nom")]
         private string nom;
         /// <summary>
         /// Constructeur

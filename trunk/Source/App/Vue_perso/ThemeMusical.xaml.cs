@@ -27,28 +27,35 @@ namespace Vue_perso
             DataContext = this;
         }
 
+		private void ChangerMode(object sender, MouseButtonEventArgs e)
+		{
+            
+		}
 
-        /*
-         * Pour l'instant, les boutons "Enregistrer" et "Annuler" ne font que fermer la fenêtre.
-         * On devra modifier le code pour récupérer les données saisies.
-         */
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+		private void MusUniqButton_Click(object sender, RoutedEventArgs e)
+		{
 
-        private void MusUniqButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Si le thème est défini et que c'est un leitmotiv
-            if (Perso.Theme != null && Perso.Theme.Leitmotiv)
-            {
-                MessageBoxResult confirm = MessageBox.Show("Attention : changer de type de thème supprimera les données de l'ancien thème ! Voulez-vous continuer ?",
-                    "Thème musical du personnage", MessageBoxButton.YesNo, MessageBoxImage.Question);
+		}
+
+		private void LeitmotivButton_Checked(object sender, RoutedEventArgs e)
+		{
+// On vérifie si le thème est défini (Titres.Count différent de 0)
+            if (Perso.Theme.Titres.Count != 0)
+			{
+                var confirm = MessageBox.Show("Changer de type de thème entraîne la suppression de toutes les données du thème.\nÊtes-vous sûr de vouloir continuer ?",
+                    "Thème musical", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (confirm == MessageBoxResult.Yes)
-                {
-                    Perso.Theme = new Modele.ThemeMusical(false);
-                }
-            }
-        }
-    }
+				{
+                    // Si l'utilisateur confirme, on assigne à Leitmotiv true si le bouton radio "Leitmotiv" est coché.
+                    Perso.Theme.Leitmotiv = (sender as RadioButton) == LeitmotivButton;
+                    e.Handled = false;
+				}
+                else
+				{
+                    // On indique que l'événement est fini d'être géré.
+                    e.Handled = true;
+				}
+			}
+		}
+	}
 }

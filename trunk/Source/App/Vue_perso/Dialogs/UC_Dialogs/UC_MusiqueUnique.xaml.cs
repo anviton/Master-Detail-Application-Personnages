@@ -21,20 +21,22 @@ namespace Vue_perso.Dialogs.UC_Dialogs
     {
         public Manager Mgr => (App.Current as App).MonManager;
 
-        public ThemeMusical Theme
-        {
-            get { return (ThemeMusical)GetValue(ThemeProperty); }
-            set { SetValue(ThemeProperty, value); }
-        }
+        public Modele.ThemeMusical Theme => Mgr.PersonnageSelectionne.Theme;
 
-        // Using a DependencyProperty as the backing store for Theme.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ThemeProperty =
-            DependencyProperty.Register("Theme", typeof(ThemeMusical), typeof(UC_MusiqueUnique), new PropertyMetadata(default(ThemeMusical)));
+        public string Titre { get; set; }
+        public string Lien { get; set; }
+        
 
         public UC_MusiqueUnique()
         {
             InitializeComponent();
-            DataContext = Mgr.PersonnageSelectionne.Theme;
+            DataContext = this;
         }
-    }
+
+		private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+		{
+            if (Lien == "") { Lien = null; }
+            Theme.AjouterTitre(Titre, Lien);
+		}
+	}
 }
