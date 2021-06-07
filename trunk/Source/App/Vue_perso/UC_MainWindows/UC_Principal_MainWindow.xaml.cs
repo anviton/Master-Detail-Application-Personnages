@@ -107,7 +107,7 @@ namespace Vue_perso.UC_MainWindows
                     {
                         PersonnageSelect = ListePersonnages[0];
                     }
-                    
+                    Mgr.SauvegaderDonnees();
                 }
             }
         }
@@ -120,7 +120,7 @@ namespace Vue_perso.UC_MainWindows
                 var window = new ModifierPerso(Mgr.PersonnageSelectionne);
                 window.ShowDialog();
             }
-            //Mgr.SauvegaderDonnees();
+            Mgr.SauvegaderDonnees();
         }
         private void AjouterAUnGroupe(object sender, RoutedEventArgs e)
         {
@@ -132,26 +132,17 @@ namespace Vue_perso.UC_MainWindows
             }
         }
 
-        private void Recherche(object sender, TextChangedEventArgs e)
-        {
-            //IList<Personnage> persos = Mgr.Personnages.Where(p => p.Nom.StartsWith("B")).ToList();
-            //Mgr.ListeDePersonnagesActive = new List<Personnage>(Mgr.Groupes[Mgr.GroupeSelectionne].Where(p => p.Nom.StartsWith((sender as TextBox).Text)));
-            //Mgr.Rech= (sender as TextBox).Text;
-            //Mgr.SerieSelectionnee.Personnages = new ObservableCollection<Personnage>(Mgr.SerieSelectionnee.Personnages.Where(p => p.Nom.StartsWith((sender as TextBox).Text)));
-            if(Mgr.RechercherUnPersonnage((sender as TextBox).Text, Mgr.SerieSelectionnee.Nom, out Personnage perso))
-            {
-                Mgr.SerieSelectionnee.PersonnageSelectionne = perso;
-            }
-        }
-
         private void Exporter(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.SaveFileDialog dialog = new Microsoft.Win32.SaveFileDialog();
-            dialog.DefaultExt = ".xml";
-            dialog.Filter = "Fichier (*.xml) | *.xml";
-            if (dialog.ShowDialog() == true)
+            if (PersonnageSelect != null)
             {
-                Mgr.EcrireUnPersonnageEnXml(Mgr.PersonnageSelectionne, dialog.FileName);
+                Microsoft.Win32.SaveFileDialog dialog = new Microsoft.Win32.SaveFileDialog();
+                dialog.DefaultExt = ".xml";
+                dialog.Filter = "Fichier (*.xml) | *.xml";
+                if (dialog.ShowDialog() == true)
+                {
+                    Mgr.EcrireUnPersonnageEnXml(Mgr.PersonnageSelectionne, dialog.FileName);
+                }
             }
         }
     }

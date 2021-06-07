@@ -27,17 +27,25 @@ namespace Vue_perso
         {
             InitializeComponent();
             DataContext = Mgr;
+            if (Mgr.GroupeSelectionne == null)
+            {
+                MenuSupprimerUnGroupe.IsEnabled = true;
+            }
+            else
+            {
+                MenuSupprimerUnGroupe.IsEnabled = false;
+            }
         }
 
         private void RetourAccueil(object sender, RoutedEventArgs e)
         {
             if (!(Window.GetWindow(this) is Accueil))
             {
-                Accueil accueil = new Accueil();
-                Window.GetWindow(this).Close();
                 Mgr.PersonnageSelectionne = null;
                 Mgr.GroupeSelectionne = null;
                 Mgr.SerieSelectionnee = null;
+                Accueil accueil = new Accueil();
+                Window.GetWindow(this).Close();
                 accueil.Show();
             }
         }
@@ -51,6 +59,7 @@ namespace Vue_perso
                 if (Mgr.AjouterGroupe(dialog.groupName))
                 {
                     MessageBox.Show($"Le groupe \"{dialog.groupName}\" a été créé avec succès.", "Nouveau groupe", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Mgr.SauvegaderDonnees();
                 } else
                 {
                     MessageBox.Show($"Le groupe \"{dialog.groupName}\" n'a pas été créé car il existe déjà.", "Nouveau groupe", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -70,6 +79,7 @@ namespace Vue_perso
                         MessageBoxButton.OK, MessageBoxImage.Information);
                     ModifierPerso modifierPerso = new ModifierPerso(nouveauPerso);
                     modifierPerso.Show();
+                    Mgr.SauvegaderDonnees();
                 }
                 else
                 {
@@ -83,9 +93,9 @@ namespace Vue_perso
         {
             var window = new SupprimerGroupeDialog();
             window.ShowDialog();
-            Mgr.ListeDePersonnagesActive = null;
-        }
+            Mgr.SauvegaderDonnees();
 
+        }
         private void GroupeSelectionnee(object sender, RoutedEventArgs e)
         {
             /*
@@ -108,21 +118,31 @@ namespace Vue_perso
             Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
             dialog.DefaultExt = ".xml ";
             dialog.Filter = "Tous les fichiers xml (*.xml) | *.xml";
-
             if (dialog.ShowDialog() == true)
             {
 
-                if (Mgr.LireUnPersonnageEnXml(dialog.FileName))
+                try
                 {
-                    MessageBox.Show($"Le Personnage a été ajoutée.", "Nouveau Personnage", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (Mgr.LireUnPersonnageEnXml(dialog.FileName))
+                    {
+                        MessageBox.Show($"Le Personnage a été ajoutée.", "Nouveau Personnage", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Mgr.SauvegaderDonnees();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Le Personnage existe déjà !", "Nouveau Personnage", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show($"Le Personnage existe déjà !", "Nouveau Personnage", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Fichier corrompu !", "Nouveau Personnage", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                
                 
             }
 
         }
+
+
     }
 }

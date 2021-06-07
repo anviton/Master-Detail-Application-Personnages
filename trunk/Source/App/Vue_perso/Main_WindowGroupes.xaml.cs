@@ -24,7 +24,10 @@ namespace Vue_perso
         {
             InitializeComponent();
             DataContext = Mgr;
-            Mgr.ListeDePersonnagesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
+            if(Mgr.GroupeSelectionne != null)
+            {
+                Mgr.ListeDePersonnagesActive = Mgr.Groupes[Mgr.GroupeSelectionne];
+            }
             if(Mgr.ListeDePersonnagesActive.Count > 0)
             {
                 Mgr.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];

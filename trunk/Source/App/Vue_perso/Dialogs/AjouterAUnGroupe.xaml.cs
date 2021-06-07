@@ -35,6 +35,7 @@ namespace Vue_perso.Dialogs
                 if (Mgr.AjouterGroupe(dialog.groupName))
                 {
                     MessageBox.Show($"Le groupe \"{dialog.groupName}\" a été créé avec succès.", "Nouveau groupe", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Mgr.SauvegaderDonnees();
                 }
                 else
                 {
@@ -47,6 +48,7 @@ namespace Vue_perso.Dialogs
         {
             //this.DialogResult = true;
             Mgr.AjouterPersoAGroupe(Mgr.GroupeSelectionne, Mgr.PersonnageSelectionne);
+            Mgr.SauvegaderDonnees();
             Close();
         }
 
