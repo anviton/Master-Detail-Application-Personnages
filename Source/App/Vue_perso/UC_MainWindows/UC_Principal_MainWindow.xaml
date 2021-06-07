@@ -26,18 +26,22 @@
         <DockPanel.Background>
             <ImageBrush ImageSource="/Bibliothèques_Images;Component/Images_Fonds/arriere_plan_grille_perso.jpg"></ImageBrush>
         </DockPanel.Background>
-        <StackPanel Background="#FFF9E2C6" Orientation="Horizontal" DockPanel.Dock="Top" VerticalAlignment="Bottom">
-            <local1:UC_Menu/>
-            <Menu Background="#FFF9E2C6">
-                <MenuItem Header="Action perso Sélectionné" Height="37">
-                    <MenuItem Header="Supprimer Personnage" Click="SupprimerPersonnageClick"/>
-                    <MenuItem Header="Modifier Personnage" Click="ModifierPersonnageClick"/>
+        <Grid Background="#FFF9E2C6" DockPanel.Dock="Top" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <local1:UC_Menu Grid.Column="0"/>
+            <Menu Background="#FFF9E2C6" Grid.Column="1" HorizontalAlignment="Right" Margin="5, 0">
+                <MenuItem Header="Action perso Sélectionné" Height="37" >
+                    <MenuItem Header="Supprimer" Click="SupprimerPersonnageClick"/>
+                    <MenuItem Header="Modifier" Click="ModifierPersonnageClick"/>
                     <MenuItem Header="Exporter" Click="Exporter"/>
                     <MenuItem Header="Ajouter à" Click="AjouterAUnGroupe">
                     </MenuItem>
                 </MenuItem>
             </Menu>
-        </StackPanel>
+        </Grid>
         <Grid DockPanel.Dock="Left" Background="{StaticResource BackgorundSalmon}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>

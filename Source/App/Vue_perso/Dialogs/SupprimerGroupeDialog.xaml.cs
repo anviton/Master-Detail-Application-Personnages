@@ -29,6 +29,7 @@ namespace Vue_perso.Dialogs
         {
             Mgr.SupprimerGroupe(Mgr.GroupeSelectionne);
             Mgr.GroupeSelectionne = null;
+            Mgr.ListeDePersonnagesActive = null;
             Close();
         }
 

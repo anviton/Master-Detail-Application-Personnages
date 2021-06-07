@@ -28,10 +28,13 @@ namespace Vue_perso.UC_MainWindows
 
         private void Recherche(object sender, TextChangedEventArgs e)
         {
-            if (Mgr.RechercherUnPersonnage((sender as TextBox).Text, Mgr.SerieSelectionnee.Nom, out Personnage perso))
+            if (Mgr.SerieSelectionnee != null)
             {
-                Mgr.SerieSelectionnee.PersonnageSelectionne = perso;
-            }
+                if (Mgr.RechercherUnPersonnage((sender as TextBox).Text, Mgr.SerieSelectionnee.Nom, out Personnage perso))
+                {
+                    Mgr.SerieSelectionnee.PersonnageSelectionne = perso;
+                }
+            }  
         }
     }
 }

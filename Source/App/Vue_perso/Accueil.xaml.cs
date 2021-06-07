@@ -22,6 +22,9 @@ namespace Vue_perso
         public Accueil()
         {
             InitializeComponent();
+            Mgr.SerieSelectionnee = null;
+            Mgr.GroupeSelectionne = null;
+            Mgr.PersonnageSelectionne = null;
             DataContext = Mgr;
         }
 

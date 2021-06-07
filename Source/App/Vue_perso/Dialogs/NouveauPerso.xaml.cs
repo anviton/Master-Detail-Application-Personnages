@@ -54,6 +54,10 @@ namespace Vue_perso.Dialogs
 
         private void CancelButtonPressed(object sender, RoutedEventArgs e)
         {
+            if((SeriesBox.SelectedItem as Serie).Personnages.Count == 0)
+            {
+                Mgr.LesSeries.Series.Remove((SeriesBox.SelectedItem as Serie));
+            }
             this.DialogResult = false;
         }
     }

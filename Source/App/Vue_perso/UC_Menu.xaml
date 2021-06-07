@@ -9,7 +9,7 @@
         <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9" Click="RetourAccueil"/>
         <MenuItem Header="Listes">
             <MenuItem Header="+ Nouveau groupe" Click="NouveauGroupe"/>
-            <MenuItem Header="- Supprimer groupe" Click="SupprimerGroupe"/>
+            <MenuItem Header="- Supprimer groupe" Click="SupprimerGroupe" x:Name="MenuSupprimerUnGroupe"/>
             <MenuItem Header="Consulter une liste">
                 <ListBox ItemsSource="{Binding NomsGroupes}" SelectionChanged="GroupeSelectionnee"></ListBox>
             </MenuItem>
@@ -18,6 +18,6 @@
             <MenuItem Header="Importer" Click="ImporterPersonnage"/>
             <MenuItem Header="Nouveau Personnage" Click="NouveauPersonnage"/>
         </MenuItem>
-
+        
     </Menu>
 </UserControl>
