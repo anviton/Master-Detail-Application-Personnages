@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 
 namespace Modele
 {
     [DataContract(Name = "themeMusical")]
-    public class ThemeMusical
+    public class ThemeMusical : INotifyPropertyChanged
     {
         // Champs
         [DataMember(Name = "isLeitmotiv")]
@@ -20,28 +21,31 @@ namespace Modele
             {
                 if (leitmotiv != value)
                 {
-                    titres.Clear();
-                    titres.Add(new Titre(""));
+                    Titres.Clear();
                     leitmotiv = value;
+                    if (!leitmotiv)
+					{
+                        Titres.Add(new Titre(""));
+					}
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(leitmotiv)));
                 }
             }
         }
 
         [DataMember(Name = "listeTitres")]
-        private ObservableCollection<Titre> titres;
-        public ObservableCollection<Titre> Titres
-        {
-            get
-            {
-                return new ObservableCollection<Titre>(titres.Select(titre => titre).Where(n => n.Nom != ""));
-            }
-        }
+        public ObservableCollection<Titre> Titres { get; }
+
+		public event PropertyChangedEventHandler PropertyChanged;
 
         // Méthodes
         public ThemeMusical(bool leitmotiv)
         {
             Leitmotiv = leitmotiv;
-            titres = new ObservableCollection<Titre>(){ new Titre("") };
+            Titres = new ObservableCollection<Titre>();
+            if (!leitmotiv)
+			{
+                Titres.Add(new Titre(""));
+			}
         }
 
         public ThemeMusical() : this(false) { }
@@ -54,17 +58,17 @@ namespace Modele
         public bool AjouterTitre(string nom)
 		{
             Titre titre = new Titre(nom);
-            if (Leitmotiv && titres.Count > 1)
+            if (Leitmotiv)
             {
-                if (!titres.Contains(titre))
+                if (!Titres.Contains(titre))
                 {
-                    titres.Add(titre);
+                    Titres.Add(titre);
                     return true;
                 }
                 else return false;
             } else
             {
-                titres[0] = titre;
+                Titres[0] = titre;
                 return true;
             }
 		}
@@ -78,16 +82,16 @@ namespace Modele
         public bool AjouterTitre(string nom, string lien)
 		{
             Titre titre = new Titre(nom, lien);
-            if (Leitmotiv && titres.Count > 1) { 
-                if (!titres.Contains(titre))
+            if (Leitmotiv) { 
+                if (!Titres.Contains(titre))
                 {
-                    titres.Add(new Titre(nom, lien));
+                    Titres.Add(new Titre(nom, lien));
                     return true;
                 }
                 else return false;
             } else
             {
-                titres[0] = titre;
+                Titres[0] = titre;
                 return true;
             }
         }

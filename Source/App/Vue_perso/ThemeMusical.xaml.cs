@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Modele;
+using Vue_perso.Dialogs.UC_Dialogs;
 
 namespace Vue_perso
 {
@@ -20,42 +21,42 @@ namespace Vue_perso
     {
         public Manager Mgr => (App.Current as App).MonManager;
         public Personnage Perso => Mgr.PersonnageSelectionne;
+        public Modele.ThemeMusical Theme => Perso.Theme;
 
         public ThemeMusical()
         {
             InitializeComponent();
-            DataContext = this;
+            DataContext = Theme;
+            EditeurSelect();
         }
 
-		private void ChangerMode(object sender, MouseButtonEventArgs e)
+        private void EditeurSelect()
 		{
-            
-		}
-
-		private void MusUniqButton_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
-
-		private void LeitmotivButton_Checked(object sender, RoutedEventArgs e)
-		{
-// On vérifie si le thème est défini (Titres.Count différent de 0)
-            if (Perso.Theme.Titres.Count != 0)
+            if (Theme.Leitmotiv)
 			{
-                var confirm = MessageBox.Show("Changer de type de thème entraîne la suppression de toutes les données du thème.\nÊtes-vous sûr de vouloir continuer ?",
-                    "Thème musical", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (confirm == MessageBoxResult.Yes)
-				{
-                    // Si l'utilisateur confirme, on assigne à Leitmotiv true si le bouton radio "Leitmotiv" est coché.
-                    Perso.Theme.Leitmotiv = (sender as RadioButton) == LeitmotivButton;
-                    e.Handled = false;
-				}
-                else
-				{
-                    // On indique que l'événement est fini d'être géré.
-                    e.Handled = true;
-				}
+                Editeur.Content = new UC_Leitmotiv();
 			}
+            else
+			{
+                Editeur.Content = new UC_MusiqueUnique();
+			}
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+            var confirm = MessageBox.Show(
+                "Attention : changer de type de thème musical entraîne la suppression des données du thème !\n" +
+                "Voulez-vous continuer ?", "Thème musical", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (confirm == MessageBoxResult.Yes)
+			{
+                Theme.Leitmotiv = !Theme.Leitmotiv;
+                EditeurSelect();
+			}
+		}
+
+        private void OKButton(object sender, RoutedEventArgs e)
+		{
+            this.Close();
 		}
 	}
 }

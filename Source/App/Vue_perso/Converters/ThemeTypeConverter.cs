@@ -6,11 +6,18 @@ using System.Windows.Data;
 
 namespace Vue_perso.Converters
 {
-	class NotLeitmotivConverter : IValueConverter
+	class ThemeTypeConverter : IValueConverter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			return !(bool)value;
+			if ((bool)value == true)
+			{
+				return "Type actuel : \"Leitmotiv\"";
+			}
+			else
+			{
+				return "Type actuel : \"Musique unique\"";
+			}
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

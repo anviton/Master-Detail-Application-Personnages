@@ -22,9 +22,6 @@ namespace Vue_perso.Dialogs.UC_Dialogs
         public Manager Mgr => (App.Current as App).MonManager;
 
         public Modele.ThemeMusical Theme => Mgr.PersonnageSelectionne.Theme;
-
-        public string Titre { get; set; }
-        public string Lien { get; set; }
         
 
         public UC_MusiqueUnique()
@@ -35,8 +32,14 @@ namespace Vue_perso.Dialogs.UC_Dialogs
 
 		private void TextBox_LostFocus(object sender, RoutedEventArgs e)
 		{
-            if (Lien == "") { Lien = null; }
-            Theme.AjouterTitre(Titre, Lien);
+            if (Lien.Text == "")
+            {
+                Theme.AjouterTitre(Titre.Text);
+            }
+            else
+			{
+                Theme.AjouterTitre(Titre.Text, Lien.Text);
+			}
 		}
 	}
 }
