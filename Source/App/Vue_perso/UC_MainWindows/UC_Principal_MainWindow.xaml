@@ -33,7 +33,7 @@
             </Grid.ColumnDefinitions>
             <local1:UC_Menu Grid.Column="0"/>
             <Menu Background="#FFF9E2C6" Grid.Column="1" HorizontalAlignment="Right" Margin="5, 0">
-                <MenuItem Header="Action perso Sélectionné" Height="37" >
+                <MenuItem Header="Actions Personnage Sélectionné" Height="37" >
                     <MenuItem Header="Supprimer" Click="SupprimerPersonnageClick"/>
                     <MenuItem Header="Modifier" Click="ModifierPersonnageClick"/>
                     <MenuItem Header="Exporter" Click="Exporter"/>

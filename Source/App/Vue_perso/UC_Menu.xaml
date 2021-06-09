@@ -7,10 +7,10 @@
              mc:Ignorable="d">
     <Menu Background="#FFF9E2C6" DockPanel.Dock="Top">
         <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9" Click="RetourAccueil"/>
-        <MenuItem Header="Listes">
+        <MenuItem Header="Groupes">
             <MenuItem Header="+ Nouveau groupe" Click="NouveauGroupe"/>
             <MenuItem Header="- Supprimer groupe" Click="SupprimerGroupe" x:Name="MenuSupprimerUnGroupe"/>
-            <MenuItem Header="Consulter une liste">
+            <MenuItem Header="Consulter un groupe">
                 <ListBox ItemsSource="{Binding NomsGroupes}" SelectionChanged="GroupeSelectionnee"></ListBox>
             </MenuItem>
         </MenuItem>

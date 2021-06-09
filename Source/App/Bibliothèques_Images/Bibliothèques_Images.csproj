@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="icon_etoile.jpeg" />
     <None Remove="Images_Fonds\serie.jpg" />
     <None Remove="Images_Personnages\bowser.jpg" />
     <None Remove="Images_Personnages\Link.jpeg" />
@@ -16,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="icon_etoile.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images_Fonds\image.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

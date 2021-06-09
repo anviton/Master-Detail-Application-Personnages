@@ -32,8 +32,10 @@ namespace Modele
             }
         }
 
+        
+        public ObservableCollection<Titre> Titres { get => titres; }
         [DataMember(Name = "listeTitres")]
-        public ObservableCollection<Titre> Titres { get; }
+        private readonly ObservableCollection<Titre> titres;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -41,7 +43,7 @@ namespace Modele
         public ThemeMusical(bool leitmotiv)
         {
             Leitmotiv = leitmotiv;
-            Titres = new ObservableCollection<Titre>();
+            titres = new ObservableCollection<Titre>();
             if (!leitmotiv)
 			{
                 Titres.Add(new Titre(""));
