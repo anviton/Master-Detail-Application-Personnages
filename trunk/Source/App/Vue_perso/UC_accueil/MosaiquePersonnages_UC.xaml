@@ -22,7 +22,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{Binding Image, Converter={StaticResource string2ImageConverter}}" Width="100" />
-                        <Label Content="{Binding Nom}" />
+                        <TextBlock Text="{Binding Nom}" Style="{StaticResource textInformatif}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

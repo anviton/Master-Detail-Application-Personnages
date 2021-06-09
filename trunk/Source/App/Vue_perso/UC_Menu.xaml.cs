@@ -91,10 +91,11 @@ namespace Vue_perso
 
         private void SupprimerGroupe(object sender, RoutedEventArgs e)
         {
+            
             var window = new SupprimerGroupeDialog();
             window.ShowDialog();
             Mgr.SauvegaderDonnees();
-
+            Mgr.GroupeSelectionne = null;
         }
         private void GroupeSelectionnee(object sender, RoutedEventArgs e)
         {
@@ -107,10 +108,13 @@ namespace Vue_perso
             Mgr.SerieSelectionnee = null;
             Mgr.GroupeSelectionne = (sender as ListBox).SelectedItem as string;
             //Window window = new MainWindow((sender as ListBox).SelectedItem as string, Mgr.Groupes[(sender as ListBox).SelectedItem as string]);
-            Window window = new Main_WindowGroupes();
-            window.Show();
-            Window.GetWindow(this).Close();
-            return;
+            if (Mgr.GroupeSelectionne != null)
+            {
+                Window window = new Main_WindowGroupes();
+                Window.GetWindow(this).Close();
+                window.Show();
+            }
+
         }
 
         private void ImporterPersonnage(object sender, RoutedEventArgs e)

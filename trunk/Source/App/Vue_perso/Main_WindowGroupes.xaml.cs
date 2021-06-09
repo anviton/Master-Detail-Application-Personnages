@@ -33,32 +33,5 @@ namespace Vue_perso
                 Mgr.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
             }  
         }
-
-        /*private void SupprimerPersonnageClick(object sender, RoutedEventArgs e)
-        {
-            if (Mgr.PersonnageSelectionne != null)
-            {
-
-                SuppressionConfirmation window = new SuppressionConfirmation();
-                window.ShowDialog();
-            }
-        }
-
-        private void ModifierPersonnageClick(object sender, RoutedEventArgs e)
-        {
-            if (Mgr.PersonnageSelectionne != null)
-            {
-                var window = new ModifierPerso(Mgr.PersonnageSelectionne);
-                window.ShowDialog();
-            }
-        }
-        private void AjouterAUnGroupe(object sender, RoutedEventArgs e)
-        {
-            if (Mgr.PersonnageSelectionne != null)
-            {
-                var window = new AjouterAUnGroupe();
-                window.Show();
-            }
-        }*/
     }
 }

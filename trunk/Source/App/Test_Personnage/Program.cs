@@ -73,9 +73,25 @@ namespace Test_Personnage
             //Test exporter personnage
             manager.EcrireUnPersonnageEnXml(perso4, "Madeline.xml");
             manager.SupprimerPersonnage(perso4);
+            manager.SupprimerPersonnage(perso1);
             AfficherLesSeries(manager.LesSeries.Series);
             AfficherTousLesPersonnages(manager);
-            manager.LireUnPersonnageEnXml("Madeline.xml");
+            try
+            {
+                manager.LireUnPersonnageEnXml("Madeline.xml");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Fichier Corrompu");
+            }
+            try
+            {
+                manager.LireUnPersonnageEnXml("mario.xml");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Fichier Corrompu");
+            }
             AfficherTousLesPersonnages(manager);
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Modele;
+using Vue_perso.Converters;
 using Vue_perso.Dialogs;
 
 namespace Vue_perso
@@ -32,12 +34,20 @@ namespace Vue_perso
         private void RenseignerImage(object sender, RoutedEventArgs e)
 		{
             Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
-            dialog.DefaultExt = ".jpg | .png | .gif";
-            dialog.Filter = "Tous les fichiers image (*.jpg, *.png, *.gif) | *.jpg; *.png; *.gif";
+            dialog.DefaultExt = ".jpg | .png | .gif | .jpeg";
+            dialog.Filter = "Tous les fichiers image (*.jpg, *.png, *.gif, *.jpeg) | *.jpg; *.png; *.gif; *.jpeg";
 
             if (dialog.ShowDialog() == true)
 			{
-                Perso.Image = dialog.FileName;
+                FileInfo fi = new FileInfo(dialog.FileName);
+                string fileName = dialog.FileName;
+                int i = 0;
+                while (File.Exists(System.IO.Path.Combine(String2ImageConverter.ImagesPath, fileName)))
+                {
+                    fileName = $"{fi.Name.Remove(fi.Name.LastIndexOf('.'))}_{i}.{fi.Extension}";
+                }
+                File.Copy(dialog.FileName, System.IO.Path.Combine(String2ImageConverter.ImagesPath, fileName));
+                Perso.Image = fileName;
 			}
 		}
 

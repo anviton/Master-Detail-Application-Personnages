@@ -15,7 +15,7 @@
         </StackPanel>
         <StackPanel>
             <Label Content="Citation :" HorizontalAlignment="Center"/>
-            <TextBox Name="MandatoryTextBox" Text="{Binding Citation}" Margin="5,2,5,0" MinLines="3" TextWrapping="Wrap" />
+            <TextBox MaxLength="20" Name="MandatoryTextBox" Text="{Binding Citation}" Margin="5,2,5,0" MinLines="3" TextWrapping="Wrap" />
         </StackPanel>
     </DockPanel>
 </Window>

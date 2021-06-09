@@ -9,17 +9,17 @@ namespace Vue_perso.Converters
 {
     class String2ImageConverter : IValueConverter
     {
-        private static string imagesPath = Directory.GetCurrentDirectory();
+        public static string ImagesPath { get; set; }
         static String2ImageConverter()
         {
-            imagesPath = Path.Combine(Directory.GetCurrentDirectory(), "..\\Images");
+            ImagesPath = Path.Combine(Directory.GetCurrentDirectory(), "..\\Images");
         }
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string imageName = value as string;
             if (string.IsNullOrWhiteSpace(imageName)) return null;
 
-            string imagePath = Path.Combine(imagesPath, imageName);
+            string imagePath = Path.Combine(ImagesPath, imageName);
 
             return new Uri(imagePath, UriKind.RelativeOrAbsolute);
         }
