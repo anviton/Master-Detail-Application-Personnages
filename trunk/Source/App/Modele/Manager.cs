@@ -15,7 +15,7 @@ namespace Modele
     {
         //public ObservableCollection<Serie> Series { get; }
         public SeriesTheque LesSeries { get; }
-        // Format : string = nom, SortedSet = personnages appartenant au groupe
+        // Format : string = nom, ObservableCollection = personnages appartenant au groupe
         public IDictionary<string, ObservableCollection<Personnage>> Groupes { get; }
         public static string Couleur => "LightSalmon";
         public ICollection<string> NomsGroupes { get { return new List<string>(Groupes.Keys); } }

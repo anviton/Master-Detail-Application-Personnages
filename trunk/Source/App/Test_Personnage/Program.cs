@@ -23,18 +23,22 @@ namespace Test_Personnage
             manager.RechercherUnPersonnage("Bowser", "mario", out Personnage perso1_3);
             perso1.SupprimerUneRelation(new Relation("Ennemi", perso1_3));
             AfficherLesRelations(perso1);
+
             //Test de l'afichage des relations d'un personnage (n'ayant pas de relations)
             manager.RechercherUnPersonnage("Bowser", "mario", out Personnage perso2);
             AfficherLesRelations(perso2);
+
             //Test de l'affichage des jeux d'un personnage (+ de la suppression d'un jeu + ajout d'un jeu)
             AfficherLalisteDesJeuxDunPerso(perso1);
             perso1.SupprimerUnJeu(new JeuVideo("Super Mario Bros.", null));
             AfficherLalisteDesJeuxDunPerso(perso1);
             perso1.AjouterUnJeu("Super Mario Bros.", 1985, out JeuVideo j);
             AfficherLalisteDesJeuxDunPerso(perso1);
+
             //Test de l'affichage de la description d'un oerso
             Console.WriteLine($"\nLa descrption de {perso1.Nom} :");
             Console.WriteLine($"{perso1.Description}");
+
             //Test de l'affichage du thème musical d'un perso
             AfficherLeThemeMusicalDUnPersonnage(perso2);
             Console.WriteLine("Test Ajouté titre :");
@@ -47,29 +51,35 @@ namespace Test_Personnage
             TestSupprimerTitre(perso4, new Titre("to"));
             TestSupprimerTitre(perso4, new Titre("First Steps"));
             AfficherLeThemeMusicalDUnPersonnage(perso4);
+
             //Test de l'affichage des citations
             AfficherLalisteDesCitationsDunPerso(perso4);
             perso4.SupprimerCitation("This is it, Madeline. Just breathe.");
             perso4.AjouterCitation("Tests");
             AfficherLalisteDesCitationsDunPerso(perso4);
+
             //Test de l'affichage de tous les personnages de l'application
             AfficherTousLesPersonnages(manager);
+
             //Test Enregistrer un personnage
             Serie test;
             manager.RechercherUneSerie("zelda", out test);
             manager.EnregistrerPersonnage("Bowser", test, out Personnage perso3);
             Console.WriteLine();
+
             //Test rechercher un personnage
             Console.WriteLine("Je recherche le personnage \"bowser\" :");
             TestRechercherUnPerso("Bowser", "mario", manager);
             Console.WriteLine();
             Console.WriteLine("Je recherche le personnage \"bowse\" :");
             TestRechercherUnPerso("Bowse", "mario", manager);
+
             //Test suppression personnage (suppression de mario)
             manager.SupprimerPersonnage(perso1);
             manager.RechercherUneSerie("mario", out Serie serie1);
             AfficherUneSerie(serie1);
             AfficherTousLesPersonnages(manager);
+
             //Test exporter personnage
             manager.EcrireUnPersonnageEnXml(perso4, "Madeline.xml");
             manager.SupprimerPersonnage(perso4);
