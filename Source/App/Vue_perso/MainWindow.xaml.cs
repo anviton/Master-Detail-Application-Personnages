@@ -21,27 +21,11 @@ namespace Vue_perso
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
 
     {
         public Manager Mgr => (App.Current as App).MonManager;
-        public SortedSet<Personnage> Personnages { get; set; }
-        public Personnage PersonnageSelectionne
-        {
-            get => personnageSelectionne;
-            set
-            {
-                if (personnageSelectionne != value)
-                {
-                    personnageSelectionne = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PersonnageSelectionne)));
-                }
-            }
-        }
 
-        private Personnage personnageSelectionne;
-
-        public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
         {
             InitializeComponent();
