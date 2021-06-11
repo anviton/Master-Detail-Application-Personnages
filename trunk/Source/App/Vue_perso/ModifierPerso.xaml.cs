@@ -44,6 +44,7 @@ namespace Vue_perso
                 while (File.Exists(System.IO.Path.Combine(String2ImageConverter.ImagesPath, fileName)))
                 {
                     fileName = $"{fi.Name.Remove(fi.Name.LastIndexOf('.'))}_{i}.{fi.Extension}";
+                    i++;
                 }
                 File.Copy(dialog.FileName, System.IO.Path.Combine(String2ImageConverter.ImagesPath, fileName));
                 Perso.Image = fileName;

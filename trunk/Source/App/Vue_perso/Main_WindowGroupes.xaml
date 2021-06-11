@@ -7,7 +7,8 @@
         xmlns:UserControl="clr-namespace:Vue_perso.UC_MainWindows"
         mc:Ignorable="d"
         Icon="/Bibliothèques_Images;Component/icon_etoile.jpeg"
-        Title="Personnages" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="Personnages" Height="450" Width="800" MinHeight="450" MinWidth="800"
+        WindowState="Maximized">
     <UserControl:UC_Principal_MainWindow ListePersonnages="{Binding ListeDePersonnagesActive}" Couleur="#20DE78" PersonnageSelect="{Binding PersonnageSelectionne}"/>
    
 </Window>

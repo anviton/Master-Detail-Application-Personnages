@@ -31,7 +31,18 @@ namespace Vue_perso.UC_MainWindows
             {
                 if (Mgr.RechercherUnPersonnage((sender as TextBox).Text, Mgr.SerieSelectionnee.Nom, out Personnage perso))
                 {
-                    Mgr.PersonnageSelectionne = perso;
+                    
+                    if(Mgr.ListeDePersonnagesActive != null)
+                    {
+                        if (Mgr.Groupes[Mgr.GroupeSelectionne].Contains(perso))
+                        {
+                            Mgr.PersonnageSelectionne = perso;
+                        }
+                    }
+                    else
+                    {
+                        Mgr.PersonnageSelectionne = perso;
+                    }
                 }
             }
         }

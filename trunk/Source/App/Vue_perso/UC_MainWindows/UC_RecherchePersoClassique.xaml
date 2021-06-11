@@ -7,9 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <TextBlock Text="Rechercher Personnage :" Style="{StaticResource textInformatif}"/>
-        <TextBlock Text="Serie du Personnage :" FontSize="14" Foreground="AliceBlue"/>
+        <TextBlock Text="Rechercher Personnage" Style="{StaticResource textInformatif}"/>
+        <TextBlock Text="Serie du Personnage :" FontSize="14" Foreground="AliceBlue" Margin="1"/>
         <ComboBox  ItemsSource="{Binding LesSeries.Series}" SelectedValue="{Binding SerieSelectionnee, Mode=TwoWay}" Margin="5"/>
+        <TextBlock Text="Nom du Personnage :" FontSize="14" Foreground="AliceBlue" Margin="1"/>
         <TextBox TextChanged="Recherche" TextWrapping="NoWrap" Margin="5"/>
     </StackPanel>
 </UserControl>

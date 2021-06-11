@@ -16,14 +16,16 @@
             <SolidColorBrush Color="#FF98CBF7" Opacity="0.6"/>
         </DockPanel.Background>
 
-        <TextBox DockPanel.Dock="Top" Text="Rechercher un personnage" TextWrapping="NoWrap"/>
+        <!--TextBox DockPanel.Dock="Top" Text="Rechercher un personnage" TextWrapping="NoWrap"/-->
 
         <ListBox ItemsSource="{Binding LesSeries.Series}" Background="{x:Null}" SelectionChanged="SerieSelectionnee">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Bibliothèques_Images;Component/Images_Fonds/serie.jpg" Width="100" />
-                        <Label Content="{Binding Nom}" FontSize="16" FontWeight="Bold" FontStyle="Italic"/>
+                        <Image Source="/Bibliothèques_Images;Component/Images_Fonds/serie.jpg" Width="250" />
+                        <TextBlock Text="{Binding Nom}" FontSize="16" FontWeight="Bold" 
+                                   FontStyle="Italic" VerticalAlignment="Center" Margin="10"
+                                   Foreground="Black" FontFamily="Comic-San"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
