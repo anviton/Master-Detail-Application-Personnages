@@ -286,43 +286,16 @@ namespace Modele
         /// <param name="chemin">chemin du fichier dans lequel le personnage est "stocké"</param>
         public bool LireUnPersonnageEnXml(string chemin)
         {
-            /*bool provisoire = false;
-            XDocument personnageFichier = XDocument.Load(chemin);
-            var persos = personnageFichier.Descendants("personnage")
-                          .Select(eltPersonnage => new Personnage(eltPersonnage.Attribute("nom").Value, eltPersonnage.Element("serieDuPerso").Value)
-                          {
-                              Description = eltPersonnage.Element("description").Value,
-                              Image = eltPersonnage.Element("image").Value
-                          });
-            foreach (Personnage perso in persos)
-            {
-                var citationsElt = personnageFichier.Descendants("personnage")
-                                             .Single(elt => elt.Attribute("nom").Value == perso.Nom)
-                                             .Element("citations");
-
-                //perso.AjouterCitation(citationsElt.Value.Split());
-
-                bool serieExiste = RechercherUneSerie(perso.SerieDuPerso, out Serie serie);
-                if (serieExiste)
-                {
-                    provisoire = serie.AjouterUnPersonnage(perso);
-                    serie.AjouterUnPersonnage(perso);
-                }
-                else
-                {
-                    AjouterSerie(perso.SerieDuPerso, out serie);
-                    provisoire = serie.AjouterUnPersonnage(perso);
-                }
-            }
-            OnPropertyChanged(nameof(Personnages));
-            return provisoire;*/
-
             Personnage perso;
             var serializer = new DataContractSerializer(typeof(Personnage));
             using (Stream s = File.OpenRead(Path.Combine(chemin)))
             {
                 
                 perso = serializer.ReadObject(s) as Personnage;
+            }
+            if (!File.Exists(System.IO.Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "..\\Images"), perso.Image)))
+            {
+                perso.Image = null;
             }
             bool persoExiste;
             bool serieExiste = RechercherUneSerie(perso.SerieDuPerso, out Serie serie);
@@ -336,39 +309,17 @@ namespace Modele
                 AjouterSerie(perso.SerieDuPerso, out serie);
                 persoExiste = serie.AjouterUnPersonnage(perso);
             }
-        OnPropertyChanged(nameof(Personnages));
+            OnPropertyChanged(nameof(Personnages));
             return persoExiste;
         }
 
         /// <summary>
         /// Permet d'exporter un personnage dans un fichier xml
         /// </summary>
-        /// <param name="perso"></param>
+        /// <param name="perso">Personnage à exporter</param>
+        /// <param name="filepath">Chemin d'enregistrement</param>
         public void EcrireUnPersonnageEnXml(Personnage perso, string filepath)
         {
-
-            /* XDocument personnageFichier = new XDocument();
-
-             var personnageE = Personnages.Where(p => p.Nom == perso.Nom).Select(personnage => new XElement("personnage",
-                 new XAttribute("nom", perso.Nom),
-                 new XElement("serieDuPerso", perso.SerieDuPerso),
-                 new XElement("description", perso.Description),
-                 new XElement("image", perso.Image),
-                 new XElement("citations", perso.Citations.Count() > 0 ? personnage.Citations.Aggregate((stringCitation, nextCitation) => $"{stringCitation} {nextCitation}") : "")
-                 ));
-
-             personnageFichier.Add(new XElement(perso.Nom, personnageE));
-
-             XmlWriterSettings settings = new XmlWriterSettings();
-             settings.Indent = true;
-
-             using (TextWriter tw = File.CreateText($"{perso.Nom}.xml"))
-             using (XmlWriter writer = XmlWriter.Create(tw, settings))
-             {
-                 personnageFichier.Save(writer);
-             }*/
-            //string filepath = Path.Combine(Directory.GetCurrentDirectory(), "");
-            //string fileName = "";
             var serializer = new DataContractSerializer(typeof(Personnage),
                                                     new DataContractSerializerSettings()
                                                     {

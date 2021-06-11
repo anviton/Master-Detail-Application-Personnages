@@ -38,14 +38,11 @@ namespace Vue_perso
                 if (Mgr.PersonnageSelectionne != null)
                 {
                     DataContext = Mgr;
-                    //Mgr.ListeDePersonnagesActive = Mgr.Personnages;
-                    //HeaderListe.Text = "Tous les personnages";
                 }
                 else
                 {
                     DataContext = Mgr.SerieSelectionnee;
                     Mgr.ListeDePersonnagesActive = Mgr.SerieSelectionnee.Personnages;
-                    //HeaderListe.Text = $"Personnages de {Mgr.SerieSelectionnee.Nom}";
                     if (Mgr.ListeDePersonnagesActive.Count() != 0)
                     {
                         Mgr.SerieSelectionnee.PersonnageSelectionne = Mgr.ListeDePersonnagesActive[0];
@@ -55,24 +52,6 @@ namespace Vue_perso
             }
             
         }
-        /*public MainWindow(Serie serie)
-        {
-            InitializeComponent();
-            DataContext = serie;
-            HeaderListe.Text = $"Personnages de {serie.Nom}";
-
-        }*/
-
-        /*public MainWindow(string nomGroupe, SortedSet<Personnage> Personnages)
-        {
-            InitializeComponent();
-            DataContext = this;
-            this.Personnages = Personnages;
-            
-            HeaderListe.Text = $"Personnages de {nomGroupe}";
-
-        }*/
-
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

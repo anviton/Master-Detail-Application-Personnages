@@ -33,7 +33,7 @@ namespace Modele
 		{
             get
 			{
-                if (image == null) return "image_par_defaut.jpg"; // On renvoie l'image par défaut
+                if (image == null) return "image_par_defaut.png"; // On renvoie l'image par défaut
                 else return image;
             }
             set 
