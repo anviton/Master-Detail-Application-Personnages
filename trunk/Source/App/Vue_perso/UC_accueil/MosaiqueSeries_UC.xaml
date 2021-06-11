@@ -19,9 +19,14 @@
         <!--TextBox DockPanel.Dock="Top" Text="Rechercher un personnage" TextWrapping="NoWrap"/-->
 
         <ListBox ItemsSource="{Binding LesSeries.Series}" Background="{x:Null}" SelectionChanged="SerieSelectionnee">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel>
                         <Image Source="/Bibliothèques_Images;Component/Images_Fonds/serie.jpg" Width="250" />
                         <TextBlock Text="{Binding Nom}" FontSize="16" FontWeight="Bold" 
                                    FontStyle="Italic" VerticalAlignment="Center" Margin="10"
