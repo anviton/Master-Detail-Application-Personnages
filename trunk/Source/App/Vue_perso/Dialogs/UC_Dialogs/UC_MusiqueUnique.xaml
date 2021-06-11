@@ -17,9 +17,9 @@
         </Grid.RowDefinitions>
         
         <Label Content="Titre : " Grid.Column="0" Grid.Row="0" />
-        <TextBox Name="Titre" Text="{Binding Nom}" Grid.Column="1" Grid.Row="0" LostFocus="TextBox_LostFocus"/>
+        <TextBox Name="Titre" Text="{Binding Titres[0].Nom, Mode=OneWay}" Grid.Column="1" Grid.Row="0" LostFocus="TextBox_LostFocus"/>
 
         <Label Content="Lien : " Grid.Column="0" Grid.Row="1" />
-        <TextBox Name="Lien" Grid.Column="1" Grid.Row="1" LostFocus="TextBox_LostFocus"/>
+        <TextBox Name="Lien" Text="{Binding Titres[0].Lien, Mode=OneWay}" Grid.Column="1" Grid.Row="1" LostFocus="TextBox_LostFocus"/>
     </Grid>
 </UserControl>

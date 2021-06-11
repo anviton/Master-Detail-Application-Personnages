@@ -73,16 +73,17 @@ namespace Vue_perso
             {
                 newWindow = new ThemeMusical();
                 newWindow.ShowDialog();
-            } // Reste des fenêtres ici
-            else
+            }
+            else if (senderButton.Equals(RelationsButton))
             {
-                MessageBox.Show("Pas encore implémenté !", "Pas encore implémenté !", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                newWindow = new RelationsDialog();
+                newWindow.ShowDialog();
             }
         }
 
-        private void SupprImage_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-    }
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+            Close();
+		}
+	}
 }

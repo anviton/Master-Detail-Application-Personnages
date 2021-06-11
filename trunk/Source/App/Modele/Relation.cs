@@ -72,7 +72,7 @@ namespace Modele
         /// <returns></returns>
         public bool Equals(Relation autre)
         {
-            return (this.Type == autre.Type && this.NomPersoNonRec==autre.NomPersoNonRec && this.PersoRec==autre.PersoRec);
+            return (this.NomPersoNonRec==autre.NomPersoNonRec && this.PersoRec==autre.PersoRec);
         }
 
         /// <summary>
@@ -122,9 +122,9 @@ namespace Modele
         public override string ToString()
         {
             if (NomPersoNonRec != null)
-                return $"Nom : {NomPersoNonRec} \n\t\tRelation : {Type}";
+                return $"{NomPersoNonRec} ({Type})";
             else
-                return $"Nom  : {PersoRec.Nom} \n\t\t Relation : {Type}";
+                return $"{PersoRec.Nom} ({Type})";
         }
 
         

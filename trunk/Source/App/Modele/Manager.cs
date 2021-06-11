@@ -293,10 +293,22 @@ namespace Modele
                 
                 perso = serializer.ReadObject(s) as Personnage;
             }
+
+            perso.EstMentionneDans.Clear();
+
+            foreach (Relation relation in perso.Relations)
+			{
+                if (relation.PersoRec != null)
+				{
+                    relation.ModifierRelation(relation.PersoRec.Nom);
+				}
+			}
+
             if (!File.Exists(System.IO.Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "..\\Images"), perso.Image)))
             {
                 perso.Image = null;
             }
+
             bool persoExiste;
             bool serieExiste = RechercherUneSerie(perso.SerieDuPerso, out Serie serie);
             if (serieExiste)

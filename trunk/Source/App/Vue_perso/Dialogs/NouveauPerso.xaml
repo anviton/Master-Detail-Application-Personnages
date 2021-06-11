@@ -29,13 +29,8 @@
         <TextBox Name="NomPersoTextBox" Text="{Binding NomPerso}"/>
         <Label HorizontalAlignment="Center" Content="Série :" />
         <StackPanel Orientation="Horizontal">
-            <ComboBox Name="SeriesBox" ItemsSource="{Binding Mgr.LesSeries.Series}" SelectedValue="{Binding SerieDuPerso}" Width="130" HorizontalAlignment="Left">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding }" TextTrimming="CharacterEllipsis"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+            <ComboBox Name="SeriesBox" ItemsSource="{Binding Mgr.LesSeries.Series}" SelectedValue="{Binding SerieDuPerso}" Width="130" HorizontalAlignment="Left"
+                      ItemTemplate="{StaticResource smallComboBoxDisplay}" />
             <Label Content="ou" HorizontalAlignment="Center"/>
             <Button Content="Nouvelle Série..." Click="NouvelleSerie" Width="130" HorizontalAlignment="Right" />
         </StackPanel>

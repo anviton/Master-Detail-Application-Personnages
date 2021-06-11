@@ -22,6 +22,6 @@
         <Button Content="OK" Height="25" Padding="10,0" Click="OKButton"
                 HorizontalAlignment="Right" DockPanel.Dock="Bottom" Margin="0,10"/>
 
-        <ContentControl Name="Editeur" VerticalAlignment="Top" Margin="0,5,0,0"/>
+        <ContentControl Name="Editeur" VerticalAlignment="Top" Margin="0,5,0,0" />
     </DockPanel>
 </Window>

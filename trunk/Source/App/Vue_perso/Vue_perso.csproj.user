@@ -30,7 +30,13 @@
     <Compile Update="Dialogs\NouvelleCitationDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialogs\NouvelleRelationDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialogs\NouvelleSerieDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\RelationsDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialogs\SupprimerGroupeDialog.xaml.cs">
@@ -92,7 +98,13 @@
     <Page Update="Dialogs\NouvelleCitationDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Dialogs\NouvelleRelationDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialogs\NouvelleSerieDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\RelationsDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\SupprimerGroupeDialog.xaml">
