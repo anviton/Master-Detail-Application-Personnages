@@ -18,9 +18,14 @@
         <!--TextBox DockPanel.Dock="Top" Text="Rechercher un personnage" TextWrapping="NoWrap"/-->
 
         <ListBox ItemsSource="{Binding Personnages}" Background="{x:Null}" MouseUp="PersonnageSelectionne" SelectedItem="{Binding PersonnageSelectionne}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel>
                         <Image Source="{Binding Image, Converter={StaticResource string2ImageConverter}}" Width="100" />
                         <TextBlock Text="{Binding Nom}" Style="{StaticResource textInformatif}"/>
                     </StackPanel>
