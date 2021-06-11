@@ -11,7 +11,7 @@
         <Label DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Modification d'un personnage" FontSize="25px"/>
 
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="15,10">
-            <Button Content="OK" Width="60"/>
+            <Button Content="OK" Width="60" Click="Button_Click"/>
         </StackPanel>
 
         <!-- Centre du DockPanel -->
@@ -46,7 +46,7 @@
             <Button  Grid.Column="1" Grid.Row="4" Content="Modifier..." Name="ThemeButton" Click="RenseignerChamp"/>
 
             <Label   Grid.Column="0" Grid.Row="5" Content="Relations :"/>
-            <Button  Grid.Column="1" Grid.Row="5" Content="Modifier..." Click="RenseignerChamp"/>
+            <Button  Grid.Column="1" Grid.Row="5" Content="Modifier..." Name="RelationsButton" Click="RenseignerChamp"/>
 
             <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Content="Description :"/>
 

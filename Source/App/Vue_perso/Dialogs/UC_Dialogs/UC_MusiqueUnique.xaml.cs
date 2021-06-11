@@ -27,7 +27,7 @@ namespace Vue_perso.Dialogs.UC_Dialogs
         public UC_MusiqueUnique()
         {
             InitializeComponent();
-            DataContext = this;
+            DataContext = Theme;
         }
 
 		private void TextBox_LostFocus(object sender, RoutedEventArgs e)

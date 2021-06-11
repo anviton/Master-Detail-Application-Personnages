@@ -11,7 +11,13 @@
         <conv:ThemeTypeConverter x:Key="themeTypeConverter" />
         <Style TargetType="Button" x:Key="CommonButtonDisabler">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=MandatoryTextBox, Path=Text.Length}" Value="0">
+                <DataTrigger Binding="{Binding ElementName=MandatoryText1, Path=Text.Length}" Value="0">
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=MandatoryText2, Path=Text.Length}" Value="0">
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=MandatoryComboBox, Path=SelectedIndex}" Value="-1">
                     <Setter Property="IsEnabled" Value="False" />
                 </DataTrigger>
             </Style.Triggers>
@@ -34,6 +40,10 @@
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="Margin" Value="10"></Setter>
         </Style>
-        
+
+        <DataTemplate x:Key="smallComboBoxDisplay">
+            <TextBlock Text="{Binding }" TextTrimming="CharacterEllipsis"/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>
