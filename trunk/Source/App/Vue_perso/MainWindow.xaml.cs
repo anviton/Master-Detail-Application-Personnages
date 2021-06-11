@@ -83,7 +83,7 @@ namespace Vue_perso
         {
             if (Mgr.PersonnageSelectionne != null)
             {
-                var window = new ModifierPerso(Mgr.PersonnageSelectionne);
+                var window = new ModifierPerso();
                 window.ShowDialog();
             }
         }

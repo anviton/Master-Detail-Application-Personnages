@@ -117,7 +117,7 @@ namespace Vue_perso.UC_MainWindows
             if (PersonnageSelect != null)
             {
                 Mgr.PersonnageSelectionne = PersonnageSelect;
-                var window = new ModifierPerso(Mgr.PersonnageSelectionne);
+                var window = new ModifierPerso();
                 window.ShowDialog();
             }
             Mgr.SauvegaderDonnees();

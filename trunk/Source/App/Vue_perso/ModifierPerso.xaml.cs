@@ -22,11 +22,10 @@ namespace Vue_perso
     public partial class ModifierPerso : Window
     {
         public Manager Mgr => (App.Current as App).MonManager;
-        public Personnage Perso { get; set; }
-        public ModifierPerso(Personnage persoAModifier)
+        public Personnage Perso => Mgr.PersonnageSelectionne;
+        public ModifierPerso()
         {
             InitializeComponent();
-            Perso = persoAModifier;
             //Perso.Citations = Mgr.PersonnageSelectionne.Citations;
             DataContext = Perso;
         }

@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vue_perso.Dialogs.UC_Dialogs"
              mc:Ignorable="d"
-             d:DesignWidth="400" d:DesignHeight="50">
-    <Grid>
+             d:DesignWidth="400">
+    <Grid Height="50">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*" />
             <ColumnDefinition Width="75*" />
