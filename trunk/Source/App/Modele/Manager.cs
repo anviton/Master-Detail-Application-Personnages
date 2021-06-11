@@ -294,7 +294,7 @@ namespace Modele
                 perso = serializer.ReadObject(s) as Personnage;
             }
 
-            perso.EstMentionneDans.Clear();
+            perso.clearEstMentionneDans();
 
             foreach (Relation relation in perso.Relations)
 			{
