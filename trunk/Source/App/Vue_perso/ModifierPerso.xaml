@@ -34,7 +34,10 @@
             <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="NoWrap" Width="Auto" Text="{Binding Nom}" />
 
             <Label  Grid.Column="0" Grid.Row="1" Content="Image :"/>
-            <Button Grid.Column="1" Grid.Row="1" Content="Parcourir..." Click="RenseignerImage"/>
+            <UniformGrid Grid.Column="1" Grid.Row="1" Rows="1">
+                <Button Content="Parcourir..." Click="RenseignerImage"/>
+                <Button Content="Supprimer la photo" Click="SupprimerImage" IsEnabled="{Binding Image, Converter={StaticResource hasImageConverter}}"/>
+            </UniformGrid>
 
             <Label   Grid.Column="0" Grid.Row="2" Content="Citations :"/>
             <Button Grid.Column="1" Grid.Row="2" Content="Modifier..." Name="CitationsButton" Click="RenseignerChamp"/>

@@ -9,15 +9,10 @@
         <conv:String2ColorConverter x:Key="string2ColorConverter"/>
         <conv:OppositeThemeTypeConverter x:Key="oppositeThemeTypeConverter" />
         <conv:ThemeTypeConverter x:Key="themeTypeConverter" />
+        <conv:HasImageConverter x:Key="hasImageConverter" />
         <Style TargetType="Button" x:Key="CommonButtonDisabler">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=MandatoryText1, Path=Text.Length}" Value="0">
-                    <Setter Property="IsEnabled" Value="False" />
-                </DataTrigger>
-                <DataTrigger Binding="{Binding ElementName=MandatoryText2, Path=Text.Length}" Value="0">
-                    <Setter Property="IsEnabled" Value="False" />
-                </DataTrigger>
-                <DataTrigger Binding="{Binding ElementName=MandatoryComboBox, Path=SelectedIndex}" Value="-1">
+                <DataTrigger Binding="{Binding ElementName=MandatoryTextBox, Path=Text.Length}" Value="0">
                     <Setter Property="IsEnabled" Value="False" />
                 </DataTrigger>
             </Style.Triggers>

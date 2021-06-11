@@ -44,7 +44,7 @@ namespace Vue_perso.Dialogs
 			AlternateToComboBox.Clear();
 		}
 
-		private void ResetComboBox(object sender, TextChangedEventArgs e)
+		private void ResetComboBox(object sender, KeyEventArgs e)
 		{
 			MandatoryComboBox.SelectedIndex = -1;
 		}
