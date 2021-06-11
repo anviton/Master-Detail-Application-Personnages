@@ -11,18 +11,18 @@ namespace Modele
     [DataContract(Name = "perso")]
     public class Personnage : Nommable, IEquatable<Personnage>, IComparable<Personnage>, INotifyPropertyChanged
     {
-        public ObservableCollection<string> Citations { get => citations; }
+        public ReadOnlyObservableCollection<string> Citations { get => new ReadOnlyObservableCollection<string>(citations); }
         [DataMember(EmitDefaultValue = false, Name = "citations")]
         private ObservableCollection<string> citations;
-        public static Random indexRandomizer = new Random();
+        private static Random indexRandomizer = new Random();
         public string CitationAleatoire
 		{
             get
 			{
-                if (Citations?.Count > 0) {
-                    int index = indexRandomizer.Next(Citations.Count);
-                    string[] arr_citations = new string[Citations.Count];
-                    Citations.CopyTo(arr_citations, 0);
+                if (citations?.Count > 0) {
+                    int index = indexRandomizer.Next(citations.Count);
+                    string[] arr_citations = new string[citations.Count];
+                    citations.CopyTo(arr_citations, 0);
                     return arr_citations[index];
                 } else return "";
 			}
@@ -42,19 +42,19 @@ namespace Modele
                 OnPropertyChanged(nameof(Image));
             }
    		}
-        public ObservableCollection<JeuVideo> JeuxVideo { get => jeuxvideo; }
+        public ReadOnlyObservableCollection<JeuVideo> JeuxVideo { get => new ReadOnlyObservableCollection<JeuVideo>(jeuxvideo); }
         [DataMember(EmitDefaultValue = false, Name = "listeJeuxVideo")]
         private readonly ObservableCollection<JeuVideo> jeuxvideo = new ObservableCollection<JeuVideo>();
         [DataMember (EmitDefaultValue=false, Name = "theme")]
         public ThemeMusical Theme { get; set; }
-        public ObservableCollection<Relation> Relations { get => relations; }
+        public ReadOnlyObservableCollection<Relation> Relations { get => new ReadOnlyObservableCollection<Relation>(relations); }
         [DataMember(EmitDefaultValue = false, Name = "relations")]
         private readonly ObservableCollection<Relation> relations = new ObservableCollection<Relation>();
         public string SerieDuPerso { get => serieDuPerso; }
         [DataMember (Order = 2)]
         private string serieDuPerso;
         
-        public IList<Relation> EstMentionneDans { get => estMentionneDans; }
+        public ReadOnlyCollection<Relation> EstMentionneDans { get => new ReadOnlyCollection<Relation>(estMentionneDans); }
         [DataMember(EmitDefaultValue = false, Name = "estMentionneDansRealations")]
         private readonly IList<Relation> estMentionneDans = new List<Relation>();
         public string Description
@@ -162,8 +162,8 @@ namespace Modele
         /// <returns>true si la citation a été ajoutée, false sinon.</returns>
         public bool AjouterCitation(string citation)
 		{
-            if (!Citations.Contains(citation)) {
-                Citations.Add(citation);
+            if (!citations.Contains(citation)) {
+                citations.Add(citation);
                 return true;
             }
             else return false;
@@ -175,7 +175,7 @@ namespace Modele
         /// <param name="citation">La citation à supprimer.</param>
         public void SupprimerCitation(string citation)
 		{
-            Citations.Remove(citation);
+            citations.Remove(citation);
 		}
 
         /// <summary>
@@ -187,9 +187,9 @@ namespace Modele
         public bool AjouterRelation(string type, Personnage perso)
         {
             Relation relation = new Relation(type, perso);
-            if (!Relations.Contains(relation))
+            if (!relations.Contains(relation))
 			{
-                Relations.Add(relation);
+                relations.Add(relation);
                 OnNotificationRelation(new NotificationRelationEvent(perso, relation));
                 return true;
 			}
@@ -205,9 +205,9 @@ namespace Modele
         public bool AjouterRelation(string type, string nomPerso)
         {
             Relation relation = new Relation(type, nomPerso);
-            if (!Relations.Contains(relation))
+            if (!relations.Contains(relation))
             {
-                Relations.Add(relation);
+                relations.Add(relation);
                 return true;
             }
             return false;
@@ -221,9 +221,9 @@ namespace Modele
         {
             if (relation.PersoRec != null)
 			{
-                relation.PersoRec.EstMentionneDans.Remove(relation);
+                relation.PersoRec.estMentionneDans.Remove(relation);
 			}
-            Relations.Remove(relation);
+            relations.Remove(relation);
        }
 
         /// <summary>
@@ -233,7 +233,7 @@ namespace Modele
         /// <param name="args"></param>
         private void AjouterAEstMentionneDans(Object sender, NotificationRelationEvent args)
         {
-            args.LePersonnage.EstMentionneDans.Add(args.LaRelation);
+            args.LePersonnage.estMentionneDans.Add(args.LaRelation);
         }
 
         /// <summary>
@@ -246,9 +246,9 @@ namespace Modele
         public bool AjouterUnJeu(string nom, int? annee, out JeuVideo jeu)
 		{
             jeu = new JeuVideo(nom, annee);
-            if (!JeuxVideo.Contains(jeu))
+            if (!jeuxvideo.Contains(jeu))
 			{
-                JeuxVideo.Add(jeu);
+                jeuxvideo.Add(jeu);
                 return true;
 			}
             return false;
@@ -260,7 +260,7 @@ namespace Modele
         /// <param name="jeu"></param>
         public void SupprimerUnJeu(JeuVideo jeu)
         {
-            JeuxVideo.Remove(jeu);
+            jeuxvideo.Remove(jeu);
         }
 
         /// <summary>
@@ -272,7 +272,13 @@ namespace Modele
             return $"{Nom}";
         }
 
-
+        /// <summary>
+        /// Vide la collection estMentionneDans
+        /// </summary>
+        public void clearEstMentionneDans()
+		{
+            estMentionneDans.Clear();
+		}
 
     }
 }
