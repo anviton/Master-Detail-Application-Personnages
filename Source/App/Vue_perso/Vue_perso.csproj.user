@@ -51,7 +51,7 @@
     <Compile Update="ModifierPerso.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ThemeMusical.xaml.cs">
+    <Compile Update="Dialogs\ThemeMusical.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UC_MainWindows\UC_Principal_MainWindow.xaml.cs">
@@ -119,7 +119,7 @@
     <Page Update="ModifierPerso.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ThemeMusical.xaml">
+    <Page Update="Dialogs\ThemeMusical.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UC_MainWindows\UC_Principal_MainWindow.xaml">

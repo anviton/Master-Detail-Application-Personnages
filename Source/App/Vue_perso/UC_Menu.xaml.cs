@@ -77,7 +77,9 @@ namespace Vue_perso
                 {
                     MessageBox.Show($"Le personnage \"{dialog.NomPerso}\", de la série \"{dialog.SerieDuPerso}\", a été ajouté.", "Nouveau personnage",
                         MessageBoxButton.OK, MessageBoxImage.Information);
-                    ModifierPerso modifierPerso = new ModifierPerso(nouveauPerso);
+
+                    Mgr.PersonnageSelectionne = nouveauPerso;
+                    ModifierPerso modifierPerso = new ModifierPerso();
                     modifierPerso.Show();
                     Mgr.SauvegaderDonnees();
                 }
