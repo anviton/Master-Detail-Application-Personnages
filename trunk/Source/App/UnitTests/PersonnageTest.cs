@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using StubP;
 using Modele;
 
 namespace UnitTests
@@ -9,147 +10,113 @@ namespace UnitTests
 	[TestClass]
 	public class PersonnageTest
 	{
-		/*[TestMethod]
-		public void Test_AjouterCitation_CitationInexistante()
+		[TestMethod]
+		public void AjouterCitation_CitationInexistante()
 		{
-			Chargeur chargeur = new Stub("");
-			Manager mgr = chargeur.Charger();
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
+			string citation = "Citation inexistante";
+			Personnage madeline = new Personnage("Madeline", "celeste");
+			madeline = Mgr.Personnages[Mgr.Personnages.IndexOf(madeline)];
 
-			mgr.RechercherUneSerie("celeste", out Serie serie);
-			serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
-			string nouvelleCitation = "Get up, Madeline. Think of the feather. You can save Theo.";
-
-			Assert.IsFalse(personnage.Citations.Contains(nouvelleCitation));
-			Assert.IsTrue(personnage.AjouterCitation(nouvelleCitation));
-			Assert.IsTrue(personnage.Citations.Contains(nouvelleCitation));
+			Assert.IsFalse(madeline.Citations.Contains(citation));
+			Assert.IsTrue(madeline.AjouterCitation(citation));
+			Assert.IsTrue(madeline.Citations.Contains(citation));
 		}
 
 		[TestMethod]
-		public void Test_AjouterCitation_CitationExistante()
+		public void AjouterCitation_CitationExistante()
 		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.RechercherUneSerie("celeste", out Serie serie);
-			serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
-			string nouvelleCitation = "This is it, Madeline. Just breathe.";
-
-			Assert.IsTrue(personnage.Citations.Contains(nouvelleCitation));
-			Assert.IsFalse(personnage.AjouterCitation(nouvelleCitation));
-		}
-
-		[TestMethod]
-		public void Test_SupprimerCitation()
-		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("celeste"), out Serie serie);
-			serie.Personnages.TryGetValue(new Personnage("Madeline", serie.Nom), out Personnage personnage);
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
 			string citation = "This is it, Madeline. Just breathe.";
+			Personnage madeline = new Personnage("Madeline", "celeste");
+			madeline = Mgr.Personnages[Mgr.Personnages.IndexOf(madeline)];
 
-			Assert.IsTrue(personnage.Citations.Contains(citation));
-			personnage.SupprimerCitation(citation);
-			Assert.IsFalse(personnage.Citations.Contains(citation));
+			Assert.IsTrue(madeline.Citations.Contains(citation));
+			Assert.IsFalse(madeline.AjouterCitation(citation));
 		}
 
 		[TestMethod]
-		public void Test_AjouterRelation_RelationInexistanteAvecPersoRec()
+		public void SupprimerCitation()
 		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
+			string citation = "This is it, Madeline. Just breathe.";
+			Personnage madeline = new Personnage("Madeline", "celeste");
+			madeline = Mgr.Personnages[Mgr.Personnages.IndexOf(madeline)];
 
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			donnees.LesSeries.TryGetValue(new Serie("zelda"), out Serie serieZelda);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-			serieZelda.Personnages.TryGetValue(new Personnage("Link", serieZelda.Nom), out Personnage link);
+			Assert.IsTrue(madeline.Citations.Contains(citation));
+			madeline.SupprimerCitation(citation);
+			Assert.IsFalse(madeline.Citations.Contains(citation));
+		}
 
-			Relation relation = new Relation("Parfait inconnu", link);
+		[TestMethod]
+		public void AjouterRelation_RelationPersoNonRecInexistante()
+		{
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
+			Relation relation = new Relation("anyType", "un personnage non enregistré");
+			Personnage mario = new Personnage("Mario", "mario");
+			mario = Mgr.Personnages[Mgr.Personnages.IndexOf(mario)];
 
 			Assert.IsFalse(mario.Relations.Contains(relation));
-			Assert.IsFalse(link.EstMentionneDans.Contains(relation));
-			Assert.IsTrue(mario.AjouterRelation("Parfait inconnu", link));
+			Assert.IsTrue(mario.AjouterRelation(relation.Type, relation.NomPersoNonRec));
 			Assert.IsTrue(mario.Relations.Contains(relation));
-			Assert.IsTrue(link.EstMentionneDans.Contains(relation));
 		}
 
 		[TestMethod]
-		public void Test_AjouterRelation_RelationInexistanteAvecPersoNonRec()
+		public void AjouterRelation_RelationPersoNonRecExistante()
 		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
+			Relation relation = new Relation("anyType", "Luigi");
+			Personnage mario = new Personnage("Mario", "mario");
+			mario = Mgr.Personnages[Mgr.Personnages.IndexOf(mario)];
 
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
+			Assert.IsTrue(mario.Relations.Contains(relation));
+			Assert.IsFalse(mario.AjouterRelation(relation.Type, relation.NomPersoNonRec));
+		}
 
-			Relation relation = new Relation("Ennemi", "Donkey Kong");
+		[TestMethod]
+		public void AjouterRelation_RelationPersoRecInexistante()
+		{
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
+			Personnage mario = new Personnage("Mario", "mario");
+			Personnage wario = new Personnage("Wario", "mario");
+			mario = Mgr.Personnages[Mgr.Personnages.IndexOf(mario)];
+			wario = Mgr.Personnages[Mgr.Personnages.IndexOf(wario)];
+			Relation relation = new Relation("anyType", wario);
 
 			Assert.IsFalse(mario.Relations.Contains(relation));
-			Assert.IsTrue(mario.AjouterRelation("Ennemi", "Donkey Kong"));
+			Assert.IsTrue(mario.AjouterRelation(relation.Type, relation.PersoRec));
 			Assert.IsTrue(mario.Relations.Contains(relation));
 		}
 
 		[TestMethod]
-		public void Test_AjouterRelation_RelationExistanteAvecPersoRec()
+		public void AjouterRelation_RelationPersoRecExistante()
 		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-			serieMario.Personnages.TryGetValue(new Personnage("Bowser", serieMario.Nom), out Personnage bowser);
-
-			Relation relation = new Relation("Ennemi", bowser);
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
+			Personnage mario = new Personnage("Mario", "mario");
+			Personnage bowser = new Personnage("Bowser", "mario");
+			mario = Mgr.Personnages[Mgr.Personnages.IndexOf(mario)];
+			bowser = Mgr.Personnages[Mgr.Personnages.IndexOf(bowser)];
+			Relation relation = new Relation("anyType", bowser);
 
 			Assert.IsTrue(mario.Relations.Contains(relation));
-			Assert.IsTrue(bowser.EstMentionneDans.Contains(relation));
-			Assert.IsFalse(mario.AjouterRelation("Ennemi", bowser));
+			Assert.IsFalse(mario.AjouterRelation(relation.Type, relation.PersoRec));
 		}
 
 		[TestMethod]
-		public void Test_AjouterRelation_RelationExistanteAvecPersoNonRec()
+		public void SupprimerRelation_RelationPersoNonRec()
 		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-
-			Relation relation = new Relation("Frère", "Luigi");
-
-			Assert.IsTrue(mario.Relations.Contains(relation));
-			Assert.IsFalse(mario.AjouterRelation("Frère", "Luigi"));
-		}
-
-		[TestMethod]
-		public void Test_SupprimerUneRelation_RelationAvecPersoRec()
-		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-			serieMario.Personnages.TryGetValue(new Personnage("Bowser", serieMario.Nom), out Personnage bowser);
-
-			Relation relation = new Relation("Ennemi", bowser);
-
-			Assert.IsTrue(mario.Relations.Contains(relation));
-			Assert.IsTrue(bowser.EstMentionneDans.Contains(relation));
-			mario.SupprimerUneRelation(relation);
-			Assert.IsFalse(mario.Relations.Contains(relation));
-			Assert.IsFalse(bowser.EstMentionneDans.Contains(relation));
-		}
-
-		[TestMethod]
-		public void Test_SupprimerUneRelation_RelationAvecPersoNonRec()
-		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-
-			Relation relation = new Relation("Frère", "Luigi");
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
+			Relation relation = new Relation("anyType", "Luigi");
+			Personnage mario = new Personnage("Mario", "mario");
+			mario = Mgr.Personnages[Mgr.Personnages.IndexOf(mario)];
 
 			Assert.IsTrue(mario.Relations.Contains(relation));
 			mario.SupprimerUneRelation(relation);
@@ -157,111 +124,44 @@ namespace UnitTests
 		}
 
 		[TestMethod]
-		public void Test_AjouterUnJeu_JeuInexistantNomUniquement()
+		public void AjouterUnJeu_JeuInexistant()
 		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
 			JeuVideo jeu = new JeuVideo("Super Mario Odyssey", null);
+			Personnage mario = new Personnage("Mario", "mario");
+			mario = Mgr.Personnages[Mgr.Personnages.IndexOf(mario)];
 
 			Assert.IsFalse(mario.JeuxVideo.Contains(jeu));
-			Assert.IsTrue(mario.AjouterUnJeu("Super Mario Odyssey", null, out JeuVideo j));
+			Assert.IsTrue(mario.AjouterUnJeu(jeu.Nom, jeu.AnneeDeCreation, out _));
 			Assert.IsTrue(mario.JeuxVideo.Contains(jeu));
 		}
 
 		[TestMethod]
-		public void Test_AjouterUnJeu_JeuInexistantNomEtAnnee()
+		public void AjouterUnJeu_JeuExistant()
 		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-
-			JeuVideo jeu = new JeuVideo("Super Mario Odyssey", 2017);
-
-			Assert.IsFalse(mario.JeuxVideo.Contains(jeu));
-			Assert.IsTrue(mario.AjouterUnJeu("Super Mario Odyssey", 2017, out JeuVideo j));
-			Assert.IsTrue(mario.JeuxVideo.Contains(jeu));
-		}
-		
-		[TestMethod]
-		public void Test_AjouterUnJeu_JeuExistantAjoutNomUniquementExistantNomUniquement()
-		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-
-			JeuVideo jeu = new JeuVideo("Super Mario Bros. 2", null);
-
-			Assert.IsTrue(mario.JeuxVideo.Contains(jeu));
-			Assert.IsFalse(mario.AjouterUnJeu("Super Mario Bros. 2", null, out JeuVideo j));
-		}
-
-		[TestMethod]
-		public void Test_AjouterUnJeu_JeuExistantAjoutNomEtAnneeExistantNomEtAnnee()
-		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-
-			JeuVideo jeu = new JeuVideo("Super Mario 64", 1997);
-
-			Assert.IsTrue(mario.JeuxVideo.Contains(jeu));
-			Assert.IsFalse(mario.AjouterUnJeu("Super Mario 64", 1997, out JeuVideo j));
-		}
-
-		[TestMethod]
-		public void Test_AjouterUnJeu_JeuExistantAjoutNomUniquementExistantNomEtAnnee()
-		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
 			JeuVideo jeu = new JeuVideo("Super Mario 64", null);
+			Personnage mario = new Personnage("Mario", "mario");
+			mario = Mgr.Personnages[Mgr.Personnages.IndexOf(mario)];
 
 			Assert.IsTrue(mario.JeuxVideo.Contains(jeu));
-			Assert.IsFalse(mario.AjouterUnJeu("Super Mario 64", null, out JeuVideo j));
+			Assert.IsFalse(mario.AjouterUnJeu(jeu.Nom, jeu.AnneeDeCreation, out _));
 		}
 
 		[TestMethod]
-		public void Test_AjouterUnJeu_JeuExistantAjoutNomEtAnneeExistantNomUniquement()
+		public void SupprimerUnJeu()
 		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-
-			JeuVideo jeu = new JeuVideo("Super Mario Bros. 2", 1988);
-
-			Assert.IsTrue(mario.JeuxVideo.Contains(jeu));
-			Assert.IsFalse(mario.AjouterUnJeu("Super Mario Bros. 2", 1988, out JeuVideo j));
-		}
-
-		[TestMethod]
-		public void Test_SupprimerUnJeu()
-		{
-			Chargeur chargeur = new Stub("");
-			Manager donnees = chargeur.Charger();
-
-			donnees.LesSeries.TryGetValue(new Serie("mario"), out Serie serieMario);
-			serieMario.Personnages.TryGetValue(new Personnage("Mario", serieMario.Nom), out Personnage mario);
-
-			JeuVideo jeu = new JeuVideo("Super Mario Bros. 2", null);
+			Manager Mgr = new Manager(new Stub());
+			Mgr.ChargeDonnees();
+			JeuVideo jeu = new JeuVideo("Super Mario 64", null);
+			Personnage mario = new Personnage("Mario", "mario");
+			mario = Mgr.Personnages[Mgr.Personnages.IndexOf(mario)];
 
 			Assert.IsTrue(mario.JeuxVideo.Contains(jeu));
 			mario.SupprimerUnJeu(jeu);
 			Assert.IsFalse(mario.JeuxVideo.Contains(jeu));
-		}*/
+		}
 	}
 }
