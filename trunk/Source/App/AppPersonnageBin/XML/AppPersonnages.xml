@@ -3,7 +3,7 @@
   <Groupes xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="2" z:Size="1">
     <d2p1:KeyValueOfstringArrayOfperso0gxuieJo>
       <d2p1:Key z:Id="3">Triforce</d2p1:Key>
-      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="4" z:Size="2">
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="4" z:Size="3">
         <d4p1:perso z:Id="5">
           <d4p1:nom z:Id="6">Link</d4p1:nom>
           <d4p1:citations z:Id="7" z:Size="0" />
@@ -48,86 +48,87 @@
           </d4p1:theme>
           <d4p1:serieDuPerso z:Ref="16" i:nil="true" />
         </d4p1:perso>
+        <d4p1:perso z:Id="32">
+          <d4p1:nom z:Id="33">Mario</d4p1:nom>
+          <d4p1:citations z:Id="34" z:Size="2">
+            <d2p1:string z:Id="35">It's me Mario</d2p1:string>
+            <d2p1:string z:Id="36">Bye bye</d2p1:string>
+          </d4p1:citations>
+          <d4p1:description z:Id="37">Personnage emblématique du monde du Jeu Vidéo</d4p1:description>
+          <d4p1:estMentionneDansRealations z:Id="38" z:Size="2">
+            <d4p1:relation z:Id="39">
+              <d4p1:persoRec z:Ref="32" i:nil="true" />
+              <d4p1:type z:Id="40">Acolyte</d4p1:type>
+            </d4p1:relation>
+            <d4p1:relation z:Id="41">
+              <d4p1:persoRec z:Ref="32" i:nil="true" />
+              <d4p1:type z:Id="42">Ennemi</d4p1:type>
+            </d4p1:relation>
+          </d4p1:estMentionneDansRealations>
+          <d4p1:image z:Id="43">mario.png</d4p1:image>
+          <d4p1:listeJeuxVideo z:Id="44" z:Size="3">
+            <d4p1:jeuVideo z:Id="45">
+              <d4p1:nom z:Id="46">Super Mario 64</d4p1:nom>
+              <d4p1:annee>1997</d4p1:annee>
+            </d4p1:jeuVideo>
+            <d4p1:jeuVideo z:Id="47">
+              <d4p1:nom z:Id="48">Super Mario Bros.</d4p1:nom>
+              <d4p1:annee>1982</d4p1:annee>
+            </d4p1:jeuVideo>
+            <d4p1:jeuVideo z:Id="49">
+              <d4p1:nom z:Id="50">Super Mario Bros. 2</d4p1:nom>
+              <d4p1:annee>1983</d4p1:annee>
+            </d4p1:jeuVideo>
+          </d4p1:listeJeuxVideo>
+          <d4p1:relations z:Id="51" z:Size="2">
+            <d4p1:relation z:Id="52">
+              <d4p1:persoRec z:Id="53">
+                <d4p1:nom z:Id="54">Bowser</d4p1:nom>
+                <d4p1:citations z:Id="55" z:Size="0" />
+                <d4p1:estMentionneDansRealations z:Id="56" z:Size="1">
+                  <d4p1:relation z:Ref="52" i:nil="true" />
+                </d4p1:estMentionneDansRealations>
+                <d4p1:image z:Id="57">bowser.png</d4p1:image>
+                <d4p1:listeJeuxVideo z:Id="58" z:Size="0" />
+                <d4p1:relations z:Id="59" z:Size="0" />
+                <d4p1:theme z:Id="60">
+                  <d4p1:isLeitmotiv>false</d4p1:isLeitmotiv>
+                  <d4p1:listeTitres z:Id="61" z:Size="1">
+                    <d4p1:titre z:Id="62">
+                      <d4p1:nom z:Id="63">Bowser's Theme</d4p1:nom>
+                      <d4p1:lien z:Id="64">https://www.youtube.com/watch?v=bq_jS6o3OoY</d4p1:lien>
+                    </d4p1:titre>
+                  </d4p1:listeTitres>
+                </d4p1:theme>
+                <d4p1:serieDuPerso z:Id="65">mario</d4p1:serieDuPerso>
+              </d4p1:persoRec>
+              <d4p1:type z:Ref="42" i:nil="true" />
+            </d4p1:relation>
+            <d4p1:relation z:Id="66">
+              <d4p1:persoNonRec z:Id="67">Luigi</d4p1:persoNonRec>
+              <d4p1:type z:Id="68">Frère</d4p1:type>
+            </d4p1:relation>
+          </d4p1:relations>
+          <d4p1:theme z:Id="69">
+            <d4p1:isLeitmotiv>false</d4p1:isLeitmotiv>
+            <d4p1:listeTitres z:Id="70" z:Size="1">
+              <d4p1:titre z:Id="71">
+                <d4p1:nom z:Ref="31" i:nil="true" />
+              </d4p1:titre>
+            </d4p1:listeTitres>
+          </d4p1:theme>
+          <d4p1:serieDuPerso z:Ref="65" i:nil="true" />
+        </d4p1:perso>
       </d2p1:Value>
     </d2p1:KeyValueOfstringArrayOfperso0gxuieJo>
   </Groupes>
-  <Series xmlns:d2p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="32">
-    <d2p1:series z:Id="33" z:Size="3">
-      <d2p1:serie z:Id="34">
-        <d2p1:nom z:Id="35">mario</d2p1:nom>
-        <d2p1:listePersonnages z:Id="36" z:Size="4">
-          <d2p1:perso z:Id="37">
-            <d2p1:nom z:Id="38">Mario</d2p1:nom>
-            <d2p1:citations xmlns:d7p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="39" z:Size="2">
-              <d7p1:string z:Id="40">It's me Mario</d7p1:string>
-              <d7p1:string z:Id="41">Bye bye</d7p1:string>
-            </d2p1:citations>
-            <d2p1:description z:Id="42">Personnage emblématique du monde du Jeu Vidéo</d2p1:description>
-            <d2p1:estMentionneDansRealations z:Id="43" z:Size="2">
-              <d2p1:relation z:Id="44">
-                <d2p1:persoRec z:Ref="37" i:nil="true" />
-                <d2p1:type z:Id="45">Acolyte</d2p1:type>
-              </d2p1:relation>
-              <d2p1:relation z:Id="46">
-                <d2p1:persoRec z:Ref="37" i:nil="true" />
-                <d2p1:type z:Id="47">Ennemi</d2p1:type>
-              </d2p1:relation>
-            </d2p1:estMentionneDansRealations>
-            <d2p1:image z:Id="48">mario.png</d2p1:image>
-            <d2p1:listeJeuxVideo z:Id="49" z:Size="3">
-              <d2p1:jeuVideo z:Id="50">
-                <d2p1:nom z:Id="51">Super Mario 64</d2p1:nom>
-                <d2p1:annee>1997</d2p1:annee>
-              </d2p1:jeuVideo>
-              <d2p1:jeuVideo z:Id="52">
-                <d2p1:nom z:Id="53">Super Mario Bros.</d2p1:nom>
-                <d2p1:annee>1982</d2p1:annee>
-              </d2p1:jeuVideo>
-              <d2p1:jeuVideo z:Id="54">
-                <d2p1:nom z:Id="55">Super Mario Bros. 2</d2p1:nom>
-                <d2p1:annee>1983</d2p1:annee>
-              </d2p1:jeuVideo>
-            </d2p1:listeJeuxVideo>
-            <d2p1:relations z:Id="56" z:Size="2">
-              <d2p1:relation z:Id="57">
-                <d2p1:persoRec z:Id="58">
-                  <d2p1:nom z:Id="59">Bowser</d2p1:nom>
-                  <d2p1:citations xmlns:d10p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="60" z:Size="0" />
-                  <d2p1:estMentionneDansRealations z:Id="61" z:Size="1">
-                    <d2p1:relation z:Ref="57" i:nil="true" />
-                  </d2p1:estMentionneDansRealations>
-                  <d2p1:image z:Id="62">bowser.png</d2p1:image>
-                  <d2p1:listeJeuxVideo z:Id="63" z:Size="0" />
-                  <d2p1:relations z:Id="64" z:Size="0" />
-                  <d2p1:theme z:Id="65">
-                    <d2p1:isLeitmotiv>false</d2p1:isLeitmotiv>
-                    <d2p1:listeTitres z:Id="66" z:Size="1">
-                      <d2p1:titre z:Id="67">
-                        <d2p1:nom z:Id="68">Bowser's Theme</d2p1:nom>
-                        <d2p1:lien z:Id="69">https://www.youtube.com/watch?v=bq_jS6o3OoY</d2p1:lien>
-                      </d2p1:titre>
-                    </d2p1:listeTitres>
-                  </d2p1:theme>
-                  <d2p1:serieDuPerso z:Ref="35" i:nil="true" />
-                </d2p1:persoRec>
-                <d2p1:type z:Ref="47" i:nil="true" />
-              </d2p1:relation>
-              <d2p1:relation z:Id="70">
-                <d2p1:persoNonRec z:Id="71">Luigi</d2p1:persoNonRec>
-                <d2p1:type z:Id="72">Frère</d2p1:type>
-              </d2p1:relation>
-            </d2p1:relations>
-            <d2p1:theme z:Id="73">
-              <d2p1:isLeitmotiv>false</d2p1:isLeitmotiv>
-              <d2p1:listeTitres z:Id="74" z:Size="1">
-                <d2p1:titre z:Id="75">
-                  <d2p1:nom z:Ref="31" i:nil="true" />
-                </d2p1:titre>
-              </d2p1:listeTitres>
-            </d2p1:theme>
-            <d2p1:serieDuPerso z:Ref="35" i:nil="true" />
-          </d2p1:perso>
-          <d2p1:perso z:Ref="58" i:nil="true" />
+  <Series xmlns:d2p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="72">
+    <d2p1:series z:Id="73" z:Size="3">
+      <d2p1:serie z:Id="74">
+        <d2p1:nom z:Ref="65" i:nil="true" />
+        <d2p1:listePersonnages z:Id="75" z:Size="4">
+          <d2p1:perso z:Ref="32" i:nil="true" />
+          <d2p1:perso z:Ref="53" i:nil="true" />
           <d2p1:perso z:Id="76">
             <d2p1:nom z:Id="77">Yoshi</d2p1:nom>
             <d2p1:citations xmlns:d7p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="78" z:Size="1">
@@ -138,12 +139,12 @@
             <d2p1:image z:Id="82">yoshi.png</d2p1:image>
             <d2p1:listeJeuxVideo z:Id="83" z:Size="1">
               <d2p1:jeuVideo z:Id="84">
-                <d2p1:nom z:Ref="51" i:nil="true" />
+                <d2p1:nom z:Ref="46" i:nil="true" />
                 <d2p1:annee>1997</d2p1:annee>
               </d2p1:jeuVideo>
             </d2p1:listeJeuxVideo>
             <d2p1:relations z:Id="85" z:Size="1">
-              <d2p1:relation z:Ref="44" i:nil="true" />
+              <d2p1:relation z:Ref="39" i:nil="true" />
             </d2p1:relations>
             <d2p1:theme z:Id="86">
               <d2p1:isLeitmotiv>false</d2p1:isLeitmotiv>
@@ -153,7 +154,7 @@
                 </d2p1:titre>
               </d2p1:listeTitres>
             </d2p1:theme>
-            <d2p1:serieDuPerso z:Ref="35" i:nil="true" />
+            <d2p1:serieDuPerso z:Ref="65" i:nil="true" />
           </d2p1:perso>
           <d2p1:perso z:Id="89">
             <d2p1:nom z:Id="90">Wario</d2p1:nom>
