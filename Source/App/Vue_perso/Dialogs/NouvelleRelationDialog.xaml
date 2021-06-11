@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="Ajouter une relation" Height="175" Width="310">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="StyleOKButton">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=TypeTextBox, Path=Text.Length}" Value="0">
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding ElementName=PersoComboBox, Path=SelectedIndex}" Value="-1" />
+                        <Condition Binding="{Binding ElementName=PersoTextBox, Path=Text.Length}" Value="0" />
+                    </MultiDataTrigger.Conditions>
+                    <MultiDataTrigger.Setters>
+                        <Setter Property="IsEnabled" Value="False" />
+                    </MultiDataTrigger.Setters>
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
 
     <StackPanel Margin="5,2,5,0">
         <Label HorizontalAlignment="Center" Content="Personnage :" />
@@ -15,13 +33,13 @@
                       SelectionChanged="ResetTextBox" 
                       Width="130" ItemTemplate="{StaticResource smallComboBoxDisplay}" />
             <Label Content="ou" HorizontalAlignment="Center" />
-            <TextBox Text="{Binding NomPersoNonRec}" Name="AlternateToComboBox" Width="130" TextChanged="ResetComboBox"/>
+            <TextBox Text="{Binding NomPersoNonRec}" Name="AlternateToComboBox" Width="130" KeyDown="ResetComboBox"/>
         </StackPanel>
         
         <Label HorizontalAlignment="Center" Content="Type :" />
         <TextBox Text="{Binding Type}" Name="MandatoryText1"/>
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-            <Button Content="OK" Width="50" Margin="5" Click="OKButtonPressed" Style="{StaticResource CommonButtonDisabler}"/>
+            <Button Content="OK" Width="50" Margin="5" Click="OKButtonPressed" Style="{StaticResource StyleOKButton}"/>
             <Button Content="Annuler" Width="50" Margin="5" Click="CancelButtonPressed"/>
         </StackPanel>
     </StackPanel>

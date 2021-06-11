@@ -23,10 +23,10 @@ namespace Vue_perso
     {
         public Manager Mgr => (App.Current as App).MonManager;
         public Personnage Perso => Mgr.PersonnageSelectionne;
+
         public ModifierPerso()
         {
             InitializeComponent();
-            //Perso.Citations = Mgr.PersonnageSelectionne.Citations;
             DataContext = Perso;
         }
 
@@ -50,6 +50,15 @@ namespace Vue_perso
                 Perso.Image = fileName;
 			}
 		}
+
+        private void SupprimerImage(object sender, RoutedEventArgs e)
+        {
+            var confirm = MessageBox.Show("Êtes-vous sûr de vouloir supprimer l'image du personnage ?", "Supprimer l'image", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (confirm == MessageBoxResult.Yes)
+			{
+                Perso.Image = null;
+			}
+        }
 
         private void RenseignerChamp(object sender, RoutedEventArgs e)
         {
@@ -85,5 +94,7 @@ namespace Vue_perso
 		{
             Close();
 		}
+
+		
 	}
 }
