@@ -5,7 +5,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>Vue_perso</ActiveDebugProfile>
-    <_LastSelectedProfileId>U:\c_sharp\projet\trunk\Source\App\Vue_perso\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\Users\toiti\OneDrive\Desktop\monprojet\trunk\Source\App\Vue_perso\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
     <ApplicationDefinition Update="App.xaml">
