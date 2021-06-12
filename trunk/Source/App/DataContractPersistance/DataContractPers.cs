@@ -10,13 +10,13 @@ namespace DataContractPersistance
 {
     public class DataContractPers : IPersistance
     {
-        public string FilePath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "XML");
+        public string FilePath { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Personnages", "XML");
         public string FileName { get; set; } = "AppPersonnages.xml";
         public (SeriesTheque lesSeries, IDictionary<string, ObservableCollection<Personnage>> groupes) Charger()
         {
             if(!File.Exists(Path.Combine(FilePath, FileName)))
             {
-                throw new FileNotFoundException("Fichier de Persistnace non trouvé");
+                throw new FileNotFoundException("Fichier de Persistance non trouvé");
 
             }
             DataToPersist data;

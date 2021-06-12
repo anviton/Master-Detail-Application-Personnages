@@ -12,7 +12,7 @@ namespace Vue_perso.Converters
         public static string ImagesPath { get; set; }
         static String2ImageConverter()
         {
-            ImagesPath = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+            ImagesPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Personnages", "Images");
         }
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
