@@ -13,7 +13,6 @@ namespace Modele
 {
     public class Manager : INotifyPropertyChanged
     {
-        //public ObservableCollection<Serie> Series { get; }
         public SeriesTheque LesSeries { get; }
         // Format : string = nom, ObservableCollection = personnages appartenant au groupe
         public IDictionary<string, ObservableCollection<Personnage>> Groupes { get; }
@@ -89,7 +88,7 @@ namespace Modele
         /// <summary>
         /// Gestion de la Persistance
         /// </summary>
-        public IPersistance Pers { get; /*private*/ set; }
+        public IPersistance Pers { get; private set; }
         public Manager(IPersistance persistance)
         {
             Pers = persistance;
@@ -304,7 +303,7 @@ namespace Modele
 				}
 			}
 
-            if (!File.Exists(System.IO.Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "..\\Images"), perso.Image)))
+            if (!File.Exists(System.IO.Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Images"), perso.Image)))
             {
                 perso.Image = null;
             }

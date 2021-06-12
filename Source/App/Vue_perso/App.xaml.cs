@@ -15,8 +15,8 @@ namespace Vue_perso
     /// </summary>
     public partial class App : Application
     {
-        public Manager MonManager { get; private set; } = new Manager(new StubP.Stub());
-        //public Manager MonManager { get; private set; } = new Manager(new DataContractPersistance.DataContractPers());
+        //public Manager MonManager { get; private set; } = new Manager(new StubP.Stub());
+        public Manager MonManager { get; private set; } = new Manager(new DataContractPersistance.DataContractPers());
 
         public App()
         {
