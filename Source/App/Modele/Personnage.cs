@@ -54,9 +54,9 @@ namespace Modele
         [DataMember (Order = 2)]
         private string serieDuPerso;
         
-        public ReadOnlyCollection<Relation> EstMentionneDans { get => new ReadOnlyCollection<Relation>(estMentionneDans); }
+        public List<Relation> EstMentionneDans { get => new List<Relation>(estMentionneDans); }
         [DataMember(EmitDefaultValue = false, Name = "estMentionneDansRealations")]
-        private readonly IList<Relation> estMentionneDans = new List<Relation>();
+        private List<Relation> estMentionneDans = new List<Relation>();
         public string Description
         {
             get
@@ -81,6 +81,11 @@ namespace Modele
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
 
         // Méthodes
+        /// <summary>
+        /// Constructeur Personnage
+        /// </summary>
+        /// <param name="nom">Nom du Personnage</param>
+        /// <param name="serie">Serie du Personnage</param>
         public Personnage(string nom, string serie) : base(nom)
         {
             serieDuPerso = serie;
@@ -164,6 +169,7 @@ namespace Modele
 		{
             if (!citations.Contains(citation)) {
                 citations.Add(citation);
+                OnPropertyChanged(nameof(CitationAleatoire));
                 return true;
             }
             else return false;
@@ -176,6 +182,7 @@ namespace Modele
         public void SupprimerCitation(string citation)
 		{
             citations.Remove(citation);
+            OnPropertyChanged(nameof(CitationAleatoire));
 		}
 
         /// <summary>

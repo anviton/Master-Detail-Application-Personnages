@@ -32,7 +32,7 @@ namespace Vue_perso.UC_MainWindows
                 if (Mgr.RechercherUnPersonnage((sender as TextBox).Text, Mgr.SerieSelectionnee.Nom, out Personnage perso))
                 {
                     
-                    if(Mgr.ListeDePersonnagesActive != null)
+                    if(Mgr.GroupeSelectionne != null)
                     {
                         if (Mgr.Groupes[Mgr.GroupeSelectionne].Contains(perso))
                         {

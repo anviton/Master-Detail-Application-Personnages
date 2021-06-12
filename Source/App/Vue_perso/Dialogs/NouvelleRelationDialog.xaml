@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Ajouter une relation" Height="175" Width="310">
+        Title="Ajouter une relation" Height="175" Width="310"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png">
     <Window.Resources>
         <Style TargetType="Button" x:Key="StyleOKButton">
             <Style.Triggers>

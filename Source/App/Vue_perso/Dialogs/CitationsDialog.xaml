@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
-        Title="Citations du personnage" Height="450" Width="800">
+        Title="Citations du personnage" Height="450" Width="800"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
             <Label HorizontalAlignment="Center" Content="Citations du personnage" FontSize="25px" Margin="0,0,0,1"/>

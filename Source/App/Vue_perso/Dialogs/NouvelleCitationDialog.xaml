@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Nouvelle citation" Height="160" Width="300">
+        Title="Nouvelle citation" Height="160" Width="300"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png">
 
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="5" HorizontalAlignment="Right" Height="30">

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Supprimer un groupe" Height="175" Width="300">
+        Title="Supprimer un groupe" Height="175" Width="300"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png">
     <Window.Resources>
         <Style TargetType="Button" x:Key="StyleBoutonValider">
             <Style.Triggers>

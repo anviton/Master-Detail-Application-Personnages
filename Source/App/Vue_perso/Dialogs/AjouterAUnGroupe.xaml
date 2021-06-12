@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
-        Title="AjouterAUnGroupe" Height="175" Width="300">
+        Title="AjouterAUnGroupe" Height="175" Width="300"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png">
     <Window.Resources>
         <Style TargetType="Button" x:Key="StyleOKButton">
             <Style.Triggers>

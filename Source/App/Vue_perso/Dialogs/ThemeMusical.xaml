@@ -7,7 +7,8 @@
         xmlns:UserControl="clr-namespace:Vue_perso.Dialogs.UC_Dialogs"
         mc:Ignorable="d"
         Title="Thème musical du personnage" Height="450" Width="400"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png">
     <DockPanel Margin="5,0">
         <Label DockPanel.Dock="Top" Content="Thème musical du personnage" FontSize="25" HorizontalAlignment="Center"/>
         <StackPanel Margin="0,0,5,0"  DockPanel.Dock="Top" Orientation="Horizontal">

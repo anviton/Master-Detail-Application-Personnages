@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Nouvelle série" Height="125" Width="300">
+        Title="Nouvelle série" Height="125" Width="300"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png">
 
     <StackPanel Margin="5,2,5,0">
         <Label HorizontalAlignment="Center" Content="Nom de la série :" />

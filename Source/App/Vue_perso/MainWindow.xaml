@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Vue_perso"
         xmlns:UserControl="clr-namespace:Vue_perso.UC_MainWindows"
         mc:Ignorable="d"
-        Icon="/Bibliothèques_Images;Component/icon_etoile.jpeg"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png"
         Title="Personnages" 
         MinHeight="450" MinWidth="800" Height="450" Width="800"
         WindowState="Maximized">

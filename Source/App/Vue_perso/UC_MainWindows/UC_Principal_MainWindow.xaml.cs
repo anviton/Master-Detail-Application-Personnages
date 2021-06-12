@@ -73,6 +73,8 @@ namespace Vue_perso.UC_MainWindows
                 }
                 else
                 {
+                    Suppression_Perso.Header = "Suppr du Groupe";
+                    Suppression_Perso.ToolTip = "Supprimer du Groupe";
                     HeaderListe.Text = $"{Mgr.GroupeSelectionne}";
                     Pour_Recherche.Content = new UC_RecherchePersoClassique();
                 }
@@ -180,10 +182,23 @@ namespace Vue_perso.UC_MainWindows
 
                 if (perso != null)
 				{
-                    Mgr.PersonnageSelectionne = perso;
+                    PersonnageSelect = perso;
+                    if (Mgr.GroupeSelectionne != null && !Mgr.Groupes[Mgr.GroupeSelectionne].Contains(perso))
+                    {
+                        Suppression_Perso.IsEnabled = false;
+                    }
+                    else
+                        Suppression_Perso.IsEnabled = true;
+
+                    
 				}
 			}
 		}
-	}
+
+        private void ListBoxPersonnages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Suppression_Perso.IsEnabled = true;
+        }
+    }
 }
 
