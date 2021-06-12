@@ -29,15 +29,15 @@
     <StackPanel Margin="5,2,5,0">
         <Label HorizontalAlignment="Center" Content="Personnage :" />
         <StackPanel Orientation="Horizontal">
-            <ComboBox ItemsSource="{Binding Mgr.Personnages}" SelectedItem="{Binding PersoRec}" Name="MandatoryComboBox" 
+            <ComboBox ItemsSource="{Binding Mgr.Personnages}" SelectedItem="{Binding PersoRec}" Name="PersoComboBox" 
                       SelectionChanged="ResetTextBox" 
                       Width="130" ItemTemplate="{StaticResource smallComboBoxDisplay}" />
             <Label Content="ou" HorizontalAlignment="Center" />
-            <TextBox Text="{Binding NomPersoNonRec}" Name="AlternateToComboBox" Width="130" KeyDown="ResetComboBox"/>
+            <TextBox Text="{Binding NomPersoNonRec}" Name="PersoTextBox" Width="130" KeyDown="ResetComboBox"/>
         </StackPanel>
         
         <Label HorizontalAlignment="Center" Content="Type :" />
-        <TextBox Text="{Binding Type}" Name="MandatoryText1"/>
+        <TextBox Text="{Binding Type}" Name="TypeTextBox"/>
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
             <Button Content="OK" Width="50" Margin="5" Click="OKButtonPressed" Style="{StaticResource StyleOKButton}"/>
             <Button Content="Annuler" Width="50" Margin="5" Click="CancelButtonPressed"/>
