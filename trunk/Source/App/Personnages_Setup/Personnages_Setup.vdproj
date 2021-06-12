@@ -51,7 +51,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4020EC9F21A340FCB0FCA2B543DBBD71"
+        "MsmKey" = "8:_40FEC28DD28F4E31B9F159D1E89160D1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -94,6 +94,12 @@
         "Entry"
         {
         "MsmKey" = "8:_C30D930A69F147FEAF1871AA807A44B8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D266BDBDB0154DBBA9365F7B5D6463B5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -179,6 +185,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -330,7 +344,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4020EC9F21A340FCB0FCA2B543DBBD71"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_40FEC28DD28F4E31B9F159D1E89160D1"
             {
             "SourcePath" = "8:..\\..\\..\\..\\..\\..\\..\\Downloads\\icon_etoile.ico"
             "TargetName" = "8:icon_etoile.ico"
@@ -470,6 +484,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D266BDBDB0154DBBA9365F7B5D6463B5"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\..\\Downloads\\icon_etoile_biss.ico"
+            "TargetName" = "8:icon_etoile_biss.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_5A3AC53AEF8C4B85ADBD81A0F516E57A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E5BFE9B4772F4433888CEFDEA2624394"
             {
             "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\mario.png"
@@ -589,7 +623,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Personnages"
         "ProductCode" = "8:{A6D4A9F0-EC21-4FC6-8211-C0FFEFD4B1F1}"
-        "PackageCode" = "8:{36B04421-08A0-4F5D-9491-21963F8769A2}"
+        "PackageCode" = "8:{BC4E991A-384A-40C3-B481-7BB40A0D9958}"
         "UpgradeCode" = "8:{FACB3BC3-BB15-46F6-A0B0-22771C8B7577}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -720,7 +754,7 @@
             "Target" = "8:_A114452927B447D09405DC95D568CE72"
             "Folder" = "8:_FD429348F4AE4FCF88FAF875F979362E"
             "WorkingFolder" = "8:_5A3AC53AEF8C4B85ADBD81A0F516E57A"
-            "Icon" = "8:_4020EC9F21A340FCB0FCA2B543DBBD71"
+            "Icon" = "8:_D266BDBDB0154DBBA9365F7B5D6463B5"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C7837A31A75147708E3930E327E444A4"
@@ -734,7 +768,7 @@
             "Target" = "8:_A114452927B447D09405DC95D568CE72"
             "Folder" = "8:_EDC9425FB2AB4A3CBED33434E61F89CA"
             "WorkingFolder" = "8:_5A3AC53AEF8C4B85ADBD81A0F516E57A"
-            "Icon" = "8:_4020EC9F21A340FCB0FCA2B543DBBD71"
+            "Icon" = "8:_D266BDBDB0154DBBA9365F7B5D6463B5"
             "Feature" = "8:"
             }
         }
