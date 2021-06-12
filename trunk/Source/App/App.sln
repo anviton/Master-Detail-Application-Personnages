@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataContractPersistance", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StubP", "StubP\StubP.csproj", "{13F7A39C-713C-460B-9E56-A000E8050045}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Personnages_Setup", "Personnages_Setup\Personnages_Setup.vdproj", "{CA72FEEB-5B18-4886-86AD-1233CF70A5F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,8 @@ Global
 		{13F7A39C-713C-460B-9E56-A000E8050045}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13F7A39C-713C-460B-9E56-A000E8050045}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13F7A39C-713C-460B-9E56-A000E8050045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA72FEEB-5B18-4886-86AD-1233CF70A5F4}.Debug|Any CPU.ActiveCfg = Debug
+		{CA72FEEB-5B18-4886-86AD-1233CF70A5F4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
