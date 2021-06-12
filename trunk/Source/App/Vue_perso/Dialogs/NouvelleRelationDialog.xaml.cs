@@ -41,12 +41,12 @@ namespace Vue_perso.Dialogs
 
 		private void ResetTextBox(object sender, SelectionChangedEventArgs e)
 		{
-			AlternateToComboBox.Clear();
+			PersoTextBox.Clear();
 		}
 
 		private void ResetComboBox(object sender, KeyEventArgs e)
 		{
-			MandatoryComboBox.SelectedIndex = -1;
+			PersoComboBox.SelectedIndex = -1;
 		}
 	}
 }
