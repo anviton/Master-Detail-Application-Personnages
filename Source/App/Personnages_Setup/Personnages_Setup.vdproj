@@ -15,55 +15,43 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_042D8DAA962544638224ECC327A2419B"
+        "MsmKey" = "8:_04046D19B01C47D5AFF2FAB0FFB21952"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0CFC77C930E846948A4191296637F6B9"
+        "MsmKey" = "8:_04603525B81140619ACC8A0E92930848"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0F710BF381004173B722A12DBFCB04E6"
+        "MsmKey" = "8:_1C90ADAB23264DAAA3B1EB0A43A27E32"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0F710E875E0A49FDA781896277984D36"
+        "MsmKey" = "8:_34AD7962BBF14AEC93379374EA50C975"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1300EE7CC6584160A2BD328A91AEAAC1"
+        "MsmKey" = "8:_4416886B552B44BCA54D8A65AED67149"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3D7ECBB1CCD744D9A9F39AD713A8DC7C"
+        "MsmKey" = "8:_460CB552317B483BAF8F9FC27C2BF6FD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_40FEC28DD28F4E31B9F159D1E89160D1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5A256B27A9EF4062AB79AF420E7F745D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_66E6628866184AAC9B995CAC5EC16EDD"
+        "MsmKey" = "8:_5623599522F14D729188268C0E86379A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -75,43 +63,49 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9CC7F21B3AAE4A3383AB220D3AEC926D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A0C2A65ACA0144E790537BD22ED15654"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A114452927B447D09405DC95D568CE72"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C30D930A69F147FEAF1871AA807A44B8"
+        "MsmKey" = "8:_A43C02EA389D4C72BB34568366608A54"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D266BDBDB0154DBBA9365F7B5D6463B5"
+        "MsmKey" = "8:_C529314B0F1244B0B00FA34C63A82ADE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E5BFE9B4772F4433888CEFDEA2624394"
+        "MsmKey" = "8:_EECFBDF451D5418E9C0F889BCF0AC5D3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F28F9E241A654CF38515C15540683143"
+        "MsmKey" = "8:_F0B940594B8B4F46BC27F3DA47ECA2D3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FAC1CDE12C8D4E9EA205151F9D8C33B1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FC2F23A13D2841CE907F1C44813360B5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FECA511B26D54A6898A351414B2281FA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -192,6 +186,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -224,12 +226,12 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_042D8DAA962544638224ECC327A2419B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_04046D19B01C47D5AFF2FAB0FFB21952"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\bowser.jpg"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\bowser.jpg"
             "TargetName" = "8:bowser.jpg"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -244,12 +246,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0CFC77C930E846948A4191296637F6B9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_04603525B81140619ACC8A0E92930848"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\bowser.png"
-            "TargetName" = "8:bowser.png"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\yoshi.jpeg"
+            "TargetName" = "8:yoshi.jpeg"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -264,12 +266,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F710BF381004173B722A12DBFCB04E6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C90ADAB23264DAAA3B1EB0A43A27E32"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\image_par_defaut.jpg"
-            "TargetName" = "8:image_par_defaut.jpg"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\mario.png"
+            "TargetName" = "8:mario.png"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -284,12 +286,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F710E875E0A49FDA781896277984D36"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_34AD7962BBF14AEC93379374EA50C975"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\mario.jpeg"
-            "TargetName" = "8:mario.jpeg"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\icon_etoile_0..jpeg"
+            "TargetName" = "8:icon_etoile_0..jpeg"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -304,32 +306,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1300EE7CC6584160A2BD328A91AEAAC1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4416886B552B44BCA54D8A65AED67149"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\yoshi.png"
-            "TargetName" = "8:yoshi.png"
-            "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3D7ECBB1CCD744D9A9F39AD713A8DC7C"
-            {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\Link.png"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\Link.png"
             "TargetName" = "8:Link.png"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -344,12 +326,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_40FEC28DD28F4E31B9F159D1E89160D1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_460CB552317B483BAF8F9FC27C2BF6FD"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\..\\Downloads\\icon_etoile.ico"
-            "TargetName" = "8:icon_etoile.ico"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\Link.jpeg"
+            "TargetName" = "8:Link.jpeg"
             "Tag" = "8:"
-            "Folder" = "8:_5A3AC53AEF8C4B85ADBD81A0F516E57A"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -364,32 +346,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5A256B27A9EF4062AB79AF420E7F745D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5623599522F14D729188268C0E86379A"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\Zelda.png"
-            "TargetName" = "8:Zelda.png"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\mario.jpeg"
+            "TargetName" = "8:mario.jpeg"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66E6628866184AAC9B995CAC5EC16EDD"
-            {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\image_par_defaut.png"
-            "TargetName" = "8:image_par_defaut.png"
-            "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -409,7 +371,7 @@
             "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\XML\\AppPersonnages.xml"
             "TargetName" = "8:AppPersonnages.xml"
             "Tag" = "8:"
-            "Folder" = "8:_71D06CE92A1C4803AE801C794D5D6F70"
+            "Folder" = "8:_C5B4B95B68B446B7864B2546B075451B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -424,12 +386,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9CC7F21B3AAE4A3383AB220D3AEC926D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A43C02EA389D4C72BB34568366608A54"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\Wario.png"
-            "TargetName" = "8:Wario.png"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\Zelda.png"
+            "TargetName" = "8:Zelda.png"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -444,12 +406,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A0C2A65ACA0144E790537BD22ED15654"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C529314B0F1244B0B00FA34C63A82ADE"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\yoshi.jpeg"
-            "TargetName" = "8:yoshi.jpeg"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\bowser.png"
+            "TargetName" = "8:bowser.png"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -464,29 +426,9 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C30D930A69F147FEAF1871AA807A44B8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EECFBDF451D5418E9C0F889BCF0AC5D3"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\icon_etoile_0..jpeg"
-            "TargetName" = "8:icon_etoile_0..jpeg"
-            "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D266BDBDB0154DBBA9365F7B5D6463B5"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\..\\Downloads\\icon_etoile_biss.ico"
+            "SourcePath" = "8:..\\AppPersonnageBin\\setup_assets\\icon_etoile_biss.ico"
             "TargetName" = "8:icon_etoile_biss.ico"
             "Tag" = "8:"
             "Folder" = "8:_5A3AC53AEF8C4B85ADBD81A0F516E57A"
@@ -504,12 +446,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E5BFE9B4772F4433888CEFDEA2624394"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F0B940594B8B4F46BC27F3DA47ECA2D3"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\mario.png"
-            "TargetName" = "8:mario.png"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\image_par_defaut.jpg"
+            "TargetName" = "8:image_par_defaut.jpg"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -524,12 +466,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F28F9E241A654CF38515C15540683143"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FAC1CDE12C8D4E9EA205151F9D8C33B1"
             {
-            "SourcePath" = "8:..\\AppPersonnageBin\\netcoreapp3.0\\Images\\Link.jpeg"
-            "TargetName" = "8:Link.jpeg"
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\Wario.png"
+            "TargetName" = "8:Wario.png"
             "Tag" = "8:"
-            "Folder" = "8:_42863C38C31549318C369E9FC593FF80"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FC2F23A13D2841CE907F1C44813360B5"
+            {
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\image_par_defaut.png"
+            "TargetName" = "8:image_par_defaut.png"
+            "Tag" = "8:"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FECA511B26D54A6898A351414B2281FA"
+            {
+            "SourcePath" = "8:..\\AppPersonnageBin\\Images\\yoshi.png"
+            "TargetName" = "8:yoshi.png"
+            "Tag" = "8:"
+            "Folder" = "8:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -550,6 +532,50 @@
         }
         "Folder"
         {
+            "{1525181F-901A-416C-8A58-119130FE478E}:_03D44EEBF8784A128C0CD673B58A2B85"
+            {
+            "Name" = "8:#1915"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:AppDataFolder"
+                "Folders"
+                {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_ADBA0EEEB686499C8EB94776C6372576"
+                    {
+                    "Name" = "8:Personnages"
+                    "AlwaysCreate" = "11:TRUE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_3231C1DC40D94495BC22B8D95CF88C84"
+                        "Folders"
+                        {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_5B00D1CDC64E4F778FCA621A7FFBE1CD"
+                            {
+                            "Name" = "8:Images"
+                            "AlwaysCreate" = "11:TRUE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_1CD16E7D7E4C46B7A0B06E0E67D816C9"
+                                "Folders"
+                                {
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_C5B4B95B68B446B7864B2546B075451B"
+                            {
+                            "Name" = "8:XML"
+                            "AlwaysCreate" = "11:TRUE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_E10CA41B0F5040428ABF58FD5DE7AE6F"
+                                "Folders"
+                                {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_5A3AC53AEF8C4B85ADBD81A0F516E57A"
             {
             "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
@@ -560,28 +586,18 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_42863C38C31549318C369E9FC593FF80"
-                    {
-                    "Name" = "8:Images"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_1CD16E7D7E4C46B7A0B06E0E67D816C9"
-                        "Folders"
-                        {
-                        }
-                    }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_71D06CE92A1C4803AE801C794D5D6F70"
-                    {
-                    "Name" = "8:XML"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_E10CA41B0F5040428ABF58FD5DE7AE6F"
-                        "Folders"
-                        {
-                        }
-                    }
+                }
+            }
+            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_5D17A8709E6C4A3BBD1353E7756F35D2"
+            {
+            "DefaultLocation" = "8:[TARGETDIR]"
+            "Name" = "8:CommonAppData"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:NEWPROPERTY1"
+                "Folders"
+                {
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_EDC9425FB2AB4A3CBED33434E61F89CA"
@@ -754,7 +770,7 @@
             "Target" = "8:_A114452927B447D09405DC95D568CE72"
             "Folder" = "8:_FD429348F4AE4FCF88FAF875F979362E"
             "WorkingFolder" = "8:_5A3AC53AEF8C4B85ADBD81A0F516E57A"
-            "Icon" = "8:_D266BDBDB0154DBBA9365F7B5D6463B5"
+            "Icon" = "8:_EECFBDF451D5418E9C0F889BCF0AC5D3"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C7837A31A75147708E3930E327E444A4"
@@ -768,7 +784,7 @@
             "Target" = "8:_A114452927B447D09405DC95D568CE72"
             "Folder" = "8:_EDC9425FB2AB4A3CBED33434E61F89CA"
             "WorkingFolder" = "8:_5A3AC53AEF8C4B85ADBD81A0F516E57A"
-            "Icon" = "8:_D266BDBDB0154DBBA9365F7B5D6463B5"
+            "Icon" = "8:_EECFBDF451D5418E9C0F889BCF0AC5D3"
             "Feature" = "8:"
             }
         }
