@@ -10,7 +10,7 @@ namespace DataContractPersistance
 {
     public class DataContractPers : IPersistance
     {
-        public string FilePath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "..//XML");
+        public string FilePath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "XML");
         public string FileName { get; set; } = "AppPersonnages.xml";
         public (SeriesTheque lesSeries, IDictionary<string, ObservableCollection<Personnage>> groupes) Charger()
         {
