@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Nouveau groupe" Height="125" Width="300">
+        Title="Nouveau groupe" Height="125" Width="300"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png">
 
     <StackPanel>
         <Label Content="Nom du groupe :" HorizontalAlignment="Center"/>

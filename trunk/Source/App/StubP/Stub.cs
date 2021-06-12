@@ -38,7 +38,7 @@ namespace StubP
             link.Image = "Link.png";
             yoshi.Image = "yoshi.png";
             zelda.Image = "Zelda.png";
-            //wario.Image = "wario.png";
+            wario.Image = "wario.png";
             mario.AjouterCitation("It's me Mario");
             mario.AjouterCitation("Bye bye");
             yoshi.AjouterCitation("Yaoouh!");

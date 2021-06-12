@@ -86,6 +86,7 @@ namespace Test_Personnage
             manager.SupprimerPersonnage(perso1);
             AfficherLesSeries(manager.LesSeries.Series);
             AfficherTousLesPersonnages(manager);
+            Console.WriteLine("\nTentative importation Madeline");
             try
             {
                 manager.LireUnPersonnageEnXml("Madeline.xml");
@@ -94,6 +95,7 @@ namespace Test_Personnage
             {
                 Console.WriteLine("Fichier Corrompu");
             }
+            Console.WriteLine("Tentative importation Mario");
             try
             {
                 manager.LireUnPersonnageEnXml("mario.xml");

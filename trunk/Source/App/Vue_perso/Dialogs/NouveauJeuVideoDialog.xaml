@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Vue_perso.Dialogs"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Ajouter un jeu vidéo" Height="165" Width="300">
+        Title="Ajouter un jeu vidéo" Height="165" Width="300"
+        Icon="/Bibliothèques_Images;Component/icon_etoile.png">
 
     <StackPanel Margin="5,2,5,0">
         <Label HorizontalAlignment="Center" Content="Nom du jeu vidéo :" />

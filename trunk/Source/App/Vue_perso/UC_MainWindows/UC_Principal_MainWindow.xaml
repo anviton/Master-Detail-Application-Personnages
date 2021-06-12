@@ -34,10 +34,10 @@
             <local1:UC_Menu Grid.Column="0"/>
             <Menu Background="#FFF9E2C6" Grid.Column="1" HorizontalAlignment="Right" Margin="5, 0">
                 <MenuItem Header="Actions Personnage Sélectionné" Height="37" >
-                    <MenuItem Header="Supprimer" Click="SupprimerPersonnageClick"/>
-                    <MenuItem Header="Modifier" Click="ModifierPersonnageClick"/>
-                    <MenuItem Header="Exporter" Click="Exporter"/>
-                    <MenuItem Header="Ajouter à" Click="AjouterAUnGroupe">
+                    <MenuItem x:Name="Suppression_Perso" Header="Supprimer" Click="SupprimerPersonnageClick" ToolTip="Supprimer le Personnage"/>
+                    <MenuItem Header="Modifier" Click="ModifierPersonnageClick" ToolTip="Modifier le Personnage"/>
+                    <MenuItem Header="Exporter" Click="Exporter" ToolTip="Exporter dans un fichier xml"/>
+                    <MenuItem Header="Ajouter à" Click="AjouterAUnGroupe" ToolTip="Ajouter à un Groupe">
                     </MenuItem>
                 </MenuItem>
             </Menu>
@@ -54,13 +54,12 @@
             <ContentControl x:Name="Pour_Recherche" Grid.Row="0">
                 <local:UC_RecherchePersoDansSerie/>
             </ContentControl>
-            <!--TextBox TextChanged="Recherche" TextWrapping="NoWrap" Grid.Row="0"/-->
             <TextBlock Name="HeaderListe" Style="{StaticResource textInformatif}" Grid.Row="1" TextWrapping="Wrap"/>
-            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding ListePersonnages, ElementName=root}" SelectedItem="{Binding PersonnageSelect, ElementName=root, Mode=TwoWay}">
+            <ListBox Background="{StaticResource BackgorundSalmon}" Name="ListBoxPersonnages" Grid.Row="2" ItemsSource="{Binding ListePersonnages, ElementName=root}" SelectedItem="{Binding PersonnageSelect, ElementName=root, Mode=TwoWay}" SelectionChanged="ListBoxPersonnages_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="150" Height="100" Source="{Binding Image, Converter={StaticResource string2ImageConverter}}"/>
+                            <Image Width="120" Height="120" Source="{Binding Image, Converter={StaticResource string2ImageConverter}}"/>
                             <TextBlock Text="{Binding Nom}" Style="{StaticResource textInformatif}"/>
                         </StackPanel>
                     </DataTemplate>
@@ -79,7 +78,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Image Source="{Binding Image, Converter={StaticResource string2ImageConverter}}" HorizontalAlignment="left" Grid.Row="0" Grid.Column="0"/>
+            <Image Width="150" Height="150" Source="{Binding Image, Converter={StaticResource string2ImageConverter}}" HorizontalAlignment="left" Grid.Row="0" Grid.Column="0"/>
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -109,7 +108,6 @@
                     <DataTemplate>
                         <WrapPanel>
                             <TextBlock Style="{StaticResource textInformatif}" Text="{Binding Nom}" ToolTip="{Binding Lien}"/>
-                            <!--TextBlock Style="{StaticResource textInformatif}" Text="{Binding Lien}"/-->
                         </WrapPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

@@ -16,8 +16,6 @@
             <SolidColorBrush Color="#FF98CBF7" Opacity="0.6"/>
         </DockPanel.Background>
 
-        <!--TextBox DockPanel.Dock="Top" Text="Rechercher un personnage" TextWrapping="NoWrap"/-->
-
         <ListBox ItemsSource="{Binding LesSeries.Series}" Background="{x:Null}" SelectionChanged="SerieSelectionnee">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -36,39 +34,5 @@
             </ListBox.ItemTemplate>
         </ListBox>
     </DockPanel>
-    <!--
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Bibliothèques_Images;Component/Images_Fonds/arriere_plan_grille_perso.jpg"></ImageBrush>
-        </Grid.Background>
-        <Grid>
-            <Grid.Background>
-                <SolidColorBrush Color="#FF98CBF7" Opacity="0.6"/>
-            </Grid.Background>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBox DockPanel.Dock="Top" Text="Rechercher une Série de Jeux" TextWrapping="NoWrap"/>
-            <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Series}" SelectionChanged="SerieSelectionnee">
 
-                <ListBox.Background>
-                    <SolidColorBrush Color="#FF98CBF7" Opacity="0"></SolidColorBrush>
-                </ListBox.Background>
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel>
-                            <Image Source="/Bibliothèques_Images;Component/Images_Fonds/image.jpg" Width="100"/>
-                            <TextBlock Text="{Binding Nom}" FontSize="16" FontWeight="Bold" FontStyle="Italic"/>
-                        </WrapPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Grid>
-    </Grid>
-    -->
 </UserControl>

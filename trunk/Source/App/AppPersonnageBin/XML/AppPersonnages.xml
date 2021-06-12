@@ -3,40 +3,39 @@
   <Groupes xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="2" z:Size="1">
     <d2p1:KeyValueOfstringArrayOfperso0gxuieJo>
       <d2p1:Key z:Id="3">Triforce</d2p1:Key>
-      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="4" z:Size="3">
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="4" z:Size="2">
         <d4p1:perso z:Id="5">
-          <d4p1:nom z:Id="6">Link</d4p1:nom>
-          <d4p1:citations z:Id="7" z:Size="0" />
-          <d4p1:estMentionneDansRealations z:Id="8" z:Size="1">
-            <d4p1:relation z:Id="9">
-              <d4p1:persoRec z:Ref="5" i:nil="true" />
-              <d4p1:type z:Id="10">Mon Prince</d4p1:type>
-            </d4p1:relation>
-          </d4p1:estMentionneDansRealations>
-          <d4p1:image z:Id="11">Link.png</d4p1:image>
-          <d4p1:listeJeuxVideo z:Id="12" z:Size="0" />
-          <d4p1:relations z:Id="13" z:Size="0" />
-          <d4p1:theme z:Id="14">
-            <d4p1:isLeitmotiv>true</d4p1:isLeitmotiv>
-            <d4p1:listeTitres z:Id="15" z:Size="0" />
-          </d4p1:theme>
-          <d4p1:serieDuPerso z:Id="16">zelda</d4p1:serieDuPerso>
-        </d4p1:perso>
-        <d4p1:perso z:Id="17">
-          <d4p1:nom z:Id="18">Zelda</d4p1:nom>
-          <d4p1:citations z:Id="19" z:Size="1">
-            <d2p1:string z:Id="20">Sois Fort Link</d2p1:string>
+          <d4p1:nom z:Id="6">Zelda</d4p1:nom>
+          <d4p1:citations z:Id="7" z:Size="1">
+            <d2p1:string z:Id="8">Sois Fort Link</d2p1:string>
           </d4p1:citations>
-          <d4p1:description z:Id="21">La Princesse Zelda est un personnage de la série The Legend of Zelda créée par Shigeru Miyamoto. Elle apparaît le 21 février 1986 dès le premier jeu de la série. Son prénom a été choisi en référence à la romancière Zelda Fitzgerald1 par Miyamoto lui-même. Elle fait partie de la famille royale d’Hyrule, étant la descendante légitime du roi en place (Daltus, Roham, Dartas, Daphnès…). En tant que Princesse, son prénom est toujours identique d'un jeu à l'autre, cela est imposé depuis le début même de l'histoire et l'apparition de la première princesse dans le jeu Skyward Sword (chronologiquement le premier épisode)</d4p1:description>
-          <d4p1:estMentionneDansRealations z:Id="22" z:Size="0" />
-          <d4p1:image z:Id="23">Zelda.png</d4p1:image>
-          <d4p1:listeJeuxVideo z:Id="24" z:Size="1">
-            <d4p1:jeuVideo z:Id="25">
-              <d4p1:nom z:Id="26">The Legend of Zelda: Breath of the Wild</d4p1:nom>
+          <d4p1:description z:Id="9">La Princesse Zelda est un personnage de la série The Legend of Zelda créée par Shigeru Miyamoto. Elle apparaît le 21 février 1986 dès le premier jeu de la série. Son prénom a été choisi en référence à la romancière Zelda Fitzgerald1 par Miyamoto lui-même. Elle fait partie de la famille royale d’Hyrule, étant la descendante légitime du roi en place (Daltus, Roham, Dartas, Daphnès…). En tant que Princesse, son prénom est toujours identique d'un jeu à l'autre, cela est imposé depuis le début même de l'histoire et l'apparition de la première princesse dans le jeu Skyward Sword (chronologiquement le premier épisode)</d4p1:description>
+          <d4p1:estMentionneDansRealations z:Id="10" z:Size="0" />
+          <d4p1:image z:Id="11">Zelda.png</d4p1:image>
+          <d4p1:listeJeuxVideo z:Id="12" z:Size="1">
+            <d4p1:jeuVideo z:Id="13">
+              <d4p1:nom z:Id="14">The Legend of Zelda: Breath of the Wild</d4p1:nom>
             </d4p1:jeuVideo>
           </d4p1:listeJeuxVideo>
-          <d4p1:relations z:Id="27" z:Size="1">
-            <d4p1:relation z:Ref="9" i:nil="true" />
+          <d4p1:relations z:Id="15" z:Size="1">
+            <d4p1:relation z:Id="16">
+              <d4p1:persoRec z:Id="17">
+                <d4p1:nom z:Id="18">Link</d4p1:nom>
+                <d4p1:citations z:Id="19" z:Size="0" />
+                <d4p1:estMentionneDansRealations z:Id="20" z:Size="1">
+                  <d4p1:relation z:Ref="16" i:nil="true" />
+                </d4p1:estMentionneDansRealations>
+                <d4p1:image z:Id="21">Link.png</d4p1:image>
+                <d4p1:listeJeuxVideo z:Id="22" z:Size="0" />
+                <d4p1:relations z:Id="23" z:Size="0" />
+                <d4p1:theme z:Id="24">
+                  <d4p1:isLeitmotiv>true</d4p1:isLeitmotiv>
+                  <d4p1:listeTitres z:Id="25" z:Size="0" />
+                </d4p1:theme>
+                <d4p1:serieDuPerso z:Id="26">zelda</d4p1:serieDuPerso>
+              </d4p1:persoRec>
+              <d4p1:type z:Id="27">Mon Prince</d4p1:type>
+            </d4p1:relation>
           </d4p1:relations>
           <d4p1:theme z:Id="28">
             <d4p1:isLeitmotiv>false</d4p1:isLeitmotiv>
@@ -46,7 +45,7 @@
               </d4p1:titre>
             </d4p1:listeTitres>
           </d4p1:theme>
-          <d4p1:serieDuPerso z:Ref="16" i:nil="true" />
+          <d4p1:serieDuPerso z:Ref="26" i:nil="true" />
         </d4p1:perso>
         <d4p1:perso z:Id="32">
           <d4p1:nom z:Id="33">Mario</d4p1:nom>
@@ -123,10 +122,10 @@
     </d2p1:KeyValueOfstringArrayOfperso0gxuieJo>
   </Groupes>
   <Series xmlns:d2p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="72">
-    <d2p1:series z:Id="73" z:Size="3">
+    <d2p1:series z:Id="73" z:Size="4">
       <d2p1:serie z:Id="74">
         <d2p1:nom z:Ref="65" i:nil="true" />
-        <d2p1:listePersonnages z:Id="75" z:Size="4">
+        <d2p1:listePersonnages z:Id="75" z:Size="3">
           <d2p1:perso z:Ref="32" i:nil="true" />
           <d2p1:perso z:Ref="53" i:nil="true" />
           <d2p1:perso z:Id="76">
@@ -156,141 +155,68 @@
             </d2p1:theme>
             <d2p1:serieDuPerso z:Ref="65" i:nil="true" />
           </d2p1:perso>
-          <d2p1:perso z:Id="89">
-            <d2p1:nom z:Id="90">Wario</d2p1:nom>
-            <d2p1:citations xmlns:d7p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="91" z:Size="2">
-              <d7p1:string z:Id="92">Wariooooooo!!!</d7p1:string>
-              <d7p1:string z:Id="93">Wario Time !</d7p1:string>
+        </d2p1:listePersonnages>
+      </d2p1:serie>
+      <d2p1:serie z:Id="89">
+        <d2p1:nom z:Ref="26" i:nil="true" />
+        <d2p1:listePersonnages z:Id="90" z:Size="2">
+          <d2p1:perso z:Ref="17" i:nil="true" />
+          <d2p1:perso z:Ref="5" i:nil="true" />
+        </d2p1:listePersonnages>
+      </d2p1:serie>
+      <d2p1:serie z:Id="91">
+        <d2p1:nom z:Id="92">celeste</d2p1:nom>
+        <d2p1:listePersonnages z:Id="93" z:Size="1">
+          <d2p1:perso z:Id="94">
+            <d2p1:nom z:Id="95">Madeline</d2p1:nom>
+            <d2p1:citations xmlns:d7p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="96" z:Size="1">
+              <d7p1:string z:Id="97">This is it, Madeline. Just breathe.</d7p1:string>
             </d2p1:citations>
-            <d2p1:description z:Id="94">L'un des ennemis les plus corriaces de Mario</d2p1:description>
-            <d2p1:estMentionneDansRealations z:Id="95" z:Size="0" />
-            <d2p1:image z:Id="96">wario.png</d2p1:image>
-            <d2p1:listeJeuxVideo z:Id="97" z:Size="2">
-              <d2p1:jeuVideo z:Id="98">
-                <d2p1:nom z:Id="99">Wario Land 2</d2p1:nom>
-                <d2p1:annee>1998</d2p1:annee>
-              </d2p1:jeuVideo>
-              <d2p1:jeuVideo z:Id="100">
-                <d2p1:nom z:Id="101">Wario World</d2p1:nom>
-                <d2p1:annee>2003</d2p1:annee>
-              </d2p1:jeuVideo>
-            </d2p1:listeJeuxVideo>
-            <d2p1:relations z:Id="102" z:Size="1">
-              <d2p1:relation z:Id="103">
-                <d2p1:persoRec z:Id="104">
-                  <d2p1:nom z:Id="105">Mario</d2p1:nom>
-                  <d2p1:citations xmlns:d10p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="106" z:Size="2">
-                    <d10p1:string z:Id="107">It's me Mario</d10p1:string>
-                    <d10p1:string z:Id="108">Bye bye</d10p1:string>
-                  </d2p1:citations>
-                  <d2p1:description z:Id="109">Personnage emblématique du monde du Jeu Vidéo</d2p1:description>
-                  <d2p1:estMentionneDansRealations z:Id="110" z:Size="2">
-                    <d2p1:relation z:Id="111">
-                      <d2p1:persoRec z:Ref="104" i:nil="true" />
-                      <d2p1:type z:Id="112">Acolyte</d2p1:type>
-                    </d2p1:relation>
-                    <d2p1:relation z:Ref="103" i:nil="true" />
-                  </d2p1:estMentionneDansRealations>
-                  <d2p1:image z:Id="113">mario.png</d2p1:image>
-                  <d2p1:listeJeuxVideo z:Id="114" z:Size="3">
-                    <d2p1:jeuVideo z:Id="115">
-                      <d2p1:nom z:Id="116">Super Mario 64</d2p1:nom>
-                      <d2p1:annee>1997</d2p1:annee>
-                    </d2p1:jeuVideo>
-                    <d2p1:jeuVideo z:Id="117">
-                      <d2p1:nom z:Id="118">Super Mario Bros.</d2p1:nom>
-                      <d2p1:annee>1982</d2p1:annee>
-                    </d2p1:jeuVideo>
-                    <d2p1:jeuVideo z:Id="119">
-                      <d2p1:nom z:Id="120">Super Mario Bros. 2</d2p1:nom>
-                      <d2p1:annee>1983</d2p1:annee>
-                    </d2p1:jeuVideo>
-                  </d2p1:listeJeuxVideo>
-                  <d2p1:relations z:Id="121" z:Size="2">
-                    <d2p1:relation z:Id="122">
-                      <d2p1:persoRec z:Id="123">
-                        <d2p1:nom z:Id="124">Bowser</d2p1:nom>
-                        <d2p1:citations xmlns:d13p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="125" z:Size="0" />
-                        <d2p1:estMentionneDansRealations z:Id="126" z:Size="1">
-                          <d2p1:relation z:Ref="122" i:nil="true" />
-                        </d2p1:estMentionneDansRealations>
-                        <d2p1:image z:Id="127">bowser.png</d2p1:image>
-                        <d2p1:listeJeuxVideo z:Id="128" z:Size="0" />
-                        <d2p1:relations z:Id="129" z:Size="0" />
-                        <d2p1:theme z:Id="130">
-                          <d2p1:isLeitmotiv>false</d2p1:isLeitmotiv>
-                          <d2p1:listeTitres z:Id="131" z:Size="1">
-                            <d2p1:titre z:Id="132">
-                              <d2p1:nom z:Id="133">Bowser's Theme</d2p1:nom>
-                              <d2p1:lien z:Id="134">https://www.youtube.com/watch?v=bq_jS6o3OoY</d2p1:lien>
-                            </d2p1:titre>
-                          </d2p1:listeTitres>
-                        </d2p1:theme>
-                        <d2p1:serieDuPerso z:Id="135">mario</d2p1:serieDuPerso>
-                      </d2p1:persoRec>
-                      <d2p1:type z:Id="136">Ennemi</d2p1:type>
-                    </d2p1:relation>
-                    <d2p1:relation z:Id="137">
-                      <d2p1:persoNonRec z:Id="138">Luigi</d2p1:persoNonRec>
-                      <d2p1:type z:Id="139">Frère</d2p1:type>
-                    </d2p1:relation>
-                  </d2p1:relations>
-                  <d2p1:theme z:Id="140">
-                    <d2p1:isLeitmotiv>false</d2p1:isLeitmotiv>
-                    <d2p1:listeTitres z:Id="141" z:Size="1">
-                      <d2p1:titre z:Id="142">
-                        <d2p1:nom z:Ref="31" i:nil="true" />
-                      </d2p1:titre>
-                    </d2p1:listeTitres>
-                  </d2p1:theme>
-                  <d2p1:serieDuPerso z:Ref="135" i:nil="true" />
-                </d2p1:persoRec>
-                <d2p1:type z:Ref="136" i:nil="true" />
-              </d2p1:relation>
-            </d2p1:relations>
-            <d2p1:theme z:Id="143">
-              <d2p1:isLeitmotiv>false</d2p1:isLeitmotiv>
-              <d2p1:listeTitres z:Id="144" z:Size="1">
-                <d2p1:titre z:Id="145">
-                  <d2p1:nom z:Id="146">Wario Ware</d2p1:nom>
-                  <d2p1:lien z:Id="147">https://www.youtube.com/watch?v=1AAhRrO5ySs</d2p1:lien>
+            <d2p1:estMentionneDansRealations z:Id="98" z:Size="0" />
+            <d2p1:listeJeuxVideo z:Id="99" z:Size="0" />
+            <d2p1:relations z:Id="100" z:Size="0" />
+            <d2p1:theme z:Id="101">
+              <d2p1:isLeitmotiv>true</d2p1:isLeitmotiv>
+              <d2p1:listeTitres z:Id="102" z:Size="2">
+                <d2p1:titre z:Id="103">
+                  <d2p1:nom z:Id="104">First Steps</d2p1:nom>
+                </d2p1:titre>
+                <d2p1:titre z:Id="105">
+                  <d2p1:nom z:Id="106">Reach for the Summit</d2p1:nom>
                 </d2p1:titre>
               </d2p1:listeTitres>
             </d2p1:theme>
-            <d2p1:serieDuPerso z:Ref="135" i:nil="true" />
+            <d2p1:serieDuPerso z:Ref="92" i:nil="true" />
           </d2p1:perso>
         </d2p1:listePersonnages>
       </d2p1:serie>
-      <d2p1:serie z:Id="148">
-        <d2p1:nom z:Ref="16" i:nil="true" />
-        <d2p1:listePersonnages z:Id="149" z:Size="2">
-          <d2p1:perso z:Ref="5" i:nil="true" />
-          <d2p1:perso z:Ref="17" i:nil="true" />
-        </d2p1:listePersonnages>
-      </d2p1:serie>
-      <d2p1:serie z:Id="150">
-        <d2p1:nom z:Id="151">celeste</d2p1:nom>
-        <d2p1:listePersonnages z:Id="152" z:Size="1">
-          <d2p1:perso z:Id="153">
-            <d2p1:nom z:Id="154">Madeline</d2p1:nom>
-            <d2p1:citations xmlns:d7p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="155" z:Size="1">
-              <d7p1:string z:Id="156">This is it, Madeline. Just breathe.</d7p1:string>
+      <d2p1:serie z:Id="107">
+        <d2p1:nom z:Id="108">Animal Crossing</d2p1:nom>
+        <d2p1:listePersonnages z:Id="109" z:Size="1">
+          <d2p1:perso z:Id="110">
+            <d2p1:nom z:Id="111">Tom Nook</d2p1:nom>
+            <d2p1:citations xmlns:d7p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="112" z:Size="1">
+              <d7p1:string z:Id="113">Ca fera 8 clochettes</d7p1:string>
             </d2p1:citations>
-            <d2p1:estMentionneDansRealations z:Id="157" z:Size="0" />
-            <d2p1:listeJeuxVideo z:Id="158" z:Size="0" />
-            <d2p1:relations z:Id="159" z:Size="0" />
-            <d2p1:theme z:Id="160">
-              <d2p1:isLeitmotiv>true</d2p1:isLeitmotiv>
-              <d2p1:listeTitres z:Id="161" z:Size="2">
-                <d2p1:titre z:Id="162">
-                  <d2p1:nom z:Id="163">First Steps</d2p1:nom>
-                </d2p1:titre>
-                <d2p1:titre z:Id="164">
-                  <d2p1:nom z:Id="165">Reach for the Summit</d2p1:nom>
+            <d2p1:description z:Id="114">Ne vous fiez pas à son apparence mignonne et inoffensive. Tom Nook est le plus gros escroc jamais porté à l’écran dans un jeu vidéo.</d2p1:description>
+            <d2p1:estMentionneDansRealations z:Id="115" z:Size="0" />
+            <d2p1:image z:Id="116">TomNook_1..png</d2p1:image>
+            <d2p1:listeJeuxVideo z:Id="117" z:Size="1">
+              <d2p1:jeuVideo z:Id="118">
+                <d2p1:nom z:Id="119">Animal Crossing</d2p1:nom>
+                <d2p1:annee>2020</d2p1:annee>
+              </d2p1:jeuVideo>
+            </d2p1:listeJeuxVideo>
+            <d2p1:relations z:Id="120" z:Size="0" />
+            <d2p1:theme z:Id="121">
+              <d2p1:isLeitmotiv>false</d2p1:isLeitmotiv>
+              <d2p1:listeTitres z:Id="122" z:Size="1">
+                <d2p1:titre z:Id="123">
+                  <d2p1:nom z:Ref="31" i:nil="true" />
                 </d2p1:titre>
               </d2p1:listeTitres>
             </d2p1:theme>
-            <d2p1:serieDuPerso z:Ref="151" i:nil="true" />
+            <d2p1:serieDuPerso z:Ref="108" i:nil="true" />
           </d2p1:perso>
         </d2p1:listePersonnages>
       </d2p1:serie>
