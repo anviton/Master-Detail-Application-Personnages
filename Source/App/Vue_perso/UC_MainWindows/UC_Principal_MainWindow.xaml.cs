@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -145,6 +147,43 @@ namespace Vue_perso.UC_MainWindows
                 }
             }
         }
-    }
+
+		private void OuvertureLienTitre(object sender, MouseButtonEventArgs e)
+		{
+            if ((sender as ListBox).SelectedItem != null)
+			{
+                Titre titreSelect = (sender as ListBox).SelectedItem as Titre;
+                if (titreSelect.Lien != null && titreSelect.Lien != "")
+				{
+                    var psi = new ProcessStartInfo()
+                    {
+                        FileName = titreSelect.Lien,
+                        UseShellExecute = true
+                    };
+                    try
+                    {
+                        Process.Start(psi);
+                    }
+                    catch (Win32Exception)
+					{
+                        MessageBox.Show("Impossible d'ouvrir le lien (est-il valide ?)", "Lien invalide", MessageBoxButton.OK, MessageBoxImage.Error);
+					}
+				}
+			}
+		}
+
+		private void AllerSurFichePersoRec(object sender, MouseButtonEventArgs e)
+		{
+            if ((sender as ListBox).SelectedItem != null)
+			{
+                Personnage perso = ((sender as ListBox).SelectedItem as Relation).PersoRec;
+
+                if (perso != null)
+				{
+                    Mgr.PersonnageSelectionne = perso;
+				}
+			}
+		}
+	}
 }
 

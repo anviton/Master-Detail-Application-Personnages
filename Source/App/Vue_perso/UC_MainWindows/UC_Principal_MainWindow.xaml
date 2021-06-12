@@ -104,7 +104,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <TextBlock Style="{StaticResource textInformatif}" Text="Thème musical" Grid.Row="2"/>
-            <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Theme.Titres}">
+            <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Theme.Titres}" MouseDoubleClick="OuvertureLienTitre" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
@@ -115,7 +115,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <TextBlock Style="{StaticResource textInformatif}" Text="Relations" Grid.Row="3" />
-            <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Relations}">
+            <ListBox Background="{StaticResource BackgorundSalmon}" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Relations}" MouseDoubleClick="AllerSurFichePersoRec">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
