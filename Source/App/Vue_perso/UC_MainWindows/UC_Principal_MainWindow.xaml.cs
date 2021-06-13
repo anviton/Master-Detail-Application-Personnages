@@ -130,9 +130,11 @@ namespace Vue_perso.UC_MainWindows
         {
             if (PersonnageSelect != null)
             {
+                
                 Mgr.PersonnageSelectionne = PersonnageSelect;
                 var window = new AjouterAUnGroupe();
                 window.Show();
+                
             }
         }
 

@@ -46,9 +46,9 @@ namespace Vue_perso.Dialogs
 
         private void OKButtonPressed(object sender, RoutedEventArgs e)
         {
-            Mgr.AjouterPersoAGroupe(Mgr.GroupeSelectionne, Mgr.PersonnageSelectionne);
+            Mgr.AjouterPersoAGroupe(BoxGroupes.SelectedItem as string, Mgr.PersonnageSelectionne);
             Mgr.SauvegaderDonnees();
-            Mgr.GroupeSelectionne = null;
+            //Mgr.GroupeSelectionne = null;
             Close();
         }
 

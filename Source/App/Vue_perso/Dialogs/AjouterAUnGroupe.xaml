@@ -25,7 +25,7 @@
         <TextBlock Text="{Binding PersonnageSelectionne.Nom}"/>
         <Label HorizontalAlignment="Center" Content="au Groupe :" />
         <StackPanel Orientation="Horizontal">
-            <ComboBox  Name="BoxGroupes" ItemsSource="{Binding NomsGroupes}" SelectedValue="{Binding GroupeSelectionne}" Width="130" HorizontalAlignment="Left">
+            <ComboBox  Name="BoxGroupes" ItemsSource="{Binding NomsGroupes}"  Width="130" HorizontalAlignment="Left">
             </ComboBox>
             <Label Content="ou" HorizontalAlignment="Center"/>
             <Button Content="Nouveau groupe..." Click="NouveauGroupe" Width="130" HorizontalAlignment="Right" />
