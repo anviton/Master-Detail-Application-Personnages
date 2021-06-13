@@ -9,7 +9,7 @@
         Title="Nouvelle série" Height="125" Width="300"
         Icon="/Bibliothèques_Images;Component/icon_etoile.png">
 
-    <StackPanel Margin="5,2,5,0">
+    <StackPanel Margin="5,2,5,0" FocusManager.FocusedElement="{Binding ElementName=MandatoryTextBox}">
         <Label HorizontalAlignment="Center" Content="Nom de la série :" />
         <TextBox Text="{Binding NomSerie}" Name="MandatoryTextBox" />
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">

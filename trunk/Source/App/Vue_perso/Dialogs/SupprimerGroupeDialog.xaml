@@ -20,7 +20,7 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <StackPanel>
+    <StackPanel FocusManager.FocusedElement="{Binding ElementName=BoxGroupes}">
         <Label Content="Supprimer un groupe" HorizontalAlignment="Center" />
         <ComboBox x:Name="BoxGroupes" ItemsSource="{Binding Groupes.Keys}" SelectedValue="{Binding GroupeSelectionne}"/>
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">

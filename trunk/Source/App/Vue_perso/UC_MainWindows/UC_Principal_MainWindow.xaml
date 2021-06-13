@@ -33,11 +33,11 @@
             </Grid.ColumnDefinitions>
             <local1:UC_Menu Grid.Column="0"/>
             <Menu Background="#FFF9E2C6" Grid.Column="1" HorizontalAlignment="Right" Margin="5, 0">
-                <MenuItem Header="Actions Personnage Sélectionné" Height="37" >
-                    <MenuItem x:Name="Suppression_Perso" Header="Supprimer" Click="SupprimerPersonnageClick" ToolTip="Supprimer le Personnage"/>
-                    <MenuItem Header="Modifier" Click="ModifierPersonnageClick" ToolTip="Modifier le Personnage"/>
-                    <MenuItem Header="Exporter" Click="Exporter" ToolTip="Exporter dans un fichier xml"/>
-                    <MenuItem Header="Ajouter à" Click="AjouterAUnGroupe" ToolTip="Ajouter à un Groupe">
+                <MenuItem Header="Ac_tions Personnage Sélectionné" Height="37" >
+                    <MenuItem x:Name="Suppression_Perso" Header="S_upprimer" Click="SupprimerPersonnageClick" ToolTip="Supprimer le Personnage"/>
+                    <MenuItem Header="_Modifier..." Click="ModifierPersonnageClick" ToolTip="Modifier le Personnage"/>
+                    <MenuItem Header="_Exporter..." Click="Exporter" ToolTip="Exporter dans un fichier xml"/>
+                    <MenuItem Header="A_jouter à..." Click="AjouterAUnGroupe" ToolTip="Ajouter à un Groupe">
                     </MenuItem>
                 </MenuItem>
             </Menu>

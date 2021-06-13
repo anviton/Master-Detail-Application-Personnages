@@ -6,17 +6,17 @@
              xmlns:local="clr-namespace:Vue_perso"
              mc:Ignorable="d">
     <Menu Background="#FFF9E2C6" DockPanel.Dock="Top">
-        <Button Content="Accueil" Width="100" Margin="5" Background="#FFB2EFF9" Click="RetourAccueil"/>
-        <MenuItem Header="Groupes">
-            <MenuItem Header="+ Nouveau groupe" Click="NouveauGroupe" ToolTip="Création d'un nouveau Groupe"/>
-            <MenuItem Header="- Supprimer groupe" Click="SupprimerGroupe" x:Name="MenuSupprimerUnGroupe" ToolTip="Supprimer Un Groupe"/>
-            <MenuItem Header="Consulter un groupe">
+        <Button Content="_Accueil" Width="100" Margin="5" Background="#FFB2EFF9" Click="RetourAccueil"/>
+        <MenuItem Header="_Groupes">
+            <MenuItem Header="+ _Nouveau groupe..." Click="NouveauGroupe" ToolTip="Création d'un nouveau Groupe"/>
+            <MenuItem Header="- _Supprimer groupe..." Click="SupprimerGroupe" x:Name="MenuSupprimerUnGroupe" ToolTip="Supprimer Un Groupe"/>
+            <MenuItem Header="_Consulter un groupe">
                 <ListBox ItemsSource="{Binding NomsGroupes}" SelectionChanged="GroupeSelectionnee"></ListBox>
             </MenuItem>
         </MenuItem>
-        <MenuItem Header="Création Personnage">
-            <MenuItem Header="Importer" Click="ImporterPersonnage" ToolTip="Importer depuis un fichier xml"/>
-            <MenuItem Header="Nouveau Personnage" Click="NouveauPersonnage" ToolTip="Créer nouveau Personnage"/>
+        <MenuItem Header="Création _Personnage">
+            <MenuItem Header="_Importer..." Click="ImporterPersonnage" ToolTip="Importer depuis un fichier xml"/>
+            <MenuItem Header="N_ouveau Personnage..." Click="NouveauPersonnage" ToolTip="Créer nouveau Personnage"/>
         </MenuItem>
         
     </Menu>

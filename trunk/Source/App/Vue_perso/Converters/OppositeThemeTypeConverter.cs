@@ -17,11 +17,11 @@ namespace Vue_perso.Converters
 		{
 			if ((bool)value == true) // S'il s'agit d'un Leitmotiv :
 			{
-				return "Passer au mode \"Musique unique\""; // Le bouton doit proposer de passer au mode "non-leitmotiv"
+				return "_Passer au mode \"Musique unique\""; // Le bouton doit proposer de passer au mode "non-leitmotiv"
 			}
 			else // S'il ne s'agit pas d'un Leitmotiv :
 			{
-				return "Passer au mode \"Leitmotiv\""; // Le bouton doit proposer de passer au mode "leitmotiv"
+				return "_Passer au mode \"Leitmotiv\""; // Le bouton doit proposer de passer au mode "leitmotiv"
 			}
 		}
 
