@@ -14,8 +14,8 @@ namespace StubP
 
         private (SeriesTheque lesSeries, IDictionary<string, ObservableCollection<Personnage>> groupes) ChargeSerieEtGroupes()
         {
-            /* Stub Pour test
-             * SeriesTheque LesSeries = new SeriesTheque();
+            //Stub Pour test
+            SeriesTheque LesSeries = new SeriesTheque();
             IDictionary<string, ObservableCollection<Personnage>> groupes = new Dictionary<string, ObservableCollection<Personnage>>();
             LesSeries.Series.Add(new Serie("mario"));
             LesSeries.Series.Add(new Serie("zelda"));
@@ -70,8 +70,9 @@ namespace StubP
             madeline.Theme.AjouterTitre("Reach for the Summit");
             groupes.Add("Triforce", new ObservableCollection<Personnage>());
             groupes["Triforce"].Add(link);
-            return (LesSeries, groupes);*/
-            SeriesTheque LesSeries = new SeriesTheque();
+            return (LesSeries, groupes);
+
+            /*SeriesTheque LesSeries = new SeriesTheque();
             IDictionary<string, ObservableCollection<Personnage>> groupes = new Dictionary<string, ObservableCollection<Personnage>>();
             LesSeries.Series.Add(new Serie("mario"));
             LesSeries.Series.Add(new Serie("zelda"));
@@ -153,7 +154,7 @@ namespace StubP
             groupes["Favoris"].Add(zelda);
             groupes["Favoris"].Add(yoshi);
             groupes["Favoris"].Add(mario);
-            return (LesSeries, groupes);
+            return (LesSeries, groupes);*/
         }
         public void Sauvegarder(SeriesTheque lesSeries, IDictionary<string, ObservableCollection<Personnage>> groupes)
         {

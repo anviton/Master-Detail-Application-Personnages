@@ -91,10 +91,9 @@ namespace Modele
         public IPersistance Pers { get; private set; }
         public Manager(IPersistance persistance)
         {
-            Pers = persistance;
-            //Series = new ObservableCollection<Serie>(); 
+            Pers = persistance; 
             LesSeries = new SeriesTheque();
-            Groupes = new SortedList<string, ObservableCollection<Personnage>>();
+            Groupes = new Dictionary<string, ObservableCollection<Personnage>>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -303,7 +302,8 @@ namespace Modele
 				}
 			}
 
-            if (!File.Exists(System.IO.Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Images"), perso.Image)))
+            //if (!File.Exists(System.IO.Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Images"), perso.Image)))
+            if(!File.Exists(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Personnages", "Images"), perso.Image)))
             {
                 perso.Image = null;
             }
