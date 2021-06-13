@@ -588,18 +588,6 @@
                 {
                 }
             }
-            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_5D17A8709E6C4A3BBD1353E7756F35D2"
-            {
-            "DefaultLocation" = "8:[TARGETDIR]"
-            "Name" = "8:CommonAppData"
-            "AlwaysCreate" = "11:FALSE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Property" = "8:NEWPROPERTY1"
-                "Folders"
-                {
-                }
-            }
             "{1525181F-901A-416C-8A58-119130FE478E}:_EDC9425FB2AB4A3CBED33434E61F89CA"
             {
             "Name" = "8:#1916"

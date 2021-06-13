@@ -23,9 +23,19 @@ namespace Vue_perso.UC_accueil
     {
         public Manager Mgr => (App.Current as App).MonManager;
 
-        //public ObservableCollection<Personnage> ListePersonnages => new ObservableCollection<Personnage>(Mgr.Series.SelectMany(serie => serie.Personnages).OrderBy(n => n.Nom));
+		public double MosaicWidth
+		{
+			get { return (double)GetValue(MosaicWidthProperty); }
+			set { SetValue(MosaicWidthProperty, value); }
+		}
 
-        public MosaiquePersonnages_UC()
+		// Using a DependencyProperty as the backing store for MosaicWidth.  This enables animation, styling, binding, etc...
+		public static readonly DependencyProperty MosaicWidthProperty =
+			DependencyProperty.Register("MosaicWidth", typeof(double), typeof(MosaiquePersonnages_UC), new PropertyMetadata(0.0));
+
+
+
+		public MosaiquePersonnages_UC()
         {
             InitializeComponent();
             DataContext = Mgr;

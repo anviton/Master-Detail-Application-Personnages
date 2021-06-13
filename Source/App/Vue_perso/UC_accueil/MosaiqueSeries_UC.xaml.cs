@@ -21,7 +21,17 @@ namespace Vue_perso.UC_accueil
     {
         public Manager Mgr => (App.Current as App).MonManager;
 
-        public MosaiqueJeux_UC()
+		public double MosaicWidth
+		{
+			get { return (double)GetValue(MosaicWidthProperty); }
+			set { SetValue(MosaicWidthProperty, value); }
+		}
+
+		// Using a DependencyProperty as the backing store for MosaicWidth.  This enables animation, styling, binding, etc...
+		public static readonly DependencyProperty MosaicWidthProperty =
+			DependencyProperty.Register("MosaicWidth", typeof(double), typeof(MosaiqueJeux_UC), new PropertyMetadata(0.0));
+
+		public MosaiqueJeux_UC()
         {
             InitializeComponent();
             DataContext = Mgr;

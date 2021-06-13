@@ -36,7 +36,7 @@
             </Button>
         </Grid>
         <ContentControl x:Name="contentControlAccueil">
-            <UC_accueil:MosaiquePersonnages_UC/>
+            <UC_accueil:MosaiquePersonnages_UC MosaicWidth="{Binding ElementName=contentControlAccueil, Path=ActualWidth}"/>
         </ContentControl>
 
     </DockPanel>

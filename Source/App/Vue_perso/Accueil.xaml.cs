@@ -30,12 +30,12 @@ namespace Vue_perso
 
         private void Affiche_Perso(object sender, RoutedEventArgs e)
         {
-            contentControlAccueil.Content = new UC_accueil.MosaiquePersonnages_UC();
+            contentControlAccueil.Content = new UC_accueil.MosaiquePersonnages_UC() { MosaicWidth = contentControlAccueil.ActualWidth };
         }
 
         private void Affiche_Series(object sender, RoutedEventArgs e)
         {
-            contentControlAccueil.Content = new UC_accueil.MosaiqueJeux_UC();
+            contentControlAccueil.Content = new UC_accueil.MosaiqueJeux_UC() { MosaicWidth = contentControlAccueil.ActualWidth };
         }
 
     }
