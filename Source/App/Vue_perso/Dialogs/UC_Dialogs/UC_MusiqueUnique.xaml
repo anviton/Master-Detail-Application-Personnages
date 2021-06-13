@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Vue_perso.Dialogs.UC_Dialogs"
              mc:Ignorable="d"
              d:DesignWidth="400">
-    <Grid Height="50">
+    <Grid Height="50" FocusManager.FocusedElement="{Binding ElementName=Titre}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*" />
             <ColumnDefinition Width="75*" />

@@ -17,8 +17,8 @@
         </StackPanel>
 
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <Button Content="Ajouter une citation" Click="AjouterCitation" Margin="0,0,5,0" Padding="5" />
-            <Button Content="Supprimer une citation" Click="SupprimerCitation" Margin="0,0,5,0" Padding="5" />
+            <Button Content="_Ajouter une citation" Click="AjouterCitation" Margin="0,0,5,0" Padding="5" />
+            <Button Content="_Supprimer une citation" Click="SupprimerCitation" Margin="0,0,5,0" Padding="5" />
         </StackPanel>
 
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="15,10">

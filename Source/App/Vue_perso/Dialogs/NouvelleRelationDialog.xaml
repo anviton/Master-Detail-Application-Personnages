@@ -27,7 +27,7 @@
         </Style>
     </Window.Resources>
 
-    <StackPanel Margin="5,2,5,0">
+    <StackPanel Margin="5,2,5,0" FocusManager.FocusedElement="{Binding ElementName=PersoComboBox}">
         <Label HorizontalAlignment="Center" Content="Personnage :" />
         <StackPanel Orientation="Horizontal">
             <ComboBox ItemsSource="{Binding Mgr.Personnages}" SelectedItem="{Binding PersoRec}" Name="PersoComboBox" 

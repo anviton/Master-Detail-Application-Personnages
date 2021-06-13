@@ -15,7 +15,7 @@
             <TextBlock VerticalAlignment="Center" Text="{Binding Leitmotiv, Converter={StaticResource themeTypeConverter}}" Margin="0,0,10,0"/>
             <Button DockPanel.Dock="Top" Click="Button_Click">
                 <Button.Content>
-                    <TextBlock Text="{Binding Leitmotiv, Converter={StaticResource oppositeThemeTypeConverter}}" />
+                    <Label Content="{Binding Leitmotiv, Converter={StaticResource oppositeThemeTypeConverter}}" />
                 </Button.Content>
             </Button>
         </StackPanel>

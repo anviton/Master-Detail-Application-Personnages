@@ -24,8 +24,8 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    
-    <StackPanel Margin="5">
+
+    <StackPanel Margin="5" FocusManager.FocusedElement="{Binding ElementName=NomPersoTextBox}">
         <Label HorizontalAlignment="Center" Content="Nom du personnage :" />
         <TextBox Name="NomPersoTextBox" Text="{Binding NomPerso}"/>
         <Label HorizontalAlignment="Center" Content="Série :" />

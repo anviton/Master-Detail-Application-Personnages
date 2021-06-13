@@ -9,7 +9,7 @@
         Title="Ajouter un titre" Height="165" Width="300"
         Icon="/Bibliothèques_Images;Component/icon_etoile.png">
 
-    <StackPanel Margin="5,2,5,0">
+    <StackPanel Margin="5,2,5,0" FocusManager.FocusedElement="{Binding ElementName=MandatoryTextBox}">
         <Label HorizontalAlignment="Center" Content="Titre :" />
         <TextBox Text="{Binding Titre}" Name="MandatoryTextBox" />
         <Label HorizontalAlignment="Center" Content="Lien :" />

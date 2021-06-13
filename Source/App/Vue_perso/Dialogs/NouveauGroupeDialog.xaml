@@ -9,7 +9,7 @@
         Title="Nouveau groupe" Height="125" Width="300"
         Icon="/Bibliothèques_Images;Component/icon_etoile.png">
 
-    <StackPanel>
+    <StackPanel FocusManager.FocusedElement="{Binding ElementName=MandatoryTextBox}">
         <Label Content="Nom du groupe :" HorizontalAlignment="Center"/>
         <TextBox Name="MandatoryTextBox" Text="{Binding groupName}" Margin="5,2,5,0"/>
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
