@@ -302,8 +302,8 @@ namespace Modele
 				}
 			}
 
-            //if (!File.Exists(System.IO.Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Images"), perso.Image)))
-            if(!File.Exists(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Personnages", "Images"), perso.Image)))
+            //if (!File.Exists(System.IO.Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "..\\Images"), perso.Image))) //chemin utilisé pour le développement
+            if (!File.Exists(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Personnages", "Images"), perso.Image))) //chemin utilisé pour le déploiement
             {
                 perso.Image = null;
             }
@@ -346,6 +346,9 @@ namespace Modele
             }
         }
 
+        /// <summary>
+        /// Charge les donnees
+        /// </summary>
         public void ChargeDonnees()
         {
             var donnees = Pers.Charger();
@@ -359,6 +362,9 @@ namespace Modele
             }
         }
 
+        /// <summary>
+        /// Sauvegarde les donnees
+        /// </summary>
         public void SauvegaderDonnees()
         {
             Pers.Sauvegarder(LesSeries, Groupes);
