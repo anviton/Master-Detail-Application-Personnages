@@ -17,7 +17,8 @@ namespace Modele
         /// <summary>
         /// Constructeur de la classe JeuVideo
         /// </summary>
-        /// <param name="nom">nom du jeux </param>
+        /// <param name="nom">nom du jeu </param>
+        /// <param name="annee">Année de publication du jeu</param>
         public JeuVideo(string nom, int? annee) : base(nom)
         {
             AnneeDeCreation = annee;
