@@ -78,8 +78,10 @@ namespace Vue_perso
                 {
                     MessageBox.Show($"Le personnage \"{dialog.NomPerso}\", de la série \"{dialog.SerieDuPerso}\", a été ajouté.", "Nouveau personnage",
                         MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    Mgr.PersonnageSelectionne = nouveauPerso;
+                    if(Mgr.PersonnageSelectionne != null)
+                    {
+                        Mgr.PersonnageSelectionne = nouveauPerso;
+                    }
                     ModifierPerso modifierPerso = new ModifierPerso();
                     modifierPerso.Show();
                     Mgr.SauvegaderDonnees();
@@ -102,16 +104,10 @@ namespace Vue_perso
         }
         private void GroupeSelectionnee(object sender, RoutedEventArgs e)
         {
-            /*
-            MainWindow mainWindow = new MainWindow();
-            Window.GetWindow(this).Close();
-            mainWindow.Show();*/
-            //MessageBox.Show($"Groupe {((sender as ListBox).SelectedItem as string)}");
             Mgr.PersonnageSelectionne = null;
             if (Mgr.SerieSelectionnee != null) Mgr.SerieSelectionnee.PersonnageSelectionne = null;
             Mgr.SerieSelectionnee = null;
             Mgr.GroupeSelectionne = (sender as ListBox).SelectedItem as string;
-            //Window window = new MainWindow((sender as ListBox).SelectedItem as string, Mgr.Groupes[(sender as ListBox).SelectedItem as string]);
             if (Mgr.GroupeSelectionne != null)
             {
                 Window window = new Main_WindowGroupes();
